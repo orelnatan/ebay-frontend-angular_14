@@ -1,0 +1,5 @@
+@import './src/assets/config/utils.scss';
+
+.page-layout-main {
+    @extend %page-layout;
+}

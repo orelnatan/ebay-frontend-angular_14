@@ -1,0 +1,8 @@
+@import './src/assets/config/utils.scss';
+ 
+.app-primary-navbar-main {
+    display: block;
+    width: 100%;
+    height: 65px;
+    background-color: $color-blue;
+}

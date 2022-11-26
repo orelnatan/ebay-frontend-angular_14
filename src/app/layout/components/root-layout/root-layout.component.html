@@ -1,0 +1,26 @@
+
+<div class="root-layout-main">
+    <div class="layout-top" #layoutTop>
+        <div class="app-primary-navbar-container">
+            <ng-content select="app-primary-navbar"></ng-content>
+        </div>
+
+        <div class="app-secondary-navbar-container">
+            <ng-content select="app-secondary-navbar"></ng-content>
+        </div>
+
+        <div class="app-sub-navbar-container">
+            <ng-content select="app-sub-navbar"></ng-content>
+        </div>
+    </div>
+
+    <div class="layout-body" [style.padding-top.px]="layoutTop.clientHeight">
+        <div class="app-side-navbar-container" #sidebarContainer>
+            <ng-content select="app-side-navbar"></ng-content>
+        </div>
+
+        <div class="inner-content-container" [style.padding-left.px]="sidebarContainer.clientWidth">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

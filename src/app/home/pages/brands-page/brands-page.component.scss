@@ -1,0 +1,17 @@
+
+//  :host ::ng-deep .page-layout-main {
+//   height: 100%;
+// }
+
+.brnads-page-main {
+    display: block;
+    padding: 30px;
+
+    .list-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+     // min-width: 2500px;
+      height: 100%;
+      margin: -15px;
+    }
+}

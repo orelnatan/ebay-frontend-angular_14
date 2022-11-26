@@ -1,0 +1,33 @@
+
+@import './definitions';
+
+%root-layout-top {
+    position: fixed;
+    display: block;
+    width: $full-screen-width;
+}
+
+%root-layout-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: $full-screen-width;
+    height: $full-viewport-height;
+}
+
+%root-layout-inner-content {
+    display: block;
+    width: $full-screen-width;
+}
+
+%root-layout-sidebar-container {
+    position: fixed;
+    display: block;
+    height: $full-screen-height;
+}
+
+%page-layout {
+    display: table; 
+    // "display: table;" is an alternative for "width: fit-content;" ("fit-content" doesn't support all browsers)
+}
+

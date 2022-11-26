@@ -1,0 +1,19 @@
+@import './src/assets/config/utils.scss';
+
+.root-layout-main {
+    .layout-top {
+        @extend %root-layout-top;
+    }
+
+    .layout-body {
+        @extend %root-layout-body;
+    }
+
+    .inner-content-container {
+        @extend %root-layout-inner-content;
+    }
+
+    .app-side-navbar-container {
+        @extend %root-layout-sidebar-container;
+    }
+}
