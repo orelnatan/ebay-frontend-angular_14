@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeRootComponent } from './components';
+import { HomeRootComponent } from './home-root.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'brands', pathMatch: 'full' },

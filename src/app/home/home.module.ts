@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { LayoutModule } from '../layout/layout.module';
-import { HomeRoutingModule } from './home.routing.module';
 
-import { 
-    HomeRootComponent
-} from './components';
+import { HomeRootComponent } from './home-root.component';
 
 @NgModule({
     declarations: [

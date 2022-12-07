@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     AppRoutingModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppRootComponent]

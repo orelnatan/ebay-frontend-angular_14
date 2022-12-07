@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app-root.component.html',
+  template: `
+    <root-layout>
+        <router-outlet></router-outlet>
+    </root-layout>
+  `,
 })
 export class AppRootComponent {}

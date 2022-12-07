@@ -11,17 +11,15 @@ import {
 } from './components';
 
 @NgModule({
-    declarations: [
-        AppPrimaryNavbarComponent,
-        AppSecondaryNavbarComponent,
-        AppSubNavbarComponent,
-        AppSideNavbarComponent
-    ],
     imports: [ 
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        AppPrimaryNavbarComponent,
+        AppSecondaryNavbarComponent,
+        AppSubNavbarComponent,
+        AppSideNavbarComponent
     ],
     exports: [
         AppPrimaryNavbarComponent,
