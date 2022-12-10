@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LayoutModule } from '../layout/layout.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports: [ 
@@ -16,7 +17,8 @@ import { LayoutModule } from '../layout/layout.module';
         BrowserModule,
         BrowserAnimationsModule,
         LayoutModule,
+        SharedModule
     ],
-    exports: [LayoutModule]
+    exports: [LayoutModule, SharedModule]
 })
 export class CoreModule {}

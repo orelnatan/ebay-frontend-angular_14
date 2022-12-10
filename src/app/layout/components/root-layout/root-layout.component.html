@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="layout-body" [style.padding-top.px]="layoutTop.clientHeight">
+    <div class="layout-body" [style.position]="forRoot ? 'absolute' : 'static'" [style.padding-top.px]="layoutTop.clientHeight">
         <div class="app-side-navbar-container" #sidebarContainer>
             <ng-content select="app-side-navbar"></ng-content>
         </div>

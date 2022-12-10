@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'page-layout',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-layout.component.scss'],
   standalone: true,
 })
-export class PageLayoutComponent {}
+export class PageLayoutComponent {
+  @Input() deployOnFullScreenHeight: boolean;
+  @Input() deployOnFullScreenWidth: boolean;
+
+}

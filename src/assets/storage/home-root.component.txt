@@ -15,3 +15,27 @@ import { Component } from '@angular/core';
   `,
 })
 export class HomeRootComponent {}
+
+
+
+
+
+/*
+to control the navbar visibility in runtime:
+
+HTML:
+  <app-navbar *ngIf="withNavbar"></app-navbar>
+
+TS:
+  withNavbar: boolean = true;
+
+  constructor(
+    private readonly changeDetectorRef: ChangeDetectorRef
+  ) {}
+
+  hideNavbar() {
+    this.withNavbar = false;
+
+    this.changeDetectorRef.detectChanges();
+  }
+*/

@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'root-layout',
   templateUrl: './root-layout.component.html',
   styleUrls: ['./root-layout.component.scss'],
-  standalone: true
+  standalone: true,
 })
-export class RootLayoutComponent {}
+export class RootLayoutComponent {
+  @Input() forRoot: boolean;
+
+}

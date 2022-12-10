@@ -1,6 +1,8 @@
 @import './src/assets/config/utils.scss';
 
 .root-layout-main {
+    height: $full-screen-height;
+ 
     .layout-top {
         @extend %root-layout-top;
     }

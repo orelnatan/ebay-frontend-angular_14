@@ -2,4 +2,8 @@
 
 .page-layout-main {
     @extend %page-layout;
+
+    .page-content-container {
+        @extend %page-content;
+    }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'home-root',
+  selector: 'auth-root',
   template: `
     <root-layout>
        <app-primary-navbar></app-primary-navbar>
@@ -14,4 +14,4 @@ import { Component } from '@angular/core';
     </root-layout>
   `,
 })
-export class HomeRootComponent {}
+export class AuthRootComponent {}

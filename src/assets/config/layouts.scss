@@ -3,31 +3,33 @@
 
 %root-layout-top {
     position: fixed;
-    display: block;
     width: $full-screen-width;
+    z-index: 9999;
 }
 
 %root-layout-body {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    display: inline-flex;
     width: $full-screen-width;
-    height: $full-viewport-height;
+    height: $full-screen-height;
 }
 
 %root-layout-inner-content {
-    display: block;
     width: $full-screen-width;
 }
 
 %root-layout-sidebar-container {
     position: fixed;
-    display: block;
     height: $full-screen-height;
+    z-index: 9999;
 }
 
 %page-layout {
     display: table; 
-    // "display: table;" is an alternative for "width: fit-content;" ("fit-content" doesn't support all browsers)
+}
+
+%page-content {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
 }
 

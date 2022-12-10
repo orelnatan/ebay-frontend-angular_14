@@ -6,11 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LayoutModule } from 'src/app/layout/layout.module';
 
-import { BrandsPageComponent } from './brands-page.component';
+import { LoginPageComponent } from './login-page.component';
 
 @NgModule({
     declarations: [
-        BrandsPageComponent
+        LoginPageComponent
     ],
     imports: [ 
         CommonModule,
@@ -19,8 +19,8 @@ import { BrandsPageComponent } from './brands-page.component';
         ReactiveFormsModule,
         HttpClientModule,
         RouterModule.forChild([
-            { path: '', component: BrandsPageComponent },
+            { path: '', component: LoginPageComponent },
         ])
     ],
 })
-export class BrandsPageModule {}
+export class LoginPageModule {}
