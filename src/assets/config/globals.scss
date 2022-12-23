@@ -1,0 +1,11 @@
+@import './colors';
+
+a {
+    text-decoration: underline;
+    color: $color-note;
+    cursor: pointer;
+}
+
+ul {
+    list-style-position: inside;
+}

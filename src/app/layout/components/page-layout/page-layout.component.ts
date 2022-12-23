@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
 })
 export class PageLayoutComponent {
+  @Input() displayType: string;
   @Input() deployOnFullScreenHeight: boolean;
   @Input() deployOnFullScreenWidth: boolean;
 

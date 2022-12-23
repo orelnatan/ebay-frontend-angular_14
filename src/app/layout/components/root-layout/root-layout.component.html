@@ -1,6 +1,6 @@
 
-<div class="root-layout-main">
-    <div class="layout-top" #layoutTop>
+<div class="root-layout-main" [style.position]="forRoot ? 'absolute' : 'static'">
+    <div class="layout-top">
         <div class="app-primary-navbar-container">
             <ng-content select="app-primary-navbar"></ng-content>
         </div>
@@ -14,12 +14,12 @@
         </div>
     </div>
 
-    <div class="layout-body" [style.position]="forRoot ? 'absolute' : 'static'" [style.padding-top.px]="layoutTop.clientHeight">
-        <div class="app-side-navbar-container" #sidebarContainer>
+    <div class="layout-body">
+        <div class="app-side-navbar-container">
             <ng-content select="app-side-navbar"></ng-content>
         </div>
 
-        <div class="inner-content-container" [style.padding-left.px]="sidebarContainer.clientWidth">
+        <div class="inner-content-container">
             <ng-content></ng-content>
         </div>
     </div>
