@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ILogin } from '../../interfaces';
 
 @Component({
   selector: 'login-page',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
+  login: ILogin = {} as ILogin;
 
+
+  handleSubmit(login: ILogin): void {
+    console.log(login)
+  }
+  
 }

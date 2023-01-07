@@ -9,3 +9,15 @@ a {
 ul {
     list-style-position: inside;
 }
+
+button {
+    width: 100%;
+}
+
+.shadow-border-deep {
+    box-shadow: 0 0 16px 6px rgba(0, 0, 0, 0.23);
+}
+
+.shadow-border-shallow {
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.4);
+}

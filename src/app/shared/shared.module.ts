@@ -10,12 +10,17 @@ import {
     AppSideNavbarComponent,
 } from './components';
 
+import { 
+    PaddingDirective
+} from './directives';
+
 @NgModule({
     imports: [ 
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        PaddingDirective,
         AppPrimaryNavbarComponent,
         AppSecondaryNavbarComponent,
         AppSubNavbarComponent,
@@ -25,7 +30,8 @@ import {
         AppPrimaryNavbarComponent,
         AppSecondaryNavbarComponent,
         AppSubNavbarComponent,
-        AppSideNavbarComponent
+        AppSideNavbarComponent,
+        PaddingDirective
     ]
 })
 export class SharedModule {}
