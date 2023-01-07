@@ -1,0 +1,14 @@
+@import './colors';
+
+mat-form-field {
+    width: 100%;
+}
+
+.input-error-state {
+    color: $color-error;
+}
+
+.input-disabled-state {
+    opacity: 0.5;
+    pointer-events: none;
+}

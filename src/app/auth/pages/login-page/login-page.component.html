@@ -1,8 +1,92 @@
 
 <page-layout [deployOnFullScreenHeight]="true" [deployOnFullScreenWidth]="true">
     <div class="login-page-main">
-        <!-- <div class="box" *ngFor="let box of [1,1,11,1,1,1,1,1,1,1,1,1]">
-            box
-        </div> -->
+        <div class="login-page-content" padding [all]="30">
+            <div class="login-form-container shadow-border-shallow">
+                <img [src]="'../../../../favicon.ico'" padding [top]="15" />
+
+                <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && handleSubmit(login)" novalidate padding [top]="30">
+                    <div class="login-input-field">
+                        <input-text
+                            [control]="username.control"
+                            [value]="login.username"
+                            [placeholder]="'Enter Your Username'"
+                            [validation]="{ required: 'Required field', pattern: 'Use letters only' }"
+                            [required]="true"
+                            [ngModel]="login.username"
+                            (onchange)="login.username=$event"
+                            #username="ngModel"
+                            id="username-field"
+                            name="username-field"
+                            pattern="[a-zA-Z ]*"
+                            ngDefaultControl>
+                        </input-text>
+                    </div>
+
+                    <div class="login-input-field" padding [top]="35">
+                        <input-text 
+                            [control]="email.control"
+                            [value]="login.email"
+                            [placeholder]="'Enter Your Email'"
+                            [validation]="{ required: 'Required field', email: 'Wrong email address' }"
+                            [required]="true"
+                            [ngModel]="login.email"
+                            (onchange)="login.email=$event"
+                            #email="ngModel"
+                            id="email-field"
+                            name="email-field"
+                            ngDefaultControl
+                            email>
+                        </input-text>
+                    </div>
+                    
+                    <div class="login-input-field" padding [top]="35">
+                        <input-password
+                            [control]="password.control"
+                            [value]="login.password"
+                            [placeholder]="'Enter Your Password'"
+                            [validation]="{ required: 'Required field' }"
+                            [required]="true"
+                            [readonly]="false"
+                            [ngModel]="login.password"
+                            (onchange)="login.password=$event"
+                            #password="ngModel"
+                            id="password-field"
+                            name="password-field"
+                            ngDefaultControl>
+                        </input-password>
+                    </div>
+
+                    <div class="login-options-container" padding [top]="5">
+                        <div class="login-input-field">
+                            <input-checkbox
+                                [control]="rememberme.control"
+                                [value]="login.rememberMe"
+                                [placeholder]="'Remember me'"
+                                [validation]="{ required: 'Required field' }"
+                                [required]="true"
+                                [ngModel]="login.rememberMe"
+                                (onchange)="login.rememberMe=$event"
+                                #rememberme="ngModel"
+                                id="rememberme-field"
+                                name="rememberme-field"
+                                ngDefaultControl>
+                            </input-checkbox>
+                        </div>
+                        
+                        <div class="login-register-link">
+                            <a>Don't have an account? Register now!</a>
+                        </div>
+                    </div>
+
+                    <div class="login-input-field" padding [top]="65">
+                        <primary-button
+                            [placeholder]="'Take Me In!'"
+                            [dosubmit]="true">
+                        </primary-button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </page-layout>
