@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppMaterialModule } from '../app-material.module';
+
+import { PasswordValidator } from './validators';
 
 import { AbstractToFormControlPipe, InvalidPipe, ValidationPipe } from './pipes';
 
@@ -20,7 +23,8 @@ import {
         InputCheckboxComponent,
         AbstractToFormControlPipe,
         ValidationPipe,
-        InvalidPipe
+        InvalidPipe,
+        PasswordValidator
     ],
     imports: [ 
         CommonModule,
@@ -31,7 +35,8 @@ import {
         InputTextComponent,
         InputPasswordComponent,
         PrimaryButtonComponent,
-        InputCheckboxComponent
+        InputCheckboxComponent,
+        PasswordValidator
     ]
 })
 export class EbFormsModule {}

@@ -11,8 +11,11 @@ import {
 } from './components';
 
 import { 
+    MarginDirective,
     PaddingDirective
 } from './directives';
+
+import { LastItemPipe } from './pipes';
 
 @NgModule({
     imports: [ 
@@ -21,17 +24,21 @@ import {
         ReactiveFormsModule,
         HttpClientModule,
         PaddingDirective,
+        MarginDirective,
         AppPrimaryNavbarComponent,
         AppSecondaryNavbarComponent,
         AppSubNavbarComponent,
-        AppSideNavbarComponent
+        AppSideNavbarComponent,
+        LastItemPipe
     ],
     exports: [
         AppPrimaryNavbarComponent,
         AppSecondaryNavbarComponent,
         AppSubNavbarComponent,
         AppSideNavbarComponent,
-        PaddingDirective
+        PaddingDirective,
+        MarginDirective,
+        LastItemPipe
     ]
 })
 export class SharedModule {}

@@ -3,12 +3,12 @@ export interface IValidation {
     /**
      * Provide an error message to show in case a string is too short.
     */
-    minLength?: string;
+    minlength?: string;
 
     /**
      * Provide an error message show in case a string is too long.
     */
-    maxLength?: string;
+    maxlength?: string;
 
     /**
      * Provide an error message to show in case a number is too small.
@@ -49,6 +49,11 @@ export interface IValidation {
      * Provide an error message to show in case of an invalid email address.
     */
     email?: string;
+
+    /**
+     * Provide an error message to show in case of an invalid password format.
+    */
+    password?: string;
 
     /**
      * Provide an error message to show in case the pattern is incorrect.

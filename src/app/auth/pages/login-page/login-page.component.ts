@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+
 import { ILogin } from '../../interfaces';
+
+import * as validations from './validations.json';
 
 @Component({
   selector: 'login-page',
@@ -7,15 +10,19 @@ import { ILogin } from '../../interfaces';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  login: ILogin = {  } as ILogin;
+  login: ILogin = {password: "dsad" } as ILogin;
 
+  validations = validations;
+
+
+  
   handleSubmit(login: any): void {
     console.log(login)
   }
 
 
   print(e: any) {
-    console.log(e)
+    console.log(validations)
   }
   
 }

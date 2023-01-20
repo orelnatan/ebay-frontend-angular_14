@@ -1,7 +1,7 @@
 
 <page-layout [deployOnFullScreenHeight]="true" [deployOnFullScreenWidth]="true">
     <div class="login-page-main">
-        <div class="login-page-content" padding [all]="30">
+        <div class="login-page-content" padding [custom]="'30px'">
             <div class="login-form-container shadow-border-shallow">
                 <img [src]="'../../../../favicon.ico'" padding [top]="15" />
 
@@ -11,7 +11,7 @@
                             [control]="username.control"
                             [value]="login.username"
                             [placeholder]="'Enter Your Username'"
-                            [validation]="{ required: 'Required field', pattern: 'Use letters only' }"
+                            [validation]="validations.username"
                             [required]="true"
                             [ngModel]="login.username"
                             (onchange)="login.username=$event"
@@ -19,6 +19,8 @@
                             id="username-field"
                             name="username-field"
                             pattern="[a-zA-Z ]*"
+                            minlength="2"
+                            maxlength="12"
                             ngDefaultControl>
                         </input-text>
                     </div>
@@ -28,7 +30,7 @@
                             [control]="email.control"
                             [value]="login.email"
                             [placeholder]="'Enter Your Email'"
-                            [validation]="{ required: 'Required field', email: 'Wrong email address' }"
+                            [validation]="validations.email"
                             [required]="true"
                             [ngModel]="login.email"
                             (onchange)="login.email=$event"
@@ -45,25 +47,25 @@
                             [control]="password.control"
                             [value]="login.password"
                             [placeholder]="'Enter Your Password'"
-                            [validation]="{ required: 'Required field' }"
+                            [validation]="validations.password"
                             [required]="true"
-                            [readonly]="false"
                             [ngModel]="login.password"
                             (onchange)="login.password=$event"
                             #password="ngModel"
                             id="password-field"
                             name="password-field"
-                            ngDefaultControl>
+                            ngDefaultControl
+                            password>
                         </input-password>
                     </div>
 
-                    <div class="login-options-container" padding [top]="5">
-                        <div class="login-input-field">
+                    <div class="login-options-container" padding [top]="10">
+                        <div class="login-input-field" margin [top]="-5">
                             <input-checkbox
                                 [control]="rememberme.control"
                                 [value]="login.rememberMe"
                                 [placeholder]="'Remember me'"
-                                [validation]="{ required: 'Required field' }"
+                                [validation]="validations.rememberMe"
                                 [required]="true"
                                 [ngModel]="login.rememberMe"
                                 (onchange)="login.rememberMe=$event"
@@ -82,7 +84,8 @@
                     <div class="login-input-field" padding [top]="65">
                         <primary-button
                             [placeholder]="'Take Me In!'"
-                            [dosubmit]="true">
+                            [dosubmit]="true"
+                            [readonly]="loginForm.invalid!">
                         </primary-button>
                     </div>
                 </form>
