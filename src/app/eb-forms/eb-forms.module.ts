@@ -4,9 +4,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppMaterialModule } from '../app-material.module';
 
-import { PasswordValidator } from './validators';
+import { 
+    PasswordValidator
+} from './validators';
 
-import { AbstractToFormControlPipe, InvalidPipe, ValidationPipe } from './pipes';
+import { 
+    DisabledStateDirective,
+    ErrorStateDirective
+} from './directives';
+
+import { 
+    AbstractToFormControlPipe,
+    ControlValidityPipe,
+    ValidationPipe
+} from './pipes';
 
 import { 
     InputTextComponent,
@@ -23,8 +34,10 @@ import {
         InputCheckboxComponent,
         AbstractToFormControlPipe,
         ValidationPipe,
-        InvalidPipe,
-        PasswordValidator
+        ControlValidityPipe,
+        PasswordValidator,
+        ErrorStateDirective,
+        DisabledStateDirective
     ],
     imports: [ 
         CommonModule,
@@ -36,7 +49,7 @@ import {
         InputPasswordComponent,
         PrimaryButtonComponent,
         InputCheckboxComponent,
-        PasswordValidator
+        PasswordValidator,
     ]
 })
 export class EbFormsModule {}

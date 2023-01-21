@@ -4,11 +4,11 @@ mat-form-field {
     width: 100%;
 }
 
-.input-error-state {
+.entity-error-state {
     color: $color-error;
 }
 
-.input-disabled-state {
+.entity-disabled-state {
     opacity: 0.5;
     pointer-events: none;
 }

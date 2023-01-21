@@ -10,11 +10,9 @@ import * as validations from './validations.json';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  login: ILogin = {password: "dsad" } as ILogin;
+  login: ILogin = {} as ILogin;
 
   validations = validations;
-
-
   
   handleSubmit(login: any): void {
     console.log(login)
@@ -24,5 +22,6 @@ export class LoginPageComponent {
   print(e: any) {
     console.log(validations)
   }
+
   
 }

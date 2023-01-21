@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { EbInputComponent } from '../eb-input/eb-input.component';
+import { EbInputComponent } from '../eb-input';
 
 @Component({
     selector: 'input-text',

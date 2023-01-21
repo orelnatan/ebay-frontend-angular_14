@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
 
-import { EbInputComponent } from '../eb-input/eb-input.component';
+import { EbInputComponent } from '../eb-input';
 
 @Component({
   selector: 'input-checkbox',

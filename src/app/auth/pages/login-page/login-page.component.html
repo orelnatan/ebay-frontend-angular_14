@@ -77,15 +77,16 @@
                         </div>
                         
                         <div class="login-register-link">
-                            <a>Don't have an account? Register now!</a>
+                            <a [routerLink]="['/auth/registration']">
+                                Don't have an account? Register now!
+                            </a>
                         </div>
                     </div>
 
                     <div class="login-input-field" padding [top]="65">
                         <primary-button
                             [placeholder]="'Take Me In!'"
-                            [dosubmit]="true"
-                            [readonly]="loginForm.invalid!">
+                            [dosubmit]="true">
                         </primary-button>
                     </div>
                 </form>
