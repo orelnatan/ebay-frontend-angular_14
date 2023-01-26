@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 
-import { IValidation } from '../interfaces';
+import { IValidation } from '../models';
 
 @Pipe({
    name: 'validation',

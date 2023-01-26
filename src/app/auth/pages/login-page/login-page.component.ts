@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { ILogin } from '../../interfaces';
+import { AuthenticationService } from '../../services';
+import { ILogin, IUser } from '../../models';
 
-import * as validations from './validations.json';
+import { MatSnackbarTypes } from '../../../../assets/consts';
+import * as Validations from './validations.json';
 
 @Component({
   selector: 'login-page',
@@ -10,18 +14,39 @@ import * as validations from './validations.json';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  login: ILogin = {} as ILogin;
+  validations = Validations;
 
-  validations = validations;
-  
-  handleSubmit(login: any): void {
-    console.log(login)
+  login: ILogin = {
+    "username": "Graves Oneal",
+    "email": "gravesoneal@quordate.com",
+    "password": "78freweb5d4654"
+  } as ILogin;
+
+  inProgress: boolean;
+
+  constructor(
+    private readonly authenticationService: AuthenticationService,
+    private readonly matSnackBarService: MatSnackBar
+  ) {}
+
+  loginSuccess(user: IUser) {
+    this.inProgress = false;
+
+    console.log(user);
   }
 
+  handleSubmit(login: ILogin): void {
+    this.inProgress = true;
 
-  print(e: any) {
-    console.log(validations)
+    this.authenticationService.login(login).subscribe({
+      next: (response: IUser | HttpErrorResponse) => {
+        this.loginSuccess(response as IUser);
+      },
+      error: (error: HttpErrorResponse) => {
+        this.inProgress = false;
+        
+        this.matSnackBarService.open(error.error.message, 'X', MatSnackbarTypes.error);
+      },
+    })
   }
-
-  
 }

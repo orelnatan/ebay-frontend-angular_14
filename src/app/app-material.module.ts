@@ -64,7 +64,7 @@ import { MatRadioModule } from '@angular/material/radio';
   ],
   providers: [
       { 
-          provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 4000, horizontalPosition: "right" } 
+          provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 6000, horizontalPosition: "left" } 
       },
   ]
   

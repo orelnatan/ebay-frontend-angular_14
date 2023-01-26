@@ -9,6 +9,10 @@ import { LayoutModule } from '../layout/layout.module';
 
 import { AuthRootComponent } from './auth-root.component';
 
+import { 
+    AuthenticationService
+} from './services';
+
 @NgModule({
     declarations: [
         AuthRootComponent,
@@ -22,5 +26,8 @@ import { AuthRootComponent } from './auth-root.component';
         SharedModule,
         LayoutModule
     ],
+    providers: [
+        AuthenticationService
+    ]
 })
 export class AuthModule {}

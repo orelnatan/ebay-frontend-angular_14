@@ -12,7 +12,7 @@ export class ControlValidityPipe implements PipeTransform {
     matcher: ErrorStateMatcher = new EbErrorStateMatcher();
     
     constructor(
-        private controlContainer: ControlContainer
+        private readonly controlContainer: ControlContainer
     ){}
 
     transform(control: AbstractControl): boolean {

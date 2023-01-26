@@ -28,7 +28,7 @@
         background-color: $color-primary !important;
     }
 
-    &.entity-error-state {
+    &.input-error-state {
         ::ng-deep .mat-checkbox-disabled .mat-checkbox-label {
             color: $color-error !important;
         }

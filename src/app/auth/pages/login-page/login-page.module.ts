@@ -26,5 +26,8 @@ import { LoginPageComponent } from './login-page.component';
             { path: '', component: LoginPageComponent },
         ])
     ],
+    providers: [
+        
+    ]
 })
 export class LoginPageModule {}

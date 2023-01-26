@@ -21,3 +21,22 @@ button {
 .shadow-border-shallow {
     box-shadow: 0 3px 6px 0 rgba(0,0,0,.4);
 }
+
+.alert-error-state {
+    color: $color-error;
+    border: 1px solid $color-error;
+}
+
+.alert-success-state {
+    color: $color-success;
+    border: 1px solid $color-success;
+}
+
+.input-error-state {
+    color: $color-error;
+}
+
+.input-disabled-state {
+    opacity: 0.5;
+    pointer-events: none;
+}
