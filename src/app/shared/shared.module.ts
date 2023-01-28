@@ -9,6 +9,7 @@ import {
     AppSecondaryNavbarComponent,
     AppSubNavbarComponent,
     AppSideNavbarComponent,
+    ObservableResolverComponent
 } from './components';
 
 import { 
@@ -31,6 +32,7 @@ import { LastItemPipe } from './pipes';
         AppSecondaryNavbarComponent,
         AppSubNavbarComponent,
         AppSideNavbarComponent,
+        ObservableResolverComponent,
         LastItemPipe
     ],
     exports: [
@@ -38,6 +40,7 @@ import { LastItemPipe } from './pipes';
         AppSecondaryNavbarComponent,
         AppSubNavbarComponent,
         AppSideNavbarComponent,
+        ObservableResolverComponent,
         PaddingDirective,
         MarginDirective,
         LastItemPipe

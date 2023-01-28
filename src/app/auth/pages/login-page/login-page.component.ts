@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
 import { AuthenticationService } from '../../services';
 import { ILogin, IUser } from '../../models';
 
-import { MatSnackbarTypes } from '../../../../assets/consts';
 import * as Validations from './validations.json';
 
 @Component({
@@ -22,31 +22,24 @@ export class LoginPageComponent {
     "password": "78freweb5d4654"
   } as ILogin;
 
-  inProgress: boolean;
+  login$: Observable<IUser | HttpErrorResponse>;
 
   constructor(
     private readonly authenticationService: AuthenticationService,
-    private readonly matSnackBarService: MatSnackBar
+    private readonly matSnackbarService: MatSnackBar
   ) {}
 
-  loginSuccess(user: IUser) {
-    this.inProgress = false;
+  handleSubmit(login: ILogin): void {
+    this.login$ = this.authenticationService.login(login);
+  }
 
+  loginSuccess(user: IUser): void {
     console.log(user);
   }
 
-  handleSubmit(login: ILogin): void {
-    this.inProgress = true;
-
-    this.authenticationService.login(login).subscribe({
-      next: (response: IUser | HttpErrorResponse) => {
-        this.loginSuccess(response as IUser);
-      },
-      error: (error: HttpErrorResponse) => {
-        this.inProgress = false;
-        
-        this.matSnackBarService.open(error.error.message, 'X', MatSnackbarTypes.error);
-      },
-    })
+  loginFailed(error: HttpErrorResponse): void {
+    this.matSnackbarService.open(error.error.message, 'X', {
+        panelClass: ["alert-error-state"]
+    });
   }
 }

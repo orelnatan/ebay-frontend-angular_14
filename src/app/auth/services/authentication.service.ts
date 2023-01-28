@@ -10,7 +10,7 @@ import { ILogin, IUser } from '../models';
 @Injectable()
 export class AuthenticationService {
     constructor(
-        private httpClient: HttpClient,
+        private readonly httpClient: HttpClient,
     ) {}
 
     login(login: ILogin): Observable<IUser | HttpErrorResponse> {
