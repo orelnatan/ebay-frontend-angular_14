@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 
+import { EbayLocalStorageService } from 'src/app/core/services';
 import { AuthenticationService } from '../../services';
 import { ILogin, IUser } from '../../models';
 
@@ -25,8 +26,9 @@ export class LoginPageComponent {
   login$: Observable<IUser | HttpErrorResponse>;
 
   constructor(
+    private readonly matSnackbarService: MatSnackBar,
     private readonly authenticationService: AuthenticationService,
-    private readonly matSnackbarService: MatSnackBar
+    private readonly ebayLocalStorageService: EbayLocalStorageService
   ) {}
 
   handleSubmit(login: ILogin): void {
@@ -34,7 +36,7 @@ export class LoginPageComponent {
   }
 
   loginSuccess(user: IUser): void {
-    console.log(user);
+    this.ebayLocalStorageService.set("user", user);
   }
 
   loginFailed(error: HttpErrorResponse): void {

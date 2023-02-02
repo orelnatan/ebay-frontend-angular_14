@@ -8,7 +8,7 @@
                 <observable-resolver #resolver 
                     [observable]="login$" 
                     (resolved)="loginSuccess($event)" 
-                    (failure)="loginFailed($event)"
+                    (failed)="loginFailed($event)"
                 >
                     <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && handleSubmit(login)" novalidate padding [top]="30">
                         <div class="login-input-field">

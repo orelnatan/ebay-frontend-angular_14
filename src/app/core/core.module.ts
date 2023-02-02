@@ -8,6 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '../layout/layout.module';
 import { SharedModule } from '../shared/shared.module';
 
+import { 
+    EbayLocalStorageService,
+} from './services';
+
 @NgModule({
     imports: [ 
         CommonModule,
@@ -18,6 +22,12 @@ import { SharedModule } from '../shared/shared.module';
         BrowserAnimationsModule,
         LayoutModule,
     ],
-    exports: [LayoutModule, SharedModule]
+    exports: [
+        LayoutModule,
+        SharedModule
+    ],
+    providers: [
+        EbayLocalStorageService
+    ]
 })
 export class CoreModule {}

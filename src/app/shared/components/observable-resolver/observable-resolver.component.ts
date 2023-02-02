@@ -13,7 +13,8 @@ export class ObservableResolverComponent<T> implements OnChanges {
     @Input() observable: Observable<T | HttpErrorResponse>;
 
     @Output() resolved: EventEmitter<T> = new EventEmitter();
-    @Output() failure: EventEmitter<HttpErrorResponse> = new EventEmitter();
+    @Output() failed: EventEmitter<HttpErrorResponse> = new EventEmitter();
+    @Output() start: EventEmitter<void> = new EventEmitter();
     @Output() done: EventEmitter<void> = new EventEmitter();
 
     public inProcess: boolean;
@@ -22,6 +23,7 @@ export class ObservableResolverComponent<T> implements OnChanges {
         if(this.observable instanceof Observable) {
             this.inProcess = true;
 
+            this.start.emit();
             this.observable.pipe(
                 finalize(() => { 
                     this.inProcess = false;
@@ -33,7 +35,7 @@ export class ObservableResolverComponent<T> implements OnChanges {
                     this.resolved.emit(response as T);
                 },
                 error: (error: HttpErrorResponse): void => {
-                    this.failure.emit(error);
+                    this.failed.emit(error);
                 },
             })
         }
