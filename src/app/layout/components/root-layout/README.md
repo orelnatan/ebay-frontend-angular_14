@@ -27,7 +27,7 @@ This flag indicates that the current <root-layout> component is called at the mo
 
     * With this flag sets to false, the body element will be set to "position: static", so that it can expand freely over the entire width/height of it's parent only. The "<root-layout>" at the most top-level module is the only instance that should be called with "forRoot=true", so it will allow the application to use the full size of the screen. All other lower "<root-layout>" instances will be called with "forRoot=false" and will be expanded by the parent's remaining space(height: 100%), without the cost of redundant vertical scrolling.
 
-# app-side-navbar-container
+# side-navbar-container
 - position: fixed; => This allows the container and all of its children to be fixed to its location, so it will always be visible to the user also when scrolling vertically or horizontally.
 
 - width: $full-screen-height; => Because the container is "fixed", it cannot expand to 100% height by default, so this line is necessary.
@@ -37,5 +37,5 @@ This flag indicates that the current <root-layout> component is called at the mo
 # inner-content-container
 - width: $full-screen-width; => This container is responsible to render and hold the next lower level in the hierarchy, the line width: 100% allows it to expand to the full width of the remaining space of its parent's element(layout-body).
 
-- [style.padding-left.px]="sidebarContainer.clientWidth"; => "sidebarContainer" is a reference to the "app-side-navbar-container" div that its width is determined by its content, so we are using its "clientWidth" property to know how much padding-left the "inner-content" layer needs in order to prevent overlap between the two layers.
+- [style.padding-left.px]="sidebarContainer.clientWidth"; => "sidebarContainer" is a reference to the "side-navbar-container" div that its width is determined by its content, so we are using its "clientWidth" property to know how much padding-left the "inner-content" layer needs in order to prevent overlap between the two layers.
 

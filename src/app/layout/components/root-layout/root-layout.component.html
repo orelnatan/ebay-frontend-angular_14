@@ -1,22 +1,22 @@
 
 <div class="root-layout-main" [style.position]="forRoot ? 'absolute' : 'static'">
     <div class="layout-top">
-        <div class="app-primary-navbar-container">
-            <ng-content select="app-primary-navbar"></ng-content>
+        <div class="primary-navbar-container">
+            <ng-content select="primary-navbar"></ng-content>
         </div>
 
-        <div class="app-secondary-navbar-container">
-            <ng-content select="app-secondary-navbar"></ng-content>
+        <div class="secondary-navbar-container">
+            <ng-content select="secondary-navbar"></ng-content>
         </div>
 
-        <div class="app-sub-navbar-container">
-            <ng-content select="app-sub-navbar"></ng-content>
+        <div class="sub-navbar-container">
+            <ng-content select="sub-navbar"></ng-content>
         </div>
     </div>
 
     <div class="layout-body">
-        <div class="app-side-navbar-container">
-            <ng-content select="app-side-navbar"></ng-content>
+        <div class="side-navbar-container">
+            <ng-content select="side-navbar"></ng-content>
         </div>
 
         <div class="inner-content-container">

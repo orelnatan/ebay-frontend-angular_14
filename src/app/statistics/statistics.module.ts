@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StatisticsRoutingModule } from './statistics-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -15,9 +13,6 @@ import { StatisticsRootComponent } from './statistics-root.component';
     ],
     imports: [ 
         CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
         StatisticsRoutingModule,
         SharedModule,
         LayoutModule

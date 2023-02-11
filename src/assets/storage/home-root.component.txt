@@ -4,11 +4,11 @@ import { Component } from '@angular/core';
   selector: 'home-root',
   template: `
     <root-layout>
-       <app-primary-navbar></app-primary-navbar>
-       <app-secondary-navbar></app-secondary-navbar>
-       <app-sub-navbar></app-sub-navbar>
+       <primary-navbar></primary-navbar>
+       <secondary-navbar></secondary-navbar>
+       <sub-navbar></sub-navbar>
 
-       <app-side-navbar></app-side-navbar>
+       <side-navbar></side-navbar>
 
        <router-outlet></router-outlet>
     </root-layout>

@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -15,9 +13,6 @@ import { HomeRootComponent } from './home-root.component';
     ],
     imports: [ 
         CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
         HomeRoutingModule,
         SharedModule,
         LayoutModule
