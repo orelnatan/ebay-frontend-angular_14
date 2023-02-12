@@ -1,4 +1,21 @@
 
-<div class="primary-navbar-main">
-   
+<div class="primary-navbar-main shadow-border-shallow">
+   <div class="primary-navbar-content">
+      <div class="avatar-container">
+         <mat-icon>{{ 'waving_hand' }}</mat-icon>
+         <span>{{ getGreetingText(ebayLocalStorageService.get('user') | async) }}</span>
+        
+         <div class="img-container">
+            <img [src]="getUserAvatar(ebayLocalStorageService.get('user') | async)" />
+         </div>
+      </div>
+      
+      <div class="icons-container" *ngIf="ebayLocalStorageService.get('user') | async">
+         <mat-icon (click)="logout()"> {{ 'logout' }} </mat-icon>
+         <mat-icon> {{ 'account_circle' }} </mat-icon>
+         <mat-icon> {{ 'settings' }} </mat-icon>
+         <mat-icon> {{ 'info' }} </mat-icon>
+         <mat-icon> {{ 'home' }} </mat-icon>
+      </div>
+   </div>
 </div>

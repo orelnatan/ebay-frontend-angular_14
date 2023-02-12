@@ -1,18 +1,21 @@
 import { Injectable, }  from '@angular/core';
+import { Observable, Subscriber } from 'rxjs';
 
 import { IEbay } from '../models';
 import { props } from '../types';
 
 @Injectable()
 export class EbayLocalStorageService {
-    storage: IEbay;
+    private storage: IEbay;
 
     constructor() {
         this.storage = JSON.parse(localStorage.getItem("Ebay")!) || {};
     }
 
-    public get(prop: props): IEbay[props] | null {
-        return this.storage[prop] || null;
+    public get(prop: props): Observable<IEbay[props] | null> {
+        return new Observable((observer: Subscriber<IEbay[props] | null>) => {
+            observer.next(this.storage[prop] || null)
+        })
     }
 
     public set(prop: props, value: any): void {
