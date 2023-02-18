@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './guards';
+
 import { AuthRootComponent } from './auth-root.component';
 
 const routes: Routes = [
@@ -9,7 +11,11 @@ const routes: Routes = [
         [
             { 
                 path: 'login',
-                loadChildren: () => import('./pages/login-page').then(login => login.LoginPageModule)
+                loadChildren: () => import('./pages/login-page').then(login => login.LoginPageModule),
+                canActivateChild: [AuthGuard],
+                data: {
+                    blockWhileAuthenticated: true,
+                }
             },
             { 
                 path: 'registration',

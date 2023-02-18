@@ -18,7 +18,7 @@ import {
         LayoutModule,
     ],
     providers: [
-        EbayLocalStorageService
+        EbayLocalStorageService,
     ]
 })
 export class CoreModule {}

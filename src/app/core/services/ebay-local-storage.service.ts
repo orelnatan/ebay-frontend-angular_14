@@ -13,7 +13,7 @@ export class EbayLocalStorageService {
     }
 
     public get(prop: props): Observable<IEbay[props] | null> {
-        return new Observable((observer: Subscriber<IEbay[props] | null>) => {
+        return new Observable((observer: Subscriber<IEbay[props] | null>): void => {
             observer.next(this.storage[prop] || null)
         })
     }

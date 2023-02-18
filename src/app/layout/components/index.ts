@@ -1,7 +1,7 @@
 
-export { RootLayoutComponent } from './root-layout';
-export { PageLayoutComponent } from './page-layout';
-export { PrimaryNavbarComponent } from './primary-navbar';
-export { SecondaryNavbarComponent } from './secondary-navbar';
-export { SubNavbarComponent } from './sub-navbar';
-export { SideNavbarComponent } from './side-navbar';
+export { RootLayoutComponent } from './skeleton/root-layout';
+export { PageLayoutComponent } from './skeleton/page-layout';
+export { PrimaryNavbarComponent } from './frame/primary-navbar';
+export { SecondaryNavbarComponent } from './frame/secondary-navbar';
+export { SubNavbarComponent } from './frame/sub-navbar';
+export { SideNavbarComponent } from './frame/side-navbar';

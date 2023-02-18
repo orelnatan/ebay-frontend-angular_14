@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 
 import { EbayLocalStorageService } from 'src/app/core/services';
 import { AuthenticationService } from '../../services';
+
+import { IValidation } from '../../../eb-forms/models';
 import { ILogin, IUser } from '../../models';
 
 import * as Validations from './validations.json';
@@ -16,7 +18,7 @@ import * as Validations from './validations.json';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  validations = Validations;
+  validations: Record<string, IValidation> = Validations;
 
   login: ILogin = {
     "username": "Graves Oneal",
@@ -40,7 +42,7 @@ export class LoginPageComponent {
   loginSuccess(user: IUser): void {
     this.ebayLocalStorageService.set("user", user);
 
-    this.routerService.navigate(['/home']);
+    this.routerService.navigate(["/home"]);
   }
 
   loginFailed(error: HttpErrorResponse): void {

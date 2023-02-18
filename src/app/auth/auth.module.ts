@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { SharedModule } from '../shared/shared.module';
 import { LayoutModule } from '../layout/layout.module';
-
-import { AuthRootComponent } from './auth-root.component';
 
 import { 
     AuthenticationService
 } from './services';
+
+import { AuthGuard } from './guards';
+
+import { AuthRootComponent } from './auth-root.component';
 
 @NgModule({
     declarations: [
@@ -16,11 +17,11 @@ import {
     ],
     imports: [ 
         AuthRoutingModule,
-        SharedModule,
         LayoutModule
     ],
     providers: [
-        AuthenticationService
+        AuthenticationService,
+        AuthGuard
     ]
 })
 export class AuthModule {}

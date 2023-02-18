@@ -4,15 +4,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 import { 
+    LoaderDirective,
     MarginDirective,
     PaddingDirective
 } from './directives';
 
-import { LastItemPipe } from './pipes';
+import { 
+    ModalComponent,
+    ObservableResolverComponent,
+    SpinnerComponent,
+    
+} from './components';
 
 import { 
-    ObservableResolverComponent
-} from './components';
+    LoaderModalComponent
+} from './modals';
 
 @NgModule({
     imports: [ 
@@ -21,15 +27,21 @@ import {
         MatSnackBarModule,
         ReactiveFormsModule,
         PaddingDirective,
+        LoaderDirective,
         MarginDirective,
-        LastItemPipe,
         ObservableResolverComponent,
+        ModalComponent,
+        SpinnerComponent,
+        LoaderModalComponent
     ],
     exports: [
         PaddingDirective,
         MarginDirective,
-        LastItemPipe,
+        LoaderDirective,
         ObservableResolverComponent,
+        ModalComponent,
+        SpinnerComponent,
+        LoaderModalComponent
     ],
     providers: [
         { 
