@@ -2,16 +2,12 @@
 
 a {
     text-decoration: underline;
-    color: $color-note;
+    color: $color-info;
     cursor: pointer;
 }
 
 ul {
     list-style-position: inside;
-}
-
-button {
-    width: 100%;
 }
 
 .shadow-border-deep {
@@ -22,12 +18,12 @@ button {
     box-shadow: 0 3px 6px 0 rgba(0,0,0,.4);
 }
 
-.alert-error-state {
+.snak-error-state {
     color: $color-error;
     border: 1px solid $color-error;
 }
 
-.alert-success-state {
+.snak-success-state {
     color: $color-success;
     border: 1px solid $color-success;
 }

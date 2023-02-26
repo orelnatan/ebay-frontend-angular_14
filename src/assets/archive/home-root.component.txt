@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'home-root',
   template: `
     <root-layout>
-       <primary-navbar></primary-navbar>
        <secondary-navbar></secondary-navbar>
        <sub-navbar></sub-navbar>
 

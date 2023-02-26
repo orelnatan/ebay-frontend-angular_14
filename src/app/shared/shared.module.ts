@@ -13,11 +13,11 @@ import {
     ModalComponent,
     ObservableResolverComponent,
     SpinnerComponent,
-    
 } from './components';
 
 import { 
-    LoaderModalComponent
+    LoaderModalComponent,
+    AlertModalComponent
 } from './modals';
 
 @NgModule({
@@ -32,7 +32,8 @@ import {
         ObservableResolverComponent,
         ModalComponent,
         SpinnerComponent,
-        LoaderModalComponent
+        LoaderModalComponent,
+        AlertModalComponent
     ],
     exports: [
         PaddingDirective,
@@ -41,7 +42,8 @@ import {
         ObservableResolverComponent,
         ModalComponent,
         SpinnerComponent,
-        LoaderModalComponent
+        LoaderModalComponent,
+        AlertModalComponent
     ],
     providers: [
         { 

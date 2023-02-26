@@ -34,7 +34,7 @@ export class PrimaryNavbarComponent {
     return user ? `${USER_HELLO_TEXT}${user.name}` : GUEST_HELLO_TEXT;
   }
 
-  logout(): void {
+  logout = (): void => {
     this.ebayLocalStorageService.clear();
 
     this.routerService.navigate(['/auth']);

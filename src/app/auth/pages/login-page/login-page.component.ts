@@ -25,7 +25,6 @@ export class LoginPageComponent {
     "email": "gravesoneal@quordate.com",
     "password": "78freweb5d4654"
   } as ILogin;
-
   login$: Observable<IUser | HttpErrorResponse>;
 
   constructor(
@@ -47,7 +46,7 @@ export class LoginPageComponent {
 
   loginFailed(error: HttpErrorResponse): void {
     this.matSnackbarService.open(error.error.message, 'X', {
-        panelClass: ["alert-error-state"]
+        panelClass: ["snak-error-state"]
     });
   }
 }

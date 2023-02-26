@@ -17,7 +17,7 @@ import { AuthRootComponent } from './auth-root.component';
     ],
     imports: [ 
         AuthRoutingModule,
-        LayoutModule
+        LayoutModule,
     ],
     providers: [
         AuthenticationService,
