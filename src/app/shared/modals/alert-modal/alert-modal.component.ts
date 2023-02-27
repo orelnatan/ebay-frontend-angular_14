@@ -3,9 +3,9 @@ import { Component, Inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { ModalComponent } from '../../components';
+import { ModalComponent } from '@ebay/shared/components';
+import { alert } from '@ebay/shared/types';
 
-import { alert } from '../../types';
 import { IAction, IAlertData } from './models';
 
 @Component({

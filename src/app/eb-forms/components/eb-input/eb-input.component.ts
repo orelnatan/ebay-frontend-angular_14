@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
-import { EbErrorStateMatcher } from '../../classes';
-import { IValidation } from '../../models';
+import { EbErrorStateMatcher } from '@ebay/eb-forms/classes';
+import { IValidation } from '@ebay/eb-forms/models';
 
 @Component({
     selector: 'eb-input',

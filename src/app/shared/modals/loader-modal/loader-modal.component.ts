@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ModalComponent, SpinnerComponent } from '../../components';
+
+import { ModalComponent, SpinnerComponent } from '@ebay/shared/components';
 
 @Component({
   selector: 'loader-modal',

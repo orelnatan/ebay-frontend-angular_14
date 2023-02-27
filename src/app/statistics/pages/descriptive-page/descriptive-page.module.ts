@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { LayoutModule } from 'src/app/layout/layout.module';
+import { LayoutModule } from '@ebay/layout/layout.module';
 
 import { DescriptivePageComponent } from './descriptive-page.component';
 

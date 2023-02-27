@@ -1,4 +1,5 @@
-import { alert } from "src/app/shared/types";
+import { alert } from '@ebay/shared/types';
+
 import { IAction } from "./iaction.model";
 
 export interface IAlertData {

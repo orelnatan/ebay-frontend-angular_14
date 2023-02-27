@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 
-import { EbayLocalStorageService } from 'src/app/core/services';
-import { AuthenticationService } from '../../services';
-
-import { IValidation } from '../../../eb-forms/models';
-import { ILogin, IUser } from '../../models';
+import { EbayLocalStorageService } from '@ebay/core/services';
+import { AuthenticationService } from '@ebay/auth/services';
+import { IValidation } from '@ebay/eb-forms/models';
+import { ILogin, IUser } from '@ebay/auth/models';
 
 import * as Validations from './validations.json';
 

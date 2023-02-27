@@ -2,7 +2,7 @@ import { Injectable, } from '@angular/core';
 import { Router, UrlTree, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 
-import { EbayLocalStorageService } from 'src/app/core/services';
+import { EbayLocalStorageService } from '@ebay/core/services';
 
 import { IUser } from '../models';
 

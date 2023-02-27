@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
-import { AlertModalComponent } from 'src/app/shared/modals';
-import { IAction } from 'src/app/shared/modals/alert-modal/models';
+import { AlertModalComponent } from '@ebay/shared/modals';
+import { IAction } from '@ebay/shared/modals/alert-modal/models';
 
 @Component({
   selector: 'logout',
