@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { CoreRoutingModule } from './core-routing.module';
 import { LayoutModule } from '../layout/layout.module';
 
 import { 
     EbayLocalStorageService,
 } from './services';
 
+import { 
+    LogoutComponent
+} from './components';
+
+import { CoreRootComponent } from './core-root.component';
+
 @NgModule({
+    declarations: [
+        CoreRootComponent,
+    ],
     imports: [ 
         HttpClientModule,
-        BrowserAnimationsModule,
+        CoreRoutingModule,
         LayoutModule,
-    ],
-    exports: [
-        LayoutModule,
+        LogoutComponent
     ],
     providers: [
         EbayLocalStorageService,

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { EbayLocalStorageService } from './core/services';
-
 @Component({
   selector: 'app-root',
   template: `
@@ -10,8 +8,4 @@ import { EbayLocalStorageService } from './core/services';
     </root-layout>
   `,
 })
-export class AppRootComponent {
-  constructor(
-    private readonly ebayLocalStorageService: EbayLocalStorageService
-  ) {}
-}
+export class AppRootComponent {}

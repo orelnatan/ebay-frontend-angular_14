@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'auth-root',
   template: `
     <root-layout>
-      <primary-navbar></primary-navbar>   
-
       <router-outlet></router-outlet>
     </root-layout>
   `,

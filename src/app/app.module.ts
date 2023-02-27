@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './core/core.module';
+import { LayoutModule } from './layout/layout.module';
 
 import { AppRootComponent } from './app-root.component';
 
@@ -10,10 +11,10 @@ import { AppRootComponent } from './app-root.component';
     AppRootComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     AppRoutingModule,
-    CoreModule,
+    LayoutModule,
   ],
-  providers: [],
   bootstrap: [AppRootComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
 import { EbayLocalStorageService } from 'src/app/core/services';
@@ -20,10 +19,11 @@ const USER_HELLO_TEXT: string = "Hi, Welcome back ";
   ],
   standalone: true,
 })
-export class PrimaryNavbarComponent { 
+export class PrimaryNavbarComponent {
+  @Output() logout: EventEmitter<void> = new EventEmitter();
+  
   constructor(
     public readonly ebayLocalStorageService: EbayLocalStorageService,
-    private readonly routerService: Router
   ) {}
 
   getUserAvatar(user: IUser | null): string {  
@@ -32,11 +32,5 @@ export class PrimaryNavbarComponent {
 
   getGreetingText(user: IUser | null): string {
     return user ? `${USER_HELLO_TEXT}${user.name}` : GUEST_HELLO_TEXT;
-  }
-
-  logout = (): void => {
-    this.ebayLocalStorageService.clear();
-
-    this.routerService.navigate(['/auth']);
   }
 }

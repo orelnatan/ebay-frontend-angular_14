@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { LayoutModule } from '../layout/layout.module';
@@ -13,7 +12,6 @@ import { HomeRootComponent } from './home-root.component';
         HomeRootComponent,
     ],
     imports: [ 
-        CommonModule,
         HomeRoutingModule,
         LayoutModule
     ],
