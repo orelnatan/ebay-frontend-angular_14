@@ -9,6 +9,9 @@ export const environment = {
   apis: {
     auth: {
       login: `${baseUrl}/login`
+    },
+    home: {
+      brands: `${baseUrl}/get-all-brands`
     }
   }
 };

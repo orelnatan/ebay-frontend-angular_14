@@ -1,6 +1,10 @@
 
-<page-layout [deployOnFullScreenHeight]="true" [deployOnFullScreenWidth]="true">
+<page-layout>
     <div class="brnads-page-main">
-        
+        <observable-resolver #resolver 
+            [observable]="brands$"
+        >
+            
+        </observable-resolver>        
     </div>
 </page-layout>

@@ -24,7 +24,8 @@ export class LoginPageComponent {
     "email": "gravesoneal@quordate.com",
     "password": "78freweb5d4654"
   } as ILogin;
-  login$: Observable<IUser | HttpErrorResponse>;
+  
+  login$: Observable<IUser>;
 
   constructor(
     private readonly matSnackbarService: MatSnackBar,

@@ -1,9 +1,8 @@
-import { Injectable, Type, }  from '@angular/core';
-import { throwError, } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams, } from '@angular/common/http';
-import { Observable, of as observableOf } from 'rxjs';  
-import { map, catchError, delay } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { Injectable }  from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';  
+
+import { environment } from '@ebay/env/environment';
 
 import { ILogin, IUser } from '../models';
 
@@ -13,14 +12,10 @@ export class AuthenticationService {
         private readonly httpClient: HttpClient,
     ) {}
 
-    login(login: ILogin): Observable<IUser | HttpErrorResponse> {
+    login(login: ILogin): Observable<IUser> {
         return this.httpClient.post<IUser>(environment.apis.auth.login, {
             ... login
-        }).pipe(
-            catchError((error: HttpErrorResponse): Observable<HttpErrorResponse> => {
-                return throwError(() => error);
-            })
-        );
+        })
     }
 
 }

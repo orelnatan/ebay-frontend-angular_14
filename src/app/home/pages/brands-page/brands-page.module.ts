@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { LayoutModule } from 'src/app/layout/layout.module';
+import { LayoutModule } from '@ebay/layout/layout.module';
+import { SharedModule } from '@ebay/shared/shared.module';
+import { BrandsService } from '@ebay/home/services';
 
 import { BrandsPageComponent } from './brands-page.component';
 
@@ -13,9 +15,13 @@ import { BrandsPageComponent } from './brands-page.component';
     imports: [ 
         CommonModule,
         LayoutModule,
+        SharedModule,
         RouterModule.forChild([
             { path: '', component: BrandsPageComponent },
         ])
     ],
+    providers: [
+        BrandsService
+    ]
 })
 export class BrandsPageModule {}
