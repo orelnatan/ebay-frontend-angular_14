@@ -1,0 +1,8 @@
+
+<div class="elements-grid-main">
+    <div class="elements-grid-content" 
+         [style.grid-template-columns]="'repeat(auto-fill, minmax(' + elementSize + 'px, 1fr))'"
+    >
+        <ng-content></ng-content>
+    </div>
+</div>

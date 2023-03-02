@@ -12,7 +12,7 @@ Should be called as the main wrapper for every "page" component, responsible to 
 
 - The @Input() displayType: string => Provides the option to change the "page-layout-main" CSS display property from "table"(which is the default) to anything else if needed. 
 
-- The @Input() deployOnFullScreenHeight/Width: boolean flags => By default, this element will be expanded by its content, but those flags allow it to be expanded to 100% width/height regardless it's content.
+- The @Input() fullHeight/Width: boolean flags => By default, this element will be expanded by its content, but those flags allow it to be expanded to 100% width/height regardless it's content.
 
 * It can be set also using css at the child component:
 

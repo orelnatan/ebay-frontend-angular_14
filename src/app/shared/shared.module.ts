@@ -6,12 +6,13 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 import { 
     LoaderDirective,
     MarginDirective,
-    PaddingDirective
+    PaddingDirective,
+    RxResolverDirective
 } from './directives';
 
 import { 
+    ElementsGridComponent,
     ModalComponent,
-    ObservableResolverComponent,
     SpinnerComponent,
 } from './components';
 
@@ -26,24 +27,26 @@ import {
         FormsModule,
         MatSnackBarModule,
         ReactiveFormsModule,
+        RxResolverDirective,
         PaddingDirective,
         LoaderDirective,
         MarginDirective,
-        ObservableResolverComponent,
+        ElementsGridComponent,
         ModalComponent,
         SpinnerComponent,
         LoaderModalComponent,
-        AlertModalComponent
+        AlertModalComponent,
     ],
     exports: [
+        RxResolverDirective,
         PaddingDirective,
         MarginDirective,
         LoaderDirective,
-        ObservableResolverComponent,
         ModalComponent,
         SpinnerComponent,
         LoaderModalComponent,
-        AlertModalComponent
+        AlertModalComponent,
+        ElementsGridComponent,
     ],
     providers: [
         { 

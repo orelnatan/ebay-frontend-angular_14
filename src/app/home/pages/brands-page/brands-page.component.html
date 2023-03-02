@@ -1,10 +1,12 @@
 
-<page-layout>
+<page-layout [fullWidth]="true">
     <div class="brnads-page-main">
-        <observable-resolver #resolver 
-            [observable]="brands$"
-        >
-            
-        </observable-resolver>        
+        <div class="brands-page-content" padding [custom]="'15px'">
+            <elements-grid [elementSize]="365">
+                <brand-card *ngFor="let brand of [1,1,1,1,1]"
+                    >
+                </brand-card>
+            </elements-grid>
+        </div>
     </div>
 </page-layout>

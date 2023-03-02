@@ -6,15 +6,13 @@ import { EbayLocalStorageService } from './services';
 @Component({
   selector: 'core-root',
   template: `
-    <root-layout>
-      <primary-navbar (logout)="logout.showLogoutModal()"
-          >
+    <root-layout logout #logout="logout" (logout)="disconnect()">
+      <primary-navbar 
+          (logout)="logout.showLogoutModal()">
       </primary-navbar>
 
       <router-outlet></router-outlet>
     </root-layout>
-
-    <logout (logout)="disconnect()" #logout></logout>
   `,
 })
 export class CoreRootComponent {

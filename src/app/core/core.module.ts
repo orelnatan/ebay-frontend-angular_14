@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { LayoutModule } from '@ebay/layout/layout.module';
 
@@ -10,11 +11,10 @@ import {
 } from './services';
 
 import { 
-    LogoutComponent
-} from './components';
+    LogoutDirective
+} from './directives';
 
 import { CoreRootComponent } from './core-root.component';
-
 
 @NgModule({
     declarations: [
@@ -24,7 +24,8 @@ import { CoreRootComponent } from './core-root.component';
         HttpClientModule,
         CoreRoutingModule,
         LayoutModule,
-        LogoutComponent
+        LogoutDirective,
+        MatDialogModule
     ],
     providers: [
         EbayLocalStorageService,

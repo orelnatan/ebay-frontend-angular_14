@@ -1,16 +1,15 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { Directive, EventEmitter,  Output } from '@angular/core';
+import { MatDialog, MatDialogRef,  } from '@angular/material/dialog';
 
 import { AlertModalComponent } from '@ebay/shared/modals';
 import { IAction } from '@ebay/shared/modals/alert-modal/models';
 
-@Component({
-  selector: 'logout',
-  template: ``,
-  standalone: true,
-  imports: [MatDialogModule]
+@Directive({
+    selector: '[logout]',
+    standalone: true,
+    exportAs: 'logout'
 })
-export class LogoutComponent {
+export class LogoutDirective {    
     @Output() logout: EventEmitter<void> = new EventEmitter();
     
     constructor(
@@ -18,7 +17,7 @@ export class LogoutComponent {
     ) {}
 
     public showLogoutModal(): void {
-        const matDialogRef = this.matDialogService.open(AlertModalComponent, {
+        const matDialogRef: MatDialogRef<AlertModalComponent> = this.matDialogService.open(AlertModalComponent, {
             data: {         
               type: "info",
               title: "Log out?",

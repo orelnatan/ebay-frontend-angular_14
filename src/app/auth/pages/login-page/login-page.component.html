@@ -1,16 +1,15 @@
 
-<page-layout [deployOnFullScreenHeight]="true" [deployOnFullScreenWidth]="true">
+<page-layout [fullHeight]="true" [fullWidth]="true">
     <div class="login-page-main">
-        <div class="login-page-content" padding [custom]="'30px'">
+        <div class="login-page-content" padding [custom]="'15px'">
             <div class="login-form-container shadow-border-shallow">
                 <img [src]="'../../../../favicon.ico'" padding [top]="15" />
 
-                <observable-resolver #resolver 
-                    [observable]="login$" 
+                <ng-container [rxResolver]="login$" #resolver="resolver" 
                     (resolved)="loginSuccess($event)" 
                     (failed)="loginFailed($event)"
                 >
-                    <div class="form-container" padding [top]="30">
+                    <div class="form-container" padding [top]="30" [loader]="resolver.inProcess">
                         <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && handleSubmit(login)" novalidate>
                             <div class="login-input-field">
                                 <input-text
@@ -99,7 +98,7 @@
                             </div>
                         </form>
                     </div>
-                </observable-resolver>
+                </ng-container>
             </div>
         </div>
     </div>
