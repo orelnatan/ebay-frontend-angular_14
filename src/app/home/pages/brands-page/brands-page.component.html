@@ -1,12 +1,16 @@
 
-<page-layout [fullWidth]="true">
+<page-layout>
     <div class="brnads-page-main">
-        <div class="brands-page-content" padding [custom]="'15px'">
-            <elements-grid [elementSize]="365">
-                <brand-card *ngFor="let brand of [1,1,1,1,1]"
-                    >
-                </brand-card>
-            </elements-grid>
+        <div class="brands-page-content">
+            <ng-container #resolver="resolver"
+                [rxResolver]="brands$"
+            >
+                <elements-grid [elementMinSizePx]="255" [loader]="resolver.inProcess">
+                    <brand-card *ngFor="let brand of resolver.data as brands"
+                        [brand]="brand"> 
+                    </brand-card>
+                </elements-grid>
+            </ng-container>
         </div>
     </div>
 </page-layout>

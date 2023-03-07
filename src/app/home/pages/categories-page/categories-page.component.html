@@ -1,0 +1,16 @@
+
+<page-layout>
+    <div class="categories-page-main">
+        <div class="categories-page-content">
+            <ng-container #resolver="resolver"
+                [rxResolver]="categories$"
+            >
+                <elements-grid [elementMinSizePx]="300" [loader]="resolver.inProcess">
+                    <div *ngFor="let category of resolver.data as categories"
+                        > {{ category.name }}
+                    </div>
+                </elements-grid>
+            </ng-container>
+        </div>
+    </div>
+</page-layout>

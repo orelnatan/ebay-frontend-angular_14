@@ -15,6 +15,4 @@ export class BrandsPageComponent {
     constructor(
         private readonly brandsService: BrandsService
     ) {}
-
-
 }

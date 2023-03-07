@@ -11,7 +11,8 @@ export const environment = {
       login: `${baseUrl}/login`
     },
     home: {
-      brands: `${baseUrl}/get-all-brands`
+      brands: `${baseUrl}/get-all-brands`,
+      categories: `${baseUrl}/get-categories-by-brand-id`,
     }
   }
 };

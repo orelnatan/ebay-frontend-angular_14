@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,10 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './elements-grid.component.html',
   styleUrls: ['./elements-grid.component.scss'],
   standalone: true,
-  imports: [
-    CommonModule
-  ]
 })
 export class ElementsGridComponent {
-  @Input() elementSize: number;
+  @Input() elementMinSizePx: number;
 }

@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
 export class PageLayoutComponent {
   @Input() displayType: string;
   
-  @Input() fullHeight: boolean;
-  @Input() fullWidth: boolean;
+  @Input() fitWidthByContent: boolean;
+  @Input() fitHeightByContent: boolean;
 }

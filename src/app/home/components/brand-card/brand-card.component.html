@@ -1,4 +1,14 @@
 
 <div class="brand-card-main shadow-border-shallow">
-    card
+    <div class="brand-card-content">
+        <div class="card-image">
+            <img [src]="brand.image" />
+        </div>
+
+        <div class="card-details">
+            <span [routerLink]="['.', brand.id, 'categories']">
+                {{ brand.name }}
+            </span>
+        </div>
+    </div>
 </div>

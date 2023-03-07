@@ -1,15 +1,16 @@
 
-<page-layout [fullHeight]="true" [fullWidth]="true">
+<page-layout>
     <div class="login-page-main">
-        <div class="login-page-content" padding [custom]="'15px'">
+        <div class="login-page-content">
             <div class="login-form-container shadow-border-shallow">
                 <img [src]="'../../../../favicon.ico'" padding [top]="15" />
 
-                <ng-container [rxResolver]="login$" #resolver="resolver" 
+                <ng-container #resolver="resolver" 
+                    [rxResolver]="login$"
                     (resolved)="loginSuccess($event)" 
                     (failed)="loginFailed($event)"
                 >
-                    <div class="form-container" padding [top]="30" [loader]="resolver.inProcess">
+                    <div class="form-container" padding [top]="30">
                         <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && handleSubmit(login)" novalidate>
                             <div class="login-input-field">
                                 <input-text

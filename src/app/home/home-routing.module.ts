@@ -13,6 +13,11 @@ const routes: Routes = [
                 path: 'brands',
                 loadChildren: () => import('./pages/brands-page').then(brands => brands.BrandsPageModule),
                 canActivateChild: [AuthGuard],
+            },
+            { 
+                path: 'brands/:brandId/categories',
+                loadChildren: () => import('./pages/categories-page').then(categories => categories.CategoriesPageModule),
+                canActivateChild: [AuthGuard],
             }
         ]
     },
