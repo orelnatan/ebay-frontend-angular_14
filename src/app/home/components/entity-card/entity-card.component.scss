@@ -1,18 +1,15 @@
 @import './src/assets/config/colors.scss';
 
-.brand-card-main {
+.entity-card-main {
     width: 100%;
+    background-color: $color-black;
     cursor: pointer;
-
-    .brand-card-content {
-      background-color: $color-black;
-    }
 
     .card-image {
       height: 265px;
     }
 
-    .card-details {
+    .card-content {
       height: 55px;
       padding: 10px;
       border-top: thin solid $color-white;

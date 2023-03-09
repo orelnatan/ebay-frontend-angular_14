@@ -6,6 +6,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 import { 
     LoaderDirective,
     MarginDirective,
+    NgLetDirective,
     PaddingDirective,
     RxResolverDirective
 } from './directives';
@@ -28,6 +29,7 @@ import {
         MatSnackBarModule,
         ReactiveFormsModule,
         RxResolverDirective,
+        NgLetDirective,
         PaddingDirective,
         LoaderDirective,
         MarginDirective,
@@ -39,6 +41,7 @@ import {
     ],
     exports: [
         RxResolverDirective,
+        NgLetDirective,
         PaddingDirective,
         MarginDirective,
         LoaderDirective,

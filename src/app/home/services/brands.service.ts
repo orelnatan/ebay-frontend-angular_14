@@ -24,4 +24,16 @@ export class BrandsService {
             })
         )
     }
+
+    getSingleBrand(brandId: number): Observable<IBrand> {
+        return this.brands ? observableOf(this.brands.find(brand => brandId == brand.id)!) :
+        this.fetchAll()
+        .pipe(
+            map((brands: IBrand[]): IBrand => {
+                this.brands = brands;
+
+                return brands.find(brand => brandId == brand.id)!
+            })
+        )
+    }
 }

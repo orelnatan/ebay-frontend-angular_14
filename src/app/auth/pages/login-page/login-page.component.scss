@@ -1,13 +1,9 @@
 @import './src/assets/config/colors.scss';
 
 .login-page-main {
+  display: grid;
+  align-items: center;
   width: 100%;
-  
-  .login-page-content {
-    display: grid;
-    align-items: center;
-    height: 100%;
-  }
 
   .login-form-container {
     width: 750px;

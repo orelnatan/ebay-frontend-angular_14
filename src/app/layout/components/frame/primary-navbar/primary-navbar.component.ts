@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -15,7 +16,8 @@ const USER_HELLO_TEXT: string = "Hi, Welcome back ";
   styleUrls: ['./primary-navbar.component.scss'],
   imports: [
     MatIconModule,
-    CommonModule
+    CommonModule,
+    RouterLink
   ],
   standalone: true,
 })

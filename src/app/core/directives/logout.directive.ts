@@ -16,7 +16,7 @@ export class LogoutDirective {
         private readonly matDialogService: MatDialog,
     ) {}
 
-    public showLogoutModal(): void {
+    public show(): void {
         const matDialogRef: MatDialogRef<AlertModalComponent> = this.matDialogService.open(AlertModalComponent, {
             data: {         
               type: "info",

@@ -14,7 +14,7 @@ export class CategoriesService {
         private readonly httpClient: HttpClient,
     ) {}
                 
-    fetchByBrandId(brandId: number): Observable<ICategory[]> {
+    fetchAll(brandId: number): Observable<ICategory[]> {
         let httpParams: HttpParams = new HttpParams();
         httpParams = httpParams.append("brandId", brandId);
         
@@ -25,6 +25,18 @@ export class CategoriesService {
                 this.categories[brandId] = categories;
                 
                 return categories;
+            })
+        );
+    }
+
+    getSingleCategory(brandId: number, categoryId: number): Observable<ICategory> {
+        return this.categories ? observableOf(this.categories[brandId].find(category => categoryId == category.id)!) :
+        this.fetchAll(brandId)
+        .pipe(
+            map((categories: ICategory[]): ICategory => {
+                this.categories[brandId] = categories;
+                
+                return categories.find(category => categoryId == category.id)!;
             })
         );
     }

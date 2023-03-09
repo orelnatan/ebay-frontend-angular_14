@@ -1,16 +1,16 @@
 
 <page-layout>
     <div class="brnads-page-main">
-        <div class="brands-page-content">
-            <ng-container #resolver="resolver"
-                [rxResolver]="brands$"
-            >
-                <elements-grid [elementMinSizePx]="255" [loader]="resolver.inProcess">
-                    <brand-card *ngFor="let brand of resolver.data as brands"
-                        [brand]="brand"> 
-                    </brand-card>
-                </elements-grid>
-            </ng-container>
-        </div>
+        <ng-container #resolver="resolver" #loader="loader" loader
+            [rxResolver]="brands$"
+            (start)="loader.show()"
+            (done)="loader.hide()"
+        >
+            <elements-grid [elementMinSizePx]="255" *ngLet="resolver.data as brands">
+                <brand-card *ngFor="let brand of brands"
+                    [brand]="brand"> 
+                </brand-card>
+            </elements-grid>
+        </ng-container>
     </div>
 </page-layout>

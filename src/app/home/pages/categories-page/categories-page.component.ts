@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { ICategory } from '@ebay/home/models';
 import { CategoriesService } from '@ebay/home/services';
+import { ICategory } from '@ebay/home/models';
 
 const BRAND_ID_PARAM_NAME: string = "brandId";
 
@@ -13,13 +13,12 @@ const BRAND_ID_PARAM_NAME: string = "brandId";
   styleUrls: ['./categories-page.component.scss']
 })
 export class CategoriesPageComponent {
-    categories$: Observable<ICategory[]> = this.categoriesService.fetchByBrandId(
-       parseInt(this.activatedRoute.snapshot.paramMap.get(BRAND_ID_PARAM_NAME)!)
-    );
+  categories$: Observable<ICategory[]> = this.categoriesService.fetchAll(
+    parseInt(this.activatedRoute.snapshot.paramMap.get(BRAND_ID_PARAM_NAME)!)
+  );
 
-    constructor(
-        private readonly categoriesService: CategoriesService,
-        private readonly activatedRoute: ActivatedRoute
-    ) {}
-
+  constructor(
+      private readonly categoriesService: CategoriesService,
+      private readonly activatedRoute: ActivatedRoute
+  ) {}
 }

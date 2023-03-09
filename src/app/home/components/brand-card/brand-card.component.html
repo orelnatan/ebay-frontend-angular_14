@@ -1,14 +1,9 @@
 
-<div class="brand-card-main shadow-border-shallow">
-    <div class="brand-card-content">
-        <div class="card-image">
-            <img [src]="brand.image" />
-        </div>
-
-        <div class="card-details">
-            <span [routerLink]="['.', brand.id, 'categories']">
-                {{ brand.name }}
-            </span>
-        </div>
-    </div>
+<div class="brand-card-main">
+    <entity-card
+        [id]="brand.id"
+        [name]="brand.name"
+        [image]="brand.image"
+        [link]="'categories'">
+    </entity-card>
 </div>

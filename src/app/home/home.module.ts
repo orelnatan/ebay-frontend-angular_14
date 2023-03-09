@@ -6,7 +6,6 @@ import { LayoutModule } from '@ebay/layout/layout.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeRootComponent } from './home-root.component';
 
-
 @NgModule({
     declarations: [
         HomeRootComponent,
@@ -16,7 +15,7 @@ import { HomeRootComponent } from './home-root.component';
         LayoutModule
     ],
     providers: [
-        AuthGuard
+        AuthGuard,
     ]
 })
 export class HomeModule {}
