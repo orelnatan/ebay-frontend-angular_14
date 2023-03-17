@@ -7,6 +7,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
+import { SharedModule } from '@ebay/shared/shared.module';
+
 import { 
     PasswordValidator
 } from './validators';
@@ -50,6 +52,7 @@ import {
         MatCheckboxModule,
         MatInputModule,
         MatIconModule,
+        SharedModule
     ],
     exports: [
         InputTextComponent,

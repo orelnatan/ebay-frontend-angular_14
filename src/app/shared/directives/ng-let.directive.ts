@@ -2,7 +2,6 @@ import { Directive, Input, OnChanges, TemplateRef, ViewContainerRef } from '@ang
 
 @Directive({
     selector: '[ngLet]',
-    standalone: true,
 })
 export class NgLetDirective<T> implements OnChanges {
     @Input('ngLet') value: T;

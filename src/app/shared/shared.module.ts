@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { 
     LoaderDirective,
-    MarginDirective,
+    GapDirective,
+    SpaceDirective,
     NgLetDirective,
-    PaddingDirective,
     RxResolverDirective
 } from './directives';
 
@@ -23,27 +26,32 @@ import {
 } from './modals';
 
 @NgModule({
+    declarations: [
+        ElementsGridComponent,
+        ModalComponent,
+        SpinnerComponent,
+        AlertModalComponent,
+        LoaderModalComponent,
+        LoaderDirective,
+        GapDirective,
+        SpaceDirective,
+        NgLetDirective,
+        RxResolverDirective,
+    ],
     imports: [ 
         CommonModule,
         FormsModule,
         MatSnackBarModule,
         ReactiveFormsModule,
-        RxResolverDirective,
-        NgLetDirective,
-        PaddingDirective,
-        LoaderDirective,
-        MarginDirective,
-        ElementsGridComponent,
-        ModalComponent,
-        SpinnerComponent,
-        LoaderModalComponent,
-        AlertModalComponent,
+        MatProgressSpinnerModule,
+        MatDialogModule,
+        MatButtonModule,
     ],
     exports: [
         RxResolverDirective,
         NgLetDirective,
-        PaddingDirective,
-        MarginDirective,
+        SpaceDirective,
+        GapDirective,
         LoaderDirective,
         ModalComponent,
         SpinnerComponent,

@@ -6,7 +6,6 @@ import { IAction } from '@ebay/shared/modals/alert-modal/models';
 
 @Directive({
     selector: '[logout]',
-    standalone: true,
     exportAs: 'logout'
 })
 export class LogoutDirective {    

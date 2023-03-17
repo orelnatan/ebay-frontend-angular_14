@@ -10,8 +10,6 @@ const ZERO_HEIGHT: string = "0px";
   selector: 'root-layout',
   templateUrl: './root-layout.component.html',
   styleUrls: ['./root-layout.component.scss'],
-  standalone: true,
-  imports: [IsXAxisOverflowDirective]
 })
 export class RootLayoutComponent {
   @Input() forRoot: boolean;

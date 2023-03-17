@@ -5,7 +5,6 @@ import { LoaderModalComponent } from '../modals';
 
 @Directive({
     selector: '[loader]',
-    standalone: true,
     exportAs: 'loader'
 })
 export class LoaderDirective {    

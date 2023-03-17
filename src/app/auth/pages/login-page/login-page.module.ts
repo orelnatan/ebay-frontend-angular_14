@@ -3,9 +3,9 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { EbFormsModule } from 'src/app/eb-forms/eb-forms.module';
-import { LayoutModule } from 'src/app/layout/layout.module';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { LayoutModule } from '@ebay/layout/layout.module';
+import { EbFormsModule } from '@ebay/eb-forms/eb-forms.module';
+import { SharedModule } from '@ebay/shared/shared.module';
 
 import { LoginPageComponent } from './login-page.component';
 

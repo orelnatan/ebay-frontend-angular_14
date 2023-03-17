@@ -4,6 +4,5 @@ import { Component } from '@angular/core';
   selector: 'secondary-navbar',
   templateUrl: './secondary-navbar.component.html',
   styleUrls: ['./secondary-navbar.component.scss'],
-  standalone: true,
 })
 export class SecondaryNavbarComponent {}

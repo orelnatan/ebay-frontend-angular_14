@@ -1,9 +1,6 @@
-import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { ModalComponent } from '@ebay/shared/components';
 import { alert } from '@ebay/shared/types';
 
 import { IAction, IAlertData } from './models';
@@ -12,12 +9,6 @@ import { IAction, IAlertData } from './models';
   selector: 'alert-modal',
   templateUrl: './alert-modal.component.html',
   styleUrls: ['./alert-modal.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    ModalComponent,
-  ]
 })
 export class AlertModalComponent {
     colors: Record<alert, string> = {

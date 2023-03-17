@@ -2,14 +2,14 @@
 <page-layout>
     <div class="login-page-main">
         <div class="login-form-container shadow-border-shallow">
-            <img [src]="'../../../../favicon.ico'" padding [top]="15" />
+            <img [src]="'../../../../favicon.ico'" space [top]="15" />
 
             <ng-container #resolver="resolver"
                 [rxResolver]="login$"
                 (resolved)="loginSuccess($event)" 
                 (failed)="loginFailed($event)"
             >
-                <div class="form-container" padding [top]="30">
+                <div class="form-container" space [top]="30">
                     <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && handleSubmit(login)" novalidate>
                         <div class="login-input-field">
                             <input-text
@@ -30,7 +30,7 @@
                             </input-text>
                         </div>
 
-                        <div class="login-input-field" padding [top]="35">
+                        <div class="login-input-field" space [top]="35">
                             <input-text 
                                 [control]="email.control"
                                 [value]="login.email"
@@ -47,7 +47,7 @@
                             </input-text>
                         </div>
                         
-                        <div class="login-input-field" padding [top]="35">
+                        <div class="login-input-field" space [top]="35">
                             <input-password
                                 [control]="password.control"
                                 [value]="login.password"
@@ -64,8 +64,8 @@
                             </input-password>
                         </div>
 
-                        <div class="login-options-container" padding [top]="10">
-                            <div class="login-input-field" margin [top]="-5">
+                        <div class="login-options-container" space [top]="10">
+                            <div class="login-input-field" gap [top]="-5">
                                 <input-checkbox
                                     [control]="rememberme.control"
                                     [value]="login.rememberMe"
@@ -88,12 +88,13 @@
                             </div>
                         </div>
 
-                        <div class="login-input-field" padding [top]="35">
+                        <div class="login-input-field" space [top]="35">
                             <primary-button
                                 [placeholder]="'Take Me In!'"
                                 [dosubmit]="true"
                                 [readonly]="resolver.inProcess"
-                                [pending]="resolver.inProcess">
+                                [pending]="resolver.inProcess"
+                                [hint]="'dasd sdsacqwd csscas'">
                             </primary-button>
                         </div>
                     </form>

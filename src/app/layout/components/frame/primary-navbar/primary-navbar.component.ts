@@ -14,12 +14,6 @@ const USER_HELLO_TEXT: string = "Hi, Welcome back ";
   selector: 'primary-navbar',
   templateUrl: './primary-navbar.component.html',
   styleUrls: ['./primary-navbar.component.scss'],
-  imports: [
-    MatIconModule,
-    CommonModule,
-    RouterLink
-  ],
-  standalone: true,
 })
 export class PrimaryNavbarComponent {
   @Output() logout: EventEmitter<void> = new EventEmitter();

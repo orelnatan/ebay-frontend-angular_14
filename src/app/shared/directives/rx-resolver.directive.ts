@@ -4,7 +4,6 @@ import { finalize, isObservable, Observable, Subscription } from 'rxjs';
 
 @Directive({
     selector: '[rxResolver]',
-    standalone: true,
     exportAs: 'resolver'
 })
 export class RxResolverDirective<T> implements OnChanges, OnDestroy {

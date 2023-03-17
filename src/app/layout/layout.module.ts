@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+
 import { 
     PageLayoutComponent, 
     RootLayoutComponent,
@@ -10,13 +14,18 @@ import {
 } from './components';
 
 @NgModule({
-    imports: [ 
-        RootLayoutComponent,
-        PageLayoutComponent,
+    declarations: [
         PrimaryNavbarComponent,
         SecondaryNavbarComponent,
         SubNavbarComponent,
         SideNavbarComponent,
+        RootLayoutComponent,
+        PageLayoutComponent,
+    ],
+    imports: [ 
+        RouterLink,
+        CommonModule,
+        MatIconModule,
     ],
     exports: [
         RootLayoutComponent,

@@ -4,7 +4,6 @@ import { Component, Input } from '@angular/core';
   selector: 'page-layout',
   templateUrl: './page-layout.component.html',
   styleUrls: ['./page-layout.component.scss'],
-  standalone: true,
 })
 export class PageLayoutComponent {
   @Input() displayType: string;
