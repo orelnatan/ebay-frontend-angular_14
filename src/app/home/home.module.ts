@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { AuthGuard } from '@ebay/auth/guards';
-import { LayoutModule } from '@ebay/layout/layout.module';
+import { LayoutModule } from '@ebay/shared/layout';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeRootComponent } from './home-root.component';

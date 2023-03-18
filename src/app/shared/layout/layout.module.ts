@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,8 +22,8 @@ import {
         PageLayoutComponent,
     ],
     imports: [ 
-        RouterLink,
         CommonModule,
+        RouterLink,
         MatIconModule,
     ],
     exports: [

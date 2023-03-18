@@ -7,7 +7,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
-import { SharedModule } from '@ebay/shared/shared.module';
+import { DirectivesModule } from '../directives';
 
 import { 
     PasswordValidator
@@ -46,13 +46,13 @@ import {
     ],
     imports: [ 
         CommonModule,
+        DirectivesModule,
         MatButtonModule,
         ReactiveFormsModule,
         MatProgressBarModule,
         MatCheckboxModule,
         MatInputModule,
         MatIconModule,
-        SharedModule
     ],
     exports: [
         InputTextComponent,

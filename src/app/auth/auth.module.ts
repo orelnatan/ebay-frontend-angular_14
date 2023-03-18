@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { LayoutModule } from '@ebay/layout/layout.module';
+import { LayoutModule } from '@ebay/shared/layout';
 
-import { AuthRoutingModule } from './auth-routing.module';
 import { AuthenticationService } from './services';
 import { AuthGuard } from './guards';
+import { AuthRoutingModule } from './auth-routing.module';
 import { AuthRootComponent } from './auth-root.component';
 
 @NgModule({

@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 
 import { EbayLocalStorageService } from '@ebay/core/services';
 import { AuthenticationService } from '@ebay/auth/services';
-import { IValidation } from '@ebay/eb-forms/models';
 import { ILogin, IUser } from '@ebay/auth/models';
+import { IValidation } from '@ebay/shared/eb-forms/models';
 
 import * as Validations from './validations.json';
 

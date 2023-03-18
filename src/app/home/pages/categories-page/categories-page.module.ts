@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { LayoutModule } from '@ebay/layout/layout.module';
-import { SharedModule } from '@ebay/shared/shared.module';
+import { LayoutModule } from '@ebay/shared/layout';
+import { DirectivesModule } from '@ebay/shared/directives';
+import { ComponentsModule } from '@ebay/shared/components';
 import { CategoriesService } from '@ebay/home/services';
 import { CategoryCardComponent, EntityCardComponent } from '@ebay/home/components';
 
@@ -17,7 +18,8 @@ import { CategoriesPageComponent } from './categories-page.component';
     imports: [ 
         CommonModule,
         LayoutModule,
-        SharedModule,
+        DirectivesModule,
+        ComponentsModule,
         EntityCardComponent,
         RouterModule.forChild([
             { path: '', component: CategoriesPageComponent },

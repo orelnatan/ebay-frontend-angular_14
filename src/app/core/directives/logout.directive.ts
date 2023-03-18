@@ -1,7 +1,7 @@
-import { Directive, EventEmitter,  Output } from '@angular/core';
-import { MatDialog, MatDialogRef,  } from '@angular/material/dialog';
+import { Directive, EventEmitter, Output } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
-import { AlertModalComponent } from '@ebay/shared/modals';
+import { AlertModalComponent } from '@ebay/shared/modals/alert-modal';
 import { IAction } from '@ebay/shared/modals/alert-modal/models';
 
 @Directive({

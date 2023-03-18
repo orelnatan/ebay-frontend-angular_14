@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
-import { LoaderModalComponent } from '../modals';
+import { LoaderModalComponent } from '../modals/loader-modal';
 
 @Directive({
     selector: '[loader]',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { LayoutModule } from '@ebay/layout/layout.module';
+import { LayoutModule } from '@ebay/shared/layout';
 
 import { StatisticsRoutingModule } from './statistics-routing.module';
 import { StatisticsRootComponent } from './statistics-root.component';
