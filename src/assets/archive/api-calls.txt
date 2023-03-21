@@ -111,7 +111,7 @@ const proxyConf = {
 
 
 
-// //onst img = "../../../../../../Desktop/life backup/Projects/React/notes/items/Bella.PNG";
+// //const img = "../../../../../../Desktop/life backup/Projects/React/notes/items/Bella.PNG";
 //         let httpParams = new HttpParams();
 //         httpParams = httpParams.append('key', "a06872ef72c0b074aaa627abfe08f9ea");
 //         httpParams = httpParams.append('image', img);

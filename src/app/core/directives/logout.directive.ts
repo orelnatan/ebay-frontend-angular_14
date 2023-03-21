@@ -2,7 +2,7 @@ import { Directive, EventEmitter, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { AlertModalComponent } from '@ebay/shared/modals/alert-modal';
-import { IAction } from '@ebay/shared/modals/alert-modal/models';
+import { IAction } from '@ebay/shared/models';
 
 @Directive({
     selector: '[logout]',

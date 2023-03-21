@@ -57,8 +57,8 @@ import {
     exports: [
         InputTextComponent,
         InputPasswordComponent,
-        PrimaryButtonComponent,
         InputCheckboxComponent,
+        PrimaryButtonComponent,
         PasswordValidator,
     ]
 })

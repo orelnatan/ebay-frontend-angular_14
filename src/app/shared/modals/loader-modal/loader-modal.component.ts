@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { ComponentsModule } from '@ebay/shared/components';
+
 @Component({
   selector: 'loader-modal',
   template: `
@@ -9,5 +11,9 @@ import { Component } from '@angular/core';
         </ng-container>
     </modal>
   `,
+  standalone: true,
+  imports: [
+    ComponentsModule
+  ]
 })
 export class LoaderModalComponent {}

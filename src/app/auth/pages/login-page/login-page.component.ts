@@ -7,9 +7,6 @@ import { Observable } from 'rxjs';
 import { EbayLocalStorageService } from '@ebay/core/services';
 import { AuthenticationService } from '@ebay/auth/services';
 import { ILogin, IUser } from '@ebay/auth/models';
-import { IValidation } from '@ebay/shared/eb-forms/models';
-
-import * as Validations from './validations.json';
 
 @Component({
   selector: 'login-page',
@@ -17,8 +14,6 @@ import * as Validations from './validations.json';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  validations: Record<string, IValidation> = Validations;
-
   login: ILogin = {
     "username": "Graves Oneal",
     "email": "gravesoneal@quordate.com",

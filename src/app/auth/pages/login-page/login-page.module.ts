@@ -7,12 +7,14 @@ import { LayoutModule } from '@ebay/shared/layout';
 import { EbFormsModule } from '@ebay/shared/eb-forms';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { SnackbarModule } from '@ebay/shared/snackbar';
+import { LoginFormComponent } from '@ebay/auth/components';
 
 import { LoginPageComponent } from './login-page.component';
 
 @NgModule({
     declarations: [
-        LoginPageComponent
+        LoginPageComponent,
+        LoginFormComponent,
     ],
     imports: [ 
         CommonModule,

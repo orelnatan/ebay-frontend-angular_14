@@ -1,2 +1,3 @@
 
-export { ModalsModule } from './modals.module';
+export { AlertModalComponent } from './alert-modal';
+export { LoaderModalComponent } from './loader-modal';

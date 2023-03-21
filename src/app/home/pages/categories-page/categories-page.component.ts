@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { CategoriesService } from '@ebay/home/services';
-import { ICategory } from '@ebay/home/models';
+import { ICategory } from '@ebay/shared/cards/models';
 
 const BRAND_ID_PARAM_NAME: string = "brandId";
 

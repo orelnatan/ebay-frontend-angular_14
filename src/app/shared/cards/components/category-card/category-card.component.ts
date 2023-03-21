@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { ICategory } from '@ebay/home/models';
+import { ICategory } from '../../models';
 
 @Component({
   selector: 'category-card',

@@ -3,8 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, Observable, of as observableOf } from 'rxjs';   
 
 import { environment } from '@ebay/env/environment';
-
-import { ICategory } from '../models';
+import { ICategory } from '@ebay/shared/cards/models';
 
 @Injectable()
 export class CategoriesService {

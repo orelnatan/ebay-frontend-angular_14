@@ -1,0 +1,92 @@
+
+<div class="login-form-main">
+    <div class="form-container" space [top]="30">
+        <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onsubmit.emit(login)" novalidate>
+            <div class="login-input-field">
+                <input-text
+                    [control]="username.control"
+                    [value]="login.username"
+                    [placeholder]="'Enter Your Username'"
+                    [validation]="validations['username']"
+                    [required]="true"
+                    [ngModel]="login.username"
+                    (onchange)="login.username=$event"
+                    #username="ngModel"
+                    id="username-field"
+                    name="username-field"
+                    pattern="[a-zA-Z ]*"
+                    minlength="2"
+                    maxlength="12"
+                    ngDefaultControl>
+                </input-text>
+            </div>
+
+            <div class="login-input-field" space [top]="35">
+                <input-text 
+                    [control]="email.control"
+                    [value]="login.email"
+                    [placeholder]="'Enter Your Email'"
+                    [validation]="validations['email']"
+                    [required]="true"
+                    [ngModel]="login.email"
+                    (onchange)="login.email=$event"
+                    #email="ngModel"
+                    id="email-field"
+                    name="email-field"
+                    ngDefaultControl
+                    email>
+                </input-text>
+            </div>
+            
+            <div class="login-input-field" space [top]="35">
+                <input-password
+                    [control]="password.control"
+                    [value]="login.password"
+                    [placeholder]="'Enter Your Password'"
+                    [validation]="validations['password']"
+                    [required]="true"
+                    [ngModel]="login.password"
+                    (onchange)="login.password=$event"
+                    #password="ngModel"
+                    id="password-field"
+                    name="password-field"
+                    ngDefaultControl
+                    password>
+                </input-password>
+            </div>
+
+            <div class="login-options-container" space [top]="10">
+                <div class="login-input-field" gap [top]="-5">
+                    <input-checkbox
+                        [control]="rememberme.control"
+                        [value]="login.rememberMe"
+                        [placeholder]="'Remember me'"
+                        [validation]="validations['rememberMe']"
+                        [required]="true"
+                        [ngModel]="login.rememberMe"
+                        (onchange)="login.rememberMe=$event"
+                        #rememberme="ngModel"
+                        id="rememberme-field"
+                        name="rememberme-field"
+                        ngDefaultControl>
+                    </input-checkbox>
+                </div>
+                
+                <div class="login-register-link">
+                    <a [routerLink]="['/auth/registration']">
+                        Don't have an account? Register now!
+                    </a>
+                </div>
+            </div>
+
+            <div class="login-input-field" space [top]="35">
+                <primary-button
+                    [placeholder]="'Take Me In!'"
+                    [dosubmit]="true"
+                    [readonly]="loading"
+                    [pending]="loading">
+                </primary-button>
+            </div>
+        </form>
+    </div>
+</div>
