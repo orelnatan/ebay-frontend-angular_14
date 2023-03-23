@@ -1,2 +1,2 @@
 
-export { LogoutDirective } from './logout.directive';
+export { DirectivesModule } from './directives.module';

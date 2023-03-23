@@ -11,15 +11,15 @@ export class ErrorStateDirective implements AfterViewChecked {
     @Input('errorState') control: AbstractControl;
     
     constructor(
-        private readonly element: ElementRef,
+        private readonly elementRef: ElementRef,
         private readonly controlValidityPipe: ControlValidityPipe
     ) {}
 
     ngAfterViewChecked(): void {
         if(this.controlValidityPipe.transform(this.control)) {
-            this.element.nativeElement.classList.add('input-error-state');
+            this.elementRef.nativeElement.classList.add('input-error-state');
         } else {
-            this.element.nativeElement.classList.remove('input-error-state');
+            this.elementRef.nativeElement.classList.remove('input-error-state');
         }
     }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ComponentsModule } from '@ebay/shared/components';
+import { ModalModule, SpinnerModule } from '@ebay/shared/components';
 
 @Component({
   selector: 'loader-modal',
@@ -11,9 +11,5 @@ import { ComponentsModule } from '@ebay/shared/components';
         </ng-container>
     </modal>
   `,
-  standalone: true,
-  imports: [
-    ComponentsModule
-  ]
 })
 export class LoaderModalComponent {}

@@ -10,10 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { DirectivesModule } from '../directives';
 
 import { 
-    PasswordValidator
-} from './validators';
-
-import { 
     DisabledStateDirective,
     ErrorStateDirective
 } from './directives';
@@ -40,7 +36,6 @@ import {
         AbstractToFormControlPipe,
         ValidationPipe,
         ControlValidityPipe,
-        PasswordValidator,
         ErrorStateDirective,
         DisabledStateDirective
     ],
@@ -59,7 +54,6 @@ import {
         InputPasswordComponent,
         InputCheckboxComponent,
         PrimaryButtonComponent,
-        PasswordValidator,
     ]
 })
 export class EbFormsModule {}

@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';  
 
 import { environment } from '@ebay/env/environment';
+import { IUser } from '@ebay/shared/models';
 
-import { ILogin, IUser } from '../models';
+import { ILogin } from '../models';
 
 @Injectable()
 export class AuthenticationService {

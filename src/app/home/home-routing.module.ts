@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from '@ebay/auth/guards';
+import { AuthGuard } from '@ebay/shared/guards';
 
 import { HomeRootComponent } from './home-root.component';
 

@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 
 import { EbayLocalStorageService } from '@ebay/core/services';
 import { AuthenticationService } from '@ebay/auth/services';
-import { ILogin, IUser } from '@ebay/auth/models';
+import { ILogin } from '@ebay/auth/models';
+import { IUser } from '@ebay/shared/models';
 
 @Component({
   selector: 'login-page',
@@ -23,10 +24,10 @@ export class LoginPageComponent {
   login$: Observable<IUser>;
 
   constructor(
-    private readonly matSnackbarService: MatSnackBar,
+    private readonly matSnackbar: MatSnackBar,
     private readonly authenticationService: AuthenticationService,
     private readonly ebayLocalStorageService: EbayLocalStorageService,
-    private readonly routerService: Router
+    private readonly router: Router
   ) {}
 
   handleSubmit(login: ILogin): void {
@@ -36,11 +37,11 @@ export class LoginPageComponent {
   loginSuccess(user: IUser): void {
     this.ebayLocalStorageService.set("user", user);
 
-    this.routerService.navigate(["/home"]);
+    this.router.navigate(["/home"]);
   }
 
   loginFailed(error: HttpErrorResponse): void {
-    this.matSnackbarService.open(error.error.message, 'X', {
+    this.matSnackbar.open(error.error.message, 'X', {
         panelClass: ["snak-error-state"]
     });
   }

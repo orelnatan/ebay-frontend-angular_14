@@ -3,7 +3,7 @@ import { NG_VALIDATORS, Validator, FormControl, ValidationErrors, } from '@angul
 
 import * as NgxPasswordValidator from 'password-validator';
 
-export interface IPasswordErrorDesc {
+interface IPasswordErrorDesc {
     validation: string;
     arguments?: number;
     inverted?: boolean;

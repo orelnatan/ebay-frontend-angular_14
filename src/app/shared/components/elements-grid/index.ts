@@ -1,2 +1,2 @@
 
-export { ElementsGridComponent } from './elements-grid.component';
+export { ElementsGridModule } from './elements-grid.module';

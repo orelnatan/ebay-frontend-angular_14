@@ -1,9 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
 
-import { ComponentsModule } from '@ebay/shared/components';
 import { IAction, IAlertData } from '@ebay/shared/models';
 import { alert } from '@ebay/shared/types';
 
@@ -11,12 +8,6 @@ import { alert } from '@ebay/shared/types';
   selector: 'alert-modal',
   templateUrl: './alert-modal.component.html',
   styleUrls: ['./alert-modal.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    ComponentsModule,
-  ]
 })
 export class AlertModalComponent {
     colors: Record<alert, string> = {
@@ -28,12 +19,12 @@ export class AlertModalComponent {
     }
 
     constructor(
-      public dialogRef: MatDialogRef<AlertModalComponent>,
+      public matDialogRef: MatDialogRef<AlertModalComponent>,
       @Inject(MAT_DIALOG_DATA) public data: IAlertData,
     ) {}
 
     handleAction(action: IAction): void {
-      this.dialogRef.close({
+      this.matDialogRef.close({
          name: action.name,
          task: action.task || (() => {})
       })

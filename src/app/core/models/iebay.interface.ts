@@ -1,4 +1,4 @@
-import { IUser } from "@ebay/auth/models";
+import { IUser } from "@ebay/shared/models";
 
 export interface IEbay {
     user: IUser,

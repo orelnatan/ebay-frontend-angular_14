@@ -1,10 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
 
 import { EbayLocalStorageService } from '@ebay/core/services';
-import { IUser } from '@ebay/auth/models';
+import { IUser } from '@ebay/shared/models';
 
 const AVATAR_EMPTY: string = "../../../../assets/images/png/avatar_empty.png";
 const GUEST_HELLO_TEXT: string = "Hi, Hello There Guest!";

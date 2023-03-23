@@ -7,14 +7,14 @@ export class DisabledStateDirective implements OnChanges {
     @Input() disabledState: boolean;
     
     constructor(
-        private readonly element: ElementRef
+        private readonly elementRef: ElementRef
     ) {}
 
     ngOnChanges(changes: SimpleChanges): void {
         if(this.disabledState) {
-            this.element.nativeElement.classList.add('input-disabled-state');
+            this.elementRef.nativeElement.classList.add('input-disabled-state');
         } else {
-            this.element.nativeElement.classList.remove('input-disabled-state');
+            this.elementRef.nativeElement.classList.remove('input-disabled-state');
         }
     }
 }

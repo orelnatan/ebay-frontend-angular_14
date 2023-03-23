@@ -14,7 +14,7 @@ const REDIRECT_TO_WHILE_AUTHENTICATED: string = "/home";
 export class AuthGuard implements CanActivateChild {
     constructor(
         private readonly ebayLocalStorageService: EbayLocalStorageService,
-        private readonly routerService: Router
+        private readonly router: Router
     ) {}
 
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> {
@@ -26,10 +26,10 @@ export class AuthGuard implements CanActivateChild {
             this.ebayLocalStorageService.get("user").subscribe((user: IUser | null) => {
                 if(!blockWhileAuthenticated) { 
                     // Block while not authenticated(default)
-                    observer.next(user ? true : this.routerService.createUrlTree([redirectToWhileNotAuthenticated])); 
+                    observer.next(user ? true : this.router.createUrlTree([redirectToWhileNotAuthenticated])); 
                 } else { 
                     // Block while authenticated
-                    observer.next(!user ? true : this.routerService.createUrlTree([redirectToWhileAuthenticated])); 
+                    observer.next(!user ? true : this.router.createUrlTree([redirectToWhileAuthenticated])); 
                 }
             })
         })

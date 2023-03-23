@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
-import { AlertModalComponent } from '@ebay/shared/modals/alert-modal';
+import { AlertModalComponent } from '@ebay/shared/modals';
 import { IAction } from '@ebay/shared/models';
 
 @Directive({
@@ -12,11 +12,11 @@ export class LogoutDirective {
     @Output() logout: EventEmitter<void> = new EventEmitter();
     
     constructor(
-        private readonly matDialogService: MatDialog,
+        private readonly matDialog: MatDialog,
     ) {}
 
     public show(): void {
-        const matDialogRef: MatDialogRef<AlertModalComponent> = this.matDialogService.open(AlertModalComponent, {
+        const matDialogRef: MatDialogRef<AlertModalComponent> = this.matDialog.open(AlertModalComponent, {
             data: {         
               type: "info",
               title: "Log out?",

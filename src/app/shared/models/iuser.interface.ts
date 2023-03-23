@@ -1,4 +1,4 @@
-import { UserType } from "./user-type.enum";
+import { UserType } from "@ebay/shared/models";
 
 export interface IUser {
     id: number;

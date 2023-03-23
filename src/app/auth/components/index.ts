@@ -1,2 +1,2 @@
 
-export { LoginFormComponent } from './login-form';
+export { LoginFormModule } from './login-form';

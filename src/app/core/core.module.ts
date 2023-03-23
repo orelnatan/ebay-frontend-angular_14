@@ -4,21 +4,21 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { LayoutModule } from '@ebay/shared/layout';
 
-import { EbayLocalStorageService } from './services';
-import { LogoutDirective } from './directives';
 import { CoreRoutingModule } from './core-routing.module';
 import { CoreRootComponent } from './core-root.component';
+import { EbayLocalStorageService } from './services';
+import { DirectivesModule } from './directives';
 
 @NgModule({
     declarations: [
         CoreRootComponent,
-        LogoutDirective,
     ],
     imports: [ 
         HttpClientModule,
         CoreRoutingModule,
         MatDialogModule,
         LayoutModule,
+        DirectivesModule
     ],
     providers: [
         EbayLocalStorageService,

@@ -1,6 +1,6 @@
 import { alert } from '@ebay/shared/types';
 
-import { IAction } from "./iaction.model";
+import { IAction } from "./iaction.interface";
 
 export interface IAlertData {
     type: alert;
