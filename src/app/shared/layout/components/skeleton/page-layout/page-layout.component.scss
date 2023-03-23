@@ -3,6 +3,10 @@
 .page-layout-main {
     @extend %page-layout;
 
+    .page-intermediate-layer {
+        @extend %page-intermediate;
+    }
+
     .page-content-container {
         @extend %page-content;
     }
