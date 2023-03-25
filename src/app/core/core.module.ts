@@ -4,10 +4,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { LayoutModule } from '@ebay/shared/layout';
 
-import { CoreRoutingModule } from './core-routing.module';
-import { CoreRootComponent } from './core-root.component';
 import { EbayLocalStorageService } from './services';
 import { DirectivesModule } from './directives';
+import { AppNavbarModule } from './components';
+import { CoreRoutingModule } from './core-routing.module';
+import { CoreRootComponent } from './core-root.component';
+
+import { SideNavbarModule } from '@ebay/shared/components';
 
 @NgModule({
     declarations: [
@@ -17,7 +20,9 @@ import { DirectivesModule } from './directives';
         HttpClientModule,
         CoreRoutingModule,
         MatDialogModule,
+        AppNavbarModule,
         LayoutModule,
+        SideNavbarModule,
         DirectivesModule
     ],
     providers: [

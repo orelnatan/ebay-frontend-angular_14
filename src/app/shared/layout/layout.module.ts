@@ -4,22 +4,20 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 import { 
-    PageLayoutComponent, 
     RootLayoutComponent,
-    PrimaryNavbarComponent,
-    SecondaryNavbarComponent,
-    SubNavbarComponent,
-    SideNavbarComponent,
+    PageLayoutComponent, 
+    LayoutHeaderComponent,
+    LayoutSidebarComponent,
+    LayoutFooterComponent,
 } from './components';
 
 @NgModule({
     declarations: [
-        PrimaryNavbarComponent,
-        SecondaryNavbarComponent,
-        SubNavbarComponent,
-        SideNavbarComponent,
         RootLayoutComponent,
-        PageLayoutComponent,
+        PageLayoutComponent, 
+        LayoutHeaderComponent,
+        LayoutSidebarComponent,
+        LayoutFooterComponent
     ],
     imports: [ 
         CommonModule,
@@ -28,11 +26,10 @@ import {
     ],
     exports: [
         RootLayoutComponent,
-        PageLayoutComponent,
-        PrimaryNavbarComponent,
-        SecondaryNavbarComponent,
-        SubNavbarComponent,
-        SideNavbarComponent,
+        PageLayoutComponent, 
+        LayoutHeaderComponent,
+        LayoutSidebarComponent,
+        LayoutFooterComponent
     ]
 })
 export class LayoutModule {}

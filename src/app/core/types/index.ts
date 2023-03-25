@@ -1,2 +1,3 @@
 
-export { props } from './props.type';
+export { Ebay } from './ebay.type';
+export { StorageTypes } from './storage-types.type';

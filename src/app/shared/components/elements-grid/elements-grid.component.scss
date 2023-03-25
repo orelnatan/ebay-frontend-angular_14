@@ -1,5 +1,4 @@
 // https://stackoverflow.com/questions/43662552/getting-columns-to-wrap-in-css-grid(/* see notes below */)
-// grid-template-columns: repeat(auto-fill, minmax(365px, 1fr)); 
 
 .elements-grid-main {
     width: 100%;
@@ -7,6 +6,7 @@
     .grid-container {
         display: grid;
         grid-gap: 15px;
+        overflow: hidden;   // "overflow: hidden" To support Safari
     }
 }
 

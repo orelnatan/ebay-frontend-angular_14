@@ -1,36 +1,36 @@
 import { Injectable, }  from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 
-import { IEbay } from '../models';
-import { props } from '../types';
+import { StorageProperties } from '../models';
+import { Ebay, StorageTypes } from '../types';
 
 @Injectable()
 export class EbayLocalStorageService {
-    private storage: IEbay;
+    private storage: Ebay;
 
     constructor() {
         this.storage = JSON.parse(localStorage.getItem("Ebay")!) || {};
     }
 
-    public get(prop: props): Observable<IEbay[props] | null> {
-        return new Observable((observer: Subscriber<IEbay[props] | null>): void => {
-            observer.next(this.storage[prop] || null)
+    public get(property: StorageProperties): Observable<StorageTypes> {
+        return new Observable((observer: Subscriber<StorageTypes>): void => {
+            observer.next(this.storage[property]);
         })
     }
 
-    public set(prop: props, value: any): void {
-        this.storage[prop] = value;
+    public set(property: StorageProperties, value: StorageTypes): void {
+        this.storage[property] = value;
 
         this.update(this.storage);
     }
 
     public clear(): void {
-        this.storage = {} as IEbay;
+        this.storage = {} as Ebay;
 
         this.update(this.storage);
     }
 
-    private update(storage: IEbay): void {
+    private update(storage: Ebay): void {
         localStorage.removeItem("Ebay");
 
         localStorage.setItem("Ebay", JSON.stringify(storage));

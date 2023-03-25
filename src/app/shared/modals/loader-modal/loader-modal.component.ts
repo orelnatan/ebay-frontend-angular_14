@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { ModalModule, SpinnerModule } from '@ebay/shared/components';
-
 @Component({
   selector: 'loader-modal',
   template: `

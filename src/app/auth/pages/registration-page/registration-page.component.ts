@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import * as validations from './validations.json';
-
 @Component({
   selector: 'registration-page',
   templateUrl: './registration-page.component.html',

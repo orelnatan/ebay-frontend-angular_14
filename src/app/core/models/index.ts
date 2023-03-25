@@ -1,2 +1,2 @@
 
-export { IEbay } from './iebay.interface';
+export { StorageProperties } from './storage-properties.enum';

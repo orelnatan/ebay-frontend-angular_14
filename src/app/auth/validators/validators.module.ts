@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 
 import { PasswordValidator } from './password.validator';
