@@ -3,14 +3,14 @@
    <div class="navbar-inner">
       <div class="avatar-container">
          <mat-icon>{{ 'waving_hand' }}</mat-icon>
-         <span>{{ getGreetingText(ebayLocalStorageService.get(storage.User) | async) }}</span>
+         <span>{{ getGreetingText(ebayLocalStorageService.retrieve(keys.User) | async) }}</span>
         
          <div class="img-container">
-            <img [src]="getUserAvatar(ebayLocalStorageService.get(storage.User) | async)" />
+            <img [src]="getUserAvatar(ebayLocalStorageService.retrieve(keys.User) | async)" />
          </div>
       </div>
       
-      <div class="icons-container" *ngIf="ebayLocalStorageService.get(storage.User) | async">
+      <div class="icons-container" *ngIf="ebayLocalStorageService.retrieve(keys.User) | async">
          <mat-icon (click)="logout.emit()"> {{ 'logout' }} </mat-icon>
          <mat-icon> {{ 'account_circle' }} </mat-icon>
          <mat-icon> {{ 'settings' }} </mat-icon>

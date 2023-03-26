@@ -13,12 +13,14 @@ const BRAND_ID_PARAM_NAME: string = "brandId";
   styleUrls: ['./categories-page.component.scss']
 })
 export class CategoriesPageComponent {
-  categories$: Observable<ICategory[]> = this.categoriesService.fetchAll(
-    parseInt(this.activatedRoute.snapshot.paramMap.get(BRAND_ID_PARAM_NAME)!)
-  );
+  categories$: Observable<ICategory[]> = this.categoriesService.fetchAll(this.brandId);
 
   constructor(
       private readonly categoriesService: CategoriesService,
       private readonly activatedRoute: ActivatedRoute
   ) {}
+
+  get brandId(): number {
+    return parseInt(this.activatedRoute.snapshot.paramMap.get(BRAND_ID_PARAM_NAME)!)
+  }
 }

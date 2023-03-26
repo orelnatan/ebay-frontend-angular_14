@@ -1,8 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { IAction, IAlertData } from '@ebay/shared/models';
-import { alert } from '@ebay/shared/types';
+import { AlertType, IAction, IAlertData } from '@ebay/shared/models';
 
 @Component({
   selector: 'alert-modal',
@@ -10,7 +9,7 @@ import { alert } from '@ebay/shared/types';
   styleUrls: ['./alert-modal.component.scss'],
 })
 export class AlertModalComponent {
-    colors: Record<alert, string> = {
+    colors: Record<AlertType, string> = {
       success: "#228B22",
       failure: "#FF6060",
       info: "#1D72F3",

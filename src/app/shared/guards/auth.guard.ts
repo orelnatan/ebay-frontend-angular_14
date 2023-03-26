@@ -2,11 +2,10 @@ import { Injectable, } from '@angular/core';
 import { Router, UrlTree, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 
-import { StorageProperties } from '@ebay/core/models';
+import { StorageKeys } from '@ebay/core/models';
 import { EbayLocalStorageService } from '@ebay/core/services';
 
 import { IUser } from '../models';
-import { StorageTypes } from '@ebay/core/types';
 
 const BLOCK_WHILE_AUTHENTICATED: boolean = false;
 const REDIRECT_TO_WHILE_NOT_AUTHENTICATED: string = "/auth";
@@ -25,7 +24,7 @@ export class AuthGuard implements CanActivateChild {
         const redirectToWhileAuthenticated: string = route.data['redirectToWhileAuthenticated'] || REDIRECT_TO_WHILE_AUTHENTICATED;
 
         return new Observable((observer: Subscriber<boolean | UrlTree>): void => {
-            this.ebayLocalStorageService.get(StorageProperties.User).subscribe((user: IUser) => {
+            this.ebayLocalStorageService.retrieve<IUser>(StorageKeys.User).subscribe((user: IUser): void => {
                 if(!blockWhileAuthenticated) { 
                     // Block while not authenticated(default)
                     observer.next(user ? true : this.router.createUrlTree([redirectToWhileNotAuthenticated])); 

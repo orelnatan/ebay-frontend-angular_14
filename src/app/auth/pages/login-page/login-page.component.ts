@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 
 import { EbayLocalStorageService } from '@ebay/core/services';
-import { StorageProperties } from '@ebay/core/models';
+import { StorageKeys } from '@ebay/core/models';
 import { AuthenticationService } from '@ebay/auth/services';
 import { ILogin } from '@ebay/auth/models';
 import { IUser } from '@ebay/shared/models';
@@ -36,8 +36,8 @@ export class LoginPageComponent {
   }
 
   loginSuccess(user: IUser): void {
-    this.ebayLocalStorageService.set(StorageProperties.User, user);
-
+    this.ebayLocalStorageService.store(StorageKeys.User, user);
+    
     this.router.navigate(["/home"]);
   }
 

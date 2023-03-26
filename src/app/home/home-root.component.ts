@@ -4,19 +4,19 @@ import { Component } from '@angular/core';
   selector: 'home-root',
   template: `
     <root-layout>
-       <layout-header top-primary>
+       <layout-header header-primary>
           <utils-panel></utils-panel>
        </layout-header>
 
-       <layout-header top-secondary>
-          <breadcrumbs></breadcrumbs>
+       <layout-header header-secondary>
+            <breadcrumbs></breadcrumbs>
        </layout-header>
+
+       <router-outlet></router-outlet>
 
        <layout-sidebar side-primary>
           <side-navbar></side-navbar>
        </layout-sidebar>
-
-       <router-outlet></router-outlet>
     </root-layout>
   `,
 })

@@ -1,25 +1,26 @@
 import { Injectable, }  from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 
-import { StorageProperties } from '../models';
-import { Ebay, StorageTypes } from '../types';
+import { Ebay, StorageKeys, StorageValues } from '../models';
+
+const LOCAL_STORAGE_NAME: string = "Ebay";
 
 @Injectable()
 export class EbayLocalStorageService {
     private storage: Ebay;
 
     constructor() {
-        this.storage = JSON.parse(localStorage.getItem("Ebay")!) || {};
+        this.storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_NAME)!) || {};
     }
 
-    public get(property: StorageProperties): Observable<StorageTypes> {
-        return new Observable((observer: Subscriber<StorageTypes>): void => {
-            observer.next(this.storage[property]);
+    public retrieve<T extends StorageValues>(key: StorageKeys): Observable<T> {
+        return new Observable((observer: Subscriber<T>): void => {
+            observer.next(this.storage[key] as T);
         })
     }
 
-    public set(property: StorageProperties, value: StorageTypes): void {
-        this.storage[property] = value;
+    public store(key: StorageKeys, value: StorageValues): void {
+        this.storage[key] = value;
 
         this.update(this.storage);
     }
@@ -31,8 +32,8 @@ export class EbayLocalStorageService {
     }
 
     private update(storage: Ebay): void {
-        localStorage.removeItem("Ebay");
+        localStorage.removeItem(LOCAL_STORAGE_NAME);
 
-        localStorage.setItem("Ebay", JSON.stringify(storage));
+        localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(storage));
     }
 }

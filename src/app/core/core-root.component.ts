@@ -7,7 +7,7 @@ import { EbayLocalStorageService } from './services';
   selector: 'core-root',
   template: `
      <root-layout #logout="logout" (logout)="disconnect()">
-        <layout-header top-primary>
+        <layout-header header-primary>
             <app-navbar
               (logout)="logout.show()">
             </app-navbar>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { StorageProperties } from '@ebay/core/models';
 import { EbayLocalStorageService } from '@ebay/core/services';
+import { StorageKeys } from '@ebay/core/models';
 import { IUser } from '@ebay/shared/models';
 
 const AVATAR_EMPTY: string = "../../../../assets/images/png/avatar_empty.png";
@@ -16,7 +16,7 @@ const USER_HELLO_TEXT: string = "Hi, Welcome back ";
 export class AppNavbarComponent {
   @Output() logout: EventEmitter<void> = new EventEmitter();
   
-  storage = StorageProperties;
+  keys: typeof StorageKeys = StorageKeys;
 
   constructor(
     public readonly ebayLocalStorageService: EbayLocalStorageService,
