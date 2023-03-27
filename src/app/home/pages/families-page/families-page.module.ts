@@ -6,13 +6,13 @@ import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
 import { CardsModule } from '@ebay/shared/cards';
-import { BrandsService } from '@ebay/home/services';
+import { FamiliesService } from '@ebay/home/services';
 
-import { BrandsPageComponent } from './brands-page.component';
+import { FamiliesPageComponent } from './families-page.component';
 
 @NgModule({
     declarations: [
-        BrandsPageComponent,
+        FamiliesPageComponent,
     ],
     imports: [ 
         CommonModule,
@@ -21,11 +21,11 @@ import { BrandsPageComponent } from './brands-page.component';
         ElementsGridModule,
         CardsModule,
         RouterModule.forChild([
-            { path: '', component: BrandsPageComponent },
+            { path: '', component: FamiliesPageComponent },
         ])
     ],
     providers: [
-        BrandsService
+        FamiliesService
     ]
 })
-export class BrandsPageModule {}
+export class FamiliesPageModule {}

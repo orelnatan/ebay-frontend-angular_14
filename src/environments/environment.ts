@@ -13,6 +13,7 @@ export const environment = {
     home: {
       brands: `${baseUrl}/get-all-brands`,
       categories: `${baseUrl}/get-categories-by-brand-id`,
+      families: `${baseUrl}/get-families-by-category-id`,
     }
   }
 };
