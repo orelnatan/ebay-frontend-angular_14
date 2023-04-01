@@ -13,6 +13,6 @@ export class BrandsPageComponent {
     brands$: Observable<IBrand[]> = this.brandsService.fetchAll();
 
     constructor(
-        private readonly brandsService: BrandsService
+        public readonly brandsService: BrandsService
     ) {}
 }

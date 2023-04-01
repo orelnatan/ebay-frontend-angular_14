@@ -21,7 +21,12 @@ import { FamiliesPageComponent } from './families-page.component';
         ElementsGridModule,
         CardsModule,
         RouterModule.forChild([
-            { path: '', component: FamiliesPageComponent },
+            { path: '', redirectTo: 'families', pathMatch: 'full' },
+            { 
+                path: 'families',
+                component: FamiliesPageComponent,
+                children: []
+            },
         ])
     ],
     providers: [

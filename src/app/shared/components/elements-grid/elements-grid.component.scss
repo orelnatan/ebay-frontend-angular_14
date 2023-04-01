@@ -2,11 +2,13 @@
 
 .elements-grid-main {
     width: 100%;
+    margin-bottom: -12px;
 
     .grid-container {
         display: grid;
         grid-gap: 15px;
         overflow: hidden;   // "overflow: hidden" To support Safari
+        padding-bottom: 12px;
     }
 }
 

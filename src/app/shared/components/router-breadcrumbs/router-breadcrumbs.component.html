@@ -1,0 +1,8 @@
+
+<div class="router-breadcrumbs-main">
+    <div class="crubms-list">
+        <div class="crumb-item" *ngFor="let route of routes; let index=index; let last=last;" (click)="navigate(index)">
+            <span class="crumb-label">{{ route | titlecase | regExp: ['/[0-9]/g', '/#/g'] }}</span> <span [hidden]="last">/</span>
+        </div>
+    </div>
+</div>

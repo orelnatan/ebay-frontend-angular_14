@@ -14,16 +14,6 @@ const routes: Routes = [
                 loadChildren: () => import('./pages/brands-page').then(brands => brands.BrandsPageModule),
                 canActivateChild: [AuthGuard],
             },
-            { 
-                path: 'brands/:brandId/categories',
-                loadChildren: () => import('./pages/categories-page').then(categories => categories.CategoriesPageModule),
-                canActivateChild: [AuthGuard],
-            },
-            { 
-                path: 'brands/:brandId/categories/:categoryId/families',
-                loadChildren: () => import('./pages/families-page').then(families => families.FamiliesPageModule),
-                canActivateChild: [AuthGuard],
-            }
         ]
     },
 ];

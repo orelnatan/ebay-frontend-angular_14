@@ -1,5 +1,5 @@
 
-<page-layout>
+<page-layout *ngIf="!outlet.isActivated">
     <div class="families-page-main">
         <ng-container #resolver="resolver" loader #loader="loader"
             [rxResolver]="families$"
@@ -14,3 +14,7 @@
         </ng-container>
     </div>
 </page-layout>
+
+<router-outlet #outlet="outlet" 
+    (deactivate)="families$=familiesService.fetchAll(this.categoryId)">
+</router-outlet>

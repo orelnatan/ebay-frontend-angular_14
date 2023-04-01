@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'entity-card',
@@ -10,4 +11,14 @@ export class EntityCardComponent {
   @Input() name: string;
   @Input() image: string;
   @Input() link: string;
+
+  constructor(
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
+  ) {}
+
+  navigate(name: string, id: number, link: string): void {
+    this.router.navigate([`${name.toLowerCase()}#${id}`, link], { relativeTo: this.activatedRoute })
+  }
+
 }

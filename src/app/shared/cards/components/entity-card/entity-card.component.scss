@@ -2,8 +2,6 @@
 
 .entity-card-main {
     width: 100%;
-    background-color: $color-black;
-    cursor: pointer;
 
     .card-image {
       height: 265px;
@@ -12,12 +10,13 @@
     .card-content {
       height: 55px;
       padding: 10px;
-      border-top: thin solid $color-white;
+      border-top: thin solid $color-black;
     }
 
     span {
+      cursor: pointer;
+      color: $color-info;
       font-family: assistant-bold;
-      color: $color-white;
     }
 
     img {

@@ -5,7 +5,7 @@
     </div>
 
     <div class="card-content">
-        <span [routerLink]="link ? ['.', id, link] : null">
+        <span (click)="link ? navigate(name, id, link) : null">
             {{ name }}
         </span>
     </div>

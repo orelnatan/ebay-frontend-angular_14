@@ -8,4 +8,6 @@ import { Component, Input } from '@angular/core';
 export class PageLayoutComponent {  
   @Input() fitWidthByContent: boolean;
   @Input() fitHeightByContent: boolean;
+
+  @Input() withoutPadding: boolean;
 }
