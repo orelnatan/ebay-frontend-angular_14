@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { FamiliesService } from '@ebay/home/services';
 import { IFamily } from '@ebay/shared/cards/models';
 
-const CATEGORY_PARAM_NAME: string = "category";
+const PARAM_NAME: string = "categoryId";
 
 @Component({
   selector: 'families-page',
@@ -21,6 +21,6 @@ export class FamiliesPageComponent {
   ) {}
 
   get categoryId(): number {
-    return Number(this.activatedRoute.snapshot.paramMap.get(CATEGORY_PARAM_NAME)?.split('#')[1]!)
+    return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME))
   }
 }

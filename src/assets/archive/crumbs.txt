@@ -8,11 +8,11 @@ interface ICrumb {
 
 @UntilDestroy()
 @Component({
-    selector: 'router-breadcrumbs',
-    templateUrl: './router-breadcrumbs.component.html',
-    styleUrls: ['./router-breadcrumbs.component.scss'],
+    selector: 'breadcrumbs',
+    templateUrl: './breadcrumbs.component.html',
+    styleUrls: ['./breadcrumbs.component.scss'],
 })
-export class RouterBreadcrumbsComponent {
+export class BreadcrumbsComponent {
     routes: Array<string> = [];
     crumbs: Array<ICrumb> = [];
 
@@ -79,3 +79,48 @@ export class RouterBreadcrumbsComponent {
         return crumbs;
     }
 }
+
+
+
+<div class="breadcrumbs-main">
+    <div class="crubms-list">
+        <div class="crumb-item" *ngFor="let route of routes; let index=index; let last=last;" (click)="navigate(index)">
+            <span class="crumb-label">{{ route | titlecase | regExp: ['/[0-9]/g', '/#/g'] }}</span> <span [hidden]="last">/</span>
+        </div>
+    </div>
+</div>
+
+in DB unter "categories" table, category "Corecom officia" with id "28667" has changed to id "879" like the brand named "UNCORP"
+
+
+
+ private _resolveCrumbId(snapshot: ActivatedRouteSnapshot): string {
+        const path: string = snapshot.url[0]?.path;
+        const index: number = get(snapshot, "_lastPathIndex");
+
+        return `_${path}#${index}`;
+    }
+
+
+
+
+<div class="breadcrumbs-main">
+    <div class="crubms-list">
+        <ng-container *ngFor="let crumb of crumbs; let index=index">
+            <div class="crumb-item" 
+                [class.to-upper-case]="uppercase"
+                [class.to-lower-case]="lowercase"
+            >
+                <span [hidden]="crumb.noSeperator">/</span>
+                <span class="crumb-name"
+                    [class.active-crumb]="!crumb.disabled"
+                    [class.disabled-crumb]="crumb.disabled"
+                    [style.color]="crumb.color"
+                    (click)="crumb.disabled ? null : navigateByIndex(index)" 
+                >
+                    {{ (crumb.name || crumb.path) | toTitleCase: titlecase }}
+                </span>
+            </div> 
+        </ng-container>
+    </div>
+</div>

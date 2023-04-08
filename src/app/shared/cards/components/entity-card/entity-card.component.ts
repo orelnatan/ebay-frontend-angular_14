@@ -17,8 +17,8 @@ export class EntityCardComponent {
     private readonly activatedRoute: ActivatedRoute
   ) {}
 
-  navigate(name: string, id: number, link: string): void {
-    this.router.navigate([`${name.toLowerCase()}#${id}`, link], { relativeTo: this.activatedRoute })
+  navigate(id: number, link: string): void {
+    this.router.navigate([id, link], { relativeTo: this.activatedRoute })
   }
 
 }

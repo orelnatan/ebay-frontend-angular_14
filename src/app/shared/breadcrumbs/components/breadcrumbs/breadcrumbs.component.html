@@ -1,0 +1,22 @@
+
+<div class="breadcrumbs-main">
+    <div class="crubms-list">
+        <ng-container *ngFor="let crumb of crumbs$ | async">
+            <div class="crumb-item" [class.to-upper-case]="uppercase" [class.to-lower-case]="lowercase">
+                <span [hidden]="crumb.noSeperator">/</span>
+                
+                <ng-container *ngIf="!crumb.disabled; else disabledCrumb">
+                    <span class="crumb-name active-crumb" [style.color]="crumb.color" [navigateByPathIndex]="crumb.pathIndex">
+                        {{ (crumb.name || crumb.path) | titlecase }}
+                    </span>
+                </ng-container>
+                
+                <ng-template #disabledCrumb>
+                    <span class="crumb-name disabled-crumb">
+                        {{ (crumb.name || crumb.path) | titlecase }}
+                    </span>
+                </ng-template>
+            </div> 
+        </ng-container>
+    </div>
+</div>

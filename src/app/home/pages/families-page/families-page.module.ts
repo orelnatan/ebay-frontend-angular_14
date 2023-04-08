@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
+import { BreadcrumbPathResolver } from '@ebay/shared/breadcrumbs';
 import { CardsModule } from '@ebay/shared/cards';
 import { FamiliesService } from '@ebay/home/services';
 
@@ -25,7 +26,11 @@ import { FamiliesPageComponent } from './families-page.component';
             { 
                 path: 'families',
                 component: FamiliesPageComponent,
-                children: []
+                runGuardsAndResolvers: "always",
+                resolve: {
+                    path: BreadcrumbPathResolver
+                },
+                children: [],
             },
         ])
     ],

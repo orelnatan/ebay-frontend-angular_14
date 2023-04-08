@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { CategoriesService } from '@ebay/home/services';
 import { ICategory } from '@ebay/shared/cards/models';
 
-const BRAND_PARAM_NAME: string = "brand";
+const PARAM_NAME: string = "brandId";
 
 @Component({
   selector: 'categories-page',
@@ -21,6 +21,6 @@ export class CategoriesPageComponent {
   ) {}
 
   get brandId(): number {
-    return Number(this.activatedRoute.snapshot.paramMap.get(BRAND_PARAM_NAME)?.split('#')[1]!)
+    return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));
   }
 }

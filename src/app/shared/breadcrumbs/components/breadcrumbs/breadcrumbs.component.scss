@@ -1,0 +1,42 @@
+@import './src/assets/config/colors.scss';
+
+.breadcrumbs-main {
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    background-color: $color-white-gray;
+
+    .active-crumb {
+        cursor: pointer;
+        color: $color-info;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .disabled-crumb {
+        cursor: not-allowed;
+        color: $color-office;
+        opacity: 0.4;
+    }
+
+    .crubms-list {
+        display: flex;
+        margin: 0px -2px;
+    }
+
+    .to-upper-case {
+        text-transform: uppercase;
+    }
+
+    .to-lower-case {
+        text-transform: lowercase;
+    }
+
+    span {
+        font-family: assistant-bold;
+        line-height: 40px;
+        padding: 0px 2px;
+    }
+}

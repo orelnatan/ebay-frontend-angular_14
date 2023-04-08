@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
+import { BreadcrumbPathResolver } from '@ebay/shared/breadcrumbs';
 import { AuthGuard } from '@ebay/shared/guards';
 import { CardsModule } from '@ebay/shared/cards';
 import { CategoriesService } from '@ebay/home/services';
@@ -26,11 +27,19 @@ import { CategoriesPageComponent } from './categories-page.component';
             { 
                 path: 'categories',
                 component: CategoriesPageComponent,
+                runGuardsAndResolvers: "always",
+                resolve: {
+                    path: BreadcrumbPathResolver
+                },
                 children: [
                     { 
-                        path: ':category',
+                        path: ':categoryId',
                         loadChildren: () => import('../../pages/families-page').then(families => families.FamiliesPageModule),
+                        runGuardsAndResolvers: "always",
                         canActivateChild: [AuthGuard],
+                        resolve: {
+                            path: BreadcrumbPathResolver,
+                        }
                     }
                 ]
             },

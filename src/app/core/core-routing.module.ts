@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { BreadcrumbPathResolver } from '@ebay/shared/breadcrumbs';
+
 import { CoreRootComponent } from './core-root.component';
 
 const routes: Routes = [
@@ -9,11 +11,20 @@ const routes: Routes = [
         [
             { 
                 path: 'home',
-                loadChildren: () => import('../home/home.module').then(home => home.HomeModule)
+                loadChildren: () => import('../home/home.module').then(home => home.HomeModule),
+                runGuardsAndResolvers: "always",
+                data: {
+                    breadcrumb: {
+                        noSeperator: true
+                    }
+                },
+                resolve: {
+                    path: BreadcrumbPathResolver
+                }
             },
             { 
                 path: 'auth',
-                loadChildren: () => import('../auth/auth.module').then(auth => auth.AuthModule)
+                loadChildren: () => import('../auth/auth.module').then(auth => auth.AuthModule),
             },
             { 
                 path: 'statistics',

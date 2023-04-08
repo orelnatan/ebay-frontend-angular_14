@@ -6,7 +6,7 @@ const RegexParser = require("regex-parser");
    name: 'regExp',
 })
 export class RegExpPipe implements PipeTransform {
-    transform(value: string, expressions?: Array<string | RegExp>): string {  
+    transform(value: string, expressions?: Array<string | RegExp>): string { 
         expressions?.forEach((regExp: string | RegExp) => {
             value = value.replace(RegexParser(regExp), '');
         })

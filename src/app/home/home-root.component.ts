@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
       </layout-header>
 
       <layout-header header-secondary>
-        <router-breadcrumbs></router-breadcrumbs>
+        <breadcrumbs></breadcrumbs>
       </layout-header>
 
       <router-outlet></router-outlet>
