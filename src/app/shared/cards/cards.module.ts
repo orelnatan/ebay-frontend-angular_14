@@ -6,6 +6,7 @@ import {
     CategoryCardComponent,
     EntityCardComponent,
     FamilyCardComponent,
+    ProductCardComponent,
 } from './components';
 
 @NgModule({
@@ -13,7 +14,8 @@ import {
         EntityCardComponent,
         BrandCardComponent,
         CategoryCardComponent,
-        FamilyCardComponent
+        FamilyCardComponent,
+        ProductCardComponent
     ],
     imports: [ 
         RouterModule,
@@ -21,7 +23,8 @@ import {
     exports: [
         BrandCardComponent,
         CategoryCardComponent,
-        FamilyCardComponent
+        FamilyCardComponent,
+        ProductCardComponent
     ]
 })
 export class CardsModule {}

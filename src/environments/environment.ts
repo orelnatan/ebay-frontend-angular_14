@@ -11,9 +11,19 @@ export const environment = {
       login: `${baseUrl}/login`
     },
     home: {
-      brands: `${baseUrl}/get-all-brands`,
-      categories: `${baseUrl}/get-categories-by-brand-id`,
-      families: `${baseUrl}/get-families-by-category-id`,
+      brands: {
+          all: `${baseUrl}/get-all-brands`
+      },
+      categories: { 
+          byBrandId: `${baseUrl}/get-categories-by-brand-id`
+      },
+      families: { 
+          byCategoryId: `${baseUrl}/get-families-by-category-id`
+      },
+      products: {
+          byFamilyId: `${baseUrl}/get-products-by-family-id`,
+          byName: `${baseUrl}/get-products-by-name`,
+      } 
     }
   }
 };

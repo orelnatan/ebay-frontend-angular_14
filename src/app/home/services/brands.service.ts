@@ -14,7 +14,7 @@ export class BrandsService {
     ) {}
                 
     fetchAll(): Observable<IBrand[]> {
-        return this.brands ? observableOf(this.brands) : this.httpClient.get<IBrand[]>(environment.apis.home.brands)
+        return this.brands ? observableOf(this.brands) : this.httpClient.get<IBrand[]>(environment.apis.home.brands.all)
         .pipe(
             map((brands: IBrand[]): IBrand[] => {
                 this.brands = brands;
@@ -24,7 +24,7 @@ export class BrandsService {
         )
     }
 
-    getSingleBrand(brandId: number): Observable<IBrand> {
+    getSingleEntity(brandId: number): Observable<IBrand> {
         return this.brands ? observableOf(this.brands.find(brand => brandId == brand.id)!) :
         this.fetchAll()
         .pipe(

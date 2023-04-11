@@ -17,7 +17,7 @@ export class FamiliesService {
         let httpParams: HttpParams = new HttpParams();
         httpParams = httpParams.append("categoryId", categoryId);
         
-        return this.families[categoryId] ? observableOf(this.families[categoryId]) : this.httpClient.get<IFamily[]>(environment.apis.home.families, {
+        return this.families[categoryId] ? observableOf(this.families[categoryId]) : this.httpClient.get<IFamily[]>(environment.apis.home.families.byCategoryId, {
             params: httpParams
         }).pipe(
             map((families: IFamily[]): IFamily[] => {
@@ -28,7 +28,7 @@ export class FamiliesService {
         );
     }
 
-    getSingleFamily(categoryId: number, familyId: number): Observable<IFamily> {
+    getSingleEntity(categoryId: number, familyId: number): Observable<IFamily> {
         return this.families ? observableOf(this.families[categoryId].find(family => familyId == family.id)!) :
         this.fetchAll(categoryId)
         .pipe(

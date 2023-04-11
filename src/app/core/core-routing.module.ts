@@ -25,6 +25,15 @@ const routes: Routes = [
             { 
                 path: 'auth',
                 loadChildren: () => import('../auth/auth.module').then(auth => auth.AuthModule),
+                runGuardsAndResolvers: "always",
+                data: {
+                    breadcrumb: {
+                        noSeperator: true
+                    }
+                },
+                resolve: {
+                    path: BreadcrumbPathResolver
+                }
             },
             { 
                 path: 'statistics',

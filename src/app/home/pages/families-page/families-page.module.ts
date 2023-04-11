@@ -6,6 +6,7 @@ import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
 import { BreadcrumbPathResolver } from '@ebay/shared/breadcrumbs';
+import { AuthGuard } from '@ebay/shared/guards';
 import { CardsModule } from '@ebay/shared/cards';
 import { FamiliesService } from '@ebay/home/services';
 
@@ -30,7 +31,17 @@ import { FamiliesPageComponent } from './families-page.component';
                 resolve: {
                     path: BreadcrumbPathResolver
                 },
-                children: [],
+                children: [
+                    {
+                        path: ':familyId',
+                        loadChildren: () => import('../../pages/products-page').then(products => products.ProductsPageModule),
+                        runGuardsAndResolvers: "always",
+                        canActivateChild: [AuthGuard],
+                        resolve: {
+                            path: BreadcrumbPathResolver,
+                        }
+                    }
+                ],
             },
         ])
     ],

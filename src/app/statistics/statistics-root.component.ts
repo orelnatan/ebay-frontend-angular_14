@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'statistics-root',
   template: `
     <root-layout>
-       <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
     </root-layout>
   `,
 })

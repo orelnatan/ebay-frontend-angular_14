@@ -17,7 +17,7 @@ export class CategoriesService {
         let httpParams: HttpParams = new HttpParams();
         httpParams = httpParams.append("brandId", brandId);
         
-        return this.categories[brandId] ? observableOf(this.categories[brandId]) : this.httpClient.get<ICategory[]>(environment.apis.home.categories, {
+        return this.categories[brandId] ? observableOf(this.categories[brandId]) : this.httpClient.get<ICategory[]>(environment.apis.home.categories.byBrandId, {
             params: httpParams
         }).pipe(
             map((categories: ICategory[]): ICategory[] => {
@@ -28,7 +28,7 @@ export class CategoriesService {
         );
     }
 
-    getSingleCategory(brandId: number, categoryId: number): Observable<ICategory> {
+    getSingleEntity(brandId: number, categoryId: number): Observable<ICategory> {
         return this.categories ? observableOf(this.categories[brandId].find(category => categoryId == category.id)!) :
         this.fetchAll(brandId)
         .pipe(

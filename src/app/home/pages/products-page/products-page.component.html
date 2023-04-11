@@ -1,0 +1,16 @@
+
+<page-layout>
+    <div class="products-page-main">
+        <ng-container #resolver="resolver" loader #loader="loader"
+            [rxResolver]="products$"
+            (start)="loader.show()"
+            (done)="loader.hide()"
+        >
+            <elements-grid [elementMinSizePx]="255" *ngLet="resolver.data as products">
+                <product-card *ngFor="let product of products"
+                    [product]="product"> 
+                </product-card>
+            </elements-grid>
+        </ng-container>
+    </div>
+</page-layout>
