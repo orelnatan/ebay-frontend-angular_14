@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable, of as observableOf } from 'rxjs';  
 
 import { environment } from '@ebay/env/environment';
-import { IBrand } from '@ebay/shared/cards/models';
+import { IBrand } from '@ebay/home/models';
 
 @Injectable()
 export class BrandsService {

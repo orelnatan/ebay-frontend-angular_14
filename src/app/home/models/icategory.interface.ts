@@ -1,10 +1,11 @@
 
-export interface IBrand {
+export interface ICategory {
     id: number;
     image: string;
     index: number;
     name: string;
-    serial: string;
     description: string;
-    section: string;
+    rank: number;
+    serial: string;
+    brandId: number;
 }

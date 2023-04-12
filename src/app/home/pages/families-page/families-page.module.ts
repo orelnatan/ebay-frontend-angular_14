@@ -7,8 +7,8 @@ import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
 import { BreadcrumbPathResolver } from '@ebay/shared/breadcrumbs';
 import { AuthGuard } from '@ebay/shared/guards';
-import { CardsModule } from '@ebay/shared/cards';
 import { FamiliesService } from '@ebay/home/services';
+import { FamilyCardModule } from '@ebay/home/components';
 
 import { FamiliesPageComponent } from './families-page.component';
 
@@ -19,9 +19,9 @@ import { FamiliesPageComponent } from './families-page.component';
     imports: [ 
         CommonModule,
         LayoutModule,
+        FamilyCardModule,
         DirectivesModule,
         ElementsGridModule,
-        CardsModule,
         RouterModule.forChild([
             { path: '', redirectTo: 'families', pathMatch: 'full' },
             { 

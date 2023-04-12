@@ -1,11 +1,10 @@
 
-export interface IFamily {
+export interface IBrand {
     id: number;
     image: string;
     index: number;
     name: string;
-    serial: string;
-    symbol: string;
     description: string;
-    categoryId: number;
+    serial: string;
+    section: string;
 }

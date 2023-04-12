@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IProduct } from '../../models';
+import { IProduct } from '@ebay/home/models';
 
 @Component({
   selector: 'product-card',

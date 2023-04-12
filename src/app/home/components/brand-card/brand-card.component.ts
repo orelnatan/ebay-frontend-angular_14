@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IBrand } from '../../models';
+import { IBrand } from '@ebay/home/models';
 
 @Component({
   selector: 'brand-card',

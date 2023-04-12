@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IFamily } from '../../models';
+import { IFamily } from '@ebay/home/models';
 
 @Component({
   selector: 'family-card',

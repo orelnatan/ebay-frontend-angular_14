@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ProductsService } from '@ebay/home/services';
-import { IProduct } from '@ebay/shared/cards/models';
+import { IProduct } from '@ebay/home/models';
 
 const PARAM_NAME: string = "familyId";
 

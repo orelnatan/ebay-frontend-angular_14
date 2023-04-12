@@ -20,5 +20,4 @@ export class EntityCardComponent {
   navigate(id: number, link: string): void {
     this.router.navigate([id, link], { relativeTo: this.activatedRoute })
   }
-
 }

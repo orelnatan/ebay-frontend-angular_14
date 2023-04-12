@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { BrandsService } from '@ebay/home/services';
-import { IBrand } from '@ebay/shared/cards/models';
+import { IBrand } from '@ebay/home/models';
 
 @Component({
   selector: 'brands-page',
