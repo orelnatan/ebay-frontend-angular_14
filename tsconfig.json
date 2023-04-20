@@ -39,6 +39,6 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictDomEventTypes": false,
-    "strictTemplates": false,
+    "strictTemplates": true,
   }
 }

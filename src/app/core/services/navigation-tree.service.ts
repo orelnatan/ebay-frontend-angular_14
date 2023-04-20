@@ -1,5 +1,6 @@
-import { Injectable, }  from '@angular/core';
-import { Router, ActivatedRouteSnapshot } from '@angular/router';
+import { Injectable }  from '@angular/core';
+import { Router, Event as RouterNavigationEvent, NavigationEnd, ActivatedRouteSnapshot as Snapshot } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 interface INode {
     path: string;
@@ -7,22 +8,34 @@ interface INode {
     disabled: boolean
 }
 
+@UntilDestroy()
 @Injectable()
 export class NavigationTreeService {
+    private _previousNodeUrl: string;
+
     constructor(
         private readonly router: Router,
-    ) {}
+    ) {
+        this.router.events.pipe(untilDestroyed(this))
+        .subscribe((event: RouterNavigationEvent): void => {
+            if(event instanceof NavigationEnd) {
+                const snapshots: Array<Snapshot> = this._resolveRouterSnapshotsTree(this.router);
+                const nodes: Array<INode> = this._buildActiveNodesTree(snapshots);
 
-    public restorePreviousNode(): void {
-        const snapshots = this._resolveRouterSnapshotsTree(this.router);
-        
-        const nodes: Array<INode> = this._buildActiveNodesTree(snapshots);
-        const path: string | null = this._buildNavigationUrlPath(nodes);
-
-        path ? this.router.navigate([ path ], { queryParamsHandling: "preserve" }) : null;
+                this._previousNodeUrl = this._generatePreviousNodeUrl(nodes)!;
+            }
+        })
     }
 
-    private _buildNavigationUrlPath(nodes: Array<INode>): string |  null {
+    public restorePreviousNode(): void {
+        this._previousNodeUrl ? this.router.navigate([ this._previousNodeUrl ], { queryParamsHandling: "preserve" }) : null;
+    }
+
+    public isCurrentNodeDisabled(): boolean {
+        return this._previousNodeUrl ? false : true;
+    }
+
+    private _generatePreviousNodeUrl(nodes: Array<INode>): string |  null {
         if(nodes[nodes.length - 1]?.disabled) return null;
         
         nodes.pop();
@@ -33,10 +46,10 @@ export class NavigationTreeService {
         return nodes.map(node => node.path).join("/");
     }
 
-    private _buildActiveNodesTree(snapshots: Array<ActivatedRouteSnapshot>): Array<INode> {
+    private _buildActiveNodesTree(snapshots: Array<Snapshot>): Array<INode> {
         const nodes: Array<INode> = [];
 
-        snapshots.forEach((snapshot: ActivatedRouteSnapshot) => {
+        snapshots.forEach((snapshot: Snapshot) => {
             const node: INode = snapshot.routeConfig?.data?.["node"];
 
             const path: string = snapshot.url[0].path;
@@ -49,10 +62,10 @@ export class NavigationTreeService {
         return nodes;
     }
 
-    private _resolveRouterSnapshotsTree(router: Router): Array<ActivatedRouteSnapshot> {
-        const snapshots: Array<ActivatedRouteSnapshot> = [];
+    private _resolveRouterSnapshotsTree(router: Router): Array<Snapshot> {
+        const snapshots: Array<Snapshot> = [];
 
-        let snapshot: ActivatedRouteSnapshot = router.routerState.snapshot.root;
+        let snapshot: Snapshot = router.routerState.snapshot.root;
         do {
             snapshots.push(snapshot)
 

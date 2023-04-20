@@ -15,6 +15,9 @@ const routes: Routes = [
                 loadChildren: () => import('./pages/brands-page').then(brands => brands.BrandsPageModule),
                 runGuardsAndResolvers: "always",
                 canActivateChild: [AuthGuard],
+                data: {
+                    node: { disabled: true }
+                },
                 resolve: {
                     path: BreadcrumbPathResolver
                 }
