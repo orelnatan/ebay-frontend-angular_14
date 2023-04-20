@@ -1,14 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { BreadcrumbPathResolver } from './resolvers';
-import { NavigateByPathIndexDirective } from './directives';
+import { BreadcrumbsService } from './services';
+import { RedirectByCrumbPathDirective } from './directives';
+import { SkipPipe, ToStringPipe } from './pipes';
 import { BreadcrumbsComponent } from './components';
 
 @NgModule({
     declarations: [ 
         BreadcrumbsComponent,
-        NavigateByPathIndexDirective
+        RedirectByCrumbPathDirective,
+        ToStringPipe,
+        SkipPipe
     ],
     imports: [
         CommonModule,
@@ -17,7 +20,7 @@ import { BreadcrumbsComponent } from './components';
         BreadcrumbsComponent,
     ],
     providers: [
-        BreadcrumbPathResolver,
+        BreadcrumbsService
     ]
 })
 export class BreadcrumbsModule {}

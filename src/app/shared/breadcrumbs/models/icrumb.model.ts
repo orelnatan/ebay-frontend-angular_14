@@ -1,9 +1,9 @@
 
 export interface ICrumb {
     path: string;
-    pathIndex: number;
     name?: string;
     color?: string;
+    skip?: boolean;
+    parent?: string;
     disabled?: boolean;
-    noSeperator?: boolean;
 }

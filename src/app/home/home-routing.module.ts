@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BreadcrumbPathResolver } from '@ebay/shared/breadcrumbs';
 import { AuthGuard } from '@ebay/shared/guards';
 
 import { HomeRootComponent } from './home-root.component';
@@ -13,14 +12,10 @@ const routes: Routes = [
             { 
                 path: 'brands',
                 loadChildren: () => import('./pages/brands-page').then(brands => brands.BrandsPageModule),
-                runGuardsAndResolvers: "always",
                 canActivateChild: [AuthGuard],
                 data: {
-                    node: { disabled: true }
+                    node: { disabled: true },
                 },
-                resolve: {
-                    path: BreadcrumbPathResolver
-                }
             },
         ]
     },

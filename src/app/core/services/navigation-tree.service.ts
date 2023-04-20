@@ -1,11 +1,11 @@
 import { Injectable }  from '@angular/core';
-import { Router, Event as RouterNavigationEvent, NavigationEnd, ActivatedRouteSnapshot as Snapshot } from '@angular/router';
+import { Router, Event as RouterNavigationEvent, NavigationEnd, ActivatedRouteSnapshot as Snapshot, QueryParamsHandling } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 interface INode {
     path: string;
-    skip: boolean;
-    disabled: boolean
+    skip?: boolean;
+    disabled?: boolean
 }
 
 @UntilDestroy()
@@ -27,12 +27,14 @@ export class NavigationTreeService {
         })
     }
 
-    public restorePreviousNode(): void {
-        this._previousNodeUrl ? this.router.navigate([ this._previousNodeUrl ], { queryParamsHandling: "preserve" }) : null;
-    }
-
     public isCurrentNodeDisabled(): boolean {
         return this._previousNodeUrl ? false : true;
+    }
+
+    public restorePreviousNode(queryParamsHandling: QueryParamsHandling = "preserve"): void {
+        this._previousNodeUrl ? this.router.navigate([ this._previousNodeUrl ], {
+            queryParamsHandling: queryParamsHandling
+        }) : null;
     }
 
     private _generatePreviousNodeUrl(nodes: Array<INode>): string |  null {
@@ -53,10 +55,8 @@ export class NavigationTreeService {
             const node: INode = snapshot.routeConfig?.data?.["node"];
 
             const path: string = snapshot.url[0].path;
-            const skip: boolean = node?.skip || false;
-            const disabled: boolean = node?.disabled || false;
 
-            nodes.push({ path, skip, disabled })
+            nodes.push({ ...node, path })
         })
 
         return nodes;

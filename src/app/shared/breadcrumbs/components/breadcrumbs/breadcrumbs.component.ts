@@ -10,6 +10,8 @@ import { ICrumb } from '../../models';
     styleUrls: ['./breadcrumbs.component.scss'],
 })
 export class BreadcrumbsComponent {
+    @Input() name: string;
+
     @Input() uppercase: boolean;
     @Input() lowercase: boolean;
 

@@ -15,7 +15,5 @@
     </div>
 </page-layout>
 
-<router-outlet #outlet="outlet" 
-    (deactivate)="brands$=brandsService.fetchAll()">
-</router-outlet>
+<router-outlet #outlet="outlet" (deactivate)="ngOnInit()"></router-outlet>
 

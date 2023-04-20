@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Directive({
     selector: '[navigateByPathIndex]',
 })
-export class NavigateByPathIndexDirective {
+export class RedirectByCrumbPathDirective {
     @HostListener('click', ['$event']) onClick(event: Event): void {
         this._navigateByIndex(this.index);
     };

@@ -124,3 +124,11 @@ in DB unter "categories" table, category "Corecom officia" with id "28667" has c
         </ng-container>
     </div>
 </div>
+
+
+
+CSS
+
+.crumb-item:first-child {
+    .crumb-seperator { display: none; }
+}

@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
-import { BreadcrumbPathResolver } from '@ebay/shared/breadcrumbs';
 import { BrandsService } from '@ebay/home/services';
 import { BrandCardModule } from '@ebay/home/components';
 
@@ -29,13 +28,9 @@ import { BrandsPageComponent } from './brands-page.component';
                     { 
                         path: ':brandId',
                         loadChildren: () => import('../../pages/categories-page').then(categories => categories.CategoriesPageModule),
-                        runGuardsAndResolvers: "always",
                         data: { 
-                            node: { skip: true }
+                            node: { skip: true },
                         },
-                        resolve: {
-                            path: BreadcrumbPathResolver
-                        }
                     },
                 ]
             },

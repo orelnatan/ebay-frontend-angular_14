@@ -2,21 +2,26 @@
 <div class="breadcrumbs-main">
     <div class="crubms-list">
         <ng-container *ngFor="let crumb of crumbs$ | async">
-            <div class="crumb-item" [class.to-upper-case]="uppercase" [class.to-lower-case]="lowercase">
-                <span [hidden]="crumb.noSeperator">/</span>
-                
-                <ng-container *ngIf="!crumb.disabled; else disabledCrumb">
-                    <span class="crumb-name active-crumb" [style.color]="crumb.color" [navigateByPathIndex]="crumb.pathIndex">
-                        {{ (crumb.name || crumb.path) | titlecase }}
-                    </span>
-                </ng-container>
-                
-                <ng-template #disabledCrumb>
-                    <span class="crumb-name disabled-crumb">
-                        {{ (crumb.name || crumb.path) | titlecase }}
-                    </span>
-                </ng-template>
-            </div> 
+            <ng-container *ngIf="!(crumb | skip: name)">
+                <div class="crumb-item"
+                    [class.to-upper-case]="uppercase"
+                    [class.to-lower-case]="lowercase"
+                >
+                    <ng-container *ngIf="!crumb.disabled; else disabledCrumb">
+                        <div class="active-crumb" [style.color]="crumb.color" [redirectByCrumbPath]="crumb.path">
+                            <span class="crumb-name">{{ (crumb.name || crumb.path) | toString | titlecase }}</span>
+                            <span class="crumb-seperator">/</span>
+                        </div>
+                    </ng-container>
+                    
+                    <ng-template #disabledCrumb>
+                        <span class="disabled-crumb">
+                            <span class="crumb-name">{{ (crumb.name || crumb.path) | toString | titlecase }}</span>
+                            <span class="crumb-seperator">/</span>
+                        </span>
+                    </ng-template>
+                </div> 
+            </ng-container>
         </ng-container>
     </div>
 </div>

@@ -1,2 +1,2 @@
 
-export { NavigateByPathIndexDirective } from './navigate-by-path-index.directive';
+export { RedirectByCrumbPathDirective } from './redirect-by-crumb-path.directive';

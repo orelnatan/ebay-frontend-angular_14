@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -12,15 +12,19 @@ const PARAM_NAME: string = "familyId";
   templateUrl: './products-page.component.html',
   styleUrls: ['./products-page.component.scss']
 })
-export class ProductsPageComponent {
-  products$: Observable<IProduct[]> = this.productsService.fetchAll(this.familyId);
+export class ProductsPageComponent implements OnInit {
+    products$: Observable<IProduct[]>;
 
-  constructor(
-      public readonly productsService: ProductsService,
-      private readonly activatedRoute: ActivatedRoute
-  ) {}
+    constructor(
+        public readonly productsService: ProductsService,
+        private readonly activatedRoute: ActivatedRoute
+    ) {}
 
-  get familyId(): number {
-    return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME))
-  }
+    ngOnInit(): void {
+        this.products$ = this.productsService.fetchAll(this.familyId);
+    }
+
+    get familyId(): number {
+        return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME))
+    }
 }

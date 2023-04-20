@@ -6,24 +6,45 @@
     padding: 0px 10px;
     background-color: $color-white-gray;
 
+    .crubms-list {
+        display: flex;
+        margin: 0px -2px;
+    }
+
+    .crumb-item {
+        span {
+            font-family: assistant-bold;
+            line-height: 40px;
+            padding: 0px 2px;
+        }
+    }
+
+    .highlight-last:last-child {
+        span {
+            font-family: assistant-bold;
+        }
+    }
+
     .active-crumb {
-        cursor: pointer;
         color: $color-info;
+        cursor: pointer;
         
-        &:hover {
+        .crumb-name:hover {
             text-decoration: underline;
         }
     }
 
     .disabled-crumb {
-        cursor: not-allowed;
         color: $color-office;
-        opacity: 0.4;
+        cursor: not-allowed;
+
+        .crumb-name {
+            opacity: 0.6;
+        }
     }
 
-    .crubms-list {
-        display: flex;
-        margin: 0px -2px;
+    .crumb-seperator {
+        color: $color-black;
     }
 
     .to-upper-case {
@@ -32,11 +53,5 @@
 
     .to-lower-case {
         text-transform: lowercase;
-    }
-
-    span {
-        font-family: assistant-bold;
-        line-height: 40px;
-        padding: 0px 2px;
     }
 }

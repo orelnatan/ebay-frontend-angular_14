@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -12,13 +12,17 @@ const PARAM_NAME: string = "categoryId";
   templateUrl: './families-page.component.html',
   styleUrls: ['./families-page.component.scss']
 })
-export class FamiliesPageComponent {
-  families$: Observable<IFamily[]> = this.familiesService.fetchAll(this.categoryId);
+export class FamiliesPageComponent implements OnInit {
+  families$: Observable<IFamily[]>;
 
   constructor(
       public readonly familiesService: FamiliesService,
       private readonly activatedRoute: ActivatedRoute
   ) {}
+
+  ngOnInit(): void {
+      this.families$ = this.familiesService.fetchAll(this.categoryId);
+  }
 
   get categoryId(): number {
     return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME))
