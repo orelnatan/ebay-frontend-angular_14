@@ -14,7 +14,7 @@ const routes: Routes = [
                 loadChildren: () => import('./pages/brands-page').then(brands => brands.BrandsPageModule),
                 canActivateChild: [AuthGuard],
                 data: {
-                    node: { disabled: true },
+                    node: { disabled: true }
                 },
             },
         ]

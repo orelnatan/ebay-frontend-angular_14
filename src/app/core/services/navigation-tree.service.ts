@@ -27,7 +27,7 @@ export class NavigationTreeService {
         })
     }
 
-    public isCurrentNodeDisabled(): boolean {
+    public get isCurrentNodeDisabled(): boolean {
         return this._previousNodeUrl ? false : true;
     }
 

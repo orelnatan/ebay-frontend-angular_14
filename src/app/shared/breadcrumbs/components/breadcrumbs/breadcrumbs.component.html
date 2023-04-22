@@ -15,10 +15,10 @@
                     </ng-container>
                     
                     <ng-template #disabledCrumb>
-                        <span class="disabled-crumb">
+                        <div class="disabled-crumb">
                             <span class="crumb-name">{{ (crumb.name || crumb.path) | toString | titlecase }}</span>
                             <span class="crumb-seperator">/</span>
-                        </span>
+                        </div>
                     </ng-template>
                 </div> 
             </ng-container>

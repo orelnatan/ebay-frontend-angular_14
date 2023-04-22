@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { LayoutModule } from '@ebay/shared/layout';
@@ -8,6 +7,7 @@ import { ElementsGridModule } from '@ebay/shared/components';
 import { BrandsService } from '@ebay/home/services';
 import { BrandCardModule } from '@ebay/home/components';
 
+import { BrandsPageRoutingModule } from './brands-page-routing.module';
 import { BrandsPageComponent } from './brands-page.component';
 
 @NgModule({
@@ -17,24 +17,10 @@ import { BrandsPageComponent } from './brands-page.component';
     imports: [ 
         CommonModule,
         LayoutModule,
+        BrandsPageRoutingModule,
         BrandCardModule,
         DirectivesModule,
         ElementsGridModule,
-        RouterModule.forChild([
-            { 
-                path: '',
-                component: BrandsPageComponent,
-                children: [
-                    { 
-                        path: ':brandId',
-                        loadChildren: () => import('../../pages/categories-page').then(categories => categories.CategoriesPageModule),
-                        data: { 
-                            node: { skip: true },
-                        },
-                    },
-                ]
-            },
-        ])
     ],
     providers: [
         BrandsService

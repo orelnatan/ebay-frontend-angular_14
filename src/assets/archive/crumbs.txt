@@ -132,3 +132,9 @@ CSS
 .crumb-item:first-child {
     .crumb-seperator { display: none; }
 }
+
+.highlight-last:last-child {
+    span {
+        font-family: assistant-bold;
+    }
+}

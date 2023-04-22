@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { DynamicModule } from 'ng-dynamic-component';
 
 import { 
     RootLayoutComponent,
@@ -9,23 +9,26 @@ import {
     LayoutHeaderComponent,
     LayoutSidebarComponent,
     LayoutFooterComponent,
+    PageParentComponent,
 } from './components';
 
 @NgModule({
     declarations: [
         RootLayoutComponent,
+        PageParentComponent,
         PageLayoutComponent, 
         LayoutHeaderComponent,
         LayoutSidebarComponent,
-        LayoutFooterComponent
+        LayoutFooterComponent,
     ],
     imports: [ 
         CommonModule,
-        RouterLink,
-        MatIconModule,
+        RouterModule,
+        DynamicModule
     ],
     exports: [
         RootLayoutComponent,
+        PageParentComponent,
         PageLayoutComponent, 
         LayoutHeaderComponent,
         LayoutSidebarComponent,

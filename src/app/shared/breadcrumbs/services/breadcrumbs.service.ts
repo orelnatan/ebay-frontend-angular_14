@@ -8,13 +8,13 @@ import { ICrumb } from '../models';
 const get = require('lodash.get');
 
 @UntilDestroy()
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class BreadcrumbsService {
     private _crumbs$: BehaviorSubject<ICrumb[]> = new BehaviorSubject<ICrumb[]>([]);
     
     constructor(
         private readonly router: Router,
-    ) {
+    ) {       
         this.router.events.pipe(untilDestroyed(this))
         .subscribe((event: RouterNavigationEvent): void => {
             if(event instanceof NavigationEnd) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { BrandsService } from '@ebay/home/services';
@@ -9,14 +9,10 @@ import { IBrand } from '@ebay/home/models';
     templateUrl: './brands-page.component.html',
     styleUrls: ['./brands-page.component.scss']
 })
-export class BrandsPageComponent implements OnInit {
-    brands$: Observable<IBrand[]>;
+export class BrandsPageComponent {
+    brands$: Observable<IBrand[]> = this.brandsService.fetchAll();
 
     constructor(
         public readonly brandsService: BrandsService
     ) {}
-
-    ngOnInit(): void {
-        this.brands$ = this.brandsService.fetchAll();
-    }
 }

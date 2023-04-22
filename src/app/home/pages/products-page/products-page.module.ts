@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { LayoutModule } from '@ebay/shared/layout';
@@ -8,6 +7,7 @@ import { ElementsGridModule } from '@ebay/shared/components';
 import { ProductsService } from '@ebay/home/services';
 import { ProductCardModule } from '@ebay/home/components';
 
+import { ProductsPageRoutingModule } from './products-page-routing.module';
 import { ProductsPageComponent } from './products-page.component';
 
 @NgModule({
@@ -17,16 +17,10 @@ import { ProductsPageComponent } from './products-page.component';
     imports: [ 
         CommonModule,
         LayoutModule,
+        ProductsPageRoutingModule,
         ProductCardModule,
         DirectivesModule,
         ElementsGridModule,
-        RouterModule.forChild([
-            { path: '', redirectTo: 'products', pathMatch: 'full' },
-            { 
-                path: 'products',
-                component: ProductsPageComponent,
-            },
-        ])
     ],
     providers: [
         ProductsService

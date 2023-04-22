@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { LayoutModule } from '@ebay/shared/layout';
@@ -8,6 +7,7 @@ import { ElementsGridModule } from '@ebay/shared/components';
 import { FamiliesService } from '@ebay/home/services';
 import { FamilyCardModule } from '@ebay/home/components';
 
+import { FamiliesPageRoutingModule } from './families-page-routing.module';
 import { FamiliesPageComponent } from './families-page.component';
 
 @NgModule({
@@ -17,25 +17,10 @@ import { FamiliesPageComponent } from './families-page.component';
     imports: [ 
         CommonModule,
         LayoutModule,
+        FamiliesPageRoutingModule,
         FamilyCardModule,
         DirectivesModule,
         ElementsGridModule,
-        RouterModule.forChild([
-            { path: '', redirectTo: 'families', pathMatch: 'full' },
-            { 
-                path: 'families',
-                component: FamiliesPageComponent,
-                children: [
-                    {
-                        path: ':familyId',
-                        loadChildren: () => import('../../pages/products-page').then(products => products.ProductsPageModule),
-                        data: { 
-                            node: { skip: true }
-                        },
-                    }
-                ],
-            },
-        ])
     ],
     providers: [
         FamiliesService

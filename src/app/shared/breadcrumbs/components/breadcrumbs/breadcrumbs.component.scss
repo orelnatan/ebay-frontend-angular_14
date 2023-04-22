@@ -2,9 +2,6 @@
 
 .breadcrumbs-main {
     width: 100%;
-    height: 40px;
-    padding: 0px 10px;
-    background-color: $color-white-gray;
 
     .crubms-list {
         display: flex;
@@ -14,14 +11,7 @@
     .crumb-item {
         span {
             font-family: assistant-bold;
-            line-height: 40px;
             padding: 0px 2px;
-        }
-    }
-
-    .highlight-last:last-child {
-        span {
-            font-family: assistant-bold;
         }
     }
 

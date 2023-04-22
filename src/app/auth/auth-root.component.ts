@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <root-layout>
         <layout-header header-primary>
-            <breadcrumbs></breadcrumbs>
+            <crumbsbar></crumbsbar>
         </layout-header>
 
         <router-outlet></router-outlet>

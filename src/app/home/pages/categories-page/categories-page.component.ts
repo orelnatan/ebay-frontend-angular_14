@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -12,17 +12,13 @@ const PARAM_NAME: string = "brandId";
     templateUrl: './categories-page.component.html',
     styleUrls: ['./categories-page.component.scss']
 })
-export class CategoriesPageComponent implements OnInit {
-    categories$: Observable<ICategory[]>;
+export class CategoriesPageComponent {
+    categories$: Observable<ICategory[]> = this.categoriesService.fetchAll(this.brandId);
 
     constructor(
         public readonly categoriesService: CategoriesService,
         private readonly activatedRoute: ActivatedRoute
     ) {}
-
-    ngOnInit(): void {
-        this.categories$ = this.categoriesService.fetchAll(this.brandId);
-    }
 
     get brandId(): number {
         return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));

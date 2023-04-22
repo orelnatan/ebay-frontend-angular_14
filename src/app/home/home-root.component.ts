@@ -9,14 +9,14 @@ import { Component } from '@angular/core';
         </layout-header>
 
         <layout-header header-secondary>
-            <breadcrumbs></breadcrumbs>
+            <crumbsbar></crumbsbar>
         </layout-header>
-
-        <router-outlet></router-outlet>
 
         <layout-sidebar side-primary>
             <side-navbar></side-navbar>
         </layout-sidebar>
+
+        <router-outlet></router-outlet>
     </root-layout>
   `,
 })

@@ -13,7 +13,7 @@ export class UtilsPanelComponent {
     ) {}
 
     get isDisabled(): boolean {
-        return this.navigationTree.isCurrentNodeDisabled();
+        return this.navigationTree.isCurrentNodeDisabled;
     }
 
     backToPreviousRoute(): void {

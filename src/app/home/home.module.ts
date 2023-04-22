@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { LayoutModule } from '@ebay/shared/layout';
 import { AuthGuard } from '@ebay/shared/guards';
-import { SideNavbarModule, UtilsPanelModule } from '@ebay/shared/components';
-import { BreadcrumbsModule } from '@ebay/shared/breadcrumbs';
+import { CrumbsbarModule, SideNavbarModule, UtilsPanelModule } from '@ebay/shared/components';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeRootComponent } from './home-root.component';
@@ -17,7 +16,7 @@ import { HomeRootComponent } from './home-root.component';
         LayoutModule,
         SideNavbarModule,
         UtilsPanelModule,
-        BreadcrumbsModule
+        CrumbsbarModule
     ],
     providers: [
         AuthGuard,

@@ -1,5 +1,5 @@
 
-<page-layout *ngIf="!outlet.isActivated">
+<page-layout>
     <div class="brnads-page-main">
         <ng-container #resolver="resolver" #loader="loader" loader
             [rxResolver]="brands$"
@@ -15,5 +15,5 @@
     </div>
 </page-layout>
 
-<router-outlet #outlet="outlet" (deactivate)="ngOnInit()"></router-outlet>
+
 
