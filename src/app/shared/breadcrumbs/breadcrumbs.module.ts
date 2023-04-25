@@ -1,16 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { RedirectByCrumbPathDirective } from './directives';
-import { SkipPipe, ToStringPipe } from './pipes';
-import { BreadcrumbsComponent } from './components';
+import { RedirectDirective } from './directives';
+import { VisibilityPipe, ToStringPipe } from './pipes';
+import { BreadcrumbsComponent, CrumbComponent } from './components';
 
 @NgModule({
     declarations: [ 
         BreadcrumbsComponent,
-        RedirectByCrumbPathDirective,
+        CrumbComponent,
+        RedirectDirective,
         ToStringPipe,
-        SkipPipe
+        VisibilityPipe
     ],
     imports: [
         CommonModule,

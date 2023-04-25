@@ -4,7 +4,7 @@ import { ICrumb } from '../models';
 @Pipe({
    name: 'skipCrumbs',
 })
-export class SkipPipe implements PipeTransform {
+export class VisibilityPipe implements PipeTransform {
     transform(crumbs: Array<ICrumb>, skipBefore?: string, skipAfter?: string): Array<ICrumb> { 
         let routes: Array<string> = [];
 

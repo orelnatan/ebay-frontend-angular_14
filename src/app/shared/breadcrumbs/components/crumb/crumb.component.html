@@ -1,0 +1,12 @@
+
+<div class="crumb-main">
+    <div 
+        [class.active-crumb]="!crumb.disabled"
+        [class.disabled-crumb]="crumb.disabled"
+        [style.color]="crumb.color"
+        [redirect]="crumb"
+    >
+        <span class="crumb-name">{{ (crumb.name || crumb.path) | toString | titlecase }}</span>
+        <span class="crumb-seperator">/</span>
+    </div>
+</div>

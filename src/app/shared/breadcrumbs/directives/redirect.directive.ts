@@ -2,16 +2,19 @@ import { Directive, Input, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BreadcrumbsService } from '../services';
+import { ICrumb } from '../models';
 
 @Directive({
-    selector: '[redirectByCrumbPath]',
+    selector: '[redirect]',
 })
-export class RedirectByCrumbPathDirective {
+export class RedirectDirective {
     @HostListener('click', ['$event']) onClick(event: Event): void {
-        this._redirectByPath(this.path);
+        if(this.crumb.disabled) return;
+
+        this._redirectByPath(this.crumb.path);
     };
 
-    @Input('redirectByCrumbPath') path: string;
+    @Input('redirect') crumb: ICrumb;
     
     constructor(
         private readonly router: Router,

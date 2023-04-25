@@ -1,0 +1,30 @@
+@import './src/assets/config/colors.scss';
+
+.crumb-main {
+    .active-crumb {
+        color: $color-info;
+        cursor: pointer;
+        
+        .crumb-name:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .disabled-crumb {
+        color: $color-office;
+        cursor: not-allowed;
+
+        .crumb-name {
+            opacity: 0.6;
+        }
+    }
+
+    .crumb-seperator {
+        color: $color-black;
+    }
+
+    span {
+        font-family: assistant-bold;
+        padding: 0px 2px;
+    }
+}

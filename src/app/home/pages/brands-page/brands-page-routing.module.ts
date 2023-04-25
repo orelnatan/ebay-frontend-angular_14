@@ -17,7 +17,7 @@ const routes: Routes = [
                 path: ':brandId',
                 loadChildren: () => import('../../pages/categories-page').then(categories => categories.CategoriesPageModule),
                 data: { 
-                    node: { skip: true },
+                    node: { skip: true }
                 },
             },
         ]
