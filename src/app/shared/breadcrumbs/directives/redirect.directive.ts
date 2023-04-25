@@ -31,7 +31,7 @@ export class RedirectDirective {
         const routes: Array<string> = this.breadcrumbsService.crumbs$
         .getValue()
         .map(crumb => crumb.path);
-        
+
         return routes.slice(0, routes.indexOf(path) + 1).join("/");
     }
 }

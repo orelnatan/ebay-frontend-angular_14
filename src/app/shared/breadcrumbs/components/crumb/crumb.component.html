@@ -6,7 +6,7 @@
         [style.color]="crumb.color"
         [redirect]="crumb"
     >
-        <span class="crumb-name">{{ (crumb.name || crumb.path) | toString | titlecase }}</span>
+        <span class="crumb-name">{{ crumb.name }}</span>
         <span class="crumb-seperator">/</span>
     </div>
 </div>

@@ -1,6 +1,6 @@
 
 <div class="breadcrumbs-main">
-    <div class="crubms-list" [class.to-upper-case]="uppercase" [class.to-lower-case]="lowercase">
+    <div class="crubms-list">
         <ng-container *ngFor="let crumb of crumbs$ | async">
             <ng-container *ngIf="crumb | visibility: name">
                 <crumb [crumb]="crumb"></crumb>

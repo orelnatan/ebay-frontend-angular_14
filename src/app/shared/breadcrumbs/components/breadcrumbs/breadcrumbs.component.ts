@@ -12,9 +12,6 @@ import { ICrumb } from '../../models';
 export class BreadcrumbsComponent {
     @Input() name: string;
 
-    @Input() uppercase: boolean;
-    @Input() lowercase: boolean;
-
     crumbs$: BehaviorSubject<ICrumb[]> = this.breadcrumbsService.crumbs$;
     
     constructor(

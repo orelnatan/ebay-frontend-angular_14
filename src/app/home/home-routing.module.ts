@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from '@ebay/shared/guards';
+import { ICrumb } from '@ebay/shared/breadcrumbs/models';
 
 import { HomeRootComponent } from './home-root.component';
 
@@ -12,10 +12,86 @@ const routes: Routes = [
             { 
                 path: 'brands',
                 loadChildren: () => import('./pages/brands-page').then(brands => brands.BrandsPageModule),
-                canActivateChild: [AuthGuard],
                 data: {
-                    node: { disabled: true }
-                },
+                    crumbs: [
+                        {
+                            path: "brands",
+                            name: "Brands"
+                        }
+                    ] as Array<ICrumb>
+                }
+            },
+            { 
+                path: 'brands/:brandId',
+                loadChildren: () => import('./pages/categories-page').then(categories => categories.CategoriesPageModule),
+                data: {
+                    crumbs: [
+                        {
+                            path: "brands",
+                            name: "Brands"
+                        },
+                        {
+                            path: "brandId",
+                            name: "Brand-id"
+                        },
+                    ] as Array<ICrumb>
+                }
+            },
+            { 
+                path: 'brands/:brandId/categories/:categoryId',
+                loadChildren: () => import('./pages/families-page').then(families => families.FamiliesPageModule),
+                data: {
+                    crumbs: [
+                        {
+                            path: "brands",
+                            name: "Brands"
+                        },
+                        {
+                            path: "brandId",
+                            name: "Brand-id"
+                        },
+                        {
+                            path: "categories",
+                            name: "Categories"
+                        },
+                        {
+                            path: "categoryId",
+                            name: "Category-id",
+                        },
+                    ] as Array<ICrumb>
+                }
+            },
+            { 
+                path: 'brands/:brandId/categories/:categoryId/families/:familyId',
+                loadChildren: () => import('./pages/products-page').then(products => products.ProductsPageModule),
+                data: {
+                    crumbs: [
+                        {
+                            path: "brands",
+                            name: "Brands"
+                        },
+                        {
+                            path: "brandId",
+                            name: "Brand-id"
+                        },
+                        {
+                            path: "categories",
+                            name: "Categories"
+                        },
+                        {
+                            path: "categoryId",
+                            name: "Category-id",
+                        },
+                        {
+                            path: "families",
+                            name: "Families"
+                        },
+                        {
+                            path: "familyId",
+                            name: "Family-id"
+                        },
+                    ] as Array<ICrumb>
+                }
             },
         ]
     },

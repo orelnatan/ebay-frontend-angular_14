@@ -1,11 +1,9 @@
 import { Injectable }  from '@angular/core';
-import { Router, Event as RouterNavigationEvent, NavigationEnd, ActivatedRouteSnapshot as Snapshot, Data } from '@angular/router';
+import { Router, Event as RouterNavigationEvent, NavigationEnd, ActivatedRouteSnapshot as Snapshot, Params } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 import { ICrumb } from '../models';
-
-const get = require('lodash.get');
 
 @UntilDestroy()
 @Injectable({ providedIn: "root" })
@@ -34,15 +32,18 @@ export class BreadcrumbsService {
         const crumbs: Array<ICrumb> = [];
 
         snapshots.forEach((snapshot: Snapshot) => {
-            const data: Data = snapshot.routeConfig?.data!;
-            const crumb: ICrumb = data?.["crumb"];
-           
-            const path: string = snapshot.url[0].path;
-            const name: string = get(data, crumb?.name) || crumb?.name;
-    
-            crumbs.push({ ...crumb, path, name })
+            const params: Params = snapshot.params;
+            const routeCrumbs: Array<ICrumb> = snapshot.data?.["crumbs"] || [];
+            
+            routeCrumbs.forEach((crumb: ICrumb) => {
+                const path: string = params[crumb.path] || crumb.path;
+                const route: string = snapshot.routeConfig?.path!;
+                const name: string = crumb.name || "";
+                    
+                crumbs.push({ ...crumb, params, path, route, name });
+            });
         })
-
+        console.log(crumbs)
         return crumbs;
     }
 
