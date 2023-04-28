@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 
 import { LayoutModule } from '@ebay/shared/layout';
 import { CrumbsbarModule, SideNavbarModule, UtilsPanelModule } from '@ebay/shared/components';
 
+import { BrandsService, CategoriesService, FamiliesService } from './services';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeRootComponent } from './home-root.component';
 
@@ -17,5 +19,11 @@ import { HomeRootComponent } from './home-root.component';
         UtilsPanelModule,
         CrumbsbarModule
     ],
+    providers: [
+        TitleCasePipe,
+        BrandsService,
+        CategoriesService,
+        FamiliesService
+    ]
 })
 export class HomeModule {}

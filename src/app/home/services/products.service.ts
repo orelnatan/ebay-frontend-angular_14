@@ -29,7 +29,7 @@ export class ProductsService {
     }
 
     getSingleEntity(familyId: number, productId: number): Observable<IProduct> {
-        return this.products ? observableOf(this.products[familyId].find(product => productId == product.id)!) :
+        return this.products[familyId] ? observableOf(this.products[familyId].find(product => productId == product.id)!) :
         this.fetchAll(familyId)
         .pipe(
             map((products: IProduct[]): IProduct => {

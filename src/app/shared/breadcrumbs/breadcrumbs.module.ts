@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { SpinnerModule } from '../components';
+
 import { RedirectDirective } from './directives';
-import { VisibilityPipe, ToStringPipe } from './pipes';
+import { VisibilityPipe } from './pipes';
 import { BreadcrumbsComponent, CrumbComponent } from './components';
 
 @NgModule({
@@ -10,11 +12,11 @@ import { BreadcrumbsComponent, CrumbComponent } from './components';
         BreadcrumbsComponent,
         CrumbComponent,
         RedirectDirective,
-        ToStringPipe,
-        VisibilityPipe
+        VisibilityPipe,
     ],
     imports: [
         CommonModule,
+        SpinnerModule
     ],
     exports: [
         BreadcrumbsComponent,

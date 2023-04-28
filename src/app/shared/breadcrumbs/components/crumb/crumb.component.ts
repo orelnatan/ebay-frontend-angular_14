@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { BreadcrumbsService } from '../../services';
 import { ICrumb } from '../../models';
 
 @Component({
@@ -8,10 +7,21 @@ import { ICrumb } from '../../models';
     templateUrl: './crumb.component.html',
     styleUrls: ['./crumb.component.scss'],
 })
-export class CrumbComponent {
+export class CrumbComponent implements OnInit {
     @Input() crumb: ICrumb;
+    @Input() parent: string;
+
+    loading: boolean;
     
-    constructor(
-        private readonly breadcrumbsService: BreadcrumbsService,
-    ) {}  
+    ngOnInit(): void {
+        if(this.crumb.async) {
+            this.loading = true;
+
+            this.crumb.async?.then((crumb: ICrumb): void => {
+                this.loading = false;
+           
+                this.crumb = { ... this.crumb, ... crumb };
+            });
+        }
+    }
 }

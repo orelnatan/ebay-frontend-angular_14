@@ -29,7 +29,7 @@ export class CategoriesService {
     }
 
     getSingleEntity(brandId: number, categoryId: number): Observable<ICategory> {
-        return this.categories ? observableOf(this.categories[brandId].find(category => categoryId == category.id)!) :
+        return this.categories[brandId] ? observableOf(this.categories[brandId].find(category => categoryId == category.id)!) :
         this.fetchAll(brandId)
         .pipe(
             map((categories: ICategory[]): ICategory => {

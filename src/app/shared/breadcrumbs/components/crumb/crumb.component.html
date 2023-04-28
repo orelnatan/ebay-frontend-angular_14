@@ -1,12 +1,27 @@
 
 <div class="crumb-main">
-    <div 
-        [class.active-crumb]="!crumb.disabled"
-        [class.disabled-crumb]="crumb.disabled"
-        [style.color]="crumb.color"
-        [redirect]="crumb"
-    >
-        <span class="crumb-name">{{ crumb.name }}</span>
-        <span class="crumb-seperator">/</span>
-    </div>
+    <ng-container *ngIf="crumb | visibility: parent">
+        <div class="breadcrumb-item"
+            [class.active-crumb]="!crumb.disabled"
+            [class.disabled-crumb]="crumb.disabled"
+            [style.color]="crumb.color"
+            [redirect]="crumb"
+        >
+            <ng-container *ngIf="!loading; else loader">
+                <div class="crumb-element">
+                    <span class="crumb-name">{{ crumb.name }}</span>
+                    <span class="crumb-seperator">/</span>
+                </div>
+            </ng-container>
+            
+            <ng-template #loader>
+                <div class="crumb-element">
+                    <spinner [color]="'1D72F3'" [diameter]="15" [strokeWidth]="2"></spinner>
+
+                    <span class="crumb-name">Loading ...</span>
+                    <span class="crumb-seperator">/</span>
+                </div>
+            </ng-template>
+        </div>
+    </ng-container>
 </div>

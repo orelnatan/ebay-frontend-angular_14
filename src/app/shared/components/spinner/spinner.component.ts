@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'spinner',
   template: `
-    <mat-spinner [diameter]="65" [strokeWidth]="5"></mat-spinner>
+    <mat-spinner [diameter]="diameter" [strokeWidth]="strokeWidth" [color]="color"></mat-spinner>
   `,
 })
-export class SpinnerComponent {}
+export class SpinnerComponent {
+    @Input() diameter: number;
+    @Input() strokeWidth: number;
+    @Input() color: string;
+}

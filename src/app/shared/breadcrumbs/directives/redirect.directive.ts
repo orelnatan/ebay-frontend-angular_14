@@ -11,7 +11,7 @@ export class RedirectDirective {
     @HostListener('click', ['$event']) onClick(event: Event): void {
         if(this.crumb.disabled) return;
 
-        this._redirectByPath(this.crumb.path);
+        this._redirectById(this.crumb.id);
     };
 
     @Input('redirect') crumb: ICrumb;
@@ -21,17 +21,27 @@ export class RedirectDirective {
         private readonly breadcrumbsService: BreadcrumbsService
     ) {}
 
-    private _redirectByPath(path: string): void {
-        const url: string = this._createRedirectUrl(path);
-       
+    private _resolveCurrentCrumbs(): Array<ICrumb> {
+        return this.breadcrumbsService.crumbs$
+        .getValue();
+    }
+
+    private _redirectById(id: number): void {
+        const url: string = this._createRedirectUrl(id);
+      
         this.router.navigate([`/${url}`], { queryParamsHandling: 'preserve' });
     }
 
-    private _createRedirectUrl(path: string): string {
-        const routes: Array<string> = this.breadcrumbsService.crumbs$
-        .getValue()
+    private _createRedirectUrl(id: number): string {
+        const crumbs: Array<ICrumb> = this._resolveCurrentCrumbs();
+
+        const pathes: Array<string> = crumbs
         .map(crumb => crumb.path);
 
-        return routes.slice(0, routes.indexOf(path) + 1).join("/");
+        const index: number = crumbs
+        .map(crumb => crumb.id)
+        .indexOf(id);
+        
+        return pathes.slice(0, index + 1).join("/");
     }
 }

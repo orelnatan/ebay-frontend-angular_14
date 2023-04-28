@@ -5,9 +5,9 @@ import { ICrumb } from '../models';
    name: 'visibility',
 })
 export class VisibilityPipe implements PipeTransform {
-    transform(crumb: ICrumb, name: string): boolean {
+    transform(crumb: ICrumb, parent: string): boolean {
         if(crumb.skip) return false;
 
-        return crumb.parent ? crumb.parent == name : true;
+        return crumb.parent ? crumb.parent == parent : true;
     }
 }

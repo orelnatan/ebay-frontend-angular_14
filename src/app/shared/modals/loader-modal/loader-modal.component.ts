@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <modal [excludeActions]="true">
         <ng-container content>
-            <spinner></spinner>
+            <spinner [diameter]="65" [strokeWidth]="5"></spinner>
         </ng-container>
     </modal>
   `,

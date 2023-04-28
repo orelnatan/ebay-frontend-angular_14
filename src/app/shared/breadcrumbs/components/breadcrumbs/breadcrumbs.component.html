@@ -2,9 +2,10 @@
 <div class="breadcrumbs-main">
     <div class="crubms-list">
         <ng-container *ngFor="let crumb of crumbs$ | async">
-            <ng-container *ngIf="crumb | visibility: name">
-                <crumb [crumb]="crumb"></crumb>
-            </ng-container>
+            <crumb 
+                [parent]="name"
+                [crumb]="crumb">
+            </crumb>
         </ng-container>
     </div>
 </div>
