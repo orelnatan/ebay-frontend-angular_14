@@ -5,7 +5,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LayoutModule } from '@ebay/shared/layout';
 import { SideNavbarModule } from '@ebay/shared/components';
 
-import { EbayLocalStorageService, NavigationTreeService } from './services';
+import { EbayLocalStorageService } from './services';
 import { DirectivesModule } from './directives';
 import { AppNavbarModule } from './components';
 import { CoreRoutingModule } from './core-routing.module';
@@ -25,8 +25,7 @@ import { CoreRootComponent } from './core-root.component';
         DirectivesModule,
     ],
     providers: [
-        EbayLocalStorageService,
-        NavigationTreeService
+        EbayLocalStorageService
     ]
 })
 export class CoreModule {}

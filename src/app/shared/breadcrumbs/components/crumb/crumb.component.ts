@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 import { ICrumb } from '../../models';
 
@@ -7,21 +7,23 @@ import { ICrumb } from '../../models';
     templateUrl: './crumb.component.html',
     styleUrls: ['./crumb.component.scss'],
 })
-export class CrumbComponent implements OnInit {
+export class CrumbComponent implements OnChanges {
     @Input() crumb: ICrumb;
     @Input() parent: string;
 
     loading: boolean;
     
-    ngOnInit(): void {
-        if(this.crumb.async) {
-            this.loading = true;
+    ngOnChanges(): void {
+        this.crumb?.async ? this._resolveAsyncCrumb(this.crumb.async) : null;
+    }
 
-            this.crumb.async?.then((crumb: ICrumb): void => {
-                this.loading = false;
-           
-                this.crumb = { ... this.crumb, ... crumb };
-            });
-        }
+    private _resolveAsyncCrumb(asyncCrumb: Promise<ICrumb>): void {
+        this.loading = true;
+
+        asyncCrumb.then((crumb: ICrumb): void => {
+            this.crumb = { ... this.crumb, ... crumb };
+
+            this.loading = false;
+        });
     }
 }

@@ -1,11 +1,9 @@
 import { Injectable }  from '@angular/core';
 import { Router, Event as RouterNavigationEvent, NavigationEnd, ActivatedRouteSnapshot as Snapshot, Params } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 import { ICrumb } from '../models';
-
-var get = require('lodash.get');
 
 @UntilDestroy()
 @Injectable({ providedIn: "root" })
@@ -31,26 +29,25 @@ export class BreadcrumbsService {
     }
 
     private _buildActiveCrumbsTree(snapshots: Array<Snapshot>): Array<ICrumb> {
-        const crumbs: Array<ICrumb> = [];
+        const tree: Array<ICrumb> = [];
 
         snapshots.forEach((snapshot: Snapshot, sindex: number) => {
             const params: Params = snapshot.params;
-            const routeCrumbs: Array<ICrumb> = snapshot.data?.["crumbs"] || [];
-            
-            routeCrumbs.forEach((crumb: ICrumb, cindex: number) => {
+            const crumbs: Array<ICrumb> = snapshot?.routeConfig?.data?.["crumbs"];
+           
+            crumbs?.forEach((crumb: ICrumb, cindex: number) => {
                 const id: number = parseInt(`${sindex}${cindex}`);
 
                 const path: string = params[crumb.path] || crumb.path;
-                const route: string = snapshot.routeConfig?.path!;
                 const name: string = crumb.name || "";
 
-                const async: Promise<ICrumb> = get(snapshot.data, crumb.path) || crumb.async;
+                const async: Promise<ICrumb> = snapshot.data[crumb.resolve!];
                 
-                crumbs.push({ ...crumb, id, path, route, name, async });
+                tree.push({ ...crumb, id, path, name, async });
             });
         })
-        console.log(crumbs)
-        return crumbs;
+        
+        return tree;
     }
 
     private _resolveRouterSnapshotsTree(router: Router): Array<Snapshot> {

@@ -1,15 +1,15 @@
 import { Injectable }  from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 
-import { ICrumb } from '@ebay/shared/breadcrumbs/models';
+import { BreadcrumbResolver, ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { BrandsService } from '../services';
 import { IBrand } from '../models';
 
 @Injectable()
-export class BrandCrumbResolver implements Resolve<Observable<Promise<ICrumb>>> {
+export class BrandCrumbResolver implements BreadcrumbResolver {
     constructor(
         private readonly brandsService: BrandsService,
         private readonly titleCasePipe: TitleCasePipe

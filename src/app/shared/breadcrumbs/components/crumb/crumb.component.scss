@@ -38,4 +38,8 @@
     spinner {
         margin: 0px 2px;
     }
+
+    ::ng-deep circle {
+        stroke: $color-office;
+    }
 }

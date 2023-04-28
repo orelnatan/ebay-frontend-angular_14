@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 
 import { BreadcrumbsModule } from '@ebay/shared/breadcrumbs';
 
-import { CrumbsbarComponent } from './crumbsbar.component';
+import { CrumbsNavbarComponent } from './crumbs-navbar.component';
 
 @NgModule({
     declarations: [ 
-        CrumbsbarComponent,
+        CrumbsNavbarComponent,
     ],
     imports: [
         BreadcrumbsModule
     ],
     exports: [
-        CrumbsbarComponent
+        CrumbsNavbarComponent
     ]
 })
-export class CrumbsbarModule {}
+export class CrumbsNavbarModule {}

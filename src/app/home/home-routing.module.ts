@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ICrumb } from '@ebay/shared/breadcrumbs/models';
+import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { BrandCrumbResolver, CategoryCrumbResolver, FamilyCrumbResolver } from './resolvers';
 import { HomeRootComponent } from './home-root.component';
@@ -33,12 +33,12 @@ const routes: Routes = [
                         },
                         {
                             path: "brandId",
-                            name: "Brand-id",
+                            resolve: "brand"
                         },
                     ] as Array<ICrumb>
                 },
                 resolve: {
-                    brandId: BrandCrumbResolver
+                    brand: BrandCrumbResolver,
                 }
             },
             { 
@@ -52,7 +52,7 @@ const routes: Routes = [
                         },
                         {
                             path: "brandId",
-                            name: "Brand-id"
+                            resolve: "brand"
                         },
                         {
                             path: "categories",
@@ -60,13 +60,13 @@ const routes: Routes = [
                         },
                         {
                             path: "categoryId",
-                            name: "Category-id",
+                            resolve: "category"
                         },
                     ] as Array<ICrumb>
                 },
                 resolve: {
-                    brandId: BrandCrumbResolver,
-                    categoryId: CategoryCrumbResolver
+                    brand: BrandCrumbResolver,
+                    category: CategoryCrumbResolver
                 }
             },
             { 
@@ -80,15 +80,15 @@ const routes: Routes = [
                         },
                         {
                             path: "brandId",
-                            name: "Brand-id",
+                            resolve: "brand"
                         },
                         {
                             path: "categories",
-                            name: "Categories"
+                            name: "Categories",
                         },
                         {
                             path: "categoryId",
-                            name: "Category-id",
+                            resolve: "category"
                         },
                         {
                             path: "families",
@@ -96,14 +96,14 @@ const routes: Routes = [
                         },
                         {
                             path: "familyId",
-                            name: "Family-id"
+                            resolve: "family"
                         }
                     ] as Array<ICrumb>
                 },
                 resolve: {
-                    brandId: BrandCrumbResolver,
-                    categoryId: CategoryCrumbResolver,
-                    familyId: FamilyCrumbResolver
+                    brand: BrandCrumbResolver,
+                    category: CategoryCrumbResolver,
+                    family: FamilyCrumbResolver
                 }
             },
         ]

@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
-import { UtilsPanelComponent } from './utils-panel.component';
+import { UtilsNavbarComponent } from './utils-navbar.component';
 
 @NgModule({
     declarations: [ 
-        UtilsPanelComponent,
+        UtilsNavbarComponent,
     ],
     imports: [
         CommonModule,
         MatIconModule,
     ],
     exports: [
-        UtilsPanelComponent
+        UtilsNavbarComponent
     ]
 })
-export class UtilsPanelModule {}
+export class UtilsNavbarModule {}

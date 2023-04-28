@@ -5,11 +5,11 @@ import { Component } from '@angular/core';
   template: `
     <root-layout>
         <layout-header header-primary>
-            <utils-panel></utils-panel>
+            <utils-navbar></utils-navbar>
         </layout-header>
 
         <layout-header header-secondary>
-            <crumbsbar></crumbsbar>
+            <crumbs-navbar></crumbs-navbar>
         </layout-header>
 
         <layout-sidebar side-primary>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '@ebay/shared/guards';
-import { ICrumb } from '@ebay/shared/breadcrumbs/models';
+import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { CoreRootComponent } from './core-root.component';
 

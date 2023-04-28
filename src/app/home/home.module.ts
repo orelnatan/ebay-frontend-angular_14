@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 
 import { LayoutModule } from '@ebay/shared/layout';
-import { CrumbsbarModule, SideNavbarModule, UtilsPanelModule } from '@ebay/shared/components';
+import { CrumbsNavbarModule, SideNavbarModule, UtilsNavbarModule } from '@ebay/shared/components';
 
 import { BrandsService, CategoriesService, FamiliesService } from './services';
 import { HomeRoutingModule } from './home-routing.module';
@@ -16,8 +16,8 @@ import { HomeRootComponent } from './home-root.component';
         HomeRoutingModule,
         LayoutModule,
         SideNavbarModule,
-        UtilsPanelModule,
-        CrumbsbarModule
+        UtilsNavbarModule,
+        CrumbsNavbarModule
     ],
     providers: [
         TitleCasePipe,

@@ -7,7 +7,7 @@ import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
 import { ProductsService } from '@ebay/home/services';
 import { ProductCardModule } from '@ebay/home/components';
-import { ICrumb } from '@ebay/shared/breadcrumbs/models';
+import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { ProductsPageComponent } from './products-page.component';
 

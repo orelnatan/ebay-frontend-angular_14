@@ -6,7 +6,7 @@ import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
 import { FamilyCardModule } from '@ebay/home/components';
-import { ICrumb } from '@ebay/shared/breadcrumbs/models';
+import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { FamiliesPageComponent } from './families-page.component';
 
