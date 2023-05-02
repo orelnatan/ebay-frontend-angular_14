@@ -7,7 +7,6 @@ import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
 import { ProductsService } from '@ebay/home/services';
 import { ProductCardModule } from '@ebay/home/components';
-import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { ProductsPageComponent } from './products-page.component';
 
@@ -27,12 +26,15 @@ import { ProductsPageComponent } from './products-page.component';
                 path: 'products',
                 component: ProductsPageComponent,
                 data: {
+                    redirect: {
+                        route: "home/brands/brandId/categories/categoryId/families",
+                    },
                     crumbs: [
                         {
                             path: "products",
                             name: "Products"
                         } 
-                    ] as Array<ICrumb>
+                    ]
                 }
             },
         ])

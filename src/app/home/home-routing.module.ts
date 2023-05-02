@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ICrumb } from '@ebay/shared/breadcrumbs';
-
 import { BrandCrumbResolver, CategoryCrumbResolver, FamilyCrumbResolver } from './resolvers';
 import { HomeRootComponent } from './home-root.component';
 
@@ -19,7 +17,7 @@ const routes: Routes = [
                             path: "brands",
                             name: "Brands"
                         }
-                    ] as Array<ICrumb>
+                    ]
                 }
             },
             { 
@@ -35,7 +33,7 @@ const routes: Routes = [
                             path: "brandId",
                             resolve: "brand"
                         },
-                    ] as Array<ICrumb>
+                    ]
                 },
                 resolve: {
                     brand: BrandCrumbResolver,
@@ -62,7 +60,7 @@ const routes: Routes = [
                             path: "categoryId",
                             resolve: "category"
                         },
-                    ] as Array<ICrumb>
+                    ]
                 },
                 resolve: {
                     brand: BrandCrumbResolver,
@@ -98,7 +96,7 @@ const routes: Routes = [
                             path: "familyId",
                             resolve: "family"
                         }
-                    ] as Array<ICrumb>
+                    ]
                 },
                 resolve: {
                     brand: BrandCrumbResolver,
@@ -111,7 +109,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forChild(routes), ],
+    imports: [ RouterModule.forChild(routes) ],
     exports: [ RouterModule ],
     providers: [
         BrandCrumbResolver,

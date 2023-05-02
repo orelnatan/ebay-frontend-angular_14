@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '@ebay/shared/guards';
-import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { AuthRootComponent } from './auth-root.component';
 
@@ -21,7 +20,7 @@ const routes: Routes = [
                             path: "login",
                             name: "Login"
                         }
-                    ] as Array<ICrumb>
+                    ]
                 },
             },
             { 
@@ -33,7 +32,7 @@ const routes: Routes = [
                             path: "registration",
                             name: "Registration"
                         }
-                    ] as Array<ICrumb>
+                    ]
                 }
             }
         ]

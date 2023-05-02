@@ -1,2 +1,2 @@
 
-export { ICrumb } from './icrumb.model';
+export { ICrumb } from './icrumb.interface';

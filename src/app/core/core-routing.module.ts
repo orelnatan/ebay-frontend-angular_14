@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '@ebay/shared/guards';
-import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { CoreRootComponent } from './core-root.component';
+import { RedirectResolver } from '@ebay/shared/redirect';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,7 +20,7 @@ const routes: Routes = [
                             path: "home",
                             name: "Home"
                         }
-                    ] as Array<ICrumb>
+                    ]
                 }
             },
             { 
@@ -33,7 +33,7 @@ const routes: Routes = [
                             path: "statistics",
                             name: "Statistics",
                         }
-                    ] as Array<ICrumb>
+                    ]
                 }
             }, 
             { 
@@ -45,7 +45,7 @@ const routes: Routes = [
                             path: "auth",
                             name: "Auth",
                         }
-                    ] as Array<ICrumb>
+                    ]
                 }
             },
         ]
@@ -55,7 +55,7 @@ const routes: Routes = [
 @NgModule({
     imports: [ RouterModule.forChild(routes), ],
     exports: [ RouterModule ],
-    providers: [AuthGuard]
+    providers: [AuthGuard, RedirectResolver]
 })
   
 export class CoreRoutingModule {}

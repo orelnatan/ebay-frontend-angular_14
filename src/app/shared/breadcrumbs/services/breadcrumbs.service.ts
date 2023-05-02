@@ -6,7 +6,9 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ICrumb } from '../models';
 
 @UntilDestroy()
-@Injectable({ providedIn: "root" })
+@Injectable({ 
+    providedIn: "root"
+})
 export class BreadcrumbsService {
     private _crumbs$: BehaviorSubject<ICrumb[]> = new BehaviorSubject<ICrumb[]>([]);
     
@@ -31,11 +33,11 @@ export class BreadcrumbsService {
     private _buildActiveCrumbsTree(snapshots: Array<Snapshot>): Array<ICrumb> {
         const tree: Array<ICrumb> = [];
 
-        snapshots.forEach((snapshot: Snapshot, sindex: number) => {
+        snapshots.forEach((snapshot: Snapshot, sindex: number): void => {
             const params: Params = snapshot.params;
             const crumbs: Array<ICrumb> = snapshot?.routeConfig?.data?.["crumbs"];
            
-            crumbs?.forEach((crumb: ICrumb, cindex: number) => {
+            crumbs?.forEach((crumb: ICrumb, cindex: number): void => {
                 const id: number = parseInt(`${sindex}${cindex}`);
 
                 const path: string = params[crumb.path] || crumb.path;
@@ -46,20 +48,19 @@ export class BreadcrumbsService {
                 tree.push({ ...crumb, id, path, name, async });
             });
         })
-        
         return tree;
     }
 
     private _resolveRouterSnapshotsTree(router: Router): Array<Snapshot> {
         const snapshots: Array<Snapshot> = [];
-
+        
         let snapshot: Snapshot = router.routerState.snapshot.root;
         do {
-            snapshots.push(snapshot)
+            if(snapshot.url[0]) { snapshots.push(snapshot) }
 
             snapshot = snapshot.firstChild!;
         } while (snapshot);
-
-        return snapshots.filter(snapshot => snapshot.url[0]);
+        
+        return snapshots;
     }
 }

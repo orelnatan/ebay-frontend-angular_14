@@ -6,7 +6,6 @@ import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
 import { FamilyCardModule } from '@ebay/home/components';
-import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { FamiliesPageComponent } from './families-page.component';
 
@@ -26,12 +25,15 @@ import { FamiliesPageComponent } from './families-page.component';
                 path: 'families',
                 component: FamiliesPageComponent,
                 data: {
+                    redirect: {
+                        route: "home/brands/brandId/categories",
+                    },
                     crumbs: [
                         {
                             path: "families",
                             name: "Families"
                         }
-                    ] as Array<ICrumb>
+                    ]
                 }
             },
         ])

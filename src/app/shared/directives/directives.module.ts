@@ -5,7 +5,6 @@ import { GapDirective } from './gap.directive';
 import { LoaderDirective } from './loader.directive';
 import { RxResolverDirective } from './rx-resolver.directive';
 import { NgLetDirective } from './ng-let.directive';
-import { ReturnUrlDirective } from './return-url.directive';
 
 @NgModule({
     declarations: [
@@ -14,7 +13,6 @@ import { ReturnUrlDirective } from './return-url.directive';
         LoaderDirective,
         RxResolverDirective,
         NgLetDirective,
-        ReturnUrlDirective
     ],
     exports: [
         SpaceDirective,
@@ -22,7 +20,6 @@ import { ReturnUrlDirective } from './return-url.directive';
         LoaderDirective,
         RxResolverDirective,
         NgLetDirective,
-        ReturnUrlDirective
     ]
 })
 export class DirectivesModule {}

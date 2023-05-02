@@ -5,7 +5,7 @@
             [class.active-crumb]="!crumb.disabled"
             [class.disabled-crumb]="crumb.disabled"
             [style.color]="crumb.color"
-            [redirect]="crumb"
+            [crumbsRedirect]="crumb"
         >
             <ng-container *ngIf="!loading; else loader">
                 <div class="crumb-element">

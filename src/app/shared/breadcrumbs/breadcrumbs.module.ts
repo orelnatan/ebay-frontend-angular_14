@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { SpinnerModule } from '../components';
 
-import { RedirectDirective } from './directives';
+import { CrumbsRedirectDirective } from './directives';
 import { VisibilityPipe } from './pipes';
 import { BreadcrumbsComponent, CrumbComponent } from './components';
 
@@ -11,7 +11,7 @@ import { BreadcrumbsComponent, CrumbComponent } from './components';
     declarations: [ 
         BreadcrumbsComponent,
         CrumbComponent,
-        RedirectDirective,
+        CrumbsRedirectDirective,
         VisibilityPipe,
     ],
     imports: [
