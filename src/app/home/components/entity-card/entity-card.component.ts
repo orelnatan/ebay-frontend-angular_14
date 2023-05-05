@@ -10,14 +10,13 @@ export class EntityCardComponent {
   @Input() id: number;
   @Input() name: string;
   @Input() image: string;
-  @Input() link: string;
 
   constructor(
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute
   ) {}
 
-  navigate(id: number, link: string): void {
-    this.router.navigate([id, link], { relativeTo: this.activatedRoute })
+  navigate(id: number): void {
+    this.router.navigate([id], { relativeTo: this.activatedRoute })
   }
 }

@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 
 import { RegExpPipe } from './reg-exp.pipe';
+import { SuffixPipe } from './suffix.pipe';
 
 @NgModule({
     declarations: [
-        RegExpPipe
+        RegExpPipe,
+        SuffixPipe
     ],
     exports: [
-        RegExpPipe
+        RegExpPipe,
+        SuffixPipe
     ]
 })
 export class PipesModule {}

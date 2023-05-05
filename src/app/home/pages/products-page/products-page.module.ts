@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
-import { ProductsService } from '@ebay/home/services';
 import { ProductCardModule } from '@ebay/home/components';
 
 import { ProductsPageComponent } from './products-page.component';
@@ -38,9 +37,6 @@ import { ProductsPageComponent } from './products-page.component';
                 }
             },
         ])
-    ],
-    providers: [
-        ProductsService
     ]
 })
 export class ProductsPageModule {}

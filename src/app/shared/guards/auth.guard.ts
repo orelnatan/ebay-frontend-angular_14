@@ -22,12 +22,14 @@ export class AuthGuard implements CanActivateChild {
         const blockWhileAuthenticated: boolean = route.data['blockWhileAuthenticated'] || BLOCK_WHILE_AUTHENTICATED;
         const redirectToWhileNotAuthenticated: string = route.data['redirectToWhileNotAuthenticated'] || REDIRECT_TO_WHILE_NOT_AUTHENTICATED;
         const redirectToWhileAuthenticated: string = route.data['redirectToWhileAuthenticated'] || REDIRECT_TO_WHILE_AUTHENTICATED;
-
+      
         return new Observable((observer: Subscriber<boolean | UrlTree>): void => {
             this.ebayLocalStorageService.retrieve<IUser>(StorageKeys.User).subscribe((user: IUser): void => {
                 if(!blockWhileAuthenticated) { 
                     // Block while not authenticated(default)
-                    observer.next(user ? true : this.router.createUrlTree([redirectToWhileNotAuthenticated])); 
+                    observer.next(user ? true : this.router.createUrlTree([redirectToWhileNotAuthenticated], { 
+                        queryParams: { returnUrl: state.url }
+                    })); 
                 } else { 
                     // Block while authenticated
                     observer.next(!user ? true : this.router.createUrlTree([redirectToWhileAuthenticated])); 

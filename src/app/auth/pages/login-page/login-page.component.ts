@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 
@@ -28,6 +28,7 @@ export class LoginPageComponent {
     private readonly matSnackbar: MatSnackBar,
     private readonly authenticationService: AuthenticationService,
     private readonly ebayLocalStorageService: EbayLocalStorageService,
+    private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router
   ) {}
 
@@ -38,7 +39,7 @@ export class LoginPageComponent {
   loginSuccess(user: IUser): void {
     this.ebayLocalStorageService.store(StorageKeys.User, user);
     
-    this.router.navigate(["/home"]);
+    this.router.navigate([this.activatedRoute.snapshot.queryParams['returnUrl'] || "/home"]);
   }
 
   loginFailed(error: HttpErrorResponse): void {

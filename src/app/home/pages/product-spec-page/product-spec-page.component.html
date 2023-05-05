@@ -1,0 +1,52 @@
+
+<page-layout>
+    <div class="product-spec-page-main">
+        <ng-container #resolver="resolver" loader #loader="loader"
+            [rxResolver]="product$"
+            (start)="loader.show()"
+            (done)="loader.hide()"
+        >
+            <div class="product-spec-view" *ngIf="resolver.data as product">
+                <product-header
+                    [name]="product.name"
+                    [description]="product.description"
+                    [image]="product.image">
+                </product-header>
+                
+                <div class="elements-grid-container">
+                    <elements-grid [elementMinSizePx]="255">
+                        <product-spec-item
+                            [title]="'Serial'"
+                            [value]="product.serial">
+                        </product-spec-item>
+
+                        <product-spec-item
+                            [title]="'Added'"
+                            [value]="(product.added | date)!">
+                        </product-spec-item>
+    
+                        <product-spec-item
+                            [title]="'Width'"
+                            [value]="product.width | suffix: 'cm'">
+                        </product-spec-item>
+    
+                        <product-spec-item
+                            [title]="'Height'"
+                            [value]="product.height | suffix: 'cm'">
+                        </product-spec-item>
+    
+                        <product-spec-item
+                            [title]="'Weight'"
+                            [value]="product.weight | suffix: 'g'">
+                        </product-spec-item>
+    
+                        <product-spec-item
+                            [title]="'Price'"
+                            [value]="product.price | suffix: '$'">
+                        </product-spec-item>
+                    </elements-grid>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</page-layout>

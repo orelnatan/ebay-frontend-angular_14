@@ -35,12 +35,11 @@ export class CrumbsRedirectDirective {
     private _createRedirectUrl(id: number): string {
         const crumbs: Array<ICrumb> = this._resolveCurrentCrumbs();
 
-        const pathes: Array<string> = crumbs
-        .map(crumb => crumb.path);
+        const pathes: Array<string> = crumbs.map(
+            crumb => crumb.path);
 
-        const index: number = crumbs
-        .map(crumb => crumb.id)
-        .indexOf(id);
+        const index: number = crumbs.map(
+            crumb => crumb.id).indexOf(id);
         
         return pathes.slice(0, index + 1).join("/");
     }

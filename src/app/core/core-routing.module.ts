@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@ebay/shared/guards';
 
 import { CoreRootComponent } from './core-root.component';
-import { RedirectResolver } from '@ebay/shared/redirect';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -53,9 +52,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forChild(routes), ],
+    imports: [ RouterModule.forChild(routes) ],
     exports: [ RouterModule ],
-    providers: [AuthGuard, RedirectResolver]
+    providers: [ AuthGuard ]
 })
   
 export class CoreRoutingModule {}

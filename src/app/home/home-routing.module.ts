@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BrandCrumbResolver, CategoryCrumbResolver, FamilyCrumbResolver } from './resolvers';
+import { BrandCrumbResolver, CategoryCrumbResolver, FamilyCrumbResolver, ProductCrumbResolver } from './resolvers';
 import { HomeRootComponent } from './home-root.component';
 
 const routes: Routes = [
@@ -104,6 +104,52 @@ const routes: Routes = [
                     family: FamilyCrumbResolver
                 }
             },
+            { 
+                path: 'brands/:brandId/categories/:categoryId/families/:familyId/products/:productId',
+                loadChildren: () => import('./pages/product-spec-page').then(product => product.ProductSpecPageModule),
+                data: {
+                    crumbs: [
+                        {
+                            path: "brands",
+                            name: "Brands"
+                        },
+                        {
+                            path: "brandId",
+                            resolve: "brand"
+                        },
+                        {
+                            path: "categories",
+                            name: "Categories",
+                        },
+                        {
+                            path: "categoryId",
+                            resolve: "category"
+                        },
+                        {
+                            path: "families",
+                            name: "Families"
+                        },
+                        {
+                            path: "familyId",
+                            resolve: "family"
+                        },
+                        {
+                            path: "products",
+                            name: "Products"
+                        },
+                        {
+                            path: "productId",
+                            resolve: "product"
+                        }
+                    ]
+                },
+                resolve: {
+                    brand: BrandCrumbResolver,
+                    category: CategoryCrumbResolver,
+                    family: FamilyCrumbResolver,
+                    product: ProductCrumbResolver
+                }
+            },
         ]
     },
 ];
@@ -114,7 +160,8 @@ const routes: Routes = [
     providers: [
         BrandCrumbResolver,
         CategoryCrumbResolver,
-        FamilyCrumbResolver
+        FamilyCrumbResolver,
+        ProductCrumbResolver
     ]
 })
   
