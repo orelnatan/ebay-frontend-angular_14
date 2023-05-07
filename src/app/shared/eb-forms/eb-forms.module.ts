@@ -24,7 +24,9 @@ import {
     InputTextComponent,
     InputPasswordComponent,
     PrimaryButtonComponent,
-    InputCheckboxComponent
+    InputCheckboxComponent,
+    InputsContainerComponent,
+    InputFieldComponent
 } from './components';
 
 @NgModule({
@@ -33,6 +35,8 @@ import {
         InputPasswordComponent,
         PrimaryButtonComponent,
         InputCheckboxComponent,
+        InputsContainerComponent,
+        InputFieldComponent,
         AbstractToFormControlPipe,
         ValidationPipe,
         ControlValidityPipe,
@@ -54,6 +58,8 @@ import {
         InputPasswordComponent,
         InputCheckboxComponent,
         PrimaryButtonComponent,
+        InputsContainerComponent,
+        InputFieldComponent
     ]
 })
 export class EbFormsModule {}

@@ -2,10 +2,9 @@ import { Injectable, } from '@angular/core';
 import { Router, UrlTree, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 
-import { StorageKeys } from '@ebay/core/models';
 import { EbayLocalStorageService } from '@ebay/core/services';
-
-import { IUser } from '../models';
+import { StorageKeys } from '@ebay/core/models';
+import { IUser } from '@ebay/shared/models';
 
 const BLOCK_WHILE_AUTHENTICATED: boolean = false;
 const REDIRECT_TO_WHILE_NOT_AUTHENTICATED: string = "/auth";

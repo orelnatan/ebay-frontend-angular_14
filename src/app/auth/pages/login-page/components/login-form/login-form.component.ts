@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { ILogin } from '@ebay/auth/models';
 import { IValidation } from '@ebay/shared/eb-forms/models';
+import { ILogin } from '@ebay/auth/models';
 
 import * as Validations from './validations.json';
 

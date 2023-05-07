@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { AlertType, IAction, IAlertData } from '@ebay/shared/models';
+import { IAlertData, AlertType, IAction } from './models';
 
 @Component({
   selector: 'alert-modal',

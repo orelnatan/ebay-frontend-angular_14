@@ -1,8 +1,7 @@
 import { Directive, EventEmitter, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
-import { AlertModalComponent } from '@ebay/shared/modals';
-import { IAction } from '@ebay/shared/models';
+import { AlertModalComponent, IAction } from '@ebay/shared/modals';
 
 @Directive({
     selector: '[logout]',
@@ -29,7 +28,7 @@ export class LogoutDirective {
                         name: "Log me out", 
                         task: () => { this.logout.emit() }
                     }
-                ]
+                ] as Array<IAction>
             }
         })
       

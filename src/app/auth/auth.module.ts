@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { LayoutModule } from '@ebay/shared/layout';
-import { AuthGuard } from '@ebay/shared/guards';
 import { CrumbsNavbarModule } from '@ebay/shared/components';
 
 import { AuthenticationService } from './services';
@@ -18,8 +17,7 @@ import { AuthRootComponent } from './auth-root.component';
         CrumbsNavbarModule
     ],
     providers: [
-        AuthenticationService,
-        AuthGuard
+        AuthenticationService
     ]
 })
 export class AuthModule {}
