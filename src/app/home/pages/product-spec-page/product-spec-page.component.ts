@@ -17,7 +17,7 @@ export class ProductSpecPageComponent {
     product$: Observable<IProduct> = this.productsService.getSingleEntity(this.familyId, this.productId);
 
     constructor(
-        public readonly productsService: ProductsService,
+        private readonly productsService: ProductsService,
         private readonly activatedRoute: ActivatedRoute
     ) {}
 

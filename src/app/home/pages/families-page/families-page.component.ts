@@ -16,7 +16,7 @@ export class FamiliesPageComponent {
   families$: Observable<IFamily[]> = this.familiesService.fetchAll(this.categoryId);
 
   constructor(
-      public readonly familiesService: FamiliesService,
+      private readonly familiesService: FamiliesService,
       private readonly activatedRoute: ActivatedRoute
   ) {}
 

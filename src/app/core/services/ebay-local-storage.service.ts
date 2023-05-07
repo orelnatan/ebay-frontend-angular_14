@@ -1,37 +1,42 @@
 import { Injectable, }  from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 
-import { Ebay, StorageKeys, StorageValues } from '../models';
+import { Interceptor } from '@ebay/shared/global-events';
+
+import { Ebay, GlobalEventTypes, StorageKeys, StorageValues } from '../models';
 
 const LOCAL_STORAGE_NAME: string = "Ebay";
 
+@Interceptor([{ type: GlobalEventTypes.Logout, action: "clear" }])
 @Injectable()
 export class EbayLocalStorageService {
-    private storage: Ebay;
+    private _storage: Ebay;
 
     constructor() {
-        this.storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_NAME)!) || {};
+        this._storage = JSON.parse(
+            localStorage.getItem(LOCAL_STORAGE_NAME)!
+        ) || {};
     }
 
     public retrieve<T extends StorageValues>(key: StorageKeys): Observable<T> {
         return new Observable((observer: Subscriber<T>): void => {
-            observer.next(this.storage[key] as T);
+            observer.next(this._storage[key] as T);
         })
     }
 
     public store(key: StorageKeys, value: StorageValues): void {
-        this.storage[key] = value;
+        this._storage[key] = value;
 
-        this.update(this.storage);
+        this._update(this._storage);
     }
 
     public clear(): void {
-        this.storage = {} as Ebay;
+        this._storage = {} as Ebay;
 
-        this.update(this.storage);
+        this._update(this._storage);
     }
 
-    private update(storage: Ebay): void {
+    private _update(storage: Ebay): void {
         localStorage.removeItem(LOCAL_STORAGE_NAME);
 
         localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(storage));

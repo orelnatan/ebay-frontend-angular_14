@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { EbayLocalStorageService } from './services';
+import { Interceptor, GlobalEventsService } from '@ebay/shared/global-events';
 
+import { GlobalEventTypes } from './models';
+
+@Interceptor([{ type: GlobalEventTypes.Logout, action: "exitApp" }])
 @Component({
   selector: 'core-root',
   template: `
-     <root-layout #logout="logout" (logout)="disconnect()">
+     <root-layout #logout="logout" (logout)="dispatchLogout()">
         <layout-header header-primary>
             <app-navbar (logout)="logout.show()"></app-navbar>
         </layout-header>
@@ -18,13 +21,17 @@ import { EbayLocalStorageService } from './services';
 export class CoreRootComponent {
     constructor(
       private readonly router: Router,
-      private readonly ebayLocalStorageService: EbayLocalStorageService,
+      private readonly globalEventsService: GlobalEventsService
     ) {}
 
-    disconnect(): void {
-      this.ebayLocalStorageService.clear();
-    
-      this.router.navigate(['/auth']);
+    dispatchLogout(): void {
+        this.globalEventsService.dispatch(
+            GlobalEventTypes.Logout
+        )
+    }
+
+    exitApp(): void {
+        this.router.navigate(['/auth']);
     }
 }
 

@@ -3,36 +3,45 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable, of as observableOf } from 'rxjs';  
 
 import { environment } from '@ebay/env/environment';
+import { GlobalEventTypes } from '@ebay/core/models';
+import { Interceptor } from '@ebay/shared/global-events';
 import { IBrand } from '@ebay/home/models';
 
+import { EntitiesAbstractService } from './entities-abstract.service';
+
+@Interceptor([{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient])
 @Injectable()
-export class BrandsService {
-    private brands: Array<IBrand>;
+export class BrandsService implements EntitiesAbstractService {
+    private _brands: Array<IBrand> | null;
 
     constructor(
-        private readonly httpClient: HttpClient,
+        private readonly httpClient: HttpClient
     ) {}
                 
     fetchAll(): Observable<IBrand[]> {
-        return this.brands ? observableOf(this.brands) : this.httpClient.get<IBrand[]>(environment.apis.home.brands.all)
+        return this._brands ? observableOf(this._brands) : this.httpClient.get<IBrand[]>(environment.apis.home.brands.all)
         .pipe(
-            map((brands: IBrand[]): IBrand[] => {
-                this.brands = brands;
+            map((_brands: IBrand[]): IBrand[] => {
+                this._brands = _brands;
                 
-                return brands;
+                return _brands;
             })
         )
     }
 
     getSingleEntity(brandId: number): Observable<IBrand> {
-        return this.brands ? observableOf(this.brands.find(brand => brandId == brand.id)!) :
+        return this._brands ? observableOf(this._brands.find(brand => brandId == brand.id)!) :
         this.fetchAll()
         .pipe(
-            map((brands: IBrand[]): IBrand => {
-                this.brands = brands;
+            map((_brands: IBrand[]): IBrand => {
+                this._brands = _brands;
 
-                return brands.find(brand => brandId == brand.id)!
+                return _brands.find(brand => brandId == brand.id)!
             })
         )
+    }
+
+    dispose(): void {
+        this._brands = null;
     }
 }

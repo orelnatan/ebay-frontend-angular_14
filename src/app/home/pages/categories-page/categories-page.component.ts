@@ -16,7 +16,7 @@ export class CategoriesPageComponent {
     categories$: Observable<ICategory[]> = this.categoriesService.fetchAll(this.brandId);
 
     constructor(
-        public readonly categoriesService: CategoriesService,
+        private readonly categoriesService: CategoriesService,
         private readonly activatedRoute: ActivatedRoute
     ) {}
 

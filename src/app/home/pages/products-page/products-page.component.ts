@@ -16,7 +16,7 @@ export class ProductsPageComponent {
     products$: Observable<IProduct[]> = this.productsService.fetchAll(this.familyId);
 
     constructor(
-        public readonly productsService: ProductsService,
+        private readonly productsService: ProductsService,
         private readonly activatedRoute: ActivatedRoute
     ) {}
 

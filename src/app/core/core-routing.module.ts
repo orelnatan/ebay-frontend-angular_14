@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from '@ebay/auth/guards';
-
+import { AuthGuard } from './guards';
 import { CoreRootComponent } from './core-root.component';
 
 const routes: Routes = [
@@ -53,8 +52,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [ RouterModule.forChild(routes) ],
-    exports: [ RouterModule ],
-    providers: [ AuthGuard ]
+    exports: [ RouterModule ]
 })
   
 export class CoreRoutingModule {}

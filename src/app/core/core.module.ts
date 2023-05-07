@@ -4,12 +4,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { LayoutModule } from '@ebay/shared/layout';
 import { SideNavbarModule } from '@ebay/shared/components';
+import { GlobalEventsModule } from '@ebay/shared/global-events';
 
 import { EbayLocalStorageService } from './services';
 import { DirectivesModule } from './directives';
 import { AppNavbarModule } from './components';
 import { CoreRoutingModule } from './core-routing.module';
 import { CoreRootComponent } from './core-root.component';
+
+import { AuthGuard } from './guards';
 
 @NgModule({
     declarations: [
@@ -23,9 +26,11 @@ import { CoreRootComponent } from './core-root.component';
         LayoutModule,
         SideNavbarModule,
         DirectivesModule,
+        GlobalEventsModule,
     ],
     providers: [
-        EbayLocalStorageService
+        EbayLocalStorageService,
+        AuthGuard
     ]
 })
 export class CoreModule {}
