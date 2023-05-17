@@ -2,6 +2,8 @@ import { Directive, EventEmitter, Input, OnChanges, OnDestroy, Output } from '@a
 import { HttpErrorResponse } from '@angular/common/http';
 import { finalize, isObservable, Observable, Subscription } from 'rxjs';
 
+declare type defaultT = any;
+
 @Directive({
     selector: '[rxResolver]',
     exportAs: 'resolver'
@@ -9,6 +11,8 @@ import { finalize, isObservable, Observable, Subscription } from 'rxjs';
 export class RxResolverDirective<T> implements OnChanges, OnDestroy {
     @Input('rxResolver') observable: Observable<T>;
 
+    @Input() default: defaultT;
+    
     @Output() resolved: EventEmitter<T> = new EventEmitter();
     @Output() failed: EventEmitter<HttpErrorResponse> = new EventEmitter();
     @Output() start: EventEmitter<void> = new EventEmitter();
@@ -16,31 +20,32 @@ export class RxResolverDirective<T> implements OnChanges, OnDestroy {
 
     private _subscription: Subscription;
 
-    public data: T;
-    public error: HttpErrorResponse;
-    public inProcess: boolean;
+    private _data: T;
+    private _error: HttpErrorResponse;
+    private _inProcess: boolean;
 
     ngOnChanges(): void {
-        this._subscription?.unsubscribe();
+        this._data = this.default;
 
+        this._subscription?.unsubscribe();
         if(isObservable(this.observable)) {
-            this.inProcess = true;
+            this._inProcess = true;
 
             this.start.emit();
             this._subscription = this.observable.pipe(
                 finalize(() => { 
-                    this.inProcess = false;
+                    this._inProcess = false;
 
                     this.done.emit();
                 })
             ).subscribe({
                 next: (response: T): void => {
-                    this.data = response;
+                    this._data = response;
 
                     this.resolved.emit(response);
                 },
                 error: (error: HttpErrorResponse): void => {
-                    this.error = error;
+                    this._error = error;
                     
                     this.failed.emit(error);
                 },
@@ -50,5 +55,17 @@ export class RxResolverDirective<T> implements OnChanges, OnDestroy {
 
     ngOnDestroy(): void {
         this._subscription?.unsubscribe();
+    }
+
+    get data(): T {
+        return this._data;
+    }
+
+    get error(): HttpErrorResponse {
+        return this._error;
+    }
+
+    get inProcess(): boolean {
+        return this._inProcess
     }
 }

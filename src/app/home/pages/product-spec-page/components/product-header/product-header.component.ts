@@ -9,4 +9,6 @@ export class ProductHeaderComponent {
     @Input() name: string;
     @Input() image: string;
     @Input() description: string;
+
+    @Input() loading: boolean;
 }

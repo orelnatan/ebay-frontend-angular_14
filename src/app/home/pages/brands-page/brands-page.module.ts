@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
-import { ElementsGridModule } from '@ebay/shared/components';
-import { BrandCardModule } from '@ebay/home/components';
+import { ElementsGridModule, SpinnerModule } from '@ebay/shared/components';
+import { BrandCardModule, PageLoaderModule } from '@ebay/home/components';
 
 import { BrandsPageComponent } from './brands-page.component';
 
@@ -19,6 +19,8 @@ import { BrandsPageComponent } from './brands-page.component';
         BrandCardModule,
         DirectivesModule,
         ElementsGridModule,
+        PageLoaderModule,
+        SpinnerModule,
         RouterModule.forChild([
             { path: '', component: BrandsPageComponent },
         ])

@@ -1,11 +1,5 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-/**
- * copied from GitHub, npm package - https://www.npmjs.com/package/ng-let:
-    - https://github.com/nigrosimone/ng-let/blob/main/projects/ng-let/src/lib/ng-let.directive.ts
 
- * npm install command fails
- * npm install --force command works, but the package installed with errors. 
-*/
 interface NgLetContext<T> {
     /**
      * using `ngrxLet` to enable `as` syntax: `*ngLet="foo as bar"`
@@ -83,3 +77,11 @@ export class NgLetDirective<T> {
         return true;
     }
 }
+
+/**
+    * copied from GitHub, npm package - https://www.npmjs.com/package/ng-let:
+        - https://github.com/nigrosimone/ng-let/blob/main/projects/ng-let/src/lib/ng-let.directive.ts
+
+    * npm install command fails
+    * npm install --force command works, but the package installed with errors. 
+*/

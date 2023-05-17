@@ -1,16 +1,22 @@
 
 <page-layout>
     <div class="families-page-main">
-        <ng-container #resolver="resolver" loader #loader="loader"
+        <ng-container #resolver="resolver"
             [rxResolver]="families$"
-            (start)="loader.show()"
-            (done)="loader.hide()"
         >
-            <elements-grid [elementMinSizePx]="255" *ngLet="resolver.data as families">
-                <family-card *ngFor="let family of families"
+            <elements-grid *ngIf="!resolver.inProcess; else loader"
+                [elementMinSizePx]="255"
+            >
+                <family-card *ngFor="let family of resolver.data as families"
                     [family]="family"> 
                 </family-card>
             </elements-grid>
+
+            <ng-template #loader>
+                <page-loader></page-loader>
+            </ng-template>
         </ng-container>
     </div>
 </page-layout>
+
+

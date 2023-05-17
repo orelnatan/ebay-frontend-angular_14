@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
@@ -9,6 +10,7 @@ import { ElementsGridModule } from '@ebay/shared/components';
 
 import { ProductSpecPageComponent } from './product-spec-page.component';
 import { ProductHeaderComponent, ProductSpecItemComponent } from './components';
+import { PageLoaderModule } from '@ebay/home/components';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import { ProductHeaderComponent, ProductSpecItemComponent } from './components';
         CommonModule,
         LayoutModule,
         DirectivesModule,
+        PageLoaderModule,
         ElementsGridModule,
+        NgxSkeletonLoaderModule,
         PipesModule,
         RouterModule.forChild([
             { 

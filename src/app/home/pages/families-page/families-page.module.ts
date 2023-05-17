@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
-import { FamilyCardModule } from '@ebay/home/components';
+import { FamilyCardModule, PageLoaderModule } from '@ebay/home/components';
 
 import { FamiliesPageComponent } from './families-page.component';
 
@@ -17,6 +17,7 @@ import { FamiliesPageComponent } from './families-page.component';
         CommonModule,
         LayoutModule,
         FamilyCardModule,
+        PageLoaderModule,
         DirectivesModule,
         ElementsGridModule,
         RouterModule.forChild([

@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "skipLibCheck": true, 
     "baseUrl": "./",
     "paths": {
       "@ebay/core/*": ["src/app/core/*"],
@@ -42,3 +43,9 @@
     "strictTemplates": true,
   }
 }
+
+// https://www.npmjs.com/package/ngx-skeleton-loader
+// ngx-skeleton-loader installed with errors: "Generic type 'ɵɵComponentDeclaration' requires between 7 and 8 type arguments.ts(2707)"
+// Solution: add "skipLibCheck": true, in tsconfig.json file under "compilerOptions"
+// Found in: https://stackoverflow.com/questions/74616687/error-ts2707-generic-type-%C9%B5%C9%B5directivedeclaration-requires-between-6-and-8-type
+// Found at: 17-05-2023

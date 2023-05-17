@@ -5,7 +5,10 @@ import { Interceptor, GlobalEventsService } from '@ebay/shared/global-events';
 
 import { GlobalEventTypes } from './models';
 
-@Interceptor([{ type: GlobalEventTypes.Logout, action: "exitApp" }])
+@Interceptor([
+    { type: GlobalEventTypes.Logout, action: "exitApp" },
+    { type: GlobalEventTypes.InProgress, action: "loading" }
+])
 @Component({
   selector: 'core-root',
   template: `

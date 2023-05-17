@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { ElementsGridModule } from '@ebay/shared/components';
-import { CategoryCardModule } from '@ebay/home/components';
+import { CategoryCardModule, PageLoaderModule } from '@ebay/home/components';
 
 import { CategoriesPageComponent } from './categories-page.component';
 
@@ -19,6 +19,7 @@ import { CategoriesPageComponent } from './categories-page.component';
         CategoryCardModule,
         DirectivesModule,
         ElementsGridModule,
+        PageLoaderModule,
         RouterModule.forChild([
             { path: '', redirectTo: 'categories', pathMatch: 'full' },
             { 
