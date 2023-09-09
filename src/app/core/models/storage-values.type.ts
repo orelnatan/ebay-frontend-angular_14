@@ -1,3 +1,3 @@
-import { IUser } from "@ebay/shared/models";
+import { IUser } from "@ebay/auth/models";
 
 export type StorageValues = IUser | null;

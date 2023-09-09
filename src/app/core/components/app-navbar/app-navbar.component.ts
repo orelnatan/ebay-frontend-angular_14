@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 import { EbayLocalStorageService } from '@ebay/core/services';
 import { StorageKeys } from '@ebay/core/models';
-import { IUser } from '@ebay/shared/models';
+import { IUser } from '@ebay/auth/models';
 
 const AVATAR_EMPTY: string = "../../../../assets/images/png/avatar_empty.png";
 const GUEST_HELLO_TEXT: string = "Hi, Hello There Guest!";

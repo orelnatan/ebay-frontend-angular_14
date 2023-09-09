@@ -1,7 +1,7 @@
 import { Injectable }  from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable, lastValueFrom, of as observableOf } from 'rxjs';
 
 import { BreadcrumbResolver, ICrumb } from '@ebay/shared/breadcrumbs';
 
@@ -16,20 +16,13 @@ export class ProductCrumbResolver implements BreadcrumbResolver {
     ) {}
 
     resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
-        return new Observable((observer: Subscriber<Promise<ICrumb>>): void => {
-            observer.next(
-               new Promise<ICrumb>((resolve: (value: ICrumb | PromiseLike<ICrumb>) => void): void => {
-                   this.productsService
-                   .getSingleEntity(
-                        routeSnapshot.params?.['familyId'], routeSnapshot.params?.['productId']
-                    )
-                   .subscribe((product: IProduct): void => {
-                       resolve({
-                           name: this.titleCasePipe.transform(product.name) 
-                       } as ICrumb)
-                   })
-               })
-           )
-       })
+        return observableOf(
+            lastValueFrom(this.productsService.getSingleEntity(routeSnapshot.params?.['familyId'], routeSnapshot.params?.['productId']))
+            .then((product: IProduct) => {
+                return {
+                    name: this.titleCasePipe.transform(product.name)
+                } as ICrumb
+            })
+        )
     }
 }

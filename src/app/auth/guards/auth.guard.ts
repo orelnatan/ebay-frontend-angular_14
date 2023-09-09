@@ -1,10 +1,11 @@
 import { Injectable, } from '@angular/core';
 import { Router, UrlTree, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 import { EbayLocalStorageService } from '@ebay/core/services';
 import { StorageKeys } from '@ebay/core/models';
-import { IUser } from '@ebay/shared/models';
+
+import { IUser } from '../models';
 
 const BLOCK_WHILE_AUTHENTICATED: boolean = false;
 const REDIRECT_TO_WHILE_NOT_AUTHENTICATED: string = "/auth";
@@ -22,18 +23,18 @@ export class AuthGuard implements CanActivateChild {
         const redirectToWhileNotAuthenticated: string = route.data['redirectToWhileNotAuthenticated'] || REDIRECT_TO_WHILE_NOT_AUTHENTICATED;
         const redirectToWhileAuthenticated: string = route.data['redirectToWhileAuthenticated'] || REDIRECT_TO_WHILE_AUTHENTICATED;
       
-        return new Observable((observer: Subscriber<boolean | UrlTree>): void => {
-            this.ebayLocalStorageService.retrieve<IUser>(StorageKeys.User).subscribe((user: IUser): void => {
+        return this.ebayLocalStorageService.retrieve<IUser>(StorageKeys.User).pipe(
+            map((user: IUser) => {
                 if(!blockWhileAuthenticated) { 
                     // Block while not authenticated(default)
-                    observer.next(user ? true : this.router.createUrlTree([redirectToWhileNotAuthenticated], { 
+                        return user ? true : this.router.createUrlTree([redirectToWhileNotAuthenticated], { 
                         queryParams: { returnUrl: state.url }
-                    })); 
+                    }); 
                 } else { 
                     // Block while authenticated
-                    observer.next(!user ? true : this.router.createUrlTree([redirectToWhileAuthenticated])); 
+                    return !user ? true : this.router.createUrlTree([redirectToWhileAuthenticated]); 
                 }
             })
-        })
+        ) 
     }
 }

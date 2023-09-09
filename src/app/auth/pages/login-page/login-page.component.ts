@@ -7,8 +7,7 @@ import { Observable } from 'rxjs';
 import { EbayLocalStorageService } from '@ebay/core/services';
 import { StorageKeys } from '@ebay/core/models';
 import { AuthenticationService } from '@ebay/auth/services';
-import { ILogin } from '@ebay/auth/models';
-import { IUser } from '@ebay/shared/models';
+import { ILogin, IUser } from '@ebay/auth/models';
 
 @Component({
   selector: 'login-page',
