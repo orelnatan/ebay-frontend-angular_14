@@ -5,7 +5,6 @@ import { Component, Input} from '@angular/core';
     templateUrl: './input-field.component.html',
     styleUrls: [`./input-field.component.scss`]
 })
-
 export class InputFieldComponent {
     @Input() gap: number;
 }

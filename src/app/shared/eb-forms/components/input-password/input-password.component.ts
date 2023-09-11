@@ -7,7 +7,6 @@ import { EbInputComponent } from '../eb-input';
     templateUrl: './input-password.component.html',
     styleUrls: [`./input-password.component.scss`]
 })
-
 export class InputPasswordComponent extends EbInputComponent {
     @Input() value: string;
     @Input() visible: boolean;

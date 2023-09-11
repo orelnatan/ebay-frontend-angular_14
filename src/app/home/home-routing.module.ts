@@ -164,5 +164,4 @@ const routes: Routes = [
         ProductCrumbResolver
     ]
 })
-  
 export class HomeRoutingModule {}

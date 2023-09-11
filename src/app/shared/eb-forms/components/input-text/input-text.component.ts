@@ -6,7 +6,6 @@ import { EbInputComponent } from '../eb-input';
     selector: 'input-text',
     templateUrl: './input-text.component.html',
 })
-
 export class InputTextComponent extends EbInputComponent {
     @Input() value: string;
     

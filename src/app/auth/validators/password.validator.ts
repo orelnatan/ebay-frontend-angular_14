@@ -16,7 +16,6 @@ interface IPasswordErrorDesc {
         { provide: NG_VALIDATORS, useExisting: PasswordValidator, multi: true }
     ]
 })
-
 export class PasswordValidator implements Validator { 
     validate(control: FormControl): ValidationErrors | null {
         if(!control.value) return null;

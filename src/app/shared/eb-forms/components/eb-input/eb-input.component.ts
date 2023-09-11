@@ -9,7 +9,6 @@ import { IValidation } from '../../models';
     selector: 'eb-input',
     template: ``,
 })
-
 export class EbInputComponent {
     @Input() control: AbstractControl;
     @Input() validation: IValidation;

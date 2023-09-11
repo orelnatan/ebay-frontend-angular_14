@@ -8,7 +8,6 @@ import { EbInputComponent } from '../eb-input';
   templateUrl: './input-checkbox.component.html',
   styleUrls: ['./input-checkbox.component.scss'],
 })
-
 export class InputCheckboxComponent extends EbInputComponent implements OnChanges {
     @Input() value: boolean;
     @Output() onchange: EventEmitter<boolean> = new EventEmitter();
