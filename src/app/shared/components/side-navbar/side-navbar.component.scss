@@ -1,8 +1,95 @@
 @import './src/assets/config/colors.scss';
+@import './src/assets/config/definitions.scss';
+
+$sidebar-max-width: calc($full-viewport-width - 125px);
+$animation-delay: 500ms;
+$sidebar-min-width: 0px;
 
 .side-navbar-main {
     display: block;
-    width: 300px;
-    height: 100%;
-    background-color: $color-white;
+    height: $full-screen-height;
+
+    .navbar-push-content {
+        position: relative;
+        display: block;
+        height: $full-screen-height;
+    }
+
+    .navbar-background-cover {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: $full-viewport-width;
+        height: $full-screen-height;
+        z-index: 100;
+    }
+
+    .navbar-content-outer-container {
+        display: block;
+        height: $full-screen-height;
+        overflow: hidden;
+        background: $color-white;
+    }
+
+    .navbar-content-inner-container {
+        width: $sidebar-max-width;
+        height: $full-screen-height;
+        padding: 10px;
+        overflow: scroll;
+    }
+
+    .animation-fade-in {
+        animation: fade-in $animation-delay ease;
+        animation-fill-mode: forwards;
+    }
+
+    .animation-fade-out {
+        animation: fade-out $animation-delay ease;
+    }
+
+    .animation-expand {
+        animation: expand $animation-delay ease;
+        animation-fill-mode: forwards;
+    }
+
+    .animation-shrink {
+        animation: shrink $animation-delay ease;
+    }
+
+    @keyframes expand {
+        from { 
+            width: $sidebar-min-width;
+        }
+        to { 
+            width: $sidebar-max-width;
+        }
+    }
+
+    @keyframes shrink {
+        from { 
+            width: $sidebar-max-width;
+        }
+        to { 
+            width: $sidebar-min-width;
+        }
+    }
+
+    @keyframes fade-in {
+        0% { 
+            background-color: rgba($color-dark-gray , 0);
+        }
+        100% {  
+            background-color: rgba($color-dark-gray , 0.6); 
+        }
+    }
+
+    @keyframes fade-out {
+        0% { 
+            background-color: rgba($color-dark-gray , 0.6);
+        }
+        100% {  
+            background-color: rgba($color-dark-gray , 0); 
+        }
+    }
 }

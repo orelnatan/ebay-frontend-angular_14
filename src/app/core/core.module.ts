@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { LayoutModule } from '@ebay/shared/layout';
-import { SideNavbarModule } from '@ebay/shared/components';
 import { GlobalEventsModule } from '@ebay/shared/global-events';
 import { AuthGuard } from '@ebay/auth/guards';
 
@@ -23,7 +22,6 @@ import { CoreRootComponent } from './core-root.component';
         MatDialogModule,
         AppNavbarModule,
         LayoutModule,
-        SideNavbarModule,
         DirectivesModule,
         GlobalEventsModule,
     ],

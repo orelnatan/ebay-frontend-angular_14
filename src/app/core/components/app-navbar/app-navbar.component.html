@@ -3,8 +3,8 @@
    <div class="navbar-inner">
         <ng-container *ngLet="user$ | async as user">
             <div class="avatar-container">
-                <mat-icon>{{ 'waving_hand' }}</mat-icon>
-                <span>{{ user ? "Hi, Welcome back " + user?.name : "Hi, Hello There Guest!" }}</span>
+                <mat-icon class="show-for-lg">{{ 'waving_hand' }}</mat-icon>
+                <span class="show-for-lg">{{ user ? "Hi, Welcome back " + user?.name : "Hi, Hello There Guest!" }}</span>
             
                 <div class="img-container">
                     <img [src]="user?.avatar || '../../../../assets/images/png/avatar_empty.png'" />
@@ -12,11 +12,13 @@
             </div>
             
             <div class="icons-container" *ngIf="user">
-                <mat-icon (click)="logout.emit()"> {{ 'logout' }} </mat-icon>
-                <mat-icon> {{ 'account_circle' }} </mat-icon>
-                <mat-icon> {{ 'settings' }} </mat-icon>
-                <mat-icon> {{ 'info' }} </mat-icon>
-                <mat-icon [routerLink]="['./']"> {{ 'home' }} </mat-icon>
+                <mat-icon class="show-for-lg" (click)="logout.emit()"> {{ 'logout' }} </mat-icon>
+                <mat-icon class="show-for-lg"> {{ 'account_circle' }} </mat-icon>
+                <mat-icon class="show-for-lg"> {{ 'settings' }} </mat-icon>
+                <mat-icon class="show-for-lg"> {{ 'info' }} </mat-icon>
+                <mat-icon class="show-for-lg" [routerLink]="['./']"> {{ 'home' }} </mat-icon>
+
+                <mat-icon class="show-for-sm" (click)="toggleSidebar()"> {{ 'reorder' }} </mat-icon>
             </div>
         </ng-container>
    </div>

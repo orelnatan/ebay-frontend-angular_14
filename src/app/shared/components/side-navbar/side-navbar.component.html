@@ -1,4 +1,23 @@
 
-<div class="side-navbar-main shadow-border-shallow">
-    <ng-content></ng-content>
+<div class="side-navbar-main">
+    <ng-container *ngIf="render">
+        <div class="navbar-push-content" 
+            [class.animation-expand]="animationForwards"
+            [class.animation-shrink]="animationBackwards"
+        >
+            <div class="navbar-background-cover" (click)="toggleSidebar()"
+                [class.animation-fade-in]="animationForwards"
+                [class.animation-fade-out]="animationBackwards"
+            >
+                <div class="navbar-content-outer-container shadow-border-shallow"
+                    [class.animation-expand]="animationForwards"
+                    [class.animation-shrink]="animationBackwards"
+                >
+                    <div class="navbar-content-inner-container" (click)="$event.stopPropagation()">
+                        <ng-content></ng-content>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
 </div>

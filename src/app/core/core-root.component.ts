@@ -12,11 +12,11 @@ import { GlobalEventTypes } from './models';
 @Component({
   selector: 'core-root',
   template: `
-     <root-layout #logout="logout" (logout)="dispatchLogout()">
+     <root-layout #logout="logout" (logout)="handleLogout()">
         <layout-header header-primary>
             <app-navbar (logout)="logout.show()"></app-navbar>
         </layout-header>
- 
+
         <router-outlet></router-outlet>
     </root-layout>
   `,
@@ -27,7 +27,7 @@ export class CoreRootComponent {
       private readonly globalEventsService: GlobalEventsService
     ) {}
 
-    dispatchLogout(): void {
+    handleLogout(): void {
         this.globalEventsService.dispatch(
             GlobalEventTypes.Logout
         )
