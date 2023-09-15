@@ -7,7 +7,6 @@ import { GlobalEventsModule } from '@ebay/shared/global-events';
 import { AuthGuard } from '@ebay/auth/guards';
 
 import { EbayLocalStorageService } from './services';
-import { DirectivesModule } from './directives';
 import { AppNavbarModule } from './components';
 import { CoreRoutingModule } from './core-routing.module';
 import { CoreRootComponent } from './core-root.component';
@@ -22,7 +21,6 @@ import { CoreRootComponent } from './core-root.component';
         MatDialogModule,
         AppNavbarModule,
         LayoutModule,
-        DirectivesModule,
         GlobalEventsModule,
     ],
     providers: [

@@ -8,7 +8,7 @@ import { ICrumb } from '../models';
     selector: '[crumbsRedirect]',
 })
 export class CrumbsRedirectDirective {
-    @HostListener('click', ['$event']) onClick(event: Event): void {
+    @HostListener('click') onclick(): void {
         if(this.crumb.disabled) return;
 
         this._redirectById(this.crumb.id);

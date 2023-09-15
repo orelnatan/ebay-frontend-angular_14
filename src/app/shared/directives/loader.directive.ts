@@ -14,14 +14,14 @@ export class LoaderDirective {
         private readonly matDialog: MatDialog,
     ) {}
 
-    show(): void {
+    public show(): void {
         this.matDialogRef = this.matDialog.open(LoaderModalComponent, {
             disableClose: true,
             panelClass: "loader-modal"
         })
     }
 
-    hide(): void {
+    public hide(): void {
         this.matDialogRef?.close();
     }
 }

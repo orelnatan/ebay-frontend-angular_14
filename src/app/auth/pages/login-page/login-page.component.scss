@@ -1,4 +1,5 @@
 @import './src/assets/config/colors.scss';
+@import './src/assets/config/definitions.scss';
 
 .login-page-main {
   display: grid;
@@ -6,10 +7,17 @@
   width: 100%;
 
   .login-form-container {
-    width: 750px;
     margin: 0 auto;
     padding: 15px 30px;
     border-top: 5px solid $color-primary;
+
+    @media screen and (min-width: $breakpoint-sm) {
+        width: 750px;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        width: 100%;
+    }
   }
 
   img {

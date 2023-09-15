@@ -5,16 +5,13 @@ import { Interceptor, GlobalEventsService } from '@ebay/shared/global-events';
 
 import { GlobalEventTypes } from './models';
 
-@Interceptor([
-    { type: GlobalEventTypes.Logout, action: "exitApp" },
-    { type: GlobalEventTypes.InProgress, action: "loading" }
-])
+@Interceptor([{ type: GlobalEventTypes.Logout, action: "exitApp" }])
 @Component({
   selector: 'core-root',
   template: `
-     <root-layout #logout="logout" (logout)="handleLogout()">
+     <root-layout>
         <layout-header header-primary>
-            <app-navbar (logout)="logout.show()"></app-navbar>
+            <app-navbar (logout)="handleLogout()"></app-navbar>
         </layout-header>
 
         <router-outlet></router-outlet>

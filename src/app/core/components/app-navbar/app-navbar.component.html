@@ -12,7 +12,7 @@
             </div>
             
             <div class="icons-container" *ngIf="user">
-                <mat-icon class="show-for-lg" (click)="logout.emit()"> {{ 'logout' }} </mat-icon>
+                <mat-icon class="show-for-lg" logoutDialog (logout)="logout.emit()"> {{ 'logout' }} </mat-icon>
                 <mat-icon class="show-for-lg"> {{ 'account_circle' }} </mat-icon>
                 <mat-icon class="show-for-lg"> {{ 'settings' }} </mat-icon>
                 <mat-icon class="show-for-lg"> {{ 'info' }} </mat-icon>

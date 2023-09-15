@@ -10,7 +10,7 @@ import { RedirectService } from "../services";
   exportAs: 'redirect'
 })
 export class RedirectDirective {
-    @HostListener("click") onClick(): void {
+    @HostListener("click") onclick(): void {
         this.url ? this.router.navigateByUrl(this.url) : null;
     }
 

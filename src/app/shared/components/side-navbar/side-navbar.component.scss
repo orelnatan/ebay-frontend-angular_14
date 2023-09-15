@@ -6,27 +6,23 @@ $animation-delay: 500ms;
 $sidebar-min-width: 0px;
 
 .side-navbar-main {
-    display: block;
     height: $full-screen-height;
 
     .navbar-push-content {
         position: relative;
-        display: block;
         height: $full-screen-height;
     }
 
     .navbar-background-cover {
         position: absolute;
-        display: block;
         top: 0;
         left: 0;
+        z-index: 999;
         width: $full-viewport-width;
         height: $full-screen-height;
-        z-index: 100;
     }
 
     .navbar-content-outer-container {
-        display: block;
         height: $full-screen-height;
         overflow: hidden;
         background: $color-white;
