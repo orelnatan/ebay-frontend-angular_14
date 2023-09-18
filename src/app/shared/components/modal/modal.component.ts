@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { ModalType } from './modal-type.enum';
+
 @Component({
   selector: 'modal',
   templateUrl: './modal.component.html',
@@ -9,7 +11,7 @@ export class ModalComponent {
     @Input() title: string;
     @Input() subTitle: string;
     @Input() underSubTitle: string;
-    @Input() titleColor: string;
+    @Input() type: ModalType;
 
     @Input() excludeActions: boolean;
 }

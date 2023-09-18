@@ -23,7 +23,6 @@ import { CommonModule } from '@angular/common';
         SnackbarModule,
         DirectivesModule,
         FormsModule,
-        DirectivesModule,
         ValidatorsModule,
         EbFormsModule,
         RouterModule.forChild([

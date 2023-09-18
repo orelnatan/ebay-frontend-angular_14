@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Breakpoints } from '@ebay/shared/models';
 
 @Component({
     selector: 'crumbs-navbar',
@@ -6,6 +7,8 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./crumbs-navbar.component.scss'],
 })
 export class CrumbsNavbarComponent {
+    breakpoints: typeof Breakpoints = Breakpoints;
+    
     @Input() name: string;
 
 }

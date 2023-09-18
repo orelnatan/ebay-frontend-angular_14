@@ -1,5 +1,5 @@
 
-export enum AlertType {
+export enum ModalType {
     Success = "success",
     Failure = "failure",
     Info = "info",

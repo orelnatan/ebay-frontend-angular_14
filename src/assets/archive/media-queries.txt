@@ -1,0 +1,28 @@
+
+.show-for-lg {
+    @media screen and (max-width: $breakpoint-sm) {
+        // apply when screen is smaller then $breakpoint-sm
+    }
+}
+
+// element which have this class will be effected when the screen is out of range 400 - 700 px (smaller then 400 or bigger then 700 px)
+.show-for-md {
+    @media screen and (max-width: 400px) {
+        // apply when screen is smaller then 400px
+    }
+
+    @media screen and (min-width: 700px) {
+        // apply when screen is bigger then 700px
+    }
+}
+
+.show-for-sm {
+    @media screen and (min-width: $breakpoint-sm) {
+        // apply when screen is bigger then $breakpoint-sm
+    }
+}
+
+// range media query
+@media screen and (min-width: 400px) and (max-width: 700px) {
+    // apply when screen is between 400 to 700 px
+}

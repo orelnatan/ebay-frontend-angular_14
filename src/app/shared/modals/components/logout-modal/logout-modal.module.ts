@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 
 import { ModalModule } from '@ebay/shared/components';
 
-import { AlertModalComponent } from './alert-modal.component';
+import { LogoutModalComponent } from './logout-modal.component';
 
 @NgModule({
     declarations: [ 
-        AlertModalComponent,
+        LogoutModalComponent,
     ],
     imports: [
         CommonModule,
         MatButtonModule,
-        ModalModule, 
+        ModalModule,
+        MatDialogModule, 
     ]
 })
-export class AlertModalModule {}
+export class LogoutModalModule {}

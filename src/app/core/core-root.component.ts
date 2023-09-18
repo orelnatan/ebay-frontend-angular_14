@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Interceptor, GlobalEventsService } from '@ebay/shared/global-events';
+import { Interceptor } from '@ebay/shared/global-events';
 
 import { GlobalEventTypes } from './models';
 
@@ -11,7 +11,7 @@ import { GlobalEventTypes } from './models';
   template: `
      <root-layout>
         <layout-header header-primary>
-            <app-navbar (logout)="handleLogout()"></app-navbar>
+            <app-navbar></app-navbar>
         </layout-header>
 
         <router-outlet></router-outlet>
@@ -20,15 +20,8 @@ import { GlobalEventTypes } from './models';
 })
 export class CoreRootComponent {
     constructor(
-      private readonly router: Router,
-      private readonly globalEventsService: GlobalEventsService
+      private readonly router: Router
     ) {}
-
-    handleLogout(): void {
-        this.globalEventsService.dispatch(
-            GlobalEventTypes.Logout
-        )
-    }
 
     exitApp(): void {
         this.router.navigate(['/auth']);

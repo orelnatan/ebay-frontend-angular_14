@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { DirectivesModule } from '@ebay/shared/directives';
+
 import { SideNavbarComponent } from './side-navbar.component';
 
 @NgModule({
@@ -8,7 +10,8 @@ import { SideNavbarComponent } from './side-navbar.component';
         SideNavbarComponent,
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        DirectivesModule
     ],
     exports: [
         SideNavbarComponent

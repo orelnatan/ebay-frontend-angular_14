@@ -2,30 +2,32 @@ import { Component } from '@angular/core';
 
 import { GlobalEventTypes } from '@ebay/core/models';
 import { Interceptor } from '@ebay/shared/global-events';
+import { Breakpoints } from '@ebay/shared/models';
 
 const ANIMATION_DELAY: number = 500;
 
-@Interceptor([{ type: GlobalEventTypes.Sidebar, action: "toggleSidebar" }])
+@Interceptor([{ type: GlobalEventTypes.Toggle, action: "toggle" }])
 @Component({
   selector: 'side-navbar',
   templateUrl: './side-navbar.component.html',
   styleUrls: ['./side-navbar.component.scss'],
 })
 export class SideNavbarComponent {
-    render: boolean;
-
+    breakpoints: typeof Breakpoints = Breakpoints;
+    
+    toggleSidebar: boolean;
     animationForwards: boolean;
-    animationBackwards: boolean
+    animationBackwards: boolean;
 
-    public toggleSidebar(): void {
-        this.render ? this._closeSidbar() : this._openSidebar();
+    public toggle(): void {
+        this.toggleSidebar ? this._closeSidbar() : this._openSidebar();
     }
 
     private _openSidebar(): void {
         this.animationForwards = true;
         this.animationBackwards = false;
         
-        this.render = true;
+        this.toggleSidebar = true;
     }
 
     private _closeSidbar(): void {
@@ -33,7 +35,7 @@ export class SideNavbarComponent {
         this.animationBackwards = true;
 
         setTimeout(() => {
-            this.render = false;
+            this.toggleSidebar = false;
         }, ANIMATION_DELAY);
     }
 }

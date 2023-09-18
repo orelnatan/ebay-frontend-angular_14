@@ -2,9 +2,8 @@
 export enum GlobalEventTypes {
     Logout = "LOGOUT",
     Login = "LOGIN",
+    InProgress = "IN_PROGRESS",
     Success = "SUCCESS",
     Error = "ERROR",
-    Info = "INFO",
-    Warning = "WARNING",
-    Sidebar = "SIDEBAR"
+    Toggle = "TOGGLE"
 }

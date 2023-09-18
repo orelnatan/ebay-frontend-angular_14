@@ -1,9 +1,10 @@
 @import './src/assets/config/colors.scss';
 @import './src/assets/config/definitions.scss';
 
-$sidebar-max-width: calc($full-viewport-width - 125px);
-$animation-delay: 500ms;
 $sidebar-min-width: 0px;
+$desktop-sidebar-width: 345px;
+$mobile-sidebar-width: calc($full-viewport-width - 125px);
+$animation-delay: 500ms;
 
 .side-navbar-main {
     height: $full-screen-height;
@@ -29,10 +30,17 @@ $sidebar-min-width: 0px;
     }
 
     .navbar-content-inner-container {
-        width: $sidebar-max-width;
         height: $full-screen-height;
         padding: 10px;
         overflow: scroll;
+
+        @media screen and (min-width: $breakpoint-sm) {
+            width: $desktop-sidebar-width;
+        }
+
+        @media screen and (max-width: $breakpoint-sm) {
+            width: $mobile-sidebar-width;
+        }
     }
 
     .animation-fade-in {
@@ -58,13 +66,13 @@ $sidebar-min-width: 0px;
             width: $sidebar-min-width;
         }
         to { 
-            width: $sidebar-max-width;
+            width: $mobile-sidebar-width;
         }
     }
 
     @keyframes shrink {
         from { 
-            width: $sidebar-max-width;
+            width: $mobile-sidebar-width;
         }
         to { 
             width: $sidebar-min-width;

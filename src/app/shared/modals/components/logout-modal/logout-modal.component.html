@@ -1,0 +1,11 @@
+
+<modal [title]="'Logout?'" [type]="modalType.Info">
+    <ng-container content>
+        <p>Are you sure you want to logout?</p>
+    </ng-container>
+    
+    <ng-container actions>
+        <button mat-raised-button mat-dialog-close>I want to stay</button>
+        <button mat-raised-button (click)="logout()">Log me out</button>
+    </ng-container>
+</modal>

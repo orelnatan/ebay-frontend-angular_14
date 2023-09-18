@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
 
-import { LoaderDirective } from './loader.directive';
-import { LogoutDialogDirective } from './logout-dialog.directive';
 import { RxResolverDirective } from './rx-resolver.directive';
 import { NgLetDirective } from './ng-let.directive';
+import { BreakpointObserverDirective } from './breakpoint-observer.directive';
 
 @NgModule({
     declarations: [
-        LoaderDirective,
         RxResolverDirective,
         NgLetDirective,
-        LogoutDialogDirective
+        BreakpointObserverDirective
     ],
     exports: [
-        LoaderDirective,
         RxResolverDirective,
         NgLetDirective,
-        LogoutDialogDirective
+        BreakpointObserverDirective
     ]
 })
 export class DirectivesModule {}
