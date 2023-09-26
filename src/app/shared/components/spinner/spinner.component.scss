@@ -1,0 +1,11 @@
+@import './src/assets/config/colors.scss';
+
+mat-spinner { 
+    margin: 0 auto
+}
+
+.mat-spinner {
+    ::ng-deep circle {
+       stroke: $color-white !important;
+    }
+}

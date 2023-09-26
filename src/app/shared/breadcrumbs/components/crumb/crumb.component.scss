@@ -5,7 +5,6 @@
 
     .active-crumb {
         cursor: pointer;
-        color: $color-info;
        
         .crumb-name:hover {
             text-decoration: underline;
@@ -14,7 +13,6 @@
 
     .disabled-crumb {
         cursor: not-allowed;
-        color: $color-office;
         
         .crumb-name {
             opacity: 0.6;
@@ -26,13 +24,9 @@
         align-items: center;
     }
 
-    .crumb-seperator {
-        color: $color-black;
-    }
-
     span {
-        font-family: assistant-bold;
         padding: 0px 2px;
+        font-family: assistant-bold;
     }
 
     spinner {

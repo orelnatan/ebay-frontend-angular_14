@@ -23,9 +23,13 @@
         background-color: transparent !important
     }
 
+    ::ng-deep .mat-checkbox-frame {
+        border-color: $color-white !important
+    }
+
     ::ng-deep .mat-checkbox-checked .mat-checkbox-background, 
     .mat-checkbox-indeterminate .mat-checkbox-background {
-        background-color: $color-primary !important;
+        background-color: $color-base !important;
     }
 
     &.input-error-state {

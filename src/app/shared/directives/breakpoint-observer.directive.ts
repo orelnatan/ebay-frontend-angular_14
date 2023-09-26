@@ -20,7 +20,6 @@ export class BreakpointObserverDirective implements OnChanges {
         .observe(this.breakpoints)
         .pipe(untilDestroyed(this))
         .subscribe((state: BreakpointState): void => {
-            console.log(state)
             this.updateView(state.matches);
     });
   }

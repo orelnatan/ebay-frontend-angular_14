@@ -5,7 +5,7 @@
     width: 100%;
     height: 65px;
     padding: 5px 20px;
-    background-color: $color-sky;
+    background-color: $color-mouse;
 
     .navbar-inner {
         display: flex;
@@ -13,7 +13,6 @@
         justify-content: space-between;
         align-items: center;
         height: 100%;
-        color: $color-white;
     }
 
     .avatar-container {
@@ -27,9 +26,9 @@
     }
 
     span {
-        font-family: assistant-bold;
         line-height: 45px;
         padding: 0px 15px;
+        font-family: assistant-bold;
     }
 
     img {

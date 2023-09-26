@@ -10,3 +10,25 @@ mat-form-field {
         background: transparent;
     }
 }
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: $color-white !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+    color: $color-white !important;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: $color-error !important;
+}
+
+.mat-progress-bar-buffer {
+    background-color: $color-base !important;
+}
+
+.mat-dialog-container {
+    background-color: $color-base !important;
+    color: $color-white !important;
+}
+
