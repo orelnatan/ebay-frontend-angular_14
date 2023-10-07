@@ -10,6 +10,7 @@ export class EntityCardComponent {
   @Input() id: number;
   @Input() name: string;
   @Input() image: string;
+  @Input() description: string;
 
   constructor(
     private readonly router: Router,

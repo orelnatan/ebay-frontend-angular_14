@@ -5,7 +5,7 @@
             [rxResolver]="families$"
         >
             <elements-grid *ngIf="!resolver.inProcess; else loader"
-                [elementMinSizePx]="255"
+                [elementMinSizePx]="215"
             >
                 <family-card *ngFor="let family of resolver.data as families"
                     [family]="family"> 

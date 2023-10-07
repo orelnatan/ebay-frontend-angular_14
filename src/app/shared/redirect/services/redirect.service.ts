@@ -39,10 +39,9 @@ export class RedirectService {
     }
 
     private _findLowestSnapshotWithRedirectRoute(): Snapshot {
-        const snapshots: Array<Snapshot> = this._resolveRouterSnapshotsTree(
-            this.router).filter(
-                (snapshot: Snapshot): string => {
-                    return snapshot?.data?.['redirect']?.route
+        const snapshots: Array<Snapshot> = this._resolveRouterSnapshotsTree(this.router)
+        .filter((snapshot: Snapshot): string => {
+                return snapshot?.data?.['redirect']?.route
             }
         );
         return snapshots[snapshots.length - 1];

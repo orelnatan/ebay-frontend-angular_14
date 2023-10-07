@@ -5,7 +5,7 @@
             [rxResolver]="brands$"
         >
             <elements-grid *ngIf="!resolver.inProcess; else loader"
-                [elementMinSizePx]="255"
+                [elementMinSizePx]="215"
             >
                 <brand-card *ngFor="let brand of resolver.data as brands"
                     [brand]="brand"> 

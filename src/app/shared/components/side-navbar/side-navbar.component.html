@@ -1,7 +1,7 @@
 
 <div class="side-navbar-main">
     <ng-container #desktop *breakpointObserver="[breakpoints.Lg]">
-        <div class="navbar-content-outer-container shadow-border-shallow">
+        <div class="navbar-content-outer-container">
             <div class="navbar-content-inner-container">
                 <ng-container *ngTemplateOutlet="content"></ng-container>
             </div>
@@ -17,7 +17,7 @@
                 [class.animation-fade-in]="animationForwards"
                 [class.animation-fade-out]="animationBackwards"
             >
-                <div class="navbar-content-outer-container shadow-border-shallow"
+                <div class="navbar-content-outer-container"
                     [class.animation-expand]="animationForwards"
                     [class.animation-shrink]="animationBackwards"
                 >

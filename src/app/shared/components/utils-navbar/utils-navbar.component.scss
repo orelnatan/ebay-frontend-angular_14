@@ -1,23 +1,32 @@
 @import './src/assets/config/colors.scss';
 
 .utils-navbar-main {
-    display: grid;
-    align-items: center;
     width: 100%;
     height: 55px;
     padding: 5px 20px;
-    background-color: $color-light-gray;
+    background-color: $color-base;
+    border-top: 1px solid $color-royalblue;
 
     .navbar-inner {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        color: $color-white;
+    }
+
+    .arrow-back-container {
+        display: grid;
     }
 
     .arrow-active {
         cursor: pointer;
+        color: $color-white;
     }
 
     .arrow-disabled {
-        color: $color-office;
+        color: rgba($color-white, 0.8);
     }
 }
 

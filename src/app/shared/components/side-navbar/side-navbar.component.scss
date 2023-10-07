@@ -27,6 +27,7 @@ $animation-delay: 500ms;
         height: $full-screen-height;
         overflow: hidden;
         background: $color-white;
+        box-shadow: 6px 0 6px #0000001a;
     }
 
     .navbar-content-inner-container {

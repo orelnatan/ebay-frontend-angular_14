@@ -9,7 +9,7 @@
   .login-form-container {
     margin: 0 auto;
     padding: 15px 30px;
-    border-top: 5px solid $color-primary;
+    border-top: 5px solid $color-base;
 
     @media screen and (min-width: $breakpoint-sm) {
         width: 750px;
@@ -24,5 +24,6 @@
     display: block;
     padding-top: 15px;
     margin: 0 auto;
+    width: 85px;
   }
 }

@@ -10,5 +10,4 @@ export class CrumbsNavbarComponent {
     breakpoints: typeof Breakpoints = Breakpoints;
     
     @Input() name: string;
-
 }

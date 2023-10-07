@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
         }
 
         ::ng-deep circle { 
-            stroke: $color-info !important;
+            stroke: #3F51B5 !important;
     }`]
 })
 export class PageLoaderComponent {}

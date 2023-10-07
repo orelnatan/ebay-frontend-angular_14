@@ -5,7 +5,7 @@
             [rxResolver]="products$"
         >
             <elements-grid *ngIf="!resolver.inProcess; else loader"
-                [elementMinSizePx]="255"
+                [elementMinSizePx]="215"
             >
                 <product-card *ngFor="let product of resolver.data as products"
                     [product]="product"> 

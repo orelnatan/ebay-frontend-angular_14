@@ -5,7 +5,7 @@
 
     .active-crumb {
         cursor: pointer;
-        color: $color-info;
+        color: $color-white;
        
         .crumb-name:hover {
             text-decoration: underline;
@@ -14,7 +14,7 @@
 
     .disabled-crumb {
         cursor: not-allowed;
-        color: $color-office;
+        color: $color-white;
         
         .crumb-name {
             opacity: 0.6;
@@ -27,7 +27,7 @@
     }
 
     .crumb-seperator {
-        color: $color-black;
+        color: $color-white;
     }
 
     span {
@@ -40,6 +40,6 @@
     }
 
     ::ng-deep circle {
-        stroke: $color-office;
+        stroke: $color-white !important;
     }
 }

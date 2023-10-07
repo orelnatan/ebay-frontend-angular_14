@@ -1,7 +1,7 @@
 
 <div class="product-header-main">
     <ng-container *ngIf="!loading else loader">
-        <img [src]="image" />
+        <img [src]="image" imageNotFound />
     
         <h1>{{ name }}</h1>
         <p>{{ description }}</p>
