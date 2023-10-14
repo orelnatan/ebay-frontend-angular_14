@@ -12,7 +12,6 @@
 
   - Provided using factory service (multiple events) - V
     When provide a service using a factory, we dont need to use the "dependencies" array of the decorator.
-    ** it seems like there is a need to use in the dependencies array(of the decorator) only in an "@Injectable()' class.
 
   - Guard (multiple events) - V
 
@@ -55,18 +54,11 @@
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////
-    import { GlobalEventTypes, Globaleventservice } from '@ebay/shared/global-events';
-
-
-    constructor(
-        public readonly ebayLocalStorageService: EbayLocalStorageService,
-        private readonly globalEventsService: GlobalEventsService
-    ) {}
-
+   
     sendSignals() {
-        this.globalEventsService.dispatch(GlobalEventTypes.Login);
-        this.globalEventsService.dispatch(GlobalEventTypes.Error);
-        this.globalEventsService.dispatch(GlobalEventTypes.InProgress);
+        dispatch(GlobalEventTypes.Login);
+        dispatch(GlobalEventTypes.Error);
+        dispatch(GlobalEventTypes.InProgress);
     }
 
 

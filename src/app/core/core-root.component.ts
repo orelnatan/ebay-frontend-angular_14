@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Interceptor } from '@ebay/shared/global-events';
+import { ComponentInterceptor } from '@ebay/shared/global-events';
 
 import { GlobalEventTypes } from './models';
 
-@Interceptor([{ type: GlobalEventTypes.Logout, action: "exitApp" }])
+@ComponentInterceptor([{ type: GlobalEventTypes.Logout, action: "exitApp" }], [Router])
 @Component({
   selector: 'core-root',
   template: `
@@ -20,7 +20,7 @@ import { GlobalEventTypes } from './models';
 })
 export class CoreRootComponent {
     constructor(
-      private readonly router: Router
+      private readonly router: Router,
     ) {}
 
     exitApp(): void {

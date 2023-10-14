@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 import { GlobalEventTypes } from '@ebay/core/models';
-import { Interceptor } from '@ebay/shared/global-events';
+import { ComponentInterceptor } from '@ebay/shared/global-events';
 import { Breakpoints } from '@ebay/shared/models';
 
 const ANIMATION_DELAY: number = 500;
 
-@Interceptor([{ type: GlobalEventTypes.Toggle, action: "toggle" }])
+@ComponentInterceptor([{ type: GlobalEventTypes.Toggle, action: "toggle" }])
 @Component({
   selector: 'side-navbar',
   templateUrl: './side-navbar.component.html',

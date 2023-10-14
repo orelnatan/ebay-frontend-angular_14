@@ -4,12 +4,12 @@ import { map, Observable, of as observableOf } from 'rxjs';
 
 import { environment } from '@ebay/env/environment';
 import { GlobalEventTypes } from '@ebay/core/models';
-import { Interceptor } from '@ebay/shared/global-events';
+import { ServiceInterceptor } from '@ebay/shared/global-events';
 import { IProduct } from '@ebay/home/models';
 
 import { EntitiesAbstractService } from './entities-abstract.service';
 
-@Interceptor([{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient])
+@ServiceInterceptor([{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient])
 @Injectable()
 export class ProductsService implements EntitiesAbstractService {
     private _products: Record<number, IProduct[]> = {};

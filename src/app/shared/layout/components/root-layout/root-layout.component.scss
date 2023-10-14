@@ -10,4 +10,8 @@
     .inner-content-container {
         @extend %root-layout-inner-content;
     }
+
+    section, aside {
+        height: $full-screen-height;
+    }
 }

@@ -2,35 +2,49 @@
 <div class="root-layout-main" [style.position]="forRoot ? 'absolute' : 'static'">
     <div class="layout-top">
         <div class="layout-header-container">
-            <ng-content select="layout-header" select="[header-primary]"></ng-content>
+            <header>
+                <ng-content select="layout-header" select="[header-primary]"></ng-content>
+            </header>
         </div>
 
         <div class="layout-header-container">
-            <ng-content select="layout-header" select="[header-secondary]"></ng-content>
+            <nav>
+                <ng-content select="layout-header" select="[header-secondary]"></ng-content>
+            </nav>
         </div>
 
         <div class="layout-header-container">
-            <ng-content select="layout-header" select="[header-sub]"></ng-content>
+            <nav>
+                <ng-content select="layout-header" select="[header-sub]"></ng-content>
+            </nav>
         </div>
     </div>
 
     <div class="layout-body">
         <div class="layout-sidebar-container">
-            <ng-content select="layout-sidebar" select="[side-primary]"></ng-content>
+            <aside>
+                <ng-content select="layout-sidebar" select="[side-primary]"></ng-content>
+            </aside>
         </div>
 
         <div class="inner-content-container">
-            <ng-content></ng-content>
+            <section>
+                <ng-content></ng-content>
+            </section>
         </div>
 
         <div class="layout-sidebar-container">
-            <ng-content select="layout-sidebar" select="[side-secondary]"></ng-content>
+            <aside>
+                <ng-content select="layout-sidebar" select="[side-secondary]"></ng-content>
+            </aside>
         </div>
     </div>
 
     <div class="layout-bottom">
         <div class="layout-footer-container">
-            <ng-content select="layout-footer" select="[footer-primary]"></ng-content>
+            <footer>
+                <ng-content select="layout-footer" select="[footer-primary]"></ng-content>
+            </footer>
         </div>
     </div>
 </div>

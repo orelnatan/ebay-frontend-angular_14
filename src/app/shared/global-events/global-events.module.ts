@@ -1,4 +1,4 @@
-import { NgModule, Provider } from '@angular/core';
+import { NgModule, Provider, Renderer2, RendererFactory2 } from '@angular/core';
 
 const argsProvider: Provider = {
     provide: 'args', useValue: null 
@@ -9,4 +9,12 @@ const argsProvider: Provider = {
         argsProvider
     ]
 })
-export class GlobalEventsModule {}
+export class GlobalEventsModule {
+    static renderer2: Renderer2;
+
+    constructor(
+        private readonly rendererFactory: RendererFactory2
+    ) { 
+        GlobalEventsModule.renderer2 = this.rendererFactory.createRenderer(null, null);
+    }
+}

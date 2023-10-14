@@ -5,7 +5,7 @@ import { ControlValidityPipe } from '../pipes';
 
 @Directive({
     selector: '[errorState]',
-    providers: [ControlValidityPipe, ]
+    providers: [ControlValidityPipe]
 })
 export class ErrorStateDirective implements AfterViewChecked {
     @Input('errorState') control: AbstractControl;
