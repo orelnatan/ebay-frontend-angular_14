@@ -9,6 +9,8 @@ import { CategoryCardModule, PageLoaderModule } from '@ebay/home/components';
 
 import { CategoriesPageComponent } from './categories-page.component';
 
+const CATEGORIES_ICON: string = "../../../../assets/images/svg/category_white.svg";
+
 @NgModule({
     declarations: [
         CategoriesPageComponent,
@@ -32,7 +34,8 @@ import { CategoriesPageComponent } from './categories-page.component';
                     crumbs: [
                         {
                             path: "categories",
-                            name: "Categories"
+                            name: "Categories",
+                            image: CATEGORIES_ICON
                         }
                     ]
                 }

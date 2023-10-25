@@ -20,7 +20,8 @@ export class ProductCrumbResolver implements BreadcrumbResolver {
             lastValueFrom(this.productsService.getSingleEntity(routeSnapshot.params?.['familyId'], routeSnapshot.params?.['productId']))
             .then((product: IProduct) => {
                 return {
-                    name: this.titleCasePipe.transform(product.name)
+                    name: this.titleCasePipe.transform(product.name),
+                    image: product.image
                 } as ICrumb
             })
         )

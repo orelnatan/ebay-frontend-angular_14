@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards';
 import { AuthRootComponent } from './auth-root.component';
 
+const LOGIN_ICON: string = "../../assets/images/svg/password_white.svg";
+const REGISTRATION_ICON: string = "../../assets/images/svg/app_registration_white.svg";
+
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: '', component: AuthRootComponent, children:
@@ -17,7 +20,8 @@ const routes: Routes = [
                     crumbs: [
                         {
                             path: "login",
-                            name: "Login"
+                            name: "Login",
+                            image: LOGIN_ICON
                         }
                     ]
                 },
@@ -29,7 +33,8 @@ const routes: Routes = [
                     crumbs: [
                         {
                             path: "registration",
-                            name: "Registration"
+                            name: "Registration",
+                            image: REGISTRATION_ICON
                         }
                     ]
                 }

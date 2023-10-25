@@ -9,6 +9,8 @@ import { FamilyCardModule, PageLoaderModule } from '@ebay/home/components';
 
 import { FamiliesPageComponent } from './families-page.component';
 
+const FAMILIES_ICON: string = "../../../../assets/images/svg/account_tree_white.svg";
+
 @NgModule({
     declarations: [
         FamiliesPageComponent,
@@ -32,7 +34,8 @@ import { FamiliesPageComponent } from './families-page.component';
                     crumbs: [
                         {
                             path: "families",
-                            name: "Families"
+                            name: "Families",
+                            image: FAMILIES_ICON
                         }
                     ]
                 }

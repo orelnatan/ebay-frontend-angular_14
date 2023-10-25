@@ -10,9 +10,10 @@ import { ICrumb } from '../../models';
     styleUrls: ['./breadcrumbs.component.scss'],
 })
 export class BreadcrumbsComponent {
-    @Input() name: string;
-
     crumbs$: BehaviorSubject<ICrumb[]> = this.breadcrumbsService.crumbs$;
+
+    @Input('showFirst') firsts: number;
+    @Input('showLatest') latests: number;
     
     constructor(
         private readonly breadcrumbsService: BreadcrumbsService,

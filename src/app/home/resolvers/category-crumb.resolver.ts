@@ -20,7 +20,8 @@ export class CategoryCrumbResolver implements BreadcrumbResolver {
             lastValueFrom(this.categoriesService.getSingleEntity(routeSnapshot.params?.['brandId'], routeSnapshot.params?.['categoryId']))
             .then((category: ICategory) => {
                 return {
-                    name: this.titleCasePipe.transform(category.name)
+                    name: this.titleCasePipe.transform(category.name),
+                    image: category.image,
                 } as ICrumb
             })
         )

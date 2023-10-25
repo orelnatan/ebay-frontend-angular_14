@@ -9,6 +9,8 @@ import { PageLoaderModule, ProductCardModule } from '@ebay/home/components';
 
 import { ProductsPageComponent } from './products-page.component';
 
+const PRODUCTS_ICON: string = "../../../../assets/images/svg/shopping_cart_white.svg";
+
 @NgModule({
     declarations: [
         ProductsPageComponent,
@@ -32,7 +34,8 @@ import { ProductsPageComponent } from './products-page.component';
                     crumbs: [
                         {
                             path: "products",
-                            name: "Products"
+                            name: "Products",
+                            image: PRODUCTS_ICON
                         } 
                     ]
                 }

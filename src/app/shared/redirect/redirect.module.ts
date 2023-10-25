@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { RedirectService } from './services';
 import { RedirectResolver } from './resolvers';
 import { RedirectDirective } from './directives';
 
@@ -14,4 +15,8 @@ import { RedirectDirective } from './directives';
         RedirectDirective,
     ]
 })
-export class RedirectModule {}
+export class RedirectModule {
+    constructor(
+        private readonly redirectService: RedirectService
+    ) {}
+}

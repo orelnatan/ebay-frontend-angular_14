@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { SpinnerModule } from '../components';
 
+import { BreadcrumbsService } from './services';
+import { ShowFirstPipe, ShowLatestPipe } from './pipes';
 import { CrumbsRedirectDirective } from './directives';
-import { VisibilityPipe } from './pipes';
 import { BreadcrumbsComponent, CrumbComponent } from './components';
 
 @NgModule({
@@ -12,7 +13,8 @@ import { BreadcrumbsComponent, CrumbComponent } from './components';
         BreadcrumbsComponent,
         CrumbComponent,
         CrumbsRedirectDirective,
-        VisibilityPipe,
+        ShowFirstPipe,
+        ShowLatestPipe
     ],
     imports: [
         CommonModule,
@@ -22,4 +24,8 @@ import { BreadcrumbsComponent, CrumbComponent } from './components';
         BreadcrumbsComponent,
     ],
 })
-export class BreadcrumbsModule {}
+export class BreadcrumbsModule {
+    constructor(
+        private readonly breadcrumbsService: BreadcrumbsService
+    ) {}
+}

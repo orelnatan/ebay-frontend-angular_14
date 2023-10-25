@@ -20,7 +20,8 @@ export class FamilyCrumbResolver implements BreadcrumbResolver {
             lastValueFrom(this.familiesService.getSingleEntity(routeSnapshot.params?.['categoryId'], routeSnapshot.params?.['familyId']))
             .then((family: IFamily) => {
                 return {
-                    name: this.titleCasePipe.transform(family.name)
+                    name: this.titleCasePipe.transform(family.name),
+                    image: family.image
                 } as ICrumb
             })
         )

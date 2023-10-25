@@ -4,6 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrandCrumbResolver, CategoryCrumbResolver, FamilyCrumbResolver, ProductCrumbResolver } from './resolvers';
 import { HomeRootComponent } from './home-root.component';
 
+const BRANDS_ICON: string = "../../assets/images/svg/currency_bitcoin_white.svg";
+const CATEGORIES_ICON: string = "../../assets/images/svg/category_white.svg";
+const FAMILIES_ICON: string = "../../assets/images/svg/account_tree_white.svg";
+const PRODUCTS_ICON: string = "../../assets/images/svg/shopping_cart_white.svg";
+
 const routes: Routes = [
     { path: '', redirectTo: 'brands', pathMatch: 'full' },
     { path: '', component: HomeRootComponent, children:
@@ -15,7 +20,8 @@ const routes: Routes = [
                     crumbs: [
                         {
                             path: "brands",
-                            name: "Brands"
+                            name: "Brands",
+                            image: BRANDS_ICON
                         }
                     ]
                 }
@@ -28,10 +34,11 @@ const routes: Routes = [
                         {
                             path: "brands",
                             name: "Brands",
+                            image: BRANDS_ICON
                         },
                         {
                             path: "brandId",
-                            resolve: "brand"
+                            resolve: "brand",
                         },
                     ]
                 },
@@ -46,7 +53,8 @@ const routes: Routes = [
                     crumbs: [
                         {
                             path: "brands",
-                            name: "Brands"
+                            name: "Brands",
+                            image: BRANDS_ICON
                         },
                         {
                             path: "brandId",
@@ -55,6 +63,7 @@ const routes: Routes = [
                         {
                             path: "categories",
                             name: "Categories",
+                            image: CATEGORIES_ICON,
                         },
                         {
                             path: "categoryId",
@@ -74,7 +83,8 @@ const routes: Routes = [
                     crumbs: [
                         {
                             path: "brands",
-                            name: "Brands"
+                            name: "Brands",
+                            image: BRANDS_ICON
                         },
                         {
                             path: "brandId",
@@ -83,6 +93,7 @@ const routes: Routes = [
                         {
                             path: "categories",
                             name: "Categories",
+                            image: CATEGORIES_ICON
                         },
                         {
                             path: "categoryId",
@@ -90,11 +101,12 @@ const routes: Routes = [
                         },
                         {
                             path: "families",
-                            name: "Families"
+                            name: "Families",
+                            image: FAMILIES_ICON
                         },
                         {
                             path: "familyId",
-                            resolve: "family"
+                            resolve: "family",
                         }
                     ]
                 },
@@ -111,15 +123,17 @@ const routes: Routes = [
                     crumbs: [
                         {
                             path: "brands",
-                            name: "Brands"
+                            name: "Brands",
+                            image: BRANDS_ICON
                         },
                         {
                             path: "brandId",
-                            resolve: "brand"
+                            resolve: "brand",
                         },
                         {
                             path: "categories",
                             name: "Categories",
+                            image: CATEGORIES_ICON
                         },
                         {
                             path: "categoryId",
@@ -127,7 +141,8 @@ const routes: Routes = [
                         },
                         {
                             path: "families",
-                            name: "Families"
+                            name: "Families",
+                            image: FAMILIES_ICON
                         },
                         {
                             path: "familyId",
@@ -135,7 +150,8 @@ const routes: Routes = [
                         },
                         {
                             path: "products",
-                            name: "Products"
+                            name: "Products",
+                            image: PRODUCTS_ICON
                         },
                         {
                             path: "productId",

@@ -9,7 +9,6 @@ import { ICrumb } from '../../models';
 })
 export class CrumbComponent implements OnChanges {
     @Input() crumb: ICrumb;
-    @Input() parent: string;
 
     loading: boolean;
     

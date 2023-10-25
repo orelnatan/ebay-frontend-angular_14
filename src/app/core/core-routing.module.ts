@@ -5,6 +5,9 @@ import { AuthGuard } from '@ebay/auth/guards';
 
 import { CoreRootComponent } from './core-root.component';
 
+const HOME_ICON: string = "../../assets/images/svg/home_white.svg";
+const AUTH_ICON: string = "../../assets/images/svg/vpn_key_white.svg";
+
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '', component: CoreRootComponent, children:
@@ -17,7 +20,8 @@ const routes: Routes = [
                     crumbs: [
                         {
                             path: "home",
-                            name: "Home"
+                            name: "Home",
+                            image: HOME_ICON
                         }
                     ]
                 }
@@ -43,6 +47,7 @@ const routes: Routes = [
                         {
                             path: "auth",
                             name: "Auth",
+                            image: AUTH_ICON
                         }
                     ]
                 }
