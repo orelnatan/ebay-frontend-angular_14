@@ -9,7 +9,9 @@ import { IFamily } from '@ebay/home/models';
 
 import { EntitiesAbstractService } from './entities-abstract.service';
 
-@ServiceInterceptor([{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient])
+@ServiceInterceptor(
+    [{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient]
+)
 @Injectable()
 export class FamiliesService implements EntitiesAbstractService {
     private _families: Record<number, IFamily[]> = {};

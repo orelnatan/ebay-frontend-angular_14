@@ -5,7 +5,9 @@ import { ComponentInterceptor } from '@ebay/shared/global-events';
 
 import { GlobalEventTypes } from './models';
 
-@ComponentInterceptor([{ type: GlobalEventTypes.Logout, action: "exitApp" }], [Router])
+@ComponentInterceptor(
+    [{ type: GlobalEventTypes.Logout, action: "exitApp" }], [Router]
+)
 @Component({
   selector: 'core-root',
   template: `

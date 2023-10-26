@@ -16,10 +16,6 @@
         color: $color-white;
     }
 
-    .arrow-back-container {
-        display: grid;
-    }
-
     .arrow-active {
         cursor: pointer;
         color: $color-white;
@@ -27,6 +23,10 @@
 
     .arrow-disabled {
         color: rgba($color-white, 0.8);
+    }
+
+    .arrow-back-container {
+        display: grid;
     }
 }
 

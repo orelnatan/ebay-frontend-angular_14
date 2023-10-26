@@ -1,0 +1,12 @@
+
+<div class="search-box-main">
+    <div class="input-container">
+        <input matInput
+            type="text"
+            placeholder="Search entities..."
+            (input)="subject$.next($event.target.value)"
+        />
+    </div>
+    
+    <mat-icon>{{ 'search' }}</mat-icon>
+</div>

@@ -8,5 +8,9 @@
                 <mat-icon class="arrow-disabled"> {{ 'arrow_back_ios' }} </mat-icon>
             </ng-template>
         </div>
+
+        <div class="search-box-container">
+            <search-box (search)="dispatchSearch($event)"></search-box>
+        </div>
     </div>
 </div>

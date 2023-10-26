@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
-import { ElementsGridModule } from '@ebay/shared/components';
-import { CategoryCardModule, PageLoaderModule } from '@ebay/home/components';
+import { ElementsGridModule, PageLoaderModule } from '@ebay/shared/components';
+import { CategoryCardModule } from '@ebay/home/components';
+import { PipesModule } from '@ebay/home/pipes';
 
 import { CategoriesPageComponent } from './categories-page.component';
 
@@ -22,6 +23,7 @@ const CATEGORIES_ICON: string = "../../../../assets/images/svg/category_white.sv
         DirectivesModule,
         ElementsGridModule,
         PageLoaderModule,
+        PipesModule,
         RouterModule.forChild([
             { path: '', redirectTo: 'categories', pathMatch: 'full' },
             { 

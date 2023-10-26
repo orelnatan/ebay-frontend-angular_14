@@ -5,5 +5,6 @@ export enum GlobalEventTypes {
     InProgress = "IN_PROGRESS",
     Success = "SUCCESS",
     Error = "ERROR",
-    Toggle = "TOGGLE"
+    Toggle = "TOGGLE",
+    Search = "SEARCH"
 }

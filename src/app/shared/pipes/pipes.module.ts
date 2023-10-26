@@ -6,11 +6,11 @@ import { SuffixPipe } from './suffix.pipe';
 @NgModule({
     declarations: [
         RegExpPipe,
-        SuffixPipe
+        SuffixPipe,
     ],
     exports: [
         RegExpPipe,
-        SuffixPipe
+        SuffixPipe,
     ]
 })
 export class PipesModule {}

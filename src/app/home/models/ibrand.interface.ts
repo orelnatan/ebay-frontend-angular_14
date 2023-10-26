@@ -1,10 +1,5 @@
+import { IEntity } from "./ientity.interface";
 
-export interface IBrand {
-    id: number;
-    image: string;
-    index: number;
-    name: string;
-    description: string;
-    serial: string;
+export interface IBrand extends IEntity {
     section: string;
 }

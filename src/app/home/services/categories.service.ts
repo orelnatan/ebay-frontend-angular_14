@@ -9,7 +9,9 @@ import { ICategory } from '@ebay/home/models';
 
 import { EntitiesAbstractService } from './entities-abstract.service';
 
-@ServiceInterceptor([{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient])
+@ServiceInterceptor(
+    [{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient]
+)
 @Injectable()
 export class CategoriesService implements EntitiesAbstractService {
     private _categories: Record<number, ICategory[]> = {};

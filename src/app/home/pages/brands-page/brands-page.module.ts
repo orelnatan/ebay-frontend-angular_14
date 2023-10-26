@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
-import { CrumbsNavbarModule, ElementsGridModule, SpinnerModule } from '@ebay/shared/components';
-import { BrandCardModule, PageLoaderModule } from '@ebay/home/components';
+import { CrumbsNavbarModule, ElementsGridModule, PageLoaderModule, SpinnerModule } from '@ebay/shared/components';
+import { PipesModule } from '@ebay/home/pipes';
+import { BrandCardModule } from '@ebay/home/components';
 
 import { BrandsPageComponent } from './brands-page.component';
 
@@ -22,6 +23,7 @@ import { BrandsPageComponent } from './brands-page.component';
         ElementsGridModule,
         PageLoaderModule,
         SpinnerModule,
+        PipesModule,
         RouterModule.forChild([
             { path: '', component: BrandsPageComponent },
         ])

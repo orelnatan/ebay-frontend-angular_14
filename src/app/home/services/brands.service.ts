@@ -1,4 +1,4 @@
-import { Injectable }  from '@angular/core';
+import { Injectable, OnDestroy }  from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, of as observableOf } from 'rxjs';  
 
@@ -9,7 +9,9 @@ import { IBrand } from '@ebay/home/models';
 
 import { EntitiesAbstractService } from './entities-abstract.service';
 
-@ServiceInterceptor([{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient])
+@ServiceInterceptor(
+    [{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient]
+)
 @Injectable()
 export class BrandsService implements EntitiesAbstractService {
     private _brands: Array<IBrand> | null;

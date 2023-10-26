@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
-import { ElementsGridModule } from '@ebay/shared/components';
-import { FamilyCardModule, PageLoaderModule } from '@ebay/home/components';
+import { ElementsGridModule, PageLoaderModule} from '@ebay/shared/components';
+import { FamilyCardModule } from '@ebay/home/components';
+import { PipesModule } from '@ebay/home/pipes';
 
 import { FamiliesPageComponent } from './families-page.component';
 
@@ -22,6 +23,7 @@ const FAMILIES_ICON: string = "../../../../assets/images/svg/account_tree_white.
         PageLoaderModule,
         DirectivesModule,
         ElementsGridModule,
+        PipesModule,
         RouterModule.forChild([
             { path: '', redirectTo: 'families', pathMatch: 'full' },
             { 

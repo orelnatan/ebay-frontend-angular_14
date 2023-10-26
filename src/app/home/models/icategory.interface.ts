@@ -1,11 +1,6 @@
+import { IEntity } from "./ientity.interface";
 
-export interface ICategory {
-    id: number;
-    image: string;
-    index: number;
-    name: string;
-    description: string;
+export interface ICategory extends IEntity {
     rank: number;
-    serial: string;
     brandId: number;
 }

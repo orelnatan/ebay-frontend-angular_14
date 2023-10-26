@@ -7,7 +7,9 @@ import { Ebay, GlobalEventTypes, StorageKeys, StorageValues } from '../models';
 
 const LOCAL_STORAGE_NAME: string = "Ebay";
 
-@ServiceInterceptor([{ type: GlobalEventTypes.Logout, action: "clear" }])
+@ServiceInterceptor(
+    [{ type: GlobalEventTypes.Logout, action: "clear" }]
+)
 @Injectable()
 export class EbayLocalStorageService {
     private _storage: Ebay;

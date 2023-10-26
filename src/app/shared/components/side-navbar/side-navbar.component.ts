@@ -6,7 +6,9 @@ import { Breakpoints } from '@ebay/shared/models';
 
 const ANIMATION_DELAY: number = 500;
 
-@ComponentInterceptor([{ type: GlobalEventTypes.Toggle, action: "toggle" }])
+@ComponentInterceptor(
+    [{ type: GlobalEventTypes.Toggle, action: "toggle" }]
+)
 @Component({
   selector: 'side-navbar',
   templateUrl: './side-navbar.component.html',

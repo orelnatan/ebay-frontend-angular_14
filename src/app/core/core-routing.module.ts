@@ -27,19 +27,6 @@ const routes: Routes = [
                 }
             },
             { 
-                path: 'statistics',
-                loadChildren: () => import('../statistics/statistics.module').then(statistics => statistics.StatisticsModule),
-                canActivateChild: [AuthGuard],
-                data: {
-                    crumbs: [
-                        {
-                            path: "statistics",
-                            name: "Statistics",
-                        }
-                    ]
-                }
-            }, 
-            { 
                 path: 'auth',
                 loadChildren: () => import('../auth/auth.module').then(auth => auth.AuthModule),
                 data: {
@@ -52,6 +39,19 @@ const routes: Routes = [
                     ]
                 }
             },
+            { 
+                path: 'statistics',
+                loadChildren: () => import('../statistics/statistics.module').then(statistics => statistics.StatisticsModule),
+                canActivateChild: [AuthGuard],
+                data: {
+                    crumbs: [
+                        {
+                            path: "statistics",
+                            name: "Statistics",
+                        }
+                    ]
+                }
+            }, 
         ]
     },
 ];

@@ -1,11 +1,6 @@
+import { IEntity } from "./ientity.interface";
 
-export interface IProduct {
-    id: number;
-    image: string;
-    index: number;
-    name: string;
-    description: string;
-    serial: string;
+export interface IProduct extends IEntity {
     height: number;
     width: number;
     weight: number;
