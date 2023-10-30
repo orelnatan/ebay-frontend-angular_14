@@ -1,4 +1,9 @@
 
+:host ::ng-deep {
+  width: 100%;
+}
+
 .input-field-main {
-    width: 100%;
+  width: 100%;
+  padding: 0px 5px;
 }

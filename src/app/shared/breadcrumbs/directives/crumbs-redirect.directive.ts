@@ -5,42 +5,42 @@ import { BreadcrumbsService } from '../services';
 import { ICrumb } from '../models';
 
 @Directive({
-    selector: '[crumbsRedirect]',
+  selector: '[crumbsRedirect]',
 })
 export class CrumbsRedirectDirective {
-    @HostListener('click') onclick(): void {
-        if(this.crumb.disabled) return;
+  @HostListener('click') onclick(): void {
+    if(this.crumb.disabled) return;
 
-        this._redirectById(this.crumb.id);
-    };
+    this._redirectById(this.crumb.id);
+  };
 
-    @Input('crumbsRedirect') crumb: ICrumb;
+  @Input('crumbsRedirect') crumb: ICrumb;
+  
+  constructor(
+    private readonly router: Router,
+    private readonly breadcrumbsService: BreadcrumbsService
+  ) {}
+
+  private _resolveCurrentCrumbs(): Array<ICrumb> {
+    return this.breadcrumbsService.crumbs$
+    .getValue();
+  }
+
+  private _redirectById(id: number): void {
+    const url: string = this._createRedirectUrl(id);
     
-    constructor(
-        private readonly router: Router,
-        private readonly breadcrumbsService: BreadcrumbsService
-    ) {}
+    this.router.navigate([`/${url}`], { queryParamsHandling: 'preserve' });
+  }
 
-    private _resolveCurrentCrumbs(): Array<ICrumb> {
-        return this.breadcrumbsService.crumbs$
-        .getValue();
-    }
+  private _createRedirectUrl(id: number): string {
+    const crumbs: Array<ICrumb> = this._resolveCurrentCrumbs();
 
-    private _redirectById(id: number): void {
-        const url: string = this._createRedirectUrl(id);
-      
-        this.router.navigate([`/${url}`], { queryParamsHandling: 'preserve' });
-    }
+    const pathes: Array<string> = crumbs.map(
+      crumb => crumb.path);
 
-    private _createRedirectUrl(id: number): string {
-        const crumbs: Array<ICrumb> = this._resolveCurrentCrumbs();
-
-        const pathes: Array<string> = crumbs.map(
-            crumb => crumb.path);
-
-        const index: number = crumbs.map(
-            crumb => crumb.id).indexOf(id);
-        
-        return pathes.slice(0, index + 1).join("/");
-    }
+    const index: number = crumbs.map(
+      crumb => crumb.id).indexOf(id);
+    
+    return pathes.slice(0, index + 1).join("/");
+  }
 }

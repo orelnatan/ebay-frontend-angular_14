@@ -7,11 +7,9 @@ import { IValidation } from '../models';
    name: 'validation',
 })
 export class ValidationPipe implements PipeTransform {
-    transform(validation: IValidation = {}, errors: Record<string, ValidationErrors>): string {
-        if(!errors) return validation.default!;
-        
-        const firstErrorFieldName: keyof IValidation = Object.keys(errors)[0] as keyof typeof validation;
-
-        return validation[firstErrorFieldName] || validation.default!;
-    }
+  transform(validation: IValidation = {}, errors: Record<string, ValidationErrors>): string {    
+    return errors ? validation[
+      Object.keys(errors)[0] as keyof typeof validation
+    ] || validation.default! : validation.default!;
+  }
 }

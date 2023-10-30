@@ -9,22 +9,22 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeRootComponent } from './home-root.component';
 
 @NgModule({
-    declarations: [
-        HomeRootComponent,
-    ],
-    imports: [ 
-        HomeRoutingModule,
-        LayoutModule,
-        SideNavbarModule,
-        UtilsNavbarModule,
-        CrumbsNavbarModule
-    ],
-    providers: [
-        TitleCasePipe,
-        BrandsService,
-        CategoriesService,
-        FamiliesService,
-        ProductsService
-    ]
+  declarations: [
+    HomeRootComponent,
+  ],
+  imports: [ 
+    HomeRoutingModule,
+    LayoutModule,
+    SideNavbarModule,
+    UtilsNavbarModule,
+    CrumbsNavbarModule
+  ],
+  providers: [
+    TitleCasePipe,
+    BrandsService,
+    CategoriesService,
+    FamiliesService,
+    ProductsService
+  ]
 })
 export class HomeModule {}

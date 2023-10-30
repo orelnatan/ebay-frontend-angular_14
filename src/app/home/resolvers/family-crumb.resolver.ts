@@ -10,20 +10,20 @@ import { IFamily } from '../models';
 
 @Injectable()
 export class FamilyCrumbResolver implements BreadcrumbResolver {
-    constructor(
-        private readonly familiesService: FamiliesService,
-        private readonly titleCasePipe: TitleCasePipe
-    ) {}
+  constructor(
+    private readonly familiesService: FamiliesService,
+    private readonly titleCasePipe: TitleCasePipe
+  ) {}
 
-    resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
-        return observableOf(
-            lastValueFrom(this.familiesService.getSingleEntity(routeSnapshot.params?.['categoryId'], routeSnapshot.params?.['familyId']))
-            .then((family: IFamily) => {
-                return {
-                    name: this.titleCasePipe.transform(family.name),
-                    image: family.image
-                } as ICrumb
-            })
-        )
-    }
+  resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
+    return observableOf(
+      lastValueFrom(this.familiesService.getSingleEntity(routeSnapshot.params?.['categoryId'], routeSnapshot.params?.['familyId']))
+      .then((family: IFamily) => {
+        return {
+          name: this.titleCasePipe.transform(family.name),
+          image: family.image
+        } as ICrumb
+      })
+    )
+  }
 }

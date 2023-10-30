@@ -10,20 +10,20 @@ import { IProduct } from '../models';
 
 @Injectable()
 export class ProductCrumbResolver implements BreadcrumbResolver {
-    constructor(
-        private readonly productsService: ProductsService,
-        private readonly titleCasePipe: TitleCasePipe
-    ) {}
+  constructor(
+    private readonly productsService: ProductsService,
+    private readonly titleCasePipe: TitleCasePipe
+  ) {}
 
-    resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
-        return observableOf(
-            lastValueFrom(this.productsService.getSingleEntity(routeSnapshot.params?.['familyId'], routeSnapshot.params?.['productId']))
-            .then((product: IProduct) => {
-                return {
-                    name: this.titleCasePipe.transform(product.name),
-                    image: product.image
-                } as ICrumb
-            })
-        )
-    }
+  resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
+    return observableOf(
+      lastValueFrom(this.productsService.getSingleEntity(routeSnapshot.params?.['familyId'], routeSnapshot.params?.['productId']))
+      .then((product: IProduct) => {
+        return {
+          name: this.titleCasePipe.transform(product.name),
+          image: product.image
+        } as ICrumb
+      })
+    )
+  }
 }

@@ -8,14 +8,14 @@ import { ModalModule } from '@ebay/shared/components';
 import { LogoutModalComponent } from './logout-modal.component';
 
 @NgModule({
-    declarations: [ 
-        LogoutModalComponent,
-    ],
-    imports: [
-        CommonModule,
-        MatButtonModule,
-        ModalModule,
-        MatDialogModule, 
-    ]
+  declarations: [ 
+    LogoutModalComponent,
+  ],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    ModalModule,
+    MatDialogModule, 
+  ]
 })
 export class LogoutModalModule {}

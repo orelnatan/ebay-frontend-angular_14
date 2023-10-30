@@ -6,11 +6,11 @@ const IMAGE_NOT_FOUND_PATH: string = '../../../assets/images/jpeg/image-not-foun
   selector: "img[imageNotFound]",
 })
 export class ImageNotFoundDirective {
-    @HostListener("error") onerror() {
-        this.elementRef.nativeElement.src = IMAGE_NOT_FOUND_PATH;
-    }
+  @HostListener("error") onerror() {
+    this.elementRef.nativeElement.src = IMAGE_NOT_FOUND_PATH;
+  }
 
-    constructor(
-        private readonly elementRef: ElementRef<HTMLImageElement>
-    ) {}
+  constructor(
+    private readonly elementRef: ElementRef<HTMLImageElement>
+  ) {}
 }

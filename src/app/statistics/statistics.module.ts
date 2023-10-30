@@ -6,12 +6,12 @@ import { StatisticsRoutingModule } from './statistics-routing.module';
 import { StatisticsRootComponent } from './statistics-root.component';
 
 @NgModule({
-    declarations: [
-        StatisticsRootComponent,
-    ],
-    imports: [ 
-        StatisticsRoutingModule,
-        LayoutModule
-    ],
+  declarations: [
+    StatisticsRootComponent,
+  ],
+  imports: [ 
+    StatisticsRoutingModule,
+    LayoutModule
+  ],
 })
 export class StatisticsModule {}

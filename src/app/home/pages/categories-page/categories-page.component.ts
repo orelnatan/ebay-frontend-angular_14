@@ -9,29 +9,29 @@ import { ICategory } from '@ebay/home/models';
 
 const PARAM_NAME: string = "brandId";
 
-@ComponentInterceptor(
-    [{ type: GlobalEventTypes.Search, action: "onSearch" }], [CategoriesService, ActivatedRoute]
-)
+@ComponentInterceptor([
+  { type: GlobalEventTypes.Search, action: "onSearch" }
+], [CategoriesService, ActivatedRoute])
 @Component({
-    selector: 'categories-page',
-    templateUrl: './categories-page.component.html',
-    styleUrls: ['./categories-page.component.scss']
+  selector: 'categories-page',
+  templateUrl: './categories-page.component.html',
+  styleUrls: ['./categories-page.component.scss']
 })
 export class CategoriesPageComponent {
-    categories$: Observable<ICategory[]> = this.categoriesService.fetchAll(this.brandId);
+  categories$: Observable<ICategory[]> = this.categoriesService.fetchAll(this.brandId);
 
-    keyword: string;
+  keyword: string;
 
-    constructor(
-        private readonly categoriesService: CategoriesService,
-        private readonly activatedRoute: ActivatedRoute
-    ) {}
+  constructor(
+    private readonly categoriesService: CategoriesService,
+    private readonly activatedRoute: ActivatedRoute
+  ) {}
 
-    get brandId(): number {
-        return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));
-    }
+  get brandId(): number {
+    return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));
+  }
 
-    onSearch(event: CustomEvent): void {
-        this.keyword = event.detail.keyword;
-    }
+  onSearch(event: CustomEvent): void {
+    this.keyword = event.detail.keyword;
+  }
 }

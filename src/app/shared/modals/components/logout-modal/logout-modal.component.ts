@@ -9,13 +9,13 @@ import { ModalType } from '@ebay/shared/components/modal';
   styleUrls: ['./logout-modal.component.scss'],
 })
 export class LogoutModalComponent {
-    modalType = ModalType;
+  modalType = ModalType;
 
-    constructor(
-        public matDialogRef: MatDialogRef<LogoutModalComponent>,
-    ) {}
+  constructor(
+    public matDialogRef: MatDialogRef<LogoutModalComponent>,
+  ) {}
   
-    logout(): void {
-        this.matDialogRef.close(true);
-    }
+  logout(): void {
+    this.matDialogRef.close(true);
+  }
 }

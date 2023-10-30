@@ -8,14 +8,14 @@ import { ILogin, IUser } from '../models';
 
 @Injectable()
 export class AuthenticationService {
-    constructor(
-        private readonly httpClient: HttpClient,
-    ) {}
+  constructor(
+    private readonly httpClient: HttpClient,
+  ) {}
 
-    login(login: ILogin): Observable<IUser> {
-        return this.httpClient.post<IUser>(environment.apis.auth.login, {
-            ... login
-        })
-    }
+  login(login: ILogin): Observable<IUser> {
+    return this.httpClient.post<IUser>(environment.apis.auth.login, {
+      ... login
+    })
+  }
 
 }

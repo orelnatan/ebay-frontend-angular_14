@@ -1,20 +1,20 @@
 
 .primary-button-main {
-    .mat-button-container {
-        position: relative;
-    }
+  .mat-button-container {
+    position: relative;
+  }
 
-    mat-progress-bar {
-        position: absolute;
-    }
+  mat-progress-bar {
+    position: absolute;
+  }
 
-    mat-hint {
-        display: block;
-        font-size: 10px;
-        margin-top: 5px;
-    }
+  mat-hint {
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+  }
 
-    button {
-        width: 100%;
-    }
+  button {
+    width: 100%;
+  }
 }

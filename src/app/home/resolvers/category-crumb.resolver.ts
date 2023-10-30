@@ -10,20 +10,20 @@ import { ICategory } from '../models';
 
 @Injectable()
 export class CategoryCrumbResolver implements BreadcrumbResolver {
-    constructor(
-        private readonly categoriesService: CategoriesService,
-        private readonly titleCasePipe: TitleCasePipe
-    ) {}
+  constructor(
+    private readonly categoriesService: CategoriesService,
+    private readonly titleCasePipe: TitleCasePipe
+  ) {}
 
-    resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
-        return observableOf(
-            lastValueFrom(this.categoriesService.getSingleEntity(routeSnapshot.params?.['brandId'], routeSnapshot.params?.['categoryId']))
-            .then((category: ICategory) => {
-                return {
-                    name: this.titleCasePipe.transform(category.name),
-                    image: category.image,
-                } as ICrumb
-            })
-        )
-    }
+  resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
+    return observableOf(
+      lastValueFrom(this.categoriesService.getSingleEntity(routeSnapshot.params?.['brandId'], routeSnapshot.params?.['categoryId']))
+      .then((category: ICategory) => {
+        return {
+          name: this.titleCasePipe.transform(category.name),
+          image: category.image,
+        } as ICrumb
+      })
+    )
+  }
 }

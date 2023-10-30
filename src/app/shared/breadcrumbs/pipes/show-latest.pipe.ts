@@ -5,9 +5,9 @@ import { ICrumb } from '../models';
    name: 'showLatest',
 })
 export class ShowLatestPipe implements PipeTransform {
-    transform(crumbs: ICrumb[], amount: number): ICrumb[] {
-        if(!amount || crumbs.length < amount) return crumbs;
+  transform(crumbs: ICrumb[], amount: number): ICrumb[] {
+    if(!amount || crumbs.length < amount) return crumbs;
 
-        return [...crumbs].splice((crumbs.length - amount), amount);
-    }
+    return [...crumbs].splice((crumbs.length - amount), amount);
+  }
 }

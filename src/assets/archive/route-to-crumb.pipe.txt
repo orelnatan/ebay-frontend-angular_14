@@ -6,7 +6,7 @@ import { ICrumb } from '../models';
    name: 'routeToCrumb',
 })
 export class RouteToCrumbPipe implements PipeTransform {
-    transform(routeId: string, crumbs: Array<ICrumb>): ICrumb {  
-        return {} as ICrumb; 
-    }
+  transform(routeId: string, crumbs: Array<ICrumb>): ICrumb {  
+    return {} as ICrumb; 
+  }
 }

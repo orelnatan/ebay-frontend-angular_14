@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./elements-grid.component.scss'],
 })
 export class ElementsGridComponent {   
-    @Input() elementMinSizePx: number;
+  @Input() elementMinSizePx: number;
 }

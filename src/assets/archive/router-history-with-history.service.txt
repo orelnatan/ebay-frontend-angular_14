@@ -4,97 +4,97 @@ import { NavigationStart, Router, Event as RouterNavigationEvent, NavigationEnd,
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 interface IRoute {
-    path: string;
-    skip: boolean;
-    disabled: boolean
+  path: string;
+  skip: boolean;
+  disabled: boolean
 }
 
 @UntilDestroy()
 @Injectable()
 export class NavigationTreeService {
-    private history: Array<string> = [];
+  private history: Array<string> = [];
 
-    constructor(
-      private readonly router: Router,
-      private readonly location: Location
+  constructor(
+    private readonly router: Router,
+    private readonly location: Location
   ) {
-        this.router.events.pipe(untilDestroyed(this))
-        .subscribe((event: RouterNavigationEvent): void => {
-            if(event instanceof NavigationStart) {
-                if (event.navigationTrigger === 'popstate') {
-                    this.history.pop();
-                }
-            }
+    this.router.events.pipe(untilDestroyed(this))
+    .subscribe((event: RouterNavigationEvent): void => {
+      if(event instanceof NavigationStart) {
+        if (event.navigationTrigger === 'popstate') {
+          this.history.pop();
+        }
+      }
 
-            if(event instanceof NavigationEnd) {
-                const currentUrl: string = decodeURIComponent(window.location.pathname);
-                const previoustUrl: string = this.history[this.history.length - 1];
+      if(event instanceof NavigationEnd) {
+        const currentUrl: string = decodeURIComponent(window.location.pathname);
+        const previoustUrl: string = this.history[this.history.length - 1];
 
-                if(previoustUrl != currentUrl) {
-                   this.history.push(currentUrl);
-                }
-
-                console.log(this.history);
-            }
-        })
-    }
-
-    public revert(): void {
-        this.history.length > 1 ? this.revertByLocation() : this.revertBySnapshotsTree();
-    }
-
-    private revertByLocation(): void {
-        this.location.back();
-    }
-
-    public revertBySnapshotsTree(): void {
-        this.history.pop();
-        
-        const snapshots = this._resolveRouterSnapshotsTree(this.router);
-        
-        const routes: Array<IRoute> = this._buildActiveRoutesTree(snapshots);
-        const path: string | null = this._buildNavigationUrlPath(routes);
-
-        path ? this.router.navigate([ path ], { queryParamsHandling: "preserve" }) : null;
-    }
-
-    private _buildNavigationUrlPath(routes: Array<IRoute>): string |  null {
-        if(routes[routes.length - 1].disabled) return null;
-        
-        routes.pop();
-        while(routes[routes.length - 1].skip) {
-            routes.pop();
+        if(previoustUrl != currentUrl) {
+           this.history.push(currentUrl);
         }
 
-        return routes.map(route => route.path).join("/");
+        console.log(this.history);
+      }
+    })
+  }
+
+  public revert(): void {
+    this.history.length > 1 ? this.revertByLocation() : this.revertBySnapshotsTree();
+  }
+
+  private revertByLocation(): void {
+    this.location.back();
+  }
+
+  public revertBySnapshotsTree(): void {
+    this.history.pop();
+    
+    const snapshots = this._resolveRouterSnapshotsTree(this.router);
+    
+    const routes: Array<IRoute> = this._buildActiveRoutesTree(snapshots);
+    const path: string | null = this._buildNavigationUrlPath(routes);
+
+    path ? this.router.navigate([ path ], { queryParamsHandling: "preserve" }) : null;
+  }
+
+  private _buildNavigationUrlPath(routes: Array<IRoute>): string |  null {
+    if(routes[routes.length - 1].disabled) return null;
+    
+    routes.pop();
+    while(routes[routes.length - 1].skip) {
+      routes.pop();
     }
 
-    private _buildActiveRoutesTree(snapshots: Array<ActivatedRouteSnapshot>): Array<IRoute> {
-        const routes: Array<IRoute> = [];
+    return routes.map(route => route.path).join("/");
+  }
 
-        snapshots.forEach((snapshot: ActivatedRouteSnapshot) => {
-            const route: IRoute = snapshot.routeConfig?.data?.["history"];
+  private _buildActiveRoutesTree(snapshots: Array<ActivatedRouteSnapshot>): Array<IRoute> {
+    const routes: Array<IRoute> = [];
 
-            const path: string = snapshot.url[0].path;
-            const skip: boolean = route?.skip || false;
-            const disabled: boolean = route?.disabled || false;
+    snapshots.forEach((snapshot: ActivatedRouteSnapshot) => {
+      const route: IRoute = snapshot.routeConfig?.data?.["history"];
 
-            routes.push({ path, skip, disabled })
-        })
+      const path: string = snapshot.url[0].path;
+      const skip: boolean = route?.skip || false;
+      const disabled: boolean = route?.disabled || false;
 
-        return routes;
-    }
+      routes.push({ path, skip, disabled })
+    })
 
-    private _resolveRouterSnapshotsTree(router: Router): Array<ActivatedRouteSnapshot> {
-        const snapshots: Array<ActivatedRouteSnapshot> = [];
+    return routes;
+  }
 
-        let snapshot: ActivatedRouteSnapshot = router.routerState.snapshot.root;
-        do {
-            snapshots.push(snapshot)
+  private _resolveRouterSnapshotsTree(router: Router): Array<ActivatedRouteSnapshot> {
+    const snapshots: Array<ActivatedRouteSnapshot> = [];
 
-            snapshot = snapshot.firstChild!;
-        } while (snapshot);
+    let snapshot: ActivatedRouteSnapshot = router.routerState.snapshot.root;
+    do {
+      snapshots.push(snapshot)
 
-        return snapshots.filter(snapshot => snapshot.url[0]);
-    }
+      snapshot = snapshot.firstChild!;
+    } while (snapshot);
+
+    return snapshots.filter(snapshot => snapshot.url[0]);
+  }
 }

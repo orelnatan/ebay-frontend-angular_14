@@ -9,41 +9,41 @@ import { IBrand } from '@ebay/home/models';
 
 import { EntitiesAbstractService } from './entities-abstract.service';
 
-@ServiceInterceptor(
-    [{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient]
-)
+@ServiceInterceptor([
+  { type: GlobalEventTypes.Logout, action: "dispose" }
+], [HttpClient])
 @Injectable()
 export class BrandsService implements EntitiesAbstractService {
-    private _brands: Array<IBrand> | null;
+  private _brands: Array<IBrand> | null;
 
-    constructor(
-        private readonly httpClient: HttpClient
-    ) {}
-                
-    fetchAll(): Observable<IBrand[]> {
-        return this._brands ? observableOf(this._brands) : this.httpClient.get<IBrand[]>(environment.apis.home.brands.all)
-        .pipe(
-            map((_brands: IBrand[]): IBrand[] => {
-                this._brands = _brands;
-                
-                return _brands;
-            })
-        )
-    }
+  constructor(
+    private readonly httpClient: HttpClient
+  ) {}
+        
+  fetchAll(): Observable<IBrand[]> {
+    return this._brands ? observableOf(this._brands) : this.httpClient.get<IBrand[]>(environment.apis.home.brands.all)
+    .pipe(
+      map((_brands: IBrand[]): IBrand[] => {
+        this._brands = _brands;
+        
+        return _brands;
+      })
+    )
+  }
 
-    getSingleEntity(brandId: number): Observable<IBrand> {
-        return this._brands ? observableOf(this._brands.find(brand => brandId == brand.id)!) :
-        this.fetchAll()
-        .pipe(
-            map((_brands: IBrand[]): IBrand => {
-                this._brands = _brands;
+  getSingleEntity(brandId: number): Observable<IBrand> {
+    return this._brands ? observableOf(this._brands.find(brand => brandId == brand.id)!) :
+    this.fetchAll()
+    .pipe(
+      map((_brands: IBrand[]): IBrand => {
+        this._brands = _brands;
 
-                return _brands.find(brand => brandId == brand.id)!
-            })
-        )
-    }
+        return _brands.find(brand => brandId == brand.id)!
+      })
+    )
+  }
 
-    dispose(): void {
-        this._brands = null;
-    }
+  dispose(): void {
+    this._brands = null;
+  }
 }

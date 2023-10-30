@@ -1,23 +1,23 @@
 @import './src/assets/config/colors.scss';
 
 .product-header-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    img {
-        display: block;
-        width: 285px;
-        border-radius: 50%;
-    }
+  img {
+    display: block;
+    width: 285px;
+    border-radius: 50%;
+  }
 
-    h1 {
-        margin: 25px 0px 5px 0px;
-        font-family: assistant-bold;
-        color: $color-base;
-    }
+  h1 {
+    margin: 25px 0px 5px 0px;
+    font-family: assistant-bold;
+    color: $color-base;
+  }
 
-    p {
-        max-width: 325px;
-    }
+  p {
+    max-width: 325px;
+  }
 }

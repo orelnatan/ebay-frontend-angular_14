@@ -1,5 +1,5 @@
 
-export { EbInputComponent } from './eb-input';
+export { BaseInputComponent } from './base-input';
 export { InputTextComponent } from './input-text';
 export { InputPasswordComponent } from './input-password';
 export { InputCheckboxComponent } from './input-checkbox';

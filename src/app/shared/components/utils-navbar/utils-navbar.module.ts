@@ -9,18 +9,18 @@ import { SearchboxComponent } from './components';
 import { UtilsNavbarComponent } from './utils-navbar.component';
 
 @NgModule({
-    declarations: [ 
-        UtilsNavbarComponent,
-        SearchboxComponent
-    ],
-    imports: [
-        CommonModule,
-        MatIconModule,
-        RedirectModule,
-        MatInputModule
-    ],
-    exports: [
-        UtilsNavbarComponent
-    ]
+  declarations: [ 
+    UtilsNavbarComponent,
+    SearchboxComponent
+  ],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    RedirectModule,
+    MatInputModule
+  ],
+  exports: [
+    UtilsNavbarComponent
+  ]
 })
 export class UtilsNavbarModule {}

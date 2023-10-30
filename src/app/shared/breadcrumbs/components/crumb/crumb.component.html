@@ -1,28 +1,28 @@
 
 <div class="crumb-main">
-    <div class="crumb-outer-container"
-        [class.skipped-crumb]="crumb.skip"
-        [class.active-crumb]="!crumb.disabled"
-        [class.disabled-crumb]="crumb.disabled"
-        [style.color]="crumb.color"
-        [crumbsRedirect]="crumb"
-    >
-        <ng-container *ngIf="!loading; else loader">
-            <div class="crumb-elements">
-                <img *ngIf="crumb.image" [src]="crumb.image" />
+  <div class="crumb-outer-container"
+    [class.skipped-crumb]="crumb.skip"
+    [class.active-crumb]="!crumb.disabled"
+    [class.disabled-crumb]="crumb.disabled"
+    [style.color]="crumb.color"
+    [crumbsRedirect]="crumb"
+  >
+    <ng-container *ngIf="!loading; else loader">
+      <div class="crumb-elements">
+        <img *ngIf="crumb.image" [src]="crumb.image" />
 
-                <span class="crumb-name">{{ crumb.name }}</span>
-                <span class="crumb-seperator">/</span>
-            </div>
-        </ng-container>
-        
-        <ng-template #loader>
-            <div class="crumb-elements">
-                <spinner [diameter]="15" [strokeWidth]="2"></spinner>
+        <span class="crumb-name">{{ crumb.name }}</span>
+        <span class="crumb-seperator">/</span>
+      </div>
+    </ng-container>
+    
+    <ng-template #loader>
+      <div class="crumb-elements">
+        <spinner [diameter]="15" [strokeWidth]="2"></spinner>
 
-                <span class="crumb-name">Loading ...</span>
-                <span class="crumb-seperator">/</span>
-            </div>
-        </ng-template>
-    </div>
+        <span class="crumb-name">Loading ...</span>
+        <span class="crumb-seperator">/</span>
+      </div>
+    </ng-template>
+  </div>
 </div>

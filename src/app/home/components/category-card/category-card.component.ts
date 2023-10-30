@@ -7,5 +7,5 @@ import { ICategory } from '@ebay/home/models';
   templateUrl: './category-card.component.html',
 })
 export class CategoryCardComponent {
-    @Input() category: ICategory;
+  @Input() category: ICategory;
 }

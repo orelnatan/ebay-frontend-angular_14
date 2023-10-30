@@ -6,7 +6,7 @@ import { ICrumb } from '../models';
    name: 'isRouteExists',
 })
 export class IsRouteExistsPipe implements PipeTransform {
-    transform(routeId: string, crumbs: Array<ICrumb>): boolean {  
-        return true; 
-    }
+  transform(routeId: string, crumbs: Array<ICrumb>): boolean {  
+    return true; 
+  }
 }

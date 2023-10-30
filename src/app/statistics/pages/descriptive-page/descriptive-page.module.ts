@@ -7,15 +7,15 @@ import { LayoutModule } from '@ebay/shared/layout';
 import { DescriptivePageComponent } from './descriptive-page.component';
 
 @NgModule({
-    declarations: [
-        DescriptivePageComponent
-    ],
-    imports: [ 
-        CommonModule,
-        LayoutModule,
-        RouterModule.forChild([
-            { path: '', component: DescriptivePageComponent },
-        ])
-    ],
+  declarations: [
+    DescriptivePageComponent
+  ],
+  imports: [ 
+    CommonModule,
+    LayoutModule,
+    RouterModule.forChild([
+      { path: '', component: DescriptivePageComponent },
+    ])
+  ],
 })
 export class DescriptivePageModule {}

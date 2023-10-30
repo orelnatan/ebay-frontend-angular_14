@@ -7,5 +7,5 @@ import { IFamily } from '@ebay/home/models';
   templateUrl: './family-card.component.html',
 })
 export class FamilyCardComponent {
-    @Input() family: IFamily;
+  @Input() family: IFamily;
 }

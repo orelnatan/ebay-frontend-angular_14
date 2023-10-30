@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
    styleUrls: ['./product-spec-item.component.scss']
 })
 export class ProductSpecItemComponent {
-    @Input() title: string;
-    @Input() value: string | number;
+  @Input() title: string;
+  @Input() value: string | number;
 }

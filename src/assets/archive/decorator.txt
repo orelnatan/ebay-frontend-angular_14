@@ -3,15 +3,15 @@
 
   - Provided-in root service (multiple events, @UntilDestroy(), @Injectable({providedIn: "root"})) - V
 
-    When using the decorator on a provided-in root service, we need to include "GlobalEventsModule" at the "app-module" imports array,
-    since provided-in root service will be declered at the top level module(app-module), this module need to support GlobalEventsModule.
+  When using the decorator on a provided-in root service, we need to include "GlobalEventsModule" at the "app-module" imports array,
+  since provided-in root service will be declered at the top level module(app-module), this module need to support GlobalEventsModule.
 
   - Provided in module service (multiple events, @UntilDestroy()) - V
 
   - Provided in component service (multiple events) - V
 
   - Provided using factory service (multiple events) - V
-    When provide a service using a factory, we dont need to use the "dependencies" array of the decorator.
+  When provide a service using a factory, we dont need to use the "dependencies" array of the decorator.
 
   - Guard (multiple events) - V
 
@@ -25,41 +25,41 @@
   
   - Pipe (multiple events, @UntilDestroy(), @Injectable()) - V
 
-    //////////////////////////////////////////////////////////////////////////////////////////
-    checks:
+  //////////////////////////////////////////////////////////////////////////////////////////
+  checks:
 
-    import { Interceptor } from '@ebay/shared/global-events';
-    import { GlobalEventTypes } from '@ebay/core/models';
+  import { Interceptor } from '@ebay/shared/global-events';
+  import { GlobalEventTypes } from '@ebay/core/models';
 
-    @Interceptor([
-        { type: GlobalEventTypes.Error, action: "error" },
-        { type: GlobalEventTypes.Login, action: "login" },
-        { type: GlobalEventTypes.InProgress, action: "progress"}]
-    )
+  @Interceptor([
+    { type: GlobalEventTypes.Error, action: "error" },
+    { type: GlobalEventTypes.Login, action: "login" },
+    { type: GlobalEventTypes.InProgress, action: "progress"}]
+  )
 
-    ngOnDestroy(): void {
-        console.log("ngOnDestroy")
-    }
+  ngOnDestroy(): void {
+    console.log("ngOnDestroy")
+  }
 
-    error() {
-        console.log("error")
-    }
+  error() {
+    console.log("error")
+  }
 
-    login() {
-        console.log("login")
-    }
+  login() {
+    console.log("login")
+  }
 
-    progress() {
-        console.log("progress")
-    }
+  progress() {
+    console.log("progress")
+  }
 
-    //////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
    
-    sendSignals() {
-        dispatch(GlobalEventTypes.Login);
-        dispatch(GlobalEventTypes.Error);
-        dispatch(GlobalEventTypes.InProgress);
-    }
+  sendSignals() {
+    dispatch(GlobalEventTypes.Login);
+    dispatch(GlobalEventTypes.Error);
+    dispatch(GlobalEventTypes.InProgress);
+  }
 
 
 
@@ -67,52 +67,52 @@ const injector = inject(Injector);
 const renderer2 = injector.get(Renderer2);
 
 renderer2.listen("window", type, event => {
-    this[action](event);
+  this[action](event);
 });
 
 
 addEventListener(type, (event: Event) => {
-    this[action](event);
+  this[action](event);
 }, {});
 
 
 const listener = (context, action) => {
-    return function (event) {
-        context[action](event);
-    }
+  return function (event) {
+    context[action](event);
+  }
 }
 
 
 export function GlobalEvents(type: GlobalEventTypes, action: string) {
-    return function<T extends { new(...args: any[]) : {} }>(constructor: T) {
-        return class extends constructor {
-          constructor(...args: any[]) {
-            super(...args);
+  return function<T extends { new(...args: any[]) : {} }>(constructor: T) {
+    return class extends constructor {
+      constructor(...args: any[]) {
+      super(...args);
 
-            let unlistener: () => void;
-            const injector = inject(Injector);
-            const renderer2 = injector.get(Renderer2);
-            
-            unlistener = renderer2.listen("window", type, event => {
-                this[action](event);
-            });
+      let unlistener: () => void;
+      const injector = inject(Injector);
+      const renderer2 = injector.get(Renderer2);
+      
+      unlistener = renderer2.listen("window", type, event => {
+        this[action](event);
+      });
 
-            const original: Function = constructor.prototype.ngOnDestroy;
-            constructor.prototype.ngOnDestroy = function(): void {
-                unlistener();
+      const original: Function = constructor.prototype.ngOnDestroy;
+      constructor.prototype.ngOnDestroy = function(): void {
+        unlistener();
 
-                original.apply(this, arguments)
-            }
-          }
-        }
+        original.apply(this, arguments)
+      }
+      }
     }
+  }
 }
 
 // Provide a serivce without "Injectable" decorator
 export const BrandsServiceProvider = {
-    provide: BrandsService,
-    useFactory: (http: HttpClient) => new BrandsService(http),
-    deps: [HttpClient]
+  provide: BrandsService,
+  useFactory: (http: HttpClient) => new BrandsService(http),
+  deps: [HttpClient]
 }
 
 // Fire event
@@ -120,9 +120,9 @@ dispatchEvent(new CustomEvent(GlobalEventTypes.Logout, { detail: {aaa: 312, bbb:
 
 // Provide in module
 const ArgsProvider: Provider = {
-    provide: 'args',
-    useFactory: (httpClient: HttpClient, router: Router) => ([httpClient, router]),
-    deps: [HttpClient, Router],
+  provide: 'args',
+  useFactory: (httpClient: HttpClient, router: Router) => ([httpClient, router]),
+  deps: [HttpClient, Router],
 };
 
 

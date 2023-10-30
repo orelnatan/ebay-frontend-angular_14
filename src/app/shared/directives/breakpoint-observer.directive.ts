@@ -10,25 +10,25 @@ export class BreakpointObserverDirective implements OnChanges {
   @Input('breakpointObserver') breakpoints: Breakpoints[];
 
   constructor(
-    private readonly templateRef: TemplateRef<unknown>,
-    private readonly viewContainerRef: ViewContainerRef,
-    private readonly breakpointObserver: BreakpointObserver
+  private readonly templateRef: TemplateRef<unknown>,
+  private readonly viewContainerRef: ViewContainerRef,
+  private readonly breakpointObserver: BreakpointObserver
   ) {}
 
   ngOnChanges(): void {
-    this.breakpointObserver
-        .observe(this.breakpoints)
-        .pipe(untilDestroyed(this))
-        .subscribe((state: BreakpointState): void => {
-            this.updateView(state.matches);
-    });
+  this.breakpointObserver
+    .observe(this.breakpoints)
+    .pipe(untilDestroyed(this))
+    .subscribe((state: BreakpointState): void => {
+      this.updateView(state.matches);
+  });
   }
 
   updateView(display: boolean) {
-    this.viewContainerRef.clear();
+  this.viewContainerRef.clear();
 
-    if (display) {
-      this.viewContainerRef.createEmbeddedView(this.templateRef);
-    }
+  if (display) {
+    this.viewContainerRef.createEmbeddedView(this.templateRef);
+  }
   }
 }

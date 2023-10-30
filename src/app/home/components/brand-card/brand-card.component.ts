@@ -7,5 +7,5 @@ import { IBrand } from '@ebay/home/models';
   templateUrl: './brand-card.component.html',
 })
 export class BrandCardComponent {
-    @Input() brand: IBrand;
+  @Input() brand: IBrand;
 }

@@ -1,5 +1,5 @@
 
 export enum Alignment {
-    Horizontal = "horizontal",
-    Vertical = "vertical"
+  Horizontal = "horizontal",
+  Vertical = "vertical"
 }

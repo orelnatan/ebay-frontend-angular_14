@@ -9,18 +9,18 @@ import { DirectivesModule } from '@ebay/shared/directives';
 import { EntityCardComponent } from './entity-card.component';
 
 @NgModule({
-    declarations: [
-        EntityCardComponent,
-    ],
-    imports: [
-        RouterModule,
-        MatCardModule,
-        MatButtonModule,
-        EllipsisModule,
-        DirectivesModule
-    ],
-    exports: [
-        EntityCardComponent
-    ]
+  declarations: [
+    EntityCardComponent,
+  ],
+  imports: [
+    RouterModule,
+    MatCardModule,
+    MatButtonModule,
+    EllipsisModule,
+    DirectivesModule
+  ],
+  exports: [
+    EntityCardComponent
+  ]
 })
 export class EntityCardModule {}

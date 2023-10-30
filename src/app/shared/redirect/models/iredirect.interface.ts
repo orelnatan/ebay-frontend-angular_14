@@ -1,4 +1,4 @@
 
 export interface IRedirect {
-    route: string
+  route: string
 }

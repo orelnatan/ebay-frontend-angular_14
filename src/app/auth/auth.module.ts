@@ -8,16 +8,16 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthRootComponent } from './auth-root.component';
 
 @NgModule({
-    declarations: [
-        AuthRootComponent,
-    ],
-    imports: [ 
-        AuthRoutingModule,
-        LayoutModule,
-        CrumbsNavbarModule
-    ],
-    providers: [
-        AuthenticationService
-    ]
+  declarations: [
+    AuthRootComponent,
+  ],
+  imports: [ 
+    AuthRoutingModule,
+    LayoutModule,
+    CrumbsNavbarModule
+  ],
+  providers: [
+    AuthenticationService
+  ]
 })
 export class AuthModule {}

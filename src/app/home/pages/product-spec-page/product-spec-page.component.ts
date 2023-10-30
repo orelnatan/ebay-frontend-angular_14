@@ -14,18 +14,18 @@ const PRODUCT_PARAM_NAME: string = "productId";
   styleUrls: ['./product-spec-page.component.scss']
 })
 export class ProductSpecPageComponent {
-    product$: Observable<IProduct> = this.productsService.getSingleEntity(this.familyId, this.productId);
+  product$: Observable<IProduct> = this.productsService.getSingleEntity(this.familyId, this.productId);
 
-    constructor(
-        private readonly productsService: ProductsService,
-        private readonly activatedRoute: ActivatedRoute
-    ) {}
+  constructor(
+    private readonly productsService: ProductsService,
+    private readonly activatedRoute: ActivatedRoute
+  ) {}
 
-    get productId(): number {
-        return Number(this.activatedRoute.snapshot.paramMap.get(PRODUCT_PARAM_NAME));
-    }
+  get productId(): number {
+    return Number(this.activatedRoute.snapshot.paramMap.get(PRODUCT_PARAM_NAME));
+  }
 
-    get familyId(): number {
-        return Number(this.activatedRoute.snapshot.paramMap.get(FAMILY_PARAM_NAME));
-    }
+  get familyId(): number {
+    return Number(this.activatedRoute.snapshot.paramMap.get(FAMILY_PARAM_NAME));
+  }
 }

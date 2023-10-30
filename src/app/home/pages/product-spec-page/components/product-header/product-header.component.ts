@@ -6,9 +6,9 @@ import { Component, Input } from '@angular/core';
    styleUrls: ['./product-header.component.scss']
 })
 export class ProductHeaderComponent {
-    @Input() name: string;
-    @Input() image: string;
-    @Input() description: string;
+  @Input() name: string;
+  @Input() image: string;
+  @Input() description: string;
 
-    @Input() loading: boolean;
+  @Input() loading: boolean;
 }

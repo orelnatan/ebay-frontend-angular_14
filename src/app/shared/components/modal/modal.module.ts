@@ -5,16 +5,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { ModalComponent } from './modal.component';
 
 @NgModule({
-    declarations: [ 
-        ModalComponent,
-    ],
-    imports: [
-        CommonModule,
-        MatDialogModule,
-        MatButtonModule,
-    ],
-    exports: [
-        ModalComponent
-    ]
+  declarations: [ 
+    ModalComponent,
+  ],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    MatButtonModule,
+  ],
+  exports: [
+    ModalComponent
+  ]
 })
 export class ModalModule {}

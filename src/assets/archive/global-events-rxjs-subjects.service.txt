@@ -8,18 +8,18 @@ import { GlobalEventTypes } from '../models';
 
 @Injectable()
 export class GlobalEventService {
-    private subject$: BehaviorSubject<GlobalEvents> = new BehaviorSubject<GlobalEvents>(
-        {} as GlobalEvents
-    );
+  private subject$: BehaviorSubject<GlobalEvents> = new BehaviorSubject<GlobalEvents>(
+    {} as GlobalEvents
+  );
 
-    public dispatch(event: GlobalEvents): void {
-        this.subject$.next(event);
-    }
+  public dispatch(event: GlobalEvents): void {
+    this.subject$.next(event);
+  }
 
-    public subscribe(type: GlobalEventTypes, callback: (event: Data) => void): Subscription {
-        return this.subject$.pipe(
-            filter((event: GlobalEvents) => event.type === type), 
-            map((event: GlobalEvents) => event.payload)
-        ).subscribe(callback)
-    }
+  public subscribe(type: GlobalEventTypes, callback: (event: Data) => void): Subscription {
+    return this.subject$.pipe(
+      filter((event: GlobalEvents) => event.type === type), 
+      map((event: GlobalEvents) => event.payload)
+    ).subscribe(callback)
+  }
 }

@@ -1,35 +1,35 @@
 
 <div class="side-navbar-main">
-    <ng-container #desktop *breakpointObserver="[breakpoints.Lg]">
-        <div class="navbar-content-outer-container">
-            <div class="navbar-content-inner-container">
-                <ng-container *ngTemplateOutlet="content"></ng-container>
-            </div>
-        </div>
-    </ng-container>
-    
-    <ng-container #mobile *breakpointObserver="[breakpoints.Sm]">
-        <div class="navbar-push-content" *ngIf="toggleSidebar"
-            [class.animation-expand]="animationForwards"
-            [class.animation-shrink]="animationBackwards"
+  <ng-container #desktop *breakpointObserver="[breakpoints.Lg]">
+    <div class="navbar-content-outer-container">
+      <div class="navbar-content-inner-container">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-container #mobile *breakpointObserver="[breakpoints.Sm]">
+    <div class="navbar-push-content" *ngIf="toggleSidebar"
+      [class.animation-expand]="animationForwards"
+      [class.animation-shrink]="animationBackwards"
+    >
+      <div class="navbar-background-cover" (click)="toggle()"
+        [class.animation-fade-in]="animationForwards"
+        [class.animation-fade-out]="animationBackwards"
+      >
+        <div class="navbar-content-outer-container"
+          [class.animation-expand]="animationForwards"
+          [class.animation-shrink]="animationBackwards"
         >
-            <div class="navbar-background-cover" (click)="toggle()"
-                [class.animation-fade-in]="animationForwards"
-                [class.animation-fade-out]="animationBackwards"
-            >
-                <div class="navbar-content-outer-container"
-                    [class.animation-expand]="animationForwards"
-                    [class.animation-shrink]="animationBackwards"
-                >
-                    <div class="navbar-content-inner-container" (click)="$event.stopPropagation()">
-                        <ng-container *ngTemplateOutlet="content"></ng-container>
-                    </div>
-                </div>
-            </div>
+          <div class="navbar-content-inner-container" (click)="$event.stopPropagation()">
+            <ng-container *ngTemplateOutlet="content"></ng-container>
+          </div>
         </div>
-    </ng-container>
+      </div>
+    </div>
+  </ng-container>
 </div>
 
 <ng-template #content>
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </ng-template>

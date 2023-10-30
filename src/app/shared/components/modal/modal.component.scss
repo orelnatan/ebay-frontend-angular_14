@@ -2,33 +2,33 @@
 @import './src/assets/config/definitions.scss';
 
 .modal-main {
-    .mat-typography {
-        @media screen and (min-width: $breakpoint-sm) {
-            min-width: 500px;
-        }
+  .mat-typography {
+    @media screen and (min-width: $breakpoint-sm) {
+      min-width: 500px;
     }
+  }
 
-    h2, h3 {
-        margin: 0px;
-    }
+  h2, h3 {
+    margin: 0px;
+  }
 
-    &.success {
-        h2 { color: $color-success; }
-    }
+  &.success {
+    h2 { color: $color-success; }
+  }
    
-    &.failure {
-        h2 { color: $color-error; }    
-    }
-    
-    &.info {
-        h2 { color: $color-base; }   
-    }
-    
-    &.warning {
-        h2 { color: $color-warning; }  
-    }
+  &.failure {
+    h2 { color: $color-error; }  
+  }
+  
+  &.info {
+    h2 { color: $color-base; }   
+  }
+  
+  &.warning {
+    h2 { color: $color-warning; }  
+  }
 
-    &.blank {
-        h2 { color: $color-black; }
-    }
+  &.blank {
+    h2 { color: $color-black; }
+  }
 }

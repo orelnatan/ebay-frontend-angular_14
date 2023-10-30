@@ -6,5 +6,5 @@ import { ICrumb } from '@ebay/shared/breadcrumbs';
 
 @Injectable()
 export abstract class BreadcrumbResolver implements Resolve<Observable<Promise<ICrumb>>> {
-    abstract resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>>
+  abstract resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>>
 }

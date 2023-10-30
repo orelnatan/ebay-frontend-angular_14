@@ -16,34 +16,34 @@ import { ILogin, IUser } from '@ebay/auth/models';
 })
 export class LoginPageComponent {
   login: ILogin = {
-    "username": "Graves Oneal",
-    "email": "gravesoneal@quordate.com",
-    "password": "78freweb5d4654"
+  "username": "Graves Oneal",
+  "email": "gravesoneal@quordate.com",
+  "password": "78freweb5d4654"
   } as ILogin;
   
   login$: Observable<IUser>;
 
   constructor(
-    private readonly matSnackbar: MatSnackBar,
-    private readonly authenticationService: AuthenticationService,
-    private readonly ebayLocalStorageService: EbayLocalStorageService,
-    private readonly activatedRoute: ActivatedRoute,
-    private readonly router: Router
+  private readonly matSnackbar: MatSnackBar,
+  private readonly authenticationService: AuthenticationService,
+  private readonly ebayLocalStorageService: EbayLocalStorageService,
+  private readonly activatedRoute: ActivatedRoute,
+  private readonly router: Router
   ) {}
 
   handleSubmit(login: ILogin): void {
-    this.login$ = this.authenticationService.login(login);
+  this.login$ = this.authenticationService.login(login);
   }
 
   loginSuccess(user: IUser): void {
-    this.ebayLocalStorageService.store(StorageKeys.User, user);
-    
-    this.router.navigate([this.activatedRoute.snapshot.queryParams['returnUrl'] || "/home"]);
+  this.ebayLocalStorageService.store(StorageKeys.User, user);
+  
+  this.router.navigate([this.activatedRoute.snapshot.queryParams['returnUrl'] || "/home"]);
   }
 
   loginFailed(error: HttpErrorResponse): void {
-    this.matSnackbar.open(error.error.message, 'X', {
-        panelClass: ["snak-error-state"]
-    });
+  this.matSnackbar.open(error.error.message, 'X', {
+    panelClass: ["snak-error-state"]
+  });
   }
 }

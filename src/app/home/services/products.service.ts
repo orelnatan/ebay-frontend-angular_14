@@ -9,45 +9,45 @@ import { IProduct } from '@ebay/home/models';
 
 import { EntitiesAbstractService } from './entities-abstract.service';
 
-@ServiceInterceptor(
-    [{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient]
-)
+@ServiceInterceptor([
+  { type: GlobalEventTypes.Logout, action: "dispose" }
+], [HttpClient])
 @Injectable()
 export class ProductsService implements EntitiesAbstractService {
-    private _products: Record<number, IProduct[]> = {};
+  private _products: Record<number, IProduct[]> = {};
 
-    constructor(
-        private readonly httpClient: HttpClient,
-    ) {}
-                
-    fetchAll(familyId: number): Observable<IProduct[]> {
-        let httpParams: HttpParams = new HttpParams();
-        httpParams = httpParams.append("familyId", familyId);
+  constructor(
+    private readonly httpClient: HttpClient,
+  ) {}
         
-        return this._products[familyId] ? observableOf(this._products[familyId]) : this.httpClient.get<IProduct[]>(environment.apis.home.products.byFamilyId, {
-            params: httpParams
-        }).pipe(
-            map((_products: IProduct[]): IProduct[] => {
-                this._products[familyId] = _products;
-                
-                return _products;
-            })
-        );
-    }
+  fetchAll(familyId: number): Observable<IProduct[]> {
+    let httpParams: HttpParams = new HttpParams();
+    httpParams = httpParams.append("familyId", familyId);
+    
+    return this._products[familyId] ? observableOf(this._products[familyId]) : this.httpClient.get<IProduct[]>(environment.apis.home.products.byFamilyId, {
+      params: httpParams
+    }).pipe(
+      map((_products: IProduct[]): IProduct[] => {
+        this._products[familyId] = _products;
+        
+        return _products;
+      })
+    );
+  }
 
-    getSingleEntity(familyId: number, productId: number): Observable<IProduct> {
-        return this._products[familyId] ? observableOf(this._products[familyId].find(product => productId == product.id)!) :
-        this.fetchAll(familyId)
-        .pipe(
-            map((_products: IProduct[]): IProduct => {
-                this._products[familyId] = _products;
-                
-                return _products.find(product => productId == product.id)!;
-            })
-        );
-    }
+  getSingleEntity(familyId: number, productId: number): Observable<IProduct> {
+    return this._products[familyId] ? observableOf(this._products[familyId].find(product => productId == product.id)!) :
+    this.fetchAll(familyId)
+    .pipe(
+      map((_products: IProduct[]): IProduct => {
+        this._products[familyId] = _products;
+        
+        return _products.find(product => productId == product.id)!;
+      })
+    );
+  }
 
-    dispose(): void {
-        this._products = {};
-    }
+  dispose(): void {
+    this._products = {};
+  }
 }

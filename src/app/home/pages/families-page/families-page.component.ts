@@ -9,29 +9,29 @@ import { IFamily } from '@ebay/home/models';
 
 const PARAM_NAME: string = "categoryId";
 
-@ComponentInterceptor(
-    [{ type: GlobalEventTypes.Search, action: "onSearch" }], [FamiliesService, ActivatedRoute]
-)
+@ComponentInterceptor([
+  { type: GlobalEventTypes.Search, action: "onSearch" }
+], [FamiliesService, ActivatedRoute])
 @Component({
   selector: 'families-page',
   templateUrl: './families-page.component.html',
   styleUrls: ['./families-page.component.scss']
 })
 export class FamiliesPageComponent {
-    families$: Observable<IFamily[]> = this.familiesService.fetchAll(this.categoryId);
+  families$: Observable<IFamily[]> = this.familiesService.fetchAll(this.categoryId);
 
-    keyword: string;
+  keyword: string;
 
-    constructor(
-        private readonly familiesService: FamiliesService,
-        private readonly activatedRoute: ActivatedRoute
-    ) {}
+  constructor(
+    private readonly familiesService: FamiliesService,
+    private readonly activatedRoute: ActivatedRoute
+  ) {}
 
-    get categoryId(): number {
-        return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));
-    }
+  get categoryId(): number {
+    return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));
+  }
 
-    onSearch(event: CustomEvent): void {
-        this.keyword = event.detail.keyword;
-    }
+  onSearch(event: CustomEvent): void {
+    this.keyword = event.detail.keyword;
+  }
 }

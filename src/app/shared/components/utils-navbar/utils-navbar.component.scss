@@ -1,32 +1,36 @@
 @import './src/assets/config/colors.scss';
 
 .utils-navbar-main {
-    width: 100%;
-    height: 55px;
-    padding: 5px 20px;
-    background-color: $color-base;
-    border-top: 1px solid $color-royalblue;
+  width: 100%;
+  height: 55px;
+  padding: 5px 20px;
+  background-color: $color-base;
+  border-top: 1px solid $color-royalblue;
 
-    .navbar-inner {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-        color: $color-white;
-    }
+  .navbar-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    color: $color-white;
+  }
 
-    .arrow-active {
-        cursor: pointer;
-        color: $color-white;
-    }
+  .search-box-container {
+    border-radius: 15px;
+  }
 
-    .arrow-disabled {
-        color: rgba($color-white, 0.8);
-    }
+  .arrow-active {
+    cursor: pointer;
+    color: $color-white;
+  }
 
-    .arrow-back-container {
-        display: grid;
-    }
+  .arrow-disabled {
+    color: rgba($color-white, 0.8);
+  }
+
+  .arrow-back-container {
+    display: grid;
+  }
 }
 

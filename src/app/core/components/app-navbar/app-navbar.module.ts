@@ -8,17 +8,17 @@ import { DirectivesModule } from '@ebay/shared/directives';
 import { AppNavbarComponent } from './app-navbar.component';
 
 @NgModule({
-    declarations: [
-        AppNavbarComponent
-    ],
-    imports: [ 
-        CommonModule,
-        RouterLink,
-        MatIconModule,
-        DirectivesModule
-    ],
-    exports: [
-        AppNavbarComponent
-    ]
+  declarations: [
+    AppNavbarComponent
+  ],
+  imports: [ 
+    CommonModule,
+    RouterLink,
+    MatIconModule,
+    DirectivesModule
+  ],
+  exports: [
+    AppNavbarComponent
+  ]
 })
 export class AppNavbarModule {}

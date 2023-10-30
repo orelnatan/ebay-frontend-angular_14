@@ -6,17 +6,17 @@ import { BreakpointObserverDirective } from './breakpoint-observer.directive';
 import { ImageNotFoundDirective } from './image-not-found.directive';
 
 @NgModule({
-    declarations: [
-        RxResolverDirective,
-        NgLetDirective,
-        BreakpointObserverDirective,
-        ImageNotFoundDirective
-    ],
-    exports: [
-        RxResolverDirective,
-        NgLetDirective,
-        BreakpointObserverDirective,
-        ImageNotFoundDirective
-    ]
+  declarations: [
+    RxResolverDirective,
+    NgLetDirective,
+    BreakpointObserverDirective,
+    ImageNotFoundDirective
+  ],
+  exports: [
+    RxResolverDirective,
+    NgLetDirective,
+    BreakpointObserverDirective,
+    ImageNotFoundDirective
+  ]
 })
 export class DirectivesModule {}

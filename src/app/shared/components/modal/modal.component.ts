@@ -8,10 +8,10 @@ import { ModalType } from './modal-type.enum';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
-    @Input() title: string;
-    @Input() subTitle: string;
-    @Input() underSubTitle: string;
-    @Input() type: ModalType;
+  @Input() title: string;
+  @Input() subTitle: string;
+  @Input() underSubTitle: string;
+  @Input() type: ModalType;
 
-    @Input() excludeActions: boolean;
+  @Input() excludeActions: boolean;
 }

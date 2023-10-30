@@ -16,29 +16,29 @@ import { LogoutModalComponent } from '@ebay/shared/modals';
   styleUrls: ['./app-navbar.component.scss'],
 })
 export class AppNavbarComponent {  
-    constructor(
-        private readonly ebayLocalStorageService: EbayLocalStorageService,
-        private readonly matDialog: MatDialog,
-    ) {}
+  constructor(
+    private readonly ebayLocalStorageService: EbayLocalStorageService,
+    private readonly matDialog: MatDialog,
+  ) {}
 
-    get user$(): Observable<IUser> {
-        return this.ebayLocalStorageService.retrieve<IUser>(StorageKeys.User);
-    }
+  get user$(): Observable<IUser> {
+    return this.ebayLocalStorageService.retrieve<IUser>(StorageKeys.User);
+  }
 
-    dispatchToggle(): void {
-        dispatch(GlobalEventTypes.Toggle);
-    }
+  dispatchToggle(): void {
+    dispatch(GlobalEventTypes.Toggle);
+  }
 
-    dispatchLogout(): void {
-        dispatch(GlobalEventTypes.Logout)
-    }
+  dispatchLogout(): void {
+    dispatch(GlobalEventTypes.Logout)
+  }
 
-    showLogoutDialog(): void {
-        this.matDialog.open(LogoutModalComponent)
-        .afterClosed()
-        .pipe(untilDestroyed(this))
-        .subscribe((logout: boolean) => {
-            logout && this.dispatchLogout();
-        })
-    }
+  showLogoutDialog(): void {
+    this.matDialog.open(LogoutModalComponent)
+    .afterClosed()
+    .pipe(untilDestroyed(this))
+    .subscribe((logout: boolean) => {
+      logout && this.dispatchLogout();
+    })
+  }
 }

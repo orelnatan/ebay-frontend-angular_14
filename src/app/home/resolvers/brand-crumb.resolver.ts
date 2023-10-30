@@ -10,20 +10,20 @@ import { IBrand } from '../models';
 
 @Injectable()
 export class BrandCrumbResolver implements BreadcrumbResolver {
-    constructor(
-        private readonly brandsService: BrandsService,
-        private readonly titleCasePipe: TitleCasePipe
-    ) {}
+  constructor(
+    private readonly brandsService: BrandsService,
+    private readonly titleCasePipe: TitleCasePipe
+  ) {}
 
-    resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
-        return observableOf(
-            lastValueFrom(this.brandsService.getSingleEntity(routeSnapshot.params?.['brandId']))
-            .then((brand: IBrand) => {
-                return {
-                    name: this.titleCasePipe.transform(brand.name),
-                    image: brand.image
-                } as ICrumb
-            })
-        )
-    }
+  resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
+    return observableOf(
+      lastValueFrom(this.brandsService.getSingleEntity(routeSnapshot.params?.['brandId']))
+      .then((brand: IBrand) => {
+        return {
+          name: this.titleCasePipe.transform(brand.name),
+          image: brand.image
+        } as ICrumb
+      })
+    )
+  }
 }

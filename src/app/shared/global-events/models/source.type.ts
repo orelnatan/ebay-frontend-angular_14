@@ -1,4 +1,4 @@
 
 export declare type source = {
-    [key: string]: any;
+  [key: string]: any;
 };

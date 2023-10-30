@@ -13,11 +13,11 @@ export class EntityCardComponent {
   @Input() description: string;
 
   constructor(
-    private readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute
+  private readonly router: Router,
+  private readonly activatedRoute: ActivatedRoute
   ) {}
 
   navigate(id: number): void {
-    this.router.navigate([id], { relativeTo: this.activatedRoute })
+  this.router.navigate([id], { relativeTo: this.activatedRoute })
   }
 }

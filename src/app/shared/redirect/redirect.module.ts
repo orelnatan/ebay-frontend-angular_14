@@ -5,18 +5,18 @@ import { RedirectResolver } from './resolvers';
 import { RedirectDirective } from './directives';
 
 @NgModule({
-    declarations: [ 
-        RedirectDirective
-    ],
-    providers: [
-        RedirectResolver
-    ],
-    exports: [
-        RedirectDirective,
-    ]
+  declarations: [ 
+    RedirectDirective
+  ],
+  providers: [
+    RedirectResolver
+  ],
+  exports: [
+    RedirectDirective,
+  ]
 })
 export class RedirectModule {
-    constructor(
-        private readonly redirectService: RedirectService
-    ) {}
+  constructor(
+    private readonly redirectService: RedirectService
+  ) {}
 }

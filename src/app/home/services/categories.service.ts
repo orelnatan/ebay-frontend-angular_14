@@ -9,45 +9,45 @@ import { ICategory } from '@ebay/home/models';
 
 import { EntitiesAbstractService } from './entities-abstract.service';
 
-@ServiceInterceptor(
-    [{ type: GlobalEventTypes.Logout, action: "dispose" }], [HttpClient]
-)
+@ServiceInterceptor([
+  { type: GlobalEventTypes.Logout, action: "dispose" }
+], [HttpClient])
 @Injectable()
 export class CategoriesService implements EntitiesAbstractService {
-    private _categories: Record<number, ICategory[]> = {};
+  private _categories: Record<number, ICategory[]> = {};
 
-    constructor(
-        private readonly httpClient: HttpClient,
-    ) {}
-                
-    fetchAll(brandId: number): Observable<ICategory[]> {
-        let httpParams: HttpParams = new HttpParams();
-        httpParams = httpParams.append("brandId", brandId);
+  constructor(
+    private readonly httpClient: HttpClient,
+  ) {}
         
-        return this._categories[brandId] ? observableOf(this._categories[brandId]) : this.httpClient.get<ICategory[]>(environment.apis.home.categories.byBrandId, {
-            params: httpParams
-        }).pipe(
-            map((_categories: ICategory[]): ICategory[] => {
-                this._categories[brandId] = _categories;
-                
-                return _categories;
-            })
-        );
-    }
+  fetchAll(brandId: number): Observable<ICategory[]> {
+    let httpParams: HttpParams = new HttpParams();
+    httpParams = httpParams.append("brandId", brandId);
+    
+    return this._categories[brandId] ? observableOf(this._categories[brandId]) : this.httpClient.get<ICategory[]>(environment.apis.home.categories.byBrandId, {
+      params: httpParams
+    }).pipe(
+      map((_categories: ICategory[]): ICategory[] => {
+        this._categories[brandId] = _categories;
+        
+        return _categories;
+      })
+    );
+  }
 
-    getSingleEntity(brandId: number, categoryId: number): Observable<ICategory> {
-        return this._categories[brandId] ? observableOf(this._categories[brandId].find(category => categoryId == category.id)!) :
-        this.fetchAll(brandId)
-        .pipe(
-            map((_categories: ICategory[]): ICategory => {
-                this._categories[brandId] = _categories;
-                
-                return _categories.find(category => categoryId == category.id)!;
-            })
-        );
-    }
+  getSingleEntity(brandId: number, categoryId: number): Observable<ICategory> {
+    return this._categories[brandId] ? observableOf(this._categories[brandId].find(category => categoryId == category.id)!) :
+    this.fetchAll(brandId)
+    .pipe(
+      map((_categories: ICategory[]): ICategory => {
+        this._categories[brandId] = _categories;
+        
+        return _categories.find(category => categoryId == category.id)!;
+      })
+    );
+  }
 
-    dispose(): void {
-        this._categories = {};
-    }
+  dispose(): void {
+    this._categories = {};
+  }
 }

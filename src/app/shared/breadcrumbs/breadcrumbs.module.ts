@@ -9,23 +9,23 @@ import { CrumbsRedirectDirective } from './directives';
 import { BreadcrumbsComponent, CrumbComponent } from './components';
 
 @NgModule({
-    declarations: [ 
-        BreadcrumbsComponent,
-        CrumbComponent,
-        CrumbsRedirectDirective,
-        ShowFirstPipe,
-        ShowLatestPipe
-    ],
-    imports: [
-        CommonModule,
-        SpinnerModule
-    ],
-    exports: [
-        BreadcrumbsComponent,
-    ],
+  declarations: [ 
+    BreadcrumbsComponent,
+    CrumbComponent,
+    CrumbsRedirectDirective,
+    ShowFirstPipe,
+    ShowLatestPipe
+  ],
+  imports: [
+    CommonModule,
+    SpinnerModule
+  ],
+  exports: [
+    BreadcrumbsComponent,
+  ],
 })
 export class BreadcrumbsModule {
-    constructor(
-        private readonly breadcrumbsService: BreadcrumbsService
-    ) {}
+  constructor(
+    private readonly breadcrumbsService: BreadcrumbsService
+  ) {}
 }

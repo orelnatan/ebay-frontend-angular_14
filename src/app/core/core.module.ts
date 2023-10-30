@@ -12,20 +12,20 @@ import { CoreRoutingModule } from './core-routing.module';
 import { CoreRootComponent } from './core-root.component';
 
 @NgModule({
-    declarations: [
-        CoreRootComponent,
-    ],
-    imports: [ 
-        HttpClientModule,
-        CoreRoutingModule,
-        MatDialogModule,
-        AppNavbarModule,
-        LayoutModule,
-        GlobalEventsModule,
-    ],
-    providers: [
-        EbayLocalStorageService,
-        AuthGuard
-    ]
+  declarations: [
+    CoreRootComponent,
+  ],
+  imports: [ 
+    HttpClientModule,
+    CoreRoutingModule,
+    MatDialogModule,
+    AppNavbarModule,
+    LayoutModule,
+    GlobalEventsModule,
+  ],
+  providers: [
+    EbayLocalStorageService,
+    AuthGuard
+  ]
 })
 export class CoreModule {}

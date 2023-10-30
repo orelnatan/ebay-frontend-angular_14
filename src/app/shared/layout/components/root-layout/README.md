@@ -22,10 +22,10 @@ Should be called at the root level of each module including AppModule(only in Ap
 
 - forRoot flag & [style.position]="forRoot ? 'absolute' : 'static'" => 
 This flag indicates that the current <root-layout> component is called at the most top-level root module(probably in AppModule). 
-    
-    * With this flag sets to true, the body element will be set to "position: absolute", so that it can expand freely over the entire width/height of the   page. It's supposed to be only one instance(in the application) of this component called with this flag enabled. If another lower <root-layout> component will be called with "forRoot=true", it will cause redundant vertical scrolling in case of adding any HTML content at the root level, since we now have more than one layer that needs to be at the screen height.  
+  
+  * With this flag sets to true, the body element will be set to "position: absolute", so that it can expand freely over the entire width/height of the   page. It's supposed to be only one instance(in the application) of this component called with this flag enabled. If another lower <root-layout> component will be called with "forRoot=true", it will cause redundant vertical scrolling in case of adding any HTML content at the root level, since we now have more than one layer that needs to be at the screen height.  
 
-    * With this flag sets to false, the body element will be set to "position: static", so that it can expand freely over the entire width/height of it's parent only. The "<root-layout>" at the most top-level module is the only instance that should be called with "forRoot=true", so it will allow the application to use the full size of the screen. All other lower "<root-layout>" instances will be called with "forRoot=false" and will be expanded by the parent's remaining space(height: 100%), without the cost of redundant vertical scrolling.
+  * With this flag sets to false, the body element will be set to "position: static", so that it can expand freely over the entire width/height of it's parent only. The "<root-layout>" at the most top-level module is the only instance that should be called with "forRoot=true", so it will allow the application to use the full size of the screen. All other lower "<root-layout>" instances will be called with "forRoot=false" and will be expanded by the parent's remaining space(height: 100%), without the cost of redundant vertical scrolling.
 
 # side-navbar-container
 - position: fixed; => This allows the container and all of its children to be fixed to its location, so it will always be visible to the user also when scrolling vertically or horizontally.

@@ -2,29 +2,29 @@
 @import './src/assets/config/definitions.scss';
 
 .search-box-main {
-    display: inline-flex;
-    background-color: $color-white;
+  display: inline-flex;
+  background-color: $color-white;
+  border-radius: 15px;
+  padding: 2.5px 0px;
+
+  input {
+    height: 100%;
+    padding: 0px 10px;
     border-radius: 15px;
-    padding: 2.5px 0px;
+    border-style: none;
+    outline-style: none;
 
-    input {
-        height: 100%;
-        padding: 0px 10px;
-        border-radius: 15px;
-        border-style: none;
-        outline-style: none;
-
-        @media screen and (min-width: $breakpoint-sm) {
-            width: 265px;
-        }
+    @media screen and (min-width: $breakpoint-sm) {
+      width: 265px;
     }
+  }
 
-    .input-container {
-        padding: 0px 5px;
-    }
+  .input-container {
+    padding: 0px 5px;
+  }
 
-    mat-icon {
-        width: 35px;
-        color: $color-black;
-    }
+  mat-icon {
+    width: 35px;
+    color: $color-black;
+  }
 }

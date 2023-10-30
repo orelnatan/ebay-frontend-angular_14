@@ -1,2 +1,2 @@
 
-export { EbErrorStateMatcher } from './eb-error-state-matcher.class';
+export { BaseErrorStateMatcher } from './base-error-state-matcher.class';

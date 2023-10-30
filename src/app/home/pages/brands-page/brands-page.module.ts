@@ -11,22 +11,22 @@ import { BrandCardModule } from '@ebay/home/components';
 import { BrandsPageComponent } from './brands-page.component';
 
 @NgModule({
-    declarations: [
-        BrandsPageComponent,
-    ],
-    imports: [ 
-        CommonModule,
-        LayoutModule,
-        BrandCardModule,
-        DirectivesModule,
-        CrumbsNavbarModule,
-        ElementsGridModule,
-        PageLoaderModule,
-        SpinnerModule,
-        PipesModule,
-        RouterModule.forChild([
-            { path: '', component: BrandsPageComponent },
-        ])
-    ]
+  declarations: [
+    BrandsPageComponent,
+  ],
+  imports: [ 
+    CommonModule,
+    LayoutModule,
+    BrandCardModule,
+    DirectivesModule,
+    CrumbsNavbarModule,
+    ElementsGridModule,
+    PageLoaderModule,
+    SpinnerModule,
+    PipesModule,
+    RouterModule.forChild([
+      { path: '', component: BrandsPageComponent },
+    ])
+  ]
 })
 export class BrandsPageModule {}

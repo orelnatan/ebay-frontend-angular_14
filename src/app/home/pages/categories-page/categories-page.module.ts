@@ -13,36 +13,36 @@ import { CategoriesPageComponent } from './categories-page.component';
 const CATEGORIES_ICON: string = "../../../../assets/images/svg/category_white.svg";
 
 @NgModule({
-    declarations: [
-        CategoriesPageComponent,
-    ],
-    imports: [ 
-        CommonModule,
-        LayoutModule,
-        CategoryCardModule,
-        DirectivesModule,
-        ElementsGridModule,
-        PageLoaderModule,
-        PipesModule,
-        RouterModule.forChild([
-            { path: '', redirectTo: 'categories', pathMatch: 'full' },
-            { 
-                path: 'categories',
-                component: CategoriesPageComponent,
-                data: {
-                    redirect: {
-                        route: "home/brands",
-                    },
-                    crumbs: [
-                        {
-                            path: "categories",
-                            name: "Categories",
-                            image: CATEGORIES_ICON
-                        }
-                    ]
-                }
-            },
-        ])
-    ]
+  declarations: [
+    CategoriesPageComponent,
+  ],
+  imports: [ 
+    CommonModule,
+    LayoutModule,
+    CategoryCardModule,
+    DirectivesModule,
+    ElementsGridModule,
+    PageLoaderModule,
+    PipesModule,
+    RouterModule.forChild([
+      { path: '', redirectTo: 'categories', pathMatch: 'full' },
+      { 
+        path: 'categories',
+        component: CategoriesPageComponent,
+        data: {
+          redirect: {
+            route: "home/brands",
+          },
+          crumbs: [
+            {
+              path: "categories",
+              name: "Categories",
+              image: CATEGORIES_ICON
+            }
+          ]
+        }
+      },
+    ])
+  ]
 })
 export class CategoriesPageModule {}

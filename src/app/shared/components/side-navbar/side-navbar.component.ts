@@ -7,7 +7,7 @@ import { Breakpoints } from '@ebay/shared/models';
 const ANIMATION_DELAY: number = 500;
 
 @ComponentInterceptor(
-    [{ type: GlobalEventTypes.Toggle, action: "toggle" }]
+  [{ type: GlobalEventTypes.Toggle, action: "toggle" }]
 )
 @Component({
   selector: 'side-navbar',
@@ -15,29 +15,29 @@ const ANIMATION_DELAY: number = 500;
   styleUrls: ['./side-navbar.component.scss'],
 })
 export class SideNavbarComponent {
-    breakpoints: typeof Breakpoints = Breakpoints;
+  breakpoints: typeof Breakpoints = Breakpoints;
+  
+  toggleSidebar: boolean;
+  animationForwards: boolean;
+  animationBackwards: boolean;
+
+  public toggle(): void {
+    this.toggleSidebar ? this._closeSidbar() : this._openSidebar();
+  }
+
+  private _openSidebar(): void {
+    this.animationForwards = true;
+    this.animationBackwards = false;
     
-    toggleSidebar: boolean;
-    animationForwards: boolean;
-    animationBackwards: boolean;
+    this.toggleSidebar = true;
+  }
 
-    public toggle(): void {
-        this.toggleSidebar ? this._closeSidbar() : this._openSidebar();
-    }
+  private _closeSidbar(): void {
+    this.animationForwards = false;
+    this.animationBackwards = true;
 
-    private _openSidebar(): void {
-        this.animationForwards = true;
-        this.animationBackwards = false;
-        
-        this.toggleSidebar = true;
-    }
-
-    private _closeSidbar(): void {
-        this.animationForwards = false;
-        this.animationBackwards = true;
-
-        setTimeout(() => {
-            this.toggleSidebar = false;
-        }, ANIMATION_DELAY);
-    }
+    setTimeout(() => {
+      this.toggleSidebar = false;
+    }, ANIMATION_DELAY);
+  }
 }

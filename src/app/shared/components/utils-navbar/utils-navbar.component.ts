@@ -14,22 +14,22 @@ import { SearchboxComponent } from './components';
   styleUrls: ['./utils-navbar.component.scss'],
 })
 export class UtilsNavbarComponent {
-    @ViewChild(SearchboxComponent, { static: true }) searchbox: SearchboxComponent;
-    
-    constructor(
-        private readonly router: Router,
-    ) {       
-        this.router.events.pipe(untilDestroyed(this))
-        .subscribe((event: RouterNavigationEvent): void => {
-            if(event instanceof NavigationEnd) {
-                this.searchbox.setValue(null!);
-            }
-        })
-    }
+  @ViewChild(SearchboxComponent, { static: true }) searchbox: SearchboxComponent;
+  
+  constructor(
+    private readonly router: Router,
+  ) {     
+    this.router.events.pipe(untilDestroyed(this))
+    .subscribe((event: RouterNavigationEvent): void => {
+      if(event instanceof NavigationEnd) {
+        this.searchbox.setValue(null!);
+      }
+    })
+  }
 
-    dispatchSearch(keyword: string): void {
-        dispatch(GlobalEventTypes.Search, {
-            keyword
-        })
-    }
+  dispatchSearch(keyword: string): void {
+    dispatch(GlobalEventTypes.Search, {
+      keyword
+    })
+  }
 }

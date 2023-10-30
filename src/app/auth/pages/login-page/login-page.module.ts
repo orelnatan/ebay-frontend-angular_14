@@ -13,21 +13,21 @@ import { LoginFormComponent } from './components';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-    declarations: [
-        LoginPageComponent,
-        LoginFormComponent
-    ],
-    imports: [ 
-        CommonModule,
-        LayoutModule,
-        SnackbarModule,
-        DirectivesModule,
-        FormsModule,
-        ValidatorsModule,
-        EbFormsModule,
-        RouterModule.forChild([
-            { path: '', component: LoginPageComponent },
-        ])
-    ],
+  declarations: [
+    LoginPageComponent,
+    LoginFormComponent
+  ],
+  imports: [ 
+    CommonModule,
+    LayoutModule,
+    SnackbarModule,
+    DirectivesModule,
+    FormsModule,
+    ValidatorsModule,
+    EbFormsModule,
+    RouterModule.forChild([
+      { path: '', component: LoginPageComponent },
+    ])
+  ],
 })
 export class LoginPageModule {}

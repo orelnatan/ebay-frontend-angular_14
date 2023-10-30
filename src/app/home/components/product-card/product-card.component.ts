@@ -7,5 +7,5 @@ import { IProduct } from '@ebay/home/models';
   templateUrl: './product-card.component.html',
 })
 export class ProductCardComponent {
-    @Input() product: IProduct;
+  @Input() product: IProduct;
 }

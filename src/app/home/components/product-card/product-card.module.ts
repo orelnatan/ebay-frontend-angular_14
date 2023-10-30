@@ -4,14 +4,14 @@ import { EntityCardModule } from '../entity-card';
 import { ProductCardComponent } from './product-card.component';
 
 @NgModule({
-    declarations: [
-        ProductCardComponent,
-    ],
-    imports: [
-        EntityCardModule
-    ],
-    exports: [
-        ProductCardComponent
-    ]
+  declarations: [
+    ProductCardComponent,
+  ],
+  imports: [
+    EntityCardModule
+  ],
+  exports: [
+    ProductCardComponent
+  ]
 })
 export class ProductCardModule {}

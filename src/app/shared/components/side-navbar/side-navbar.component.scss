@@ -7,94 +7,94 @@ $mobile-sidebar-width: calc($full-viewport-width - 125px);
 $animation-delay: 500ms;
 
 .side-navbar-main {
+  height: $full-screen-height;
+
+  .navbar-push-content {
+    position: relative;
     height: $full-screen-height;
+  }
 
-    .navbar-push-content {
-        position: relative;
-        height: $full-screen-height;
+  .navbar-background-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: $full-viewport-width;
+    height: $full-screen-height;
+  }
+
+  .navbar-content-outer-container {
+    height: $full-screen-height;
+    overflow: hidden;
+    background: $color-white;
+    box-shadow: 6px 0 6px #0000001a;
+  }
+
+  .navbar-content-inner-container {
+    height: $full-screen-height;
+    padding: 10px;
+    overflow: scroll;
+
+    @media screen and (min-width: $breakpoint-sm) {
+      width: $desktop-sidebar-width;
     }
 
-    .navbar-background-cover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        width: $full-viewport-width;
-        height: $full-screen-height;
+    @media screen and (max-width: $breakpoint-sm) {
+      width: $mobile-sidebar-width;
     }
+  }
 
-    .navbar-content-outer-container {
-        height: $full-screen-height;
-        overflow: hidden;
-        background: $color-white;
-        box-shadow: 6px 0 6px #0000001a;
+  .animation-fade-in {
+    animation: fade-in $animation-delay ease;
+    animation-fill-mode: forwards;
+  }
+
+  .animation-fade-out {
+    animation: fade-out $animation-delay ease;
+  }
+
+  .animation-expand {
+    animation: expand $animation-delay ease;
+    animation-fill-mode: forwards;
+  }
+
+  .animation-shrink {
+    animation: shrink $animation-delay ease;
+  }
+
+  @keyframes expand {
+    from { 
+      width: $sidebar-min-width;
     }
-
-    .navbar-content-inner-container {
-        height: $full-screen-height;
-        padding: 10px;
-        overflow: scroll;
-
-        @media screen and (min-width: $breakpoint-sm) {
-            width: $desktop-sidebar-width;
-        }
-
-        @media screen and (max-width: $breakpoint-sm) {
-            width: $mobile-sidebar-width;
-        }
+    to { 
+      width: $mobile-sidebar-width;
     }
+  }
 
-    .animation-fade-in {
-        animation: fade-in $animation-delay ease;
-        animation-fill-mode: forwards;
+  @keyframes shrink {
+    from { 
+      width: $mobile-sidebar-width;
     }
+    to { 
+      width: $sidebar-min-width;
+    }
+  }
 
-    .animation-fade-out {
-        animation: fade-out $animation-delay ease;
+  @keyframes fade-in {
+    0% { 
+      background-color: rgba($color-dark-gray , 0);
     }
+    100% {  
+      background-color: rgba($color-dark-gray , 0.6); 
+    }
+  }
 
-    .animation-expand {
-        animation: expand $animation-delay ease;
-        animation-fill-mode: forwards;
+  @keyframes fade-out {
+    0% { 
+      background-color: rgba($color-dark-gray , 0.6);
     }
-
-    .animation-shrink {
-        animation: shrink $animation-delay ease;
+    100% {  
+      background-color: rgba($color-dark-gray , 0); 
     }
-
-    @keyframes expand {
-        from { 
-            width: $sidebar-min-width;
-        }
-        to { 
-            width: $mobile-sidebar-width;
-        }
-    }
-
-    @keyframes shrink {
-        from { 
-            width: $mobile-sidebar-width;
-        }
-        to { 
-            width: $sidebar-min-width;
-        }
-    }
-
-    @keyframes fade-in {
-        0% { 
-            background-color: rgba($color-dark-gray , 0);
-        }
-        100% {  
-            background-color: rgba($color-dark-gray , 0.6); 
-        }
-    }
-
-    @keyframes fade-out {
-        0% { 
-            background-color: rgba($color-dark-gray , 0.6);
-        }
-        100% {  
-            background-color: rgba($color-dark-gray , 0); 
-        }
-    }
+  }
 }

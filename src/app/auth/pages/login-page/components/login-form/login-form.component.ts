@@ -11,10 +11,10 @@ import * as Validations from './validations.json';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
-    validations: Record<string, IValidation> = Validations;
+  validations: Record<string, IValidation> = Validations;
  
-    @Input() login: ILogin = {} as ILogin;
-    @Input() loading: boolean;
+  @Input() login: ILogin = {} as ILogin;
+  @Input() loading: boolean;
 
-    @Output() onsubmit: EventEmitter<ILogin> = new EventEmitter();
+  @Output() onsubmit: EventEmitter<ILogin> = new EventEmitter();
 }

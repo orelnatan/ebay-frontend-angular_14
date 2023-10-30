@@ -10,19 +10,19 @@ import { RedirectService } from "../services";
   exportAs: 'redirect'
 })
 export class RedirectDirective {
-    @HostListener("click") onclick(): void {
-        this.url ? this.router.navigateByUrl(this.url) : null;
-    }
+  @HostListener("click") onclick(): void {
+    this.url ? this.router.navigateByUrl(this.url) : null;
+  }
 
-    public url: string;
+  public url: string;
 
-    constructor(
-        private readonly redirectService: RedirectService,
-        private readonly router: Router
-    ) {
-        this.redirectService.url$.pipe(untilDestroyed(this))
-        .subscribe((url: string) => {
-            this.url = url;
-        })
-    }
+  constructor(
+    private readonly redirectService: RedirectService,
+    private readonly router: Router
+  ) {
+    this.redirectService.url$.pipe(untilDestroyed(this))
+    .subscribe((url: string) => {
+      this.url = url;
+    })
+  }
 }

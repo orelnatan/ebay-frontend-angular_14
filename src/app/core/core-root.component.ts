@@ -5,29 +5,29 @@ import { ComponentInterceptor } from '@ebay/shared/global-events';
 
 import { GlobalEventTypes } from './models';
 
-@ComponentInterceptor(
-    [{ type: GlobalEventTypes.Logout, action: "exitApp" }], [Router]
-)
+@ComponentInterceptor([
+  { type: GlobalEventTypes.Logout, action: "exitApp" }
+], [Router])
 @Component({
   selector: 'core-root',
   template: `
-     <root-layout>
-        <layout-header header-primary>
-            <app-navbar></app-navbar>
-        </layout-header>
+   <root-layout>
+    <layout-header header-primary>
+      <app-navbar></app-navbar>
+    </layout-header>
 
-        <router-outlet></router-outlet>
-    </root-layout>
+    <router-outlet></router-outlet>
+  </root-layout>
   `,
 })
 export class CoreRootComponent {
-    constructor(
-      private readonly router: Router,
-    ) {}
+  constructor(
+    private readonly router: Router,
+  ) {}
 
-    exitApp(): void {
-        this.router.navigate(['/auth']);
-    }
+  exitApp(): void {
+    this.router.navigate(['/auth']);
+  }
 }
 
 

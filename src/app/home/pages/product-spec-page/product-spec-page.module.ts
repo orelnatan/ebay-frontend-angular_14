@@ -12,30 +12,30 @@ import { ProductSpecPageComponent } from './product-spec-page.component';
 import { ProductHeaderComponent, ProductSpecItemComponent } from './components';
 
 @NgModule({
-    declarations: [
-        ProductSpecPageComponent,
-        ProductHeaderComponent,
-        ProductSpecItemComponent
-    ],
-    imports: [ 
-        CommonModule,
-        LayoutModule,
-        DirectivesModule,
-        PageLoaderModule,
-        ElementsGridModule,
-        NgxSkeletonLoaderModule,
-        PipesModule,
-        RouterModule.forChild([
-            { 
-                path: '',
-                component: ProductSpecPageComponent,
-                data: {
-                    redirect: {
-                        route: "home/brands/brandId/categories/categoryId/families/familyId/products",
-                    },
-                }
-            },
-        ])
-    ]
+  declarations: [
+    ProductSpecPageComponent,
+    ProductHeaderComponent,
+    ProductSpecItemComponent
+  ],
+  imports: [ 
+    CommonModule,
+    LayoutModule,
+    DirectivesModule,
+    PageLoaderModule,
+    ElementsGridModule,
+    NgxSkeletonLoaderModule,
+    PipesModule,
+    RouterModule.forChild([
+      { 
+        path: '',
+        component: ProductSpecPageComponent,
+        data: {
+          redirect: {
+            route: "home/brands/brandId/categories/categoryId/families/familyId/products",
+          },
+        }
+      },
+    ])
+  ]
 })
 export class ProductSpecPageModule {}
