@@ -1,0 +1,14 @@
+
+.checklist-multi-main {
+  width: 100%;
+
+  .list-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -10px;
+  }
+
+  .checkbox-container {
+    padding: 0px 10px;
+  }
+}

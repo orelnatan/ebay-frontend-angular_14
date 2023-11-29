@@ -1,0 +1,217 @@
+
+<div class="registration-form-main">
+  <form #form="ngForm"
+    [origin]="'password'"
+    [clone]="'repassword'"
+    (ngSubmit)="form.valid && onsubmit.emit(registration)"
+    requireMatch
+    novalidate
+  >
+    <inputs-container>
+      <input-field [gap]="20">
+        <input-avatar
+          [control]="avatar.control"
+          [value]="registration.avatar"
+          [required]="true"
+          [ngModel]="registration.avatar"
+          (onchange)="registration.avatar=$event"
+          #avatar="ngModel"
+          id="avatar"
+          name="avatar"
+          ngDefaultControl>
+        </input-avatar>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container> 
+      <input-field [gap]="15">
+        <checklist-single
+          [items]="userTypes"
+          [control]="usertype.control"
+          [value]="registration.type"
+          [placeholder]="'User Type'"
+          [required]="true"
+          [ngModel]="registration.type"
+          (onchange)="registration.type=$event"
+          #usertype="ngModel"
+          id="usertype"
+          name="usertype"
+          ngDefaultControl>
+        </checklist-single>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container>
+      <input-field [gap]="25">
+        <input-text
+          [control]="username.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Enter Your Username'"
+          [required]="true"
+          [ngModel]="registration.name"
+          (onchange)="registration.name=$event"
+          #username="ngModel"
+          id="username"
+          name="username"
+          pattern="[a-zA-Z ]*"
+          minlength="2"
+          maxlength="12"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+
+      <input-field [gap]="25">
+        <input-text 
+          [control]="email.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Enter Your Email'"
+          [required]="true"
+          [ngModel]="registration.email"
+          (onchange)="registration.email=$event"
+          #email="ngModel"
+          id="email"
+          name="email"
+          ngDefaultControl
+          email>
+        </input-text>
+      </input-field>
+
+      <input-field [gap]="25">
+        <input-number
+          [control]="phone.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Enter Your Phone'"
+          [required]="true"
+          [ngModel]="registration.phone"
+          (onchange)="registration.phone=$event"
+          #phone="ngModel"
+          id="phone"
+          name="phone"
+          minlength="10"
+          maxlength="12"
+          ngDefaultControl>
+        </input-number>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container>
+      <input-field [gap]="25">
+        <input-text
+          [control]="company.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Enter Your Company'"
+          [required]="true"
+          [ngModel]="registration.company"
+          (onchange)="registration.company=$event"
+          #company="ngModel"
+          id="company"
+          name="company"
+          pattern="[a-zA-Z ]*"
+          minlength="2"
+          maxlength="12"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+
+      <input-field [gap]="25">
+        <input-text
+          [control]="address.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Enter Your Address'"
+          [required]="true"
+          [ngModel]="registration.address"
+          (onchange)="registration.address=$event"
+          #address="ngModel"
+          id="address"
+          name="address"
+          pattern="[a-zA-Z ]*"
+          minlength="2"
+          maxlength="12"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container>
+      <input-field [gap]="25">
+        <input-textarea
+          [control]="desc.control"
+          [validation]="{ default: 'Required field' }"
+          [hint]="'Up to 115 caracteres'"
+          [maxlength]="115"
+          [rows]="4"
+          [placeholder]="'Enter User Description'"
+          [required]="true"
+          [ngModel]="registration.description"
+          (onchange)="registration.description=$event"
+          #desc="ngModel"
+          id="desc"
+          name="desc"
+          minlength="25"
+          ngDefaultControl>
+        </input-textarea>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container>
+      <input-field [gap]="25">
+        <input-password
+          [control]="password.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Enter Your Password'"
+          [required]="true"
+          [ngModel]="registration.password"
+          (onchange)="registration.password=$event"
+          #password="ngModel"
+          id="password"
+          name="password"
+          ngDefaultControl
+          password>
+        </input-password>
+      </input-field>
+
+      <input-field [gap]="25">
+        <input-password
+          [control]="repassword.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Repeat Password'"
+          [required]="true"
+          [ngModel]="registration.repassword"
+          (onchange)="registration.repassword=$event"
+          #repassword="ngModel"
+          id="repassword"
+          name="repassword"
+          ngDefaultControl>
+        </input-password>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container>
+      <input-field [gap]="10">
+        <input-checkbox
+          [control]="accept.control"
+          [value]="registration.accept"
+          [placeholder]="'Accept terms and conditions'"
+          [required]="true"
+          [ngModel]="registration.accept"
+          (onchange)="registration.accept=$event"
+          #accept="ngModel"
+          id="accept"
+          name="accept"
+          ngDefaultControl>
+        </input-checkbox>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container>
+      <input-field [gap]="35">
+        <primary-button
+          [placeholder]="'Register Now!'"
+          [dosubmit]="true"
+          [readonly]="loading"
+          [pending]="loading">
+        </primary-button>
+      </input-field>
+    </inputs-container>
+  </form>
+</div>

@@ -1,22 +1,24 @@
 import { AfterViewChecked, Directive, ElementRef, Input } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, ControlContainer, FormControl, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
-import { ControlValidityPipe } from '../pipes';
+import { BaseErrorStateMatcher } from '../classes';
 
 @Directive({
   selector: '[errorState]',
-  providers: [ControlValidityPipe]
 })
 export class ErrorStateDirective implements AfterViewChecked {
   @Input('errorState') control: AbstractControl;
   
+  matcher: ErrorStateMatcher = new BaseErrorStateMatcher();
+  
   constructor(
     private readonly elementRef: ElementRef,
-    private readonly controlValidityPipe: ControlValidityPipe
+    private readonly controlContainer: ControlContainer
   ) {}
 
   ngAfterViewChecked(): void {
-    if(this.controlValidityPipe.transform(this.control)) {
+    if(this.matcher.isErrorState(<FormControl>this.control, <NgForm>this.controlContainer)) {
       this.elementRef.nativeElement.classList.add('input-error-state');
     } else {
       this.elementRef.nativeElement.classList.remove('input-error-state');

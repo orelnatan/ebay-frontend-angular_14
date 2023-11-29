@@ -1,0 +1,18 @@
+
+<div class="checklist-multi-main">
+  <div class="list-container">
+    <!-- <div class="checkbox-container" *ngFor="let checkbox of list">
+      <mat-checkbox 
+        [checked]="checkbox.checked!"
+        [disabled]="checkbox.readonly"
+        (change)="handleChange(checkbox, $event.checked)"
+      >
+        {{ checkbox.placeholder }}  
+      </mat-checkbox>
+    </div> -->
+
+    <div class="checklist-error" *ngIf="control | controlValidity">
+      <mat-error>{{ validation | validation: control.errors! }}</mat-error>
+    </div>
+  </div>
+</div>

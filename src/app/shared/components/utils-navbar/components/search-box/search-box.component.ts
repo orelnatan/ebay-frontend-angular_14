@@ -19,7 +19,7 @@ export class SearchboxComponent {
   constructor() {     
     this.subject$.pipe(
       untilDestroyed(this),
-      debounceTime(1000)
+      debounceTime(600)
     ).subscribe((value: string) => {
       this.search.emit(value);
     })

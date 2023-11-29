@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { LayoutModule } from '@ebay/shared/layout';
@@ -16,7 +16,6 @@ import { CoreRootComponent } from './core-root.component';
     CoreRootComponent,
   ],
   imports: [ 
-    HttpClientModule,
     CoreRoutingModule,
     MatDialogModule,
     AppNavbarModule,

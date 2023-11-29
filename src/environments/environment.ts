@@ -6,9 +6,16 @@ const baseUrl: string = "http://localhost:3001"
 
 export const environment = {
   production: false,
+  keys: {
+    imageBB: `a06872ef72c0b074aaa627abfe08f9ea`
+  },
   apis: {
+    shared: {
+      uploadNewImage: `https://api.imgbb.com/1/upload`,
+    },
     auth: {
-      login: `${baseUrl}/login`
+      login: `${baseUrl}/login`,
+      register: `${baseUrl}/register`,
     },
     home: {
       brands: {

@@ -23,7 +23,7 @@ export class PasswordValidator implements Validator {
     const results = <Array<IPasswordErrorDesc>>new NgxPasswordValidator()
     .is().min(10, 'Password should have a minimum length of 10 characters')                  
     .is().max(14, 'Password should have a maximum length of 14 characters')                 
-    .has().lowercase(6, 'Password should have a minimum of 6 lowercase letters')             
+    .has().lowercase(2, 'Password should have a minimum of 2 lowercase letters')             
     .has().digits(4, 'Password should have a minimum of 4 digits')                 
     .has().not().spaces(0, 'Password should not have spaces')
     .validate(control.value, { details: true });

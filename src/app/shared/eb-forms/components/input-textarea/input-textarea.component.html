@@ -1,0 +1,21 @@
+
+<div class="input-textarea-main" [disabledState]="readonly">
+  <mat-form-field>
+    <textarea
+      matInput
+      type="text"
+      value="{{value}}"
+      rows="{{rows}}" 
+      cols="{{cols}}"
+      attr.maxlength="{{maxlength}}"
+      placeholder="{{placeholder}}"
+      [errorStateMatcher]="matcher"
+      [formControl]="control"
+      [readonly]="readonly"
+      (input)="onchange.emit($event.target.value)">
+    </textarea>
+    
+    <mat-hint>{{ hint }}</mat-hint>
+    <mat-error>{{ validation | validation: control.errors! }}</mat-error>
+  </mat-form-field>
+</div>

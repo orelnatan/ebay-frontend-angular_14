@@ -1,0 +1,19 @@
+
+<div class="checklist-single-main" [errorState]="control">
+  <span [disabledState]="readonly">{{ placeholder }}</span>
+
+  <mat-radio-group [value]="value">
+    <div class="list-container">
+      <div class="radio-container" *ngFor="let item of items">
+        <input-radio
+          [id]="item.id"
+          [value]="item.value"
+          [placeholder]="item.placeholder!"
+          [checked]="item.checked!"
+          [readonly]="item.readonly || readonly"
+          (onchange)="onchange.emit($event)">
+        </input-radio>
+      </div>
+    </div>
+  </mat-radio-group>
+</div>

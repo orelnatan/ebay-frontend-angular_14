@@ -6,7 +6,6 @@ import { LayoutModule } from '@ebay/shared/layout';
 import { DirectivesModule } from '@ebay/shared/directives';
 import { SnackbarModule } from '@ebay/shared/snackbar';
 import { EbFormsModule } from '@ebay/shared/eb-forms';
-import { ValidatorsModule } from '@ebay/auth/validators';
 
 import { LoginPageComponent } from './login-page.component';
 import { LoginFormComponent } from './components';
@@ -23,7 +22,6 @@ import { CommonModule } from '@angular/common';
     SnackbarModule,
     DirectivesModule,
     FormsModule,
-    ValidatorsModule,
     EbFormsModule,
     RouterModule.forChild([
       { path: '', component: LoginPageComponent },

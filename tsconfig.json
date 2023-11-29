@@ -6,9 +6,9 @@
     "baseUrl": "./",
     "paths": {
       "@ebay/core/*": ["src/app/core/*"],
-      "@ebay/layout/*": ["src/app/layout/*"],
+      //"@ebay/layout/*": ["src/app/layout/*"],
       "@ebay/shared/*": ["src/app/shared/*"],
-      "@ebay/eb-forms/*": ["src/app/eb-forms/*"],
+     // "@ebay/eb-forms/*": ["src/app/eb-forms/*"],
       "@ebay/auth/*": ["src/app/auth/*"],
       "@ebay/home/*": ["src/app/home/*"],
       "@ebay/env/*": ["src/environments/*"],

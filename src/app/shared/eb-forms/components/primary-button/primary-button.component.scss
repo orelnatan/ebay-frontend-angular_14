@@ -4,6 +4,10 @@
     position: relative;
   }
 
+  button {
+    width: 100%;
+  }
+
   mat-progress-bar {
     position: absolute;
   }
@@ -12,9 +16,5 @@
     display: block;
     font-size: 10px;
     margin-top: 5px;
-  }
-
-  button {
-    width: 100%;
   }
 }

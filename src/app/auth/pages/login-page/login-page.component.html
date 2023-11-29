@@ -10,9 +10,9 @@
         (failed)="loginFailed($event)"
       >
         <login-form
-          (onsubmit)="handleSubmit($event)"
           [login]="login"
-          [loading]="resolver.inProcess">
+          [loading]="resolver.inProcess"
+          (onsubmit)="handleSubmit($event)">
         </login-form>
       </ng-container>
     </div>

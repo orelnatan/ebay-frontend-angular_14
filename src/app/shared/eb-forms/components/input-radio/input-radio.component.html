@@ -1,0 +1,11 @@
+
+<div class="input-radio-main" [errorState]="control" [disabledState]="readonly">
+  <mat-radio-button
+    [checked]="checked" 
+    [value]="value" 
+    [disabled]="readonly" 
+    (change)="onchange.emit($event.value)"
+  >
+    {{ placeholder }}  
+  </mat-radio-button>
+</div>

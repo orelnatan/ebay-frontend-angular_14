@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LayoutModule } from '@ebay/shared/layout';
@@ -12,6 +13,7 @@ import { AppRootComponent } from './app-root.component';
   ],
   imports: [
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     LayoutModule,
   ],

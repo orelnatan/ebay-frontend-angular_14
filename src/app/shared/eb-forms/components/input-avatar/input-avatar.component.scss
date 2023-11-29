@@ -1,0 +1,22 @@
+@import './src/assets/config/colors.scss';
+
+$avatar-size: 125px;
+
+.input-avatar-main {
+  &.input-error-state {
+    img { border-color: $color-error }
+  }
+  
+  .avatar-container {
+    width: $avatar-size;
+    margin: 0 auto;
+  }
+
+  img {
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: 50%;
+    border: 3px solid $color-base;
+    cursor: pointer;
+  }
+}

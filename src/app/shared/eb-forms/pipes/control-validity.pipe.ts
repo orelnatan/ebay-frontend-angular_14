@@ -5,8 +5,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { BaseErrorStateMatcher } from '../classes';
 
 @Pipe({
-   name: 'controlValidity',
-   pure: false
+  name: 'controlValidity',
+  pure: false
 })
 export class ControlValidityPipe implements PipeTransform { 
   matcher: ErrorStateMatcher = new BaseErrorStateMatcher();

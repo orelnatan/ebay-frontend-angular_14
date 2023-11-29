@@ -1,0 +1,15 @@
+import { UserType } from "./user-type.enum";
+
+export interface IRegistration {
+  name: string;
+  avatar: File;
+  password: string;
+  repassword: string;
+  description: string;
+  email: string;
+  phone: number;
+  type: UserType;
+  company: string;
+  address: string; 
+  accept: boolean;
+}

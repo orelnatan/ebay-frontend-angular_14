@@ -1,0 +1,22 @@
+@import './src/assets/config/colors.scss';
+@import './src/assets/config/definitions.scss';
+
+.registration-page-main {
+  display: grid;
+  align-items: center;
+  width: 100%;
+
+  .registration-form-container {
+    margin: 0 auto;
+    padding: 15px 30px;
+    border-top: 5px solid $color-base;
+
+    @media screen and (min-width: $breakpoint-sm) {
+      width: 750px;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+      width: 100%;
+    }
+  }
+}

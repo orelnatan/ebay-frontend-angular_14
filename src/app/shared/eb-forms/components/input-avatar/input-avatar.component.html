@@ -1,0 +1,16 @@
+
+<div class="input-avatar-main" [errorState]="control" [disabledState]="readonly">
+  <div class="avatar-container"> 
+    <img 
+      [src]="(value | fileTo64Bit | async) || '../../../../../assets/images/png/avatar_empty.png'"
+      (click)="readonly ? null : inputImage.click()"
+    />
+  </div>
+
+  <input #inputImage
+    type="file" 
+    accept="image/*"
+    hidden
+    (change)="onchange.emit($event.target.files[0])"
+  />
+</div>

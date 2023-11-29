@@ -18,6 +18,6 @@ export class EntityCardComponent {
   ) {}
 
   navigate(id: number): void {
-  this.router.navigate([id], { relativeTo: this.activatedRoute })
+    this.router.navigate([id], { relativeTo: this.activatedRoute })
   }
 }
