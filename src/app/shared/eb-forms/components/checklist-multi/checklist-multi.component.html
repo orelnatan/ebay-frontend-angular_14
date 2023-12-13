@@ -1,18 +1,20 @@
 
-<div class="checklist-multi-main">
-  <div class="list-container">
-    <!-- <div class="checkbox-container" *ngFor="let checkbox of list">
-      <mat-checkbox 
-        [checked]="checkbox.checked!"
-        [disabled]="checkbox.readonly"
-        (change)="handleChange(checkbox, $event.checked)"
-      >
-        {{ checkbox.placeholder }}  
-      </mat-checkbox>
-    </div> -->
+<div class="checklist-multi-main" [errorState]="control">
+  <span [disabledState]="readonly">{{ placeholder }}</span>
 
-    <div class="checklist-error" *ngIf="control | controlValidity">
-      <mat-error>{{ validation | validation: control.errors! }}</mat-error>
+  <div class="list-container">
+    <div class="checkbox-container" *ngFor="let item of items">
+      <input-checkbox
+        [id]="item.id"
+        [value]="isExist(item.value)"
+        [placeholder]="item.placeholder!"
+        [readonly]="item.readonly || readonly"
+        (onchange)="toggle(item.value)">
+      </input-checkbox>
     </div>
+  </div>
+
+  <div class="checklist-error" *ngIf="control | controlValidity">
+    <mat-error>{{ validation | validation: control.errors! }}</mat-error>
   </div>
 </div>

@@ -2,33 +2,33 @@ import { Directive, Input, OnChanges, TemplateRef, ViewContainerRef } from '@ang
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
-import { Breakpoints } from '../models/breakpoints.enum';
+import { BreakpointType } from '../models/breakpoint-type.enum';
 
 @UntilDestroy()
 @Directive({ selector: '[breakpointObserver]' })
 export class BreakpointObserverDirective implements OnChanges {
-  @Input('breakpointObserver') breakpoints: Breakpoints[];
+  @Input('breakpointObserver') breakpoints: BreakpointType[];
 
   constructor(
-  private readonly templateRef: TemplateRef<unknown>,
-  private readonly viewContainerRef: ViewContainerRef,
-  private readonly breakpointObserver: BreakpointObserver
+    private readonly templateRef: TemplateRef<unknown>,
+    private readonly viewContainerRef: ViewContainerRef,
+    private readonly breakpointObserver: BreakpointObserver
   ) {}
 
   ngOnChanges(): void {
-  this.breakpointObserver
-    .observe(this.breakpoints)
-    .pipe(untilDestroyed(this))
-    .subscribe((state: BreakpointState): void => {
-      this.updateView(state.matches);
-  });
+    this.breakpointObserver
+      .observe(this.breakpoints)
+      .pipe(untilDestroyed(this))
+      .subscribe((state: BreakpointState): void => {
+        this.updateView(state.matches);
+    });
   }
 
   updateView(display: boolean) {
-  this.viewContainerRef.clear();
+    this.viewContainerRef.clear();
 
-  if (display) {
-    this.viewContainerRef.createEmbeddedView(this.templateRef);
-  }
+    if (display) {
+      this.viewContainerRef.createEmbeddedView(this.templateRef);
+    }
   }
 }

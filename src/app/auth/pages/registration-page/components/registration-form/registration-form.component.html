@@ -7,8 +7,8 @@
     requireMatch
     novalidate
   >
-    <inputs-container>
-      <input-field [gap]="20">
+    <inputs-container [gap]="20">
+      <input-field>
         <input-avatar
           [control]="avatar.control"
           [value]="registration.avatar"
@@ -23,8 +23,8 @@
       </input-field>
     </inputs-container>
 
-    <inputs-container> 
-      <input-field [gap]="15">
+    <inputs-container [gap]="15"> 
+      <input-field>
         <checklist-single
           [items]="userTypes"
           [control]="usertype.control"
@@ -132,8 +132,8 @@
       </input-field>
     </inputs-container>
 
-    <inputs-container>
-      <input-field [gap]="25">
+    <inputs-container [gap]="25">
+      <input-field>
         <input-textarea
           [control]="desc.control"
           [validation]="{ default: 'Required field' }"
@@ -150,6 +150,28 @@
           minlength="25"
           ngDefaultControl>
         </input-textarea>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container [gap]="25"> 
+      <input-field>
+        <checklist-multi
+          [items]="domainTypes"
+          [value]="registration.domains"
+          [control]="domains.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Domains'"
+          [required]="true"
+          [minItems]="3"
+          [maxItems]="5"
+          [ngModel]="registration.domains"
+          (onchange)="registration.domains=$event"
+          #domains="ngModel"
+          id="domains"
+          name="domains"
+          collection
+          ngDefaultControl>
+        </checklist-multi>
       </input-field>
     </inputs-container>
 
@@ -186,8 +208,8 @@
       </input-field>
     </inputs-container>
 
-    <inputs-container>
-      <input-field [gap]="10">
+    <inputs-container [gap]="10">
+      <input-field>
         <input-checkbox
           [control]="accept.control"
           [value]="registration.accept"
@@ -203,8 +225,8 @@
       </input-field>
     </inputs-container>
 
-    <inputs-container>
-      <input-field [gap]="35">
+    <inputs-container [gap]="35">
+      <input-field>
         <primary-button
           [placeholder]="'Register Now!'"
           [dosubmit]="true"

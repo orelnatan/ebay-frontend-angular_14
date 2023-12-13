@@ -1,10 +1,6 @@
 @import './src/assets/config/colors.scss';
 
 .checklist-single-main { 
-  &.input-error-state {
-    span { color: $color-error !important }
-  }
-
   .list-container {
     display: flex;
     flex-wrap: wrap;
@@ -18,5 +14,9 @@
 
   span {
     color: rgba(0, 0, 0, .54);
+  }
+
+  &.input-error-state {
+    span { color: $color-error !important }
   }
 }

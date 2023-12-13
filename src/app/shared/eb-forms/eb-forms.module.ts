@@ -11,7 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { DirectivesModule } from '../directives';
 
 import { 
-  PasswordValidator, RequireMatchValidator
+  PasswordValidator,
+  CollectionValidator,
+  RequireMatchValidator,
 } from './validators';
 
 import { 
@@ -63,6 +65,7 @@ import {
     ErrorStateDirective,
     DisabledStateDirective,
     PasswordValidator,
+    CollectionValidator,
     RequireMatchValidator
   ],
   imports: [ 
@@ -91,6 +94,7 @@ import {
     InputsContainerComponent,
     InputFieldComponent,
     PasswordValidator,
+    CollectionValidator,
     RequireMatchValidator
   ]
 })

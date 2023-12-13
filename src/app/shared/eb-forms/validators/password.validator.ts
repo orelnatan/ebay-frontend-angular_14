@@ -1,5 +1,5 @@
 import { Directive } from '@angular/core';
-import { NG_VALIDATORS, Validator, FormControl, ValidationErrors, } from '@angular/forms';
+import { NG_VALIDATORS, Validator, FormControl, ValidationErrors } from '@angular/forms';
 
 import * as NgxPasswordValidator from 'password-validator';
 

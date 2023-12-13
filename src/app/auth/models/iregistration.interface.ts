@@ -1,3 +1,4 @@
+import { Domain } from "./domain.enum";
 import { UserType } from "./user-type.enum";
 
 export interface IRegistration {
@@ -10,6 +11,7 @@ export interface IRegistration {
   phone: number;
   type: UserType;
   company: string;
-  address: string; 
+  address: string;
+  domains: Domain[];
   accept: boolean;
 }

@@ -1,14 +1,32 @@
+@import './src/assets/config/colors.scss';
 
-.checklist-multi-main {
-  width: 100%;
+.checklist-multi-main { 
+  position: relative;
 
   .list-container {
     display: flex;
     flex-wrap: wrap;
     margin: 0px -10px;
+    padding-top: 2px;
   }
 
   .checkbox-container {
-    padding: 0px 10px;
+    padding: 5px 10px 0px 10px;
+  }
+
+  .checklist-error {
+    position: absolute;
+  }
+
+  span {
+    color: rgba(0, 0, 0, .54);
+  }
+
+  mat-error {
+    font-size: 75%;
+  }
+
+  &.input-error-state {
+    span { color: $color-error !important }
   }
 }

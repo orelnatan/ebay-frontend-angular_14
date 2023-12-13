@@ -4,16 +4,16 @@
   ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
     border-color: $color-base;
   }
-  
-  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
-    background-color: $color-base; 
-  }
-  
+
   ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
     background-color: $color-base; 
   }
 
   ::ng-deep .mat-radio-button.mat-radio-disabled .mat-radio-label-content {
     color: unset !important;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: $color-base; 
   }
 }

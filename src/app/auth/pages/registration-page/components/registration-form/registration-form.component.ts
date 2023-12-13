@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { IRegistration, UserType } from '@ebay/auth/models';
-import { IRadioItem } from '@ebay/shared/eb-forms';
+import { Domain, IRegistration, UserType } from '@ebay/auth/models';
+import { IListItem } from '@ebay/shared/eb-forms';
 
 @Component({
   selector: 'registration-form',
@@ -13,21 +13,57 @@ export class RegistrationFormComponent {
 
   @Output() onsubmit: EventEmitter<IRegistration> = new EventEmitter();
 
-  userTypes: IRadioItem[] = [
+  userTypes: IListItem[] = [
     {
-      id: 1,
       value: UserType.Admin,
       placeholder: UserType.Admin,
     },
     {
-      id: 2,
       value: UserType.Editor,
       placeholder: UserType.Editor,
     },
     {
-      id: 3,
       value: UserType.Regular,
       placeholder: UserType.Regular,
+    },
+  ];  
+
+  domainTypes: IListItem[] = [
+    {
+      value: Domain.Software,
+      placeholder: Domain.Software,
+    },
+    {
+      value: Domain.Hardware,
+      placeholder: Domain.Hardware
+    },
+    {
+      value: Domain.Artillery,
+      placeholder: Domain.Artillery
+    },
+    {
+      value: Domain.Chemistry,
+      placeholder: Domain.Chemistry
+    },
+    {
+      value: Domain.Electronics,
+      placeholder: Domain.Electronics
+    },
+    {
+      value: Domain.Mathematics,
+      placeholder: Domain.Mathematics
+    },
+    {
+      value: Domain.Nuclear,
+      placeholder: Domain.Nuclear
+    },
+    {
+      value: Domain.Optics,
+      placeholder: Domain.Optics
+    },
+    {
+      value: Domain.Physics,
+      placeholder: Domain.Physics
     },
   ];  
 }

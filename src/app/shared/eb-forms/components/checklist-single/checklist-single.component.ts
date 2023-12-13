@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { BaseInputComponent } from '../base-input';
-import { IRadioItem } from '../../models';
+import { IListItem } from '../../models';
 
 @Component({
   selector: 'checklist-single',
@@ -10,7 +10,7 @@ import { IRadioItem } from '../../models';
 })
 export class ChecklistSingleComponent<T> extends BaseInputComponent {
   @Input() value: T;
-  @Input() items: IRadioItem[] = [];
+  @Input() items: IListItem[] = [];
   
   @Output() onchange: EventEmitter<T> = new EventEmitter();
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { GlobalEventTypes } from '@ebay/core/models';
 import { ComponentInterceptor } from '@ebay/shared/global-events';
-import { Breakpoints } from '@ebay/shared/models';
+import { BreakpointType } from '@ebay/shared/models';
 
 const ANIMATION_DELAY: number = 500;
 
@@ -15,7 +15,7 @@ const ANIMATION_DELAY: number = 500;
   styleUrls: ['./side-navbar.component.scss'],
 })
 export class SideNavbarComponent {
-  breakpoints: typeof Breakpoints = Breakpoints;
+  breakpoints: typeof BreakpointType = BreakpointType;
   
   toggleSidebar: boolean;
   animationForwards: boolean;

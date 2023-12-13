@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Breakpoints } from '@ebay/shared/models';
+import { BreakpointType } from '@ebay/shared/models';
 
 @Component({
   selector: 'crumbs-navbar',
@@ -11,5 +11,5 @@ export class CrumbsNavbarComponent {
   @Input() showFirst: number;
   @Input() showLatest: number;
 
-  breakpoints: typeof Breakpoints = Breakpoints;
+  breakpoints: typeof BreakpointType = BreakpointType;
 }

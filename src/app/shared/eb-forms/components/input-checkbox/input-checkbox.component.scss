@@ -1,15 +1,19 @@
 @import './src/assets/config/colors.scss';
 
 .input-checkbox-main {  
+  ::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: $color-base !important;
+  }
+
   ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
     background-color: $color-base !important;
   }
 
-  ::ng-deep .mat-checkbox-ripple .mat-ripple-element {
-    background-color: $color-base !important;
+  ::ng-deep .mat-checkbox-disabled .mat-checkbox-label {
+    color: unset !important;
   }
 
-  ::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  ::ng-deep .mat-checkbox-ripple .mat-ripple-element {
     background-color: $color-base !important;
   }
 }

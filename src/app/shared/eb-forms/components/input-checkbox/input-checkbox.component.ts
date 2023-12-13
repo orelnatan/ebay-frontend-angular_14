@@ -13,7 +13,6 @@ export class InputCheckboxComponent extends BaseInputComponent implements AfterC
   @Output() onchange: EventEmitter<boolean> = new EventEmitter();
 
   ngAfterContentChecked(): void {
-    this.control?.setValue(
-      this.value ? this.value : null);
+    this.control?.setValue(this.value ? this.value : null);
   }
 }

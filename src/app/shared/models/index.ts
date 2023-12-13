@@ -1,2 +1,2 @@
 
-export { Breakpoints } from './breakpoints.enum';
+export { BreakpointType } from './breakpoint-type.enum';
