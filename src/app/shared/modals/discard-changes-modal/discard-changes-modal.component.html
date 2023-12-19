@@ -1,0 +1,11 @@
+
+<modal [title]="'Discard Changes?'" [type]="modalType.Warning">
+  <ng-container content>
+    <p>You have some unsaved changes, are you sure you want to leave?</p>
+  </ng-container>
+  
+  <ng-container actions>
+    <button mat-raised-button (click)="discard()">Discard</button>
+    <button mat-raised-button mat-dialog-close>Stay</button>
+  </ng-container>
+</modal>

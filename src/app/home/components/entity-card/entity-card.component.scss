@@ -1,4 +1,4 @@
-@import './src/assets/config/colors.scss';
+@import './src/assets/config/utils.scss';
 
 .entity-card-main {
   width: 100%;
@@ -6,6 +6,11 @@
   .mat-card-image {
     padding: 35px;
     border-radius: 50%;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
   }
 
   mat-card-header {

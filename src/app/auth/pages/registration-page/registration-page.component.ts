@@ -25,11 +25,11 @@ export class RegistrationPageComponent {
     private readonly matSnackbar: MatSnackBar,
   ) {}
 
-  handleSubmit(registration: IRegistration): void {
+  submit(registration: IRegistration): void {
     this.register$ = this.authenticationService.register(registration);
   }
 
-  registrationSuccess(registration: IRegistration): void {
+  success(registration: IRegistration): void {
     this.matSnackbar.open(REGISTRATION_SUCCESS_MESSAGE, 'X', {
       panelClass: ["snak-success-state"]
     });
@@ -37,7 +37,7 @@ export class RegistrationPageComponent {
     this.navigateToLoginPage(registration);
   }
 
-  registrationFailed(error: HttpErrorResponse): void {
+  error(error: HttpErrorResponse): void {
     this.matSnackbar.open(error.error.message, 'X', {
       panelClass: ["snak-error-state"]
     });

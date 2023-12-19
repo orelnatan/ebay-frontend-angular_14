@@ -8,7 +8,8 @@
         [elementMinSizePx]="215"
       >
         <brand-card *ngFor="let brand of (resolver.data | filterEntities : keyword) | highlightTitles : keyword as brands"
-          [brand]="brand"> 
+          [brand]="brand"
+          (update)="update($event)"> 
         </brand-card>
       </elements-grid>
 
@@ -17,6 +18,6 @@
       </ng-template>
     </ng-container>
   </div>
+
+  <router-outlet></router-outlet>
 </page-layout>
-
-

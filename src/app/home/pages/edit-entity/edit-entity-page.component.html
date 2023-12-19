@@ -1,0 +1,22 @@
+
+<ng-template>
+  <page-layout>
+    <ng-container #resolver="resolver"
+      [rxResolver]="edit$"
+      (resolved)="success()"
+      (failed)="error()"
+    >
+      <div class="edit-entity-page-main" *ngIf="!resolver.inProcess; else loader">
+        <h2>{{ id ? 'Update' : 'Create' }} {{ type | titlecase }}</h2>
+
+        <router-outlet></router-outlet>
+      </div>
+
+      <ng-template #loader>
+        <div class="loader-container">
+          <page-loader></page-loader>
+        </div>
+      </ng-template>
+    </ng-container>
+  </page-layout>
+</ng-template>

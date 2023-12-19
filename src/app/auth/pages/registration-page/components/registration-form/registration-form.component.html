@@ -9,9 +9,10 @@
   >
     <inputs-container [gap]="20">
       <input-field>
-        <input-avatar
+        <input-image
           [control]="avatar.control"
           [value]="registration.avatar"
+          [default]="'avatar_empty.png' | image"
           [required]="true"
           [ngModel]="registration.avatar"
           (onchange)="registration.avatar=$event"
@@ -19,7 +20,7 @@
           id="avatar"
           name="avatar"
           ngDefaultControl>
-        </input-avatar>
+        </input-image>
       </input-field>
     </inputs-container>
 
@@ -228,6 +229,7 @@
     <inputs-container [gap]="35">
       <input-field>
         <primary-button
+          [palette]="'primary'"
           [placeholder]="'Register Now!'"
           [dosubmit]="true"
           [readonly]="loading"

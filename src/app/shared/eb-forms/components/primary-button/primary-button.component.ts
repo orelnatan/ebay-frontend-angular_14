@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'primary-button',
@@ -11,6 +12,7 @@ export class PrimaryButtonComponent {
   @Input() hint: string;
   @Input() pending: boolean;
   @Input() readonly: boolean;
+  @Input() palette: ThemePalette;
 
   @Output() onclick: EventEmitter<MouseEvent> = new EventEmitter();
 }

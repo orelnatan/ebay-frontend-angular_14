@@ -6,7 +6,6 @@ export interface ICrumb {
   image?: string; 
   color?: string;
   skip?: boolean;
-  parent?: string;
   disabled?: boolean;
   resolve?: string;
   async?: Promise<ICrumb>;

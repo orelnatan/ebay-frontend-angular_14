@@ -1,0 +1,20 @@
+@import './src/assets/config/utils.scss';
+
+.loader-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba($color-dark-gray , 0.6);
+}
+
+.edit-entity-page-main {
+  width: 100%;
+
+  h2 {
+    margin: 0px;
+  }
+}
+

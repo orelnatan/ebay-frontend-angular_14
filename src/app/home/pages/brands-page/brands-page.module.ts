@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { LayoutModule } from '@ebay/shared/layout';
-import { DirectivesModule } from '@ebay/shared/directives';
-import { CrumbsNavbarModule, ElementsGridModule, PageLoaderModule, SpinnerModule } from '@ebay/shared/components';
-import { PipesModule } from '@ebay/home/pipes';
+import { UtilsModule } from '@ebay/shared/utils';
+import { ElementsGridModule, PageLoaderModule } from '@ebay/shared/components';
 import { BrandCardModule } from '@ebay/home/components';
+import { PipesModule } from '@ebay/home/pipes';
 
+import { BrandsPageRoutingModule } from './brands-page-routing.module';
 import { BrandsPageComponent } from './brands-page.component';
 
 @NgModule({
@@ -16,17 +16,13 @@ import { BrandsPageComponent } from './brands-page.component';
   ],
   imports: [ 
     CommonModule,
+    BrandsPageRoutingModule,
     LayoutModule,
     BrandCardModule,
-    DirectivesModule,
-    CrumbsNavbarModule,
+    UtilsModule,
     ElementsGridModule,
     PageLoaderModule,
-    SpinnerModule,
     PipesModule,
-    RouterModule.forChild([
-      { path: '', component: BrandsPageComponent },
-    ])
   ]
 })
 export class BrandsPageModule {}

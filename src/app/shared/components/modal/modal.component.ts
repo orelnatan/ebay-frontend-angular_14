@@ -11,7 +11,10 @@ export class ModalComponent {
   @Input() title: string;
   @Input() subTitle: string;
   @Input() underSubTitle: string;
-  @Input() type: ModalType;
 
   @Input() excludeActions: boolean;
+
+  @Input() padding: number = 24;
+
+  @Input() type: ModalType = ModalType.Blank;
 }

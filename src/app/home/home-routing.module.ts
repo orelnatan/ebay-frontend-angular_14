@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { image } from '@ebay/assets/images';
+
 import { BrandCrumbResolver, CategoryCrumbResolver, FamilyCrumbResolver, ProductCrumbResolver } from './resolvers';
 import { HomeRootComponent } from './home-root.component';
-
-const BRANDS_ICON: string = "../../assets/images/svg/currency_bitcoin_white.svg";
-const CATEGORIES_ICON: string = "../../assets/images/svg/category_white.svg";
-const FAMILIES_ICON: string = "../../assets/images/svg/account_tree_white.svg";
-const PRODUCTS_ICON: string = "../../assets/images/svg/shopping_cart_white.svg";
 
 const routes: Routes = [
   { path: '', redirectTo: 'brands', pathMatch: 'full' },
@@ -21,7 +18,7 @@ const routes: Routes = [
             {
               path: "brands",
               name: "Brands",
-              image: BRANDS_ICON
+              image: image("brand.svg")
             }
           ]
         }
@@ -34,7 +31,7 @@ const routes: Routes = [
             {
               path: "brands",
               name: "Brands",
-              image: BRANDS_ICON
+              image: image("brand.svg")
             },
             {
               path: "brandId",
@@ -54,7 +51,7 @@ const routes: Routes = [
             {
               path: "brands",
               name: "Brands",
-              image: BRANDS_ICON
+              image: image("brand.svg")
             },
             {
               path: "brandId",
@@ -63,11 +60,11 @@ const routes: Routes = [
             {
               path: "categories",
               name: "Categories",
-              image: CATEGORIES_ICON,
+              image: image("category.svg"),
             },
             {
               path: "categoryId",
-              resolve: "category"
+              resolve: "category",
             },
           ]
         },
@@ -84,7 +81,7 @@ const routes: Routes = [
             {
               path: "brands",
               name: "Brands",
-              image: BRANDS_ICON
+              image: image("brand.svg")
             },
             {
               path: "brandId",
@@ -93,16 +90,16 @@ const routes: Routes = [
             {
               path: "categories",
               name: "Categories",
-              image: CATEGORIES_ICON
+              image: image("category.svg"),
             },
             {
               path: "categoryId",
-              resolve: "category"
+              resolve: "category",
             },
             {
               path: "families",
               name: "Families",
-              image: FAMILIES_ICON
+              image: image("family.svg"),
             },
             {
               path: "familyId",
@@ -124,7 +121,7 @@ const routes: Routes = [
             {
               path: "brands",
               name: "Brands",
-              image: BRANDS_ICON
+              image: image("brand.svg")
             },
             {
               path: "brandId",
@@ -133,7 +130,7 @@ const routes: Routes = [
             {
               path: "categories",
               name: "Categories",
-              image: CATEGORIES_ICON
+              image: image("category.svg"),
             },
             {
               path: "categoryId",
@@ -142,7 +139,7 @@ const routes: Routes = [
             {
               path: "families",
               name: "Families",
-              image: FAMILIES_ICON
+              image: image("family.svg"),
             },
             {
               path: "familyId",
@@ -151,7 +148,7 @@ const routes: Routes = [
             {
               path: "products",
               name: "Products",
-              image: PRODUCTS_ICON
+              image: image("product.svg")
             },
             {
               path: "productId",

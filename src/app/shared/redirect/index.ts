@@ -1,4 +1,4 @@
 
 export { RedirectModule } from './redirect.module';
 export { RedirectResolver } from './resolvers';
-export { IRedirect } from './models';
+export { RedirectService } from './services';

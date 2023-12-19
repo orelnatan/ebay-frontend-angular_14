@@ -13,10 +13,10 @@ export class CrumbComponent implements OnChanges {
   loading: boolean;
   
   ngOnChanges(): void {
-    this.crumb?.async ? this._resolveAsyncCrumb(this.crumb.async) : null;
+    this.crumb?.async ? this.resolveAsyncCrumb(this.crumb.async) : null;
   }
 
-  private _resolveAsyncCrumb(asyncCrumb: Promise<ICrumb>): void {
+  resolveAsyncCrumb(asyncCrumb: Promise<ICrumb>): void {
     this.loading = true;
 
     asyncCrumb.then((crumb: ICrumb): void => {

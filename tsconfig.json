@@ -6,12 +6,11 @@
     "baseUrl": "./",
     "paths": {
       "@ebay/core/*": ["src/app/core/*"],
-      //"@ebay/layout/*": ["src/app/layout/*"],
       "@ebay/shared/*": ["src/app/shared/*"],
-     // "@ebay/eb-forms/*": ["src/app/eb-forms/*"],
       "@ebay/auth/*": ["src/app/auth/*"],
       "@ebay/home/*": ["src/app/home/*"],
       "@ebay/env/*": ["src/environments/*"],
+      "@ebay/assets/*": ["src/assets/*"],
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

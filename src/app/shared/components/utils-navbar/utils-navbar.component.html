@@ -2,15 +2,19 @@
 <div class="utils-navbar-main">
   <div class="navbar-inner">
     <div class="arrow-back-container" redirect #redirect="redirect">
-      <mat-icon class="arrow-active" *ngIf="redirect.url; else disabledArrow"> {{ 'arrow_back_ios' }} </mat-icon>
+      <mat-icon class="arrow-active" *ngIf="redirect.url; else disabledArrow">{{ 'arrow_back_ios' }}</mat-icon>
       
       <ng-template #disabledArrow>
-        <mat-icon class="arrow-disabled"> {{ 'arrow_back_ios' }} </mat-icon>
+        <mat-icon class="arrow-disabled">{{ 'arrow_back_ios' }}</mat-icon>
       </ng-template>
     </div>
 
-    <div class="search-box-container shadow-border-shallow">
-      <search-box (search)="dispatchSearch($event)"></search-box>
+    <div class="utils-container">
+      <mat-icon class="util-icon" (click)="dispatchCreate()">{{ 'add' }}</mat-icon>
+  
+      <div class="search-box-container shallow-shadow">
+        <search-box (search)="dispatchSearch($event)"></search-box>
+      </div>
     </div>
   </div>
 </div>

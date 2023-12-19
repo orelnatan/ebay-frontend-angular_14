@@ -3,7 +3,7 @@ import { UserType } from "./user-type.enum";
 
 export interface IRegistration {
   name: string;
-  avatar: File;
+  avatar: string;
   password: string;
   repassword: string;
   description: string;

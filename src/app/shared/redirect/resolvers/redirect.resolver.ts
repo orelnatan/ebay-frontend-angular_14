@@ -1,18 +1,14 @@
 import { Injectable }  from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve, Router } from '@angular/router';
 
-import { IRedirect } from '../models';
-
 @Injectable()
-export class RedirectResolver implements Resolve<IRedirect> {
+export class RedirectResolver implements Resolve<string> {
   constructor(
     private readonly router: Router
   ){}
 
-  resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): IRedirect {  
-    return {
-      route: this._getPreviousNavigationUrl(this.router) || this._getDefaultNavigationUrl(routeSnapshot)
-    };
+  resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): string { 
+    return this._getPreviousNavigationUrl(this.router) || this._getDefaultNavigationUrl(routeSnapshot);
   }
 
   private _getPreviousNavigationUrl(router: Router): string {
@@ -22,6 +18,6 @@ export class RedirectResolver implements Resolve<IRedirect> {
   }
 
   private _getDefaultNavigationUrl(routeSnapshot: ActivatedRouteSnapshot): string {
-    return routeSnapshot?.routeConfig?.data?.['redirect']?.route;
+    return routeSnapshot?.routeConfig?.data?.['redirect'];
   }
 }

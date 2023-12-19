@@ -1,0 +1,50 @@
+import { Inject, Injectable, Injector, TypeProvider, inject } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
+import { ActivatedRouteSnapshot } from '@angular/router';
+import { Observable, lastValueFrom, of as observableOf } from 'rxjs';
+
+import { BreadcrumbAbstractResolver, ICrumb } from '@ebay/shared/breadcrumbs';
+
+import { EntitiesAbstractService } from '../services';
+import { EntityType, IEntity } from '../models';
+
+@Injectable()
+export class EntityCrumbResolver implements BreadcrumbAbstractResolver {
+  service: TypeProvider;
+  entity: EntityType;
+  parent: EntityType;
+
+  constructor(
+    @Inject(EntitiesAbstractService) service: TypeProvider,
+    @Inject(EntityType) entity: EntityType,
+    @Inject(EntityType) parent?: EntityType,
+  ) {
+    EntityCrumbResolver.prototype.service = service;
+    EntityCrumbResolver.prototype.entity = entity;
+    EntityCrumbResolver.prototype.parent = parent!;
+  }
+
+  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<Promise<ICrumb>> { 
+    const injector: Injector = inject(Injector);
+
+    const titleCasePipe: TitleCasePipe = injector.get<TitleCasePipe>(TitleCasePipe);
+    const service: EntitiesAbstractService = injector.get<EntitiesAbstractService>(EntityCrumbResolver.prototype.service);
+    const entity: EntityType = EntityCrumbResolver.prototype.entity;
+    const parent: EntityType = EntityCrumbResolver.prototype.parent;
+
+    return observableOf(
+      lastValueFrom(service.fetchSingle(routeSnapshot.params?.[`${entity}Id`], routeSnapshot.params?.[`${parent}Id`]))
+      .then((entity: IEntity) => {
+        return {
+          name: titleCasePipe.transform(entity.name),
+          image: entity.image,
+        } as ICrumb
+      })
+    )
+  }
+}
+
+export function resolveCrumb(service: TypeProvider, entity: EntityType, parent: EntityType): 
+(routeSnapshot: ActivatedRouteSnapshot) => Observable<Promise<ICrumb>> {
+  return new EntityCrumbResolver(service, entity, parent).resolve;
+}

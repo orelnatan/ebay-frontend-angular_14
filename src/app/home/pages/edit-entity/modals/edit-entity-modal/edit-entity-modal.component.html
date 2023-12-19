@@ -1,0 +1,8 @@
+
+<modal [excludeActions]="true" [padding]="0">
+  <ng-container content>
+    <crumbs-navbar [showLatestOnDesktop]="3" [showLatestOnMobile]="3"></crumbs-navbar>
+
+    <ng-content *ngTemplateOutlet="data.template"></ng-content>
+  </ng-container>
+</modal>

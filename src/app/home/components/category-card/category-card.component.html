@@ -4,6 +4,7 @@
     [id]="category.id"
     [name]="category.name"
     [image]="category.image"
-    [description]="category.description">
+    [description]="category.description"
+    (update)="update.emit(category)">
   </entity-card>
 </div>

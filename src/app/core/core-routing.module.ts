@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '@ebay/auth/guards';
+import { image } from '@ebay/assets/images';
 
 import { CoreRootComponent } from './core-root.component';
-
-const HOME_ICON: string = "../../assets/images/svg/home_white.svg";
-const AUTH_ICON: string = "../../assets/images/svg/vpn_key_white.svg";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,7 +19,7 @@ const routes: Routes = [
             {
               path: "home",
               name: "Home",
-              image: HOME_ICON
+              image: image("home.svg")
             }
           ]
         }
@@ -34,7 +32,7 @@ const routes: Routes = [
             {
               path: "auth",
               name: "Auth",
-              image: AUTH_ICON
+              image: image("vpn_key.svg")
             }
           ]
         }

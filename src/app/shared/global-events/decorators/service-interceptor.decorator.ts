@@ -23,7 +23,7 @@ export function ServiceInterceptor<T>(events: IGlobalEvent[] = [], deps: TypePro
     }
     
     const onDestroy: Function = orgConstructor.prototype.ngOnDestroy;
-    orgConstructor.prototype.ngOnDestroy = function (): void {
+    orgConstructor.prototype.ngOnDestroy = function(): void {
       this.listeners.map(
         (listener: Function) => listener());
          

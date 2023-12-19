@@ -1,23 +1,23 @@
 import { Injectable }  from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, lastValueFrom, of as observableOf } from 'rxjs';
 
-import { BreadcrumbResolver, ICrumb } from '@ebay/shared/breadcrumbs';
+import { BreadcrumbAbstractResolver, ICrumb } from '@ebay/shared/breadcrumbs';
 
 import { ProductsService } from '../services';
 import { IProduct } from '../models';
 
 @Injectable()
-export class ProductCrumbResolver implements BreadcrumbResolver {
+export class ProductCrumbResolver implements BreadcrumbAbstractResolver {
   constructor(
     private readonly productsService: ProductsService,
     private readonly titleCasePipe: TitleCasePipe
   ) {}
 
-  resolve(routeSnapshot: ActivatedRouteSnapshot, stateSnapshot: RouterStateSnapshot): Observable<Promise<ICrumb>> {
+  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<Promise<ICrumb>> {
     return observableOf(
-      lastValueFrom(this.productsService.getSingleEntity(routeSnapshot.params?.['familyId'], routeSnapshot.params?.['productId']))
+      lastValueFrom(this.productsService.fetchSingle(routeSnapshot.params?.['productId'], routeSnapshot.params?.['familyId']))
       .then((product: IProduct) => {
         return {
           name: this.titleCasePipe.transform(product.name),

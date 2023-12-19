@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { image } from '@ebay/assets/images';
+
 import { AuthGuard } from './guards';
 import { AuthRootComponent } from './auth-root.component';
-
-const LOGIN_ICON: string = "../../assets/images/svg/password_white.svg";
-const REGISTRATION_ICON: string = "../../assets/images/svg/app_registration_white.svg";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,7 +20,7 @@ const routes: Routes = [
             {
               path: "login",
               name: "Login",
-              image: LOGIN_ICON
+              image: image("password.svg")
             }
           ]
         },
@@ -34,7 +33,7 @@ const routes: Routes = [
             {
               path: "registration",
               name: "Registration",
-              image: REGISTRATION_ICON
+              image: image("registration.svg")
             }
           ]
         }

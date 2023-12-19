@@ -35,16 +35,20 @@ export class FamiliesService implements EntitiesAbstractService {
     );
   }
 
-  getSingleEntity(categoryId: number, familyId: number): Observable<IFamily> {
-    return this._families[categoryId] ? observableOf(this._families[categoryId].find(family => familyId == family.id)!) :
+  fetchSingle(familyId: number, categoryId: number): Observable<IFamily> {
+    return this._families[categoryId] ? observableOf(this.find(familyId, categoryId)) :
     this.fetchAll(categoryId)
     .pipe(
       map((_families: IFamily[]): IFamily => {
         this._families[categoryId] = _families;
         
-        return _families.find(family => familyId == family.id)!;
+        return this.find(familyId, categoryId);
       })
     );
+  }
+
+  find(familyId: number, categoryId: number): IFamily {
+    return { ...this._families[categoryId].find(family => familyId == family.id)! }
   }
 
   dispose(): void {

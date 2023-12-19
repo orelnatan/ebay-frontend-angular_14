@@ -3,7 +3,7 @@
   <div class="mat-button-container">
     <button mat-raised-button
       type="{{dosubmit ? 'submit' : 'button'}}"
-      color="primary"
+      color="{{palette}}"
       [disabled]="readonly"
       (click)="onclick.emit($event)"
        > {{ placeholder }}

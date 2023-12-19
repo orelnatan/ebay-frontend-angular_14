@@ -1,0 +1,60 @@
+
+<div class="brand-form-main">
+  <ng-container #resolver="resolver"
+    [rxResolver]="entity$"
+    (resolved)="setEntity($event)"
+  >
+    <ng-container *ngIf="resolver.data as brand; else loader">
+      <form #form="ngForm" novalidate>
+        <entity-form #eform 
+          [entity]="brand" 
+          (onsubmit)="form.valid && (
+            brand.id ? update(brand) : create(brand)
+          )"
+        >
+        </entity-form>
+        
+        <inputs-container [gap]="5">
+          <input-field>
+            <input-text
+              [control]="section.control"
+              [validation]="{ default: 'Required field' }"
+              [placeholder]="'Section'"
+              [required]="true"
+              [ngModel]="brand.section"
+              (onchange)="brand.section=$event"
+              #section="ngModel"
+              id="section"
+              name="section"
+              pattern="[A-Z ]*"
+              maxlength="1"
+              ngDefaultControl>
+            </input-text>
+          </input-field>
+        </inputs-container>
+
+        <inputs-container [nowrap]="true" [gap]="35" >
+          <input-field [style.width.%]="30">
+            <primary-button 
+              [placeholder]="'Discard'"
+              (onclick)="discard()">
+            </primary-button>
+          </input-field>
+
+          <input-field [style.width.%]="30">
+            <primary-button
+              [placeholder]="brand.id ? 'Update' : 'Create'"
+              [palette]="'primary'"
+              [dosubmit]="true"
+              (onclick)="eform.submit()">
+            </primary-button>
+          </input-field>
+        </inputs-container>
+      </form>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loader>
+    Loading ...
+  </ng-template>
+</div>

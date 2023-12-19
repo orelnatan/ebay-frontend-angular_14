@@ -1,2 +1,2 @@
 
-export { BreadcrumbResolver } from './breadcrumb.resolver';
+export { BreadcrumbAbstractResolver } from './breadcrumb-abstract.resolver';

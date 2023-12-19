@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { FilterEntitiesPipe } from './filter-entities.pipe';
-import { HighlightTitlesPipe } from './highlight-entities.pipe';
+import { HighlightTitlesPipe } from './highlight-titles.pipe';
 
 @NgModule({
   declarations: [

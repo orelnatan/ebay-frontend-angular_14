@@ -1,18 +1,18 @@
 
 <page-layout>
   <div class="login-page-main">
-    <div class="login-form-container shadow-border-shallow">
-      <img [src]="'../../../../favicon.png'" imageNotFound />
+    <div class="login-form-container shallow-shadow">
+      <img [src]="'ebay-b.png' | image" imageNotFound />
 
       <ng-container #resolver="resolver"
         [rxResolver]="login$"
-        (resolved)="loginSuccess($event)" 
-        (failed)="loginFailed($event)"
+        (resolved)="success($event)" 
+        (failed)="error($event)"
       >
         <login-form
           [login]="login"
           [loading]="resolver.inProcess"
-          (onsubmit)="handleSubmit($event)">
+          (onsubmit)="submit($event)">
         </login-form>
       </ng-container>
     </div>

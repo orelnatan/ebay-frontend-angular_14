@@ -1,14 +1,14 @@
 
-<div class="crumbs-navbar-main">
+<div class="crumbs-navbar-main deep-shadow">
   <div class="breadcrumbs-container">    
     <breadcrumbs *breakpointObserver="[breakpoints.Lg]"
-      >
+      [showFirst]="showFirstOnDesktop"
+      [showLatest]="showLatestOnDesktop">
     </breadcrumbs>
 
     <breadcrumbs *breakpointObserver="[breakpoints.Sm]"
-      [showLatest]="2">
+      [showFirst]="showFirstOnMobile"
+      [showLatest]="showLatestOnMobile">
     </breadcrumbs>
   </div>
-
-  <hr />
 </div>

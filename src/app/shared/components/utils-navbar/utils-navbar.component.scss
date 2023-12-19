@@ -1,4 +1,4 @@
-@import './src/assets/config/colors.scss';
+@import './src/assets/config/utils.scss';
 
 .utils-navbar-main {
   width: 100%;
@@ -9,27 +9,37 @@
 
   .navbar-inner {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 100%;
   }
 
+  .arrow-disabled {
+    pointer-events: none;
+    color: rgba($color-white, 0.8);
+  }
+
+  .utils-container {
+    display: inline-flex;
+    align-items: center;
+  }
+
   .search-box-container {
     border-radius: 15px;
-  }
-
-  .arrow-active {
-    cursor: pointer;
-    color: $color-white;
-  }
-
-  .arrow-disabled {
-    color: rgba($color-white, 0.8);
+    margin: 0px 5px;
   }
 
   .arrow-back-container {
     display: grid;
+  }
+
+  .util-icon {
+    margin: 0px 5px;
+  }
+
+  mat-icon {
+    cursor: pointer;
+    color: $color-white;
   }
 }
 

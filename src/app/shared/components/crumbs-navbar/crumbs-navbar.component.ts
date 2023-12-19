@@ -8,8 +8,10 @@ import { BreakpointType } from '@ebay/shared/models';
   styleUrls: ['./crumbs-navbar.component.scss'],
 })
 export class CrumbsNavbarComponent {
-  @Input() showFirst: number;
-  @Input() showLatest: number;
+  @Input() showFirstOnDesktop: number;
+  @Input() showFirstOnMobile: number;
+  @Input() showLatestOnDesktop: number;
+  @Input() showLatestOnMobile: number;
 
   breakpoints: typeof BreakpointType = BreakpointType;
 }

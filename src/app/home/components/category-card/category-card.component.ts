@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ICategory } from '@ebay/home/models';
 
@@ -8,4 +8,6 @@ import { ICategory } from '@ebay/home/models';
 })
 export class CategoryCardComponent {
   @Input() category: ICategory;
+
+  @Output() update: EventEmitter<ICategory> = new EventEmitter();
 }

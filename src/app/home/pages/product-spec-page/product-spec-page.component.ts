@@ -14,7 +14,7 @@ const PRODUCT_PARAM_NAME: string = "productId";
   styleUrls: ['./product-spec-page.component.scss']
 })
 export class ProductSpecPageComponent {
-  product$: Observable<IProduct> = this.productsService.getSingleEntity(this.familyId, this.productId);
+  product$: Observable<IProduct> = this.productsService.fetchSingle(this.productId, this.familyId);
 
   constructor(
     private readonly productsService: ProductsService,

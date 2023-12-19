@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
     </div>
    `,
    styles: [`
-    @import './src/assets/config/colors.scss';
+    @import './src/assets/config/utils.scss';
     
     :host {
       height: 100%;

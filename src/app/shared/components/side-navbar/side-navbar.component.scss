@@ -1,5 +1,4 @@
-@import './src/assets/config/colors.scss';
-@import './src/assets/config/definitions.scss';
+@import './src/assets/config/utils.scss';
 
 $sidebar-min-width: 0px;
 $desktop-sidebar-width: 345px;
@@ -9,7 +8,7 @@ $animation-delay: 500ms;
 .side-navbar-main {
   height: $full-screen-height;
 
-  .navbar-push-content {
+  .navbar-mobile-relative-container {
     position: relative;
     height: $full-screen-height;
   }
@@ -18,7 +17,7 @@ $animation-delay: 500ms;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 199;
     width: $full-viewport-width;
     height: $full-screen-height;
   }

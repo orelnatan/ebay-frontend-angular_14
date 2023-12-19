@@ -6,5 +6,6 @@ export enum GlobalEventTypes {
   Success = "SUCCESS",
   Error = "ERROR",
   Toggle = "TOGGLE",
-  Search = "SEARCH"
+  Search = "SEARCH",
+  Create = "CREATE"
 }

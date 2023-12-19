@@ -8,7 +8,8 @@
         [elementMinSizePx]="215"
       >
         <family-card *ngFor="let family of (resolver.data | filterEntities : keyword) | highlightTitles : keyword as families"
-          [family]="family"> 
+          [family]="family"
+          (update)="update($event)"> 
         </family-card>
       </elements-grid>
 
@@ -17,6 +18,8 @@
       </ng-template>
     </ng-container>
   </div>
+
+  <router-outlet></router-outlet>
 </page-layout>
 
 

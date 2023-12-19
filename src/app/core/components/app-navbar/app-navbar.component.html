@@ -7,7 +7,7 @@
         <span class="show-for-lg">{{ user ? "Hi, Welcome back " + user?.name : "Hi, Hello There Guest!" }}</span>
       
         <div class="img-container">
-          <img [src]="user?.avatar || '../../../../assets/images/png/avatar_empty.png'" />
+          <img [src]="user?.avatar || ('avatar_empty.png' | image)" />
         </div>
       </div>
       

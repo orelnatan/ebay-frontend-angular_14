@@ -27,9 +27,13 @@ export class UtilsNavbarComponent {
     })
   }
 
+  dispatchCreate(): void {
+    dispatch(GlobalEventTypes.Create);
+  }
+
   dispatchSearch(keyword: string): void {
     dispatch(GlobalEventTypes.Search, {
       keyword
-    })
+    });
   }
 }

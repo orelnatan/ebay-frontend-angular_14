@@ -8,7 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
-import { DirectivesModule } from '../directives';
+import { ImgBBService } from './services';
 
 import { 
   PasswordValidator,
@@ -25,7 +25,7 @@ import {
   AbstractToFormControlPipe,
   ControlValidityPipe,
   ValidationPipe,
-  FileTo64BitPipe
+  FileTo64BitPipe,
 } from './pipes';
 
 import { 
@@ -34,7 +34,7 @@ import {
   InputNumberComponent,
   InputPasswordComponent,
   PrimaryButtonComponent,
-  InputAvatarComponent,
+  InputImageComponent,
   InputRadioComponent,
   InputCheckboxComponent,
   ChecklistMultiComponent,
@@ -43,6 +43,8 @@ import {
   InputFieldComponent,
 } from './components';
 
+import { SpinnerModule } from '../components';
+import { UtilsModule } from '../utils';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,7 @@ import {
     InputNumberComponent,
     InputPasswordComponent,
     PrimaryButtonComponent,
-    InputAvatarComponent,
+    InputImageComponent,
     InputCheckboxComponent,
     InputRadioComponent,
     ChecklistMultiComponent,
@@ -70,7 +72,8 @@ import {
   ],
   imports: [ 
     CommonModule,
-    DirectivesModule,
+    UtilsModule,
+    SpinnerModule,
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -86,7 +89,7 @@ import {
     InputNumberComponent,
     InputPasswordComponent,
     PrimaryButtonComponent,
-    InputAvatarComponent,
+    InputImageComponent,
     InputCheckboxComponent,
     InputRadioComponent,
     ChecklistMultiComponent,
@@ -96,6 +99,9 @@ import {
     PasswordValidator,
     CollectionValidator,
     RequireMatchValidator
+  ],
+  providers: [
+    ImgBBService
   ]
 })
 export class EbFormsModule {}

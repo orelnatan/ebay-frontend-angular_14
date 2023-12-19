@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { GlobalEventTypes } from '@ebay/core/models';
@@ -10,8 +10,9 @@ import { ICategory } from '@ebay/home/models';
 const PARAM_NAME: string = "brandId";
 
 @ComponentInterceptor([
-  { type: GlobalEventTypes.Search, action: "onSearch" }
-], [CategoriesService, ActivatedRoute])
+  { type: GlobalEventTypes.Search, action: "search" },
+  { type: GlobalEventTypes.Create, action: "create" }
+], [Router, ActivatedRoute, CategoriesService])
 @Component({
   selector: 'categories-page',
   templateUrl: './categories-page.component.html',
@@ -23,15 +24,35 @@ export class CategoriesPageComponent {
   keyword: string;
 
   constructor(
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute,
     private readonly categoriesService: CategoriesService,
-    private readonly activatedRoute: ActivatedRoute
   ) {}
 
   get brandId(): number {
     return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));
   }
 
-  onSearch(event: CustomEvent): void {
+  search(event: CustomEvent): void {
     this.keyword = event.detail.keyword;
+  }
+
+  update(category: ICategory): void {
+    this.router.navigate(["update/category"], { 
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        entityId: category.id,
+        parentId: this.brandId
+      }
+    });
+  }
+
+  create(): void {
+    this.router.navigate(["create/category"], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        parentId: this.brandId 
+      }
+    })
   }
 }

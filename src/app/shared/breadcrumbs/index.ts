@@ -1,4 +1,4 @@
 
 export { BreadcrumbsModule } from './breadcrumbs.module';
-export { BreadcrumbResolver } from './resolvers';
+export { BreadcrumbAbstractResolver } from './resolvers';
 export { ICrumb } from './models';

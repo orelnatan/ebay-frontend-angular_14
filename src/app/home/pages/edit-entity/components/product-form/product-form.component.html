@@ -1,0 +1,134 @@
+
+<div class="brand-form-main">
+  <ng-container #resolver="resolver"
+    [rxResolver]="entity$"
+    (resolved)="setEntity($event)"
+  >
+    <ng-container *ngIf="resolver.data as product; else loader">
+      <form #form="ngForm" novalidate>
+        <entity-form #eform 
+          [entity]="product" 
+          (onsubmit)="form.valid && (
+            product.id ? update(product) : create(product)
+          )"
+        >
+        </entity-form>
+        
+        <inputs-container>
+          <input-field [gap]="15">
+            <input-number
+              [control]="width.control"
+              [placeholder]="'Width (mm)'"
+              [required]="true"
+              [ngModel]="product.width"
+              (onchange)="product.width=$event"
+              #width="ngModel"
+              id="width"
+              name="width"
+              ngDefaultControl>
+            </input-number>
+          </input-field>
+
+          <input-field [gap]="15">
+            <input-number
+              [control]="height.control"
+              [placeholder]="'Height (mm)'"
+              [required]="true"
+              [ngModel]="product.height"
+              (onchange)="product.height=$event"
+              #height="ngModel"
+              id="height"
+              name="height"
+              ngDefaultControl>
+            </input-number>
+          </input-field>
+        </inputs-container>
+
+        <inputs-container>
+          <input-field [gap]="15">
+            <input-number
+              [control]="weight.control"
+              [placeholder]="'Weight (gm)'"
+              [required]="true"
+              [ngModel]="product.weight"
+              (onchange)="product.weight=$event"
+              #weight="ngModel"
+              id="weight"
+              name="weight"
+              ngDefaultControl>
+            </input-number>
+          </input-field>
+
+          <input-field [gap]="15" *ngIf="product.id">
+            <input-text
+              [control]="added.control"
+              [placeholder]="'Created at'"
+              [required]="true"
+              [readonly]="true"
+              [ngModel]="product.added | date"
+              (onchange)="product.added=$event"
+              #added="ngModel"
+              id="added"
+              name="added"
+              ngDefaultControl>
+            </input-text>
+          </input-field>
+        </inputs-container>
+
+        <inputs-container>
+          <input-field [gap]="15">
+            <input-number
+              [control]="price.control"
+              [placeholder]="'Price ($)'"
+              [required]="true"
+              [ngModel]="product.price"
+              (onchange)="product.price=$event"
+              #price="ngModel"
+              id="price"
+              name="price"
+              ngDefaultControl>
+            </input-number>
+          </input-field>
+
+          <input-field [gap]="15">
+            <input-number
+              [control]="familyid.control"
+              [validation]="{ default: 'Required field' }"
+              [placeholder]="'Family ID'"
+              [required]="true"
+              [readonly]="true"
+              [ngModel]="product.familyId"
+              (onchange)="product.familyId=$event"
+              #familyid="ngModel"
+              id="familyid"
+              name="familyid"
+              ngDefaultControl>
+            </input-number>
+          </input-field>
+        </inputs-container>
+
+        <inputs-container [nowrap]="true" [gap]="35" >
+          <input-field [style.width.%]="30">
+            <primary-button 
+              [placeholder]="'Discard'"
+              (onclick)="discard()">
+            </primary-button>
+          </input-field>
+
+          <input-field [style.width.%]="30">
+            <primary-button
+              [placeholder]="product.id ? 'Update' : 'Create'"
+              [palette]="'primary'"
+              [dosubmit]="true"
+              (onclick)="eform.submit()">
+            </primary-button>
+          </input-field>
+        </inputs-container>
+      </form>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loader>
+    Loading ...
+  </ng-template>
+</div>

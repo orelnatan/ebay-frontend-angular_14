@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { GlobalEventTypes } from '@ebay/core/models';
@@ -10,8 +10,9 @@ import { IProduct } from '@ebay/home/models';
 const PARAM_NAME: string = "familyId";
 
 @ComponentInterceptor([
-  { type: GlobalEventTypes.Search, action: "onSearch" }
-], [ProductsService, ActivatedRoute])
+  { type: GlobalEventTypes.Search, action: "search" },
+  { type: GlobalEventTypes.Create, action: "create" }
+], [Router, ProductsService, ActivatedRoute])
 @Component({
   selector: 'products-page',
   templateUrl: './products-page.component.html',
@@ -23,6 +24,7 @@ export class ProductsPageComponent {
   keyword: string;
   
   constructor(
+    private readonly router: Router,
     private readonly productsService: ProductsService,
     private readonly activatedRoute: ActivatedRoute
   ) {}
@@ -31,7 +33,26 @@ export class ProductsPageComponent {
     return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));
   }
 
-  onSearch(event: CustomEvent): void {
+  search(event: CustomEvent): void {
     this.keyword = event.detail.keyword;
+  }
+
+  update(product: IProduct): void {
+    this.router.navigate(["update/product"], { 
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        entityId: product.id,
+        parentId: this.familyId
+      }
+    });
+  }
+
+  create(): void {
+    this.router.navigate(["create/product"], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        parentId: this.familyId 
+      }
+    })
   }
 }

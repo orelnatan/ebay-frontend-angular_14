@@ -45,17 +45,17 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
-  handleSubmit(login: ILogin): void {
+  submit(login: ILogin): void {
     this.login$ = this.authenticationService.login(login);
   }
 
-  loginSuccess(user: IUser): void {
+  success(user: IUser): void {
     this.ebayLocalStorageService.store(StorageKeys.User, user);
     
     this.router.navigate([this.activatedRoute.snapshot.queryParams['returnUrl'] || "/home"]);
   }
 
-  loginFailed(error: HttpErrorResponse): void {
+  error(error: HttpErrorResponse): void {
     this.matSnackbar.open(error.error.message, 'X', {
       panelClass: ["snak-error-state"]
     });

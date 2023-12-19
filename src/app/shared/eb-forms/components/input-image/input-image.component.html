@@ -1,0 +1,25 @@
+
+<div class="input-image-main" [errorState]="control" [disabledState]="readonly">
+  <div class="image-container"> 
+    <ng-container #resolver="resolver"
+      [rxResolver]="url$"
+      (resolved)="onchange.emit($event)"
+    >
+      <div class="spinner-wrapper" *ngIf="resolver.inProcess">
+        <spinner [diameter]="35" [strokeWidth]="3"></spinner>
+      </div> 
+    
+      <img imageNotFound
+        [src]="(value || resolver.data) || default"
+        (click)="readonly ? null : inputImage.click()"
+      />
+    </ng-container>
+  </div>
+
+  <input #inputImage
+    type="file" 
+    accept="image/*"
+    hidden
+    (change)="handleChange($event.target.files[0])"
+  />
+</div>

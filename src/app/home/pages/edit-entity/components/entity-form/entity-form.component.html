@@ -1,0 +1,114 @@
+
+<div class="entity-form-main">
+  <form #form="ngForm" (ngSubmit)="form.valid && onsubmit.emit(entity)" novalidate>
+    <inputs-container [gap]="20">
+      <input-field>
+        <input-image
+          [control]="image.control"
+          [value]="entity.image"
+          [default]="'camera.svg' | image"
+          [required]="true"
+          [ngModel]="entity.image"
+          (onchange)="entity.image=$event"
+          #image="ngModel"
+          id="image"
+          name="image"
+          ngDefaultControl>
+        </input-image>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container *ngIf="entity.id">
+      <input-field [gap]="25">
+        <input-number
+          [control]="eid.control"
+          [placeholder]="'ID'"
+          [required]="true"
+          [readonly]="true"
+          [ngModel]="entity.id"
+          (onchange)="entity.id=$event"
+          #eid="ngModel"
+          id="eid"
+          name="eid"
+          ngDefaultControl>
+        </input-number>
+      </input-field>
+
+      <input-field [gap]="25">
+        <input-number
+          [control]="index.control"
+          [placeholder]="'Index'"
+          [required]="true"
+          [readonly]="true"
+          [ngModel]="entity.index"
+          (onchange)="entity.index=$event"
+          #index="ngModel"
+          id="index"
+          name="index"
+          ngDefaultControl>
+        </input-number>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container [gap]="25">
+      <input-field>
+        <input-text
+          [control]="ename.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Name'"
+          [required]="true"
+          [ngModel]="entity.name"
+          (onchange)="entity.name=$event"
+          #ename="ngModel"
+          id="ename"
+          name="ename"
+          pattern="[a-zA-Z ]*"
+          minlength="5"
+          maxlength="12"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container [gap]="25">
+      <input-field>
+        <input-textarea
+          [control]="desc.control"
+          [validation]="{ default: 'Required field' }"
+          [maxlength]="115"
+          [rows]="4"
+          [placeholder]="'Description'"
+          [required]="true"
+          [ngModel]="entity.description"
+          (onchange)="entity.description=$event"
+          #desc="ngModel"
+          id="desc"
+          name="desc"
+          minlength="25"
+          ngDefaultControl>
+        </input-textarea>
+      </input-field>
+    </inputs-container>
+    
+    <inputs-container [gap]="25">
+      <input-field>
+        <input-text
+          [control]="serial.control"
+          [validation]="{ default: 'Required field' }"
+          [placeholder]="'Serial'"
+          [required]="true"
+          [ngModel]="entity.serial"
+          (onchange)="entity.serial=$event"
+          #serial="ngModel"
+          id="serial"
+          name="serial"
+          minlength="25"
+          maxlength="30"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+    </inputs-container>
+
+    <button type="submit" mat-raised-button hidden></button>
+  </form>
+</div>

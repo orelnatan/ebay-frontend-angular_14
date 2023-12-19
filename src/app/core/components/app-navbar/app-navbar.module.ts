@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
-import { DirectivesModule } from '@ebay/shared/directives';
+import { UtilsModule } from '@ebay/shared/utils';
 
 import { AppNavbarComponent } from './app-navbar.component';
 
@@ -15,7 +15,7 @@ import { AppNavbarComponent } from './app-navbar.component';
     CommonModule,
     RouterLink,
     MatIconModule,
-    DirectivesModule
+    UtilsModule
   ],
   exports: [
     AppNavbarComponent

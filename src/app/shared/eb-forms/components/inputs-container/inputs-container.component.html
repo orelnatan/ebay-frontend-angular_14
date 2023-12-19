@@ -1,6 +1,6 @@
 
 <div class="inputs-container-main" [style.padding-top.px]="gap">
-  <div class="inputs-placeholder">
+  <div class="inputs-placeholder" [style.flex-direction]="nowrap ? 'row' : null">
     <ng-content select="input-field"></ng-content>
   </div>
 </div>

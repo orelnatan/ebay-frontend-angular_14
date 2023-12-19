@@ -8,7 +8,7 @@ export { InputRadioComponent } from './input-radio';
 export { InputCheckboxComponent } from './input-checkbox';
 export { ChecklistSingleComponent } from './checklist-single';
 export { ChecklistMultiComponent } from './checklist-multi';
-export { InputAvatarComponent } from './input-avatar';
+export { InputImageComponent } from './input-image';
 export { PrimaryButtonComponent } from './primary-button';
 export { InputsContainerComponent } from './inputs-container';
 export { InputFieldComponent } from './input-field';

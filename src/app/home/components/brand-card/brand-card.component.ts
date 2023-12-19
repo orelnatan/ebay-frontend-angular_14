@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { IBrand } from '@ebay/home/models';
 
@@ -8,4 +8,6 @@ import { IBrand } from '@ebay/home/models';
 })
 export class BrandCardComponent {
   @Input() brand: IBrand;
+
+  @Output() update: EventEmitter<IBrand> = new EventEmitter();
 }

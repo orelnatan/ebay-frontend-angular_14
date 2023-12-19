@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { BreadcrumbsModule } from '@ebay/shared/breadcrumbs';
-import { DirectivesModule } from '@ebay/shared/directives';
+import { UtilsModule } from '@ebay/shared/utils';
 
 import { CrumbsNavbarComponent } from './crumbs-navbar.component';
 
@@ -11,7 +11,7 @@ import { CrumbsNavbarComponent } from './crumbs-navbar.component';
   ],
   imports: [
     BreadcrumbsModule,
-    DirectivesModule
+    UtilsModule
   ],
   exports: [
     CrumbsNavbarComponent

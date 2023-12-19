@@ -4,6 +4,7 @@
     [id]="brand.id"
     [name]="brand.name"
     [image]="brand.image"
-    [description]="brand.description">
+    [description]="brand.description"
+    (update)="update.emit(brand)">
   </entity-card>
 </div>

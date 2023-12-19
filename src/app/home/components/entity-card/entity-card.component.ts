@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,9 +12,11 @@ export class EntityCardComponent {
   @Input() image: string;
   @Input() description: string;
 
+  @Output() update: EventEmitter<void> = new EventEmitter();
+
   constructor(
-  private readonly router: Router,
-  private readonly activatedRoute: ActivatedRoute
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
   ) {}
 
   navigate(id: number): void {

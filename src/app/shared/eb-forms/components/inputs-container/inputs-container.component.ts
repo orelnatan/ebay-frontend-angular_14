@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class InputsContainerComponent {
   @Input() gap: number;
+  @Input() nowrap: boolean;
 }

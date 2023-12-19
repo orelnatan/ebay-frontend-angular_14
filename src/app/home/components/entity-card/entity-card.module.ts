@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { EllipsisModule } from 'ngx-ellipsis';
 
-import { DirectivesModule } from '@ebay/shared/directives';
+import { UtilsModule } from '@ebay/shared/utils';
 
 import { EntityCardComponent } from './entity-card.component';
 
@@ -16,8 +17,9 @@ import { EntityCardComponent } from './entity-card.component';
     RouterModule,
     MatCardModule,
     MatButtonModule,
+    MatIconModule,
     EllipsisModule,
-    DirectivesModule
+    UtilsModule
   ],
   exports: [
     EntityCardComponent

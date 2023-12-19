@@ -31,16 +31,20 @@ export class BrandsService implements EntitiesAbstractService {
     )
   }
 
-  getSingleEntity(brandId: number): Observable<IBrand> {
-    return this._brands ? observableOf(this._brands.find(brand => brandId == brand.id)!) :
+  fetchSingle(brandId: number): Observable<IBrand> {
+    return this._brands ? observableOf(this.find(brandId)) :
     this.fetchAll()
     .pipe(
       map((_brands: IBrand[]): IBrand => {
         this._brands = _brands;
 
-        return _brands.find(brand => brandId == brand.id)!
+        return this.find(brandId);
       })
     )
+  }
+
+  find(brandId: number): IBrand {
+    return { ...this._brands!.find(brand => brandId == brand.id)! }
   }
 
   dispose(): void {

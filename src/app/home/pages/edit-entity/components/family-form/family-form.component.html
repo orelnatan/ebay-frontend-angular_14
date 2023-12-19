@@ -1,0 +1,77 @@
+
+<div class="family-form-main">
+  <ng-container #resolver="resolver"
+    [rxResolver]="entity$"
+    (resolved)="setEntity($event)"
+  >
+    <ng-container *ngIf="resolver.data as family; else loader">
+      <form #form="ngForm" novalidate>
+        <entity-form #eform
+          [entity]="family"
+          (onsubmit)="form.valid && (
+            family.id ? update(family) : create(family)
+          )"
+        >
+        </entity-form>
+
+        <inputs-container>
+          <input-field [gap]="15">
+            <input-text
+              [control]="symbol.control"
+              [validation]="{ default: 'Required field' }"
+              [placeholder]="'Symbol'"
+              [required]="true"
+              [ngModel]="family.symbol"
+              (onchange)="family.symbol=$event"
+              #symbol="ngModel"
+              id="symbol"
+              name="symbol"
+              pattern="[A-Z ]*"
+              minlength="2"
+              maxlength="2"
+              ngDefaultControl>
+            </input-text>
+          </input-field>
+
+          <input-field [gap]="15">
+            <input-number
+              [control]="categoryid.control"
+              [validation]="{ default: 'Required field' }"
+              [placeholder]="'Category ID'"
+              [required]="true"
+              [readonly]="true"
+              [ngModel]="family.categoryId"
+              (onchange)="family.categoryId=$event"
+              #categoryid="ngModel"
+              id="categoryid"
+              name="categoryid"
+              ngDefaultControl>
+            </input-number>
+          </input-field>
+        </inputs-container>
+
+        <inputs-container [nowrap]="true" [gap]="35" >
+          <input-field [style.width.%]="30">
+            <primary-button 
+              [placeholder]="'Discard'"
+              (onclick)="discard()">
+            </primary-button>
+          </input-field>
+
+          <input-field [style.width.%]="30">
+            <primary-button
+              [placeholder]="family.id ? 'Update' : 'Create'"
+              [palette]="'primary'"
+              [dosubmit]="true"
+              (onclick)="eform.submit()">
+            </primary-button>
+          </input-field>
+        </inputs-container>
+      </form>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loader>
+    Loading ...
+  </ng-template>
+</div>

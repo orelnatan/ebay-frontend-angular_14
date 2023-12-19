@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { IFamily } from '@ebay/home/models';
 
@@ -8,4 +8,6 @@ import { IFamily } from '@ebay/home/models';
 })
 export class FamilyCardComponent {
   @Input() family: IFamily;
+
+  @Output() update: EventEmitter<IFamily> = new EventEmitter();
 }

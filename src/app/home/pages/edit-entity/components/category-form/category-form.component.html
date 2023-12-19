@@ -1,0 +1,75 @@
+
+<div class="category-form-main">
+  <ng-container #resolver="resolver"
+    [rxResolver]="entity$"
+    (resolved)="setEntity($event)"
+  >
+    <ng-container *ngIf="resolver.data as category; else loader">
+      <form #form="ngForm" novalidate>
+        <entity-form #eform
+          [entity]="category"
+          (onsubmit)="form.valid && (
+            category.id ? update(category) : create(category)
+          )"
+        >
+        </entity-form>
+
+        <inputs-container>
+          <input-field [gap]="15">
+            <input-number
+              [control]="rank.control"
+              [validation]="{ default: 'Required field' }"
+              [placeholder]="'Rank'"
+              [required]="true"
+              [ngModel]="category.rank"
+              (onchange)="category.rank=$event"
+              #rank="ngModel"
+              id="rank"
+              name="rank"
+              maxlength="2"
+              ngDefaultControl>
+            </input-number>
+          </input-field>
+
+          <input-field [gap]="15">
+            <input-number
+              [control]="brandid.control"
+              [validation]="{ default: 'Required field' }"
+              [placeholder]="'Brand ID'"
+              [required]="true"
+              [readonly]="true"
+              [ngModel]="category.brandId"
+              (onchange)="category.brandId=$event"
+              #brandid="ngModel"
+              id="brandid"
+              name="brandid"
+              ngDefaultControl>
+            </input-number>
+          </input-field>
+        </inputs-container>
+
+        <inputs-container [nowrap]="true" [gap]="35" >
+          <input-field [style.width.%]="30">
+            <primary-button 
+              [placeholder]="'Discard'"
+              (onclick)="discard()">
+            </primary-button>
+          </input-field>
+
+          <input-field [style.width.%]="30">
+            <primary-button
+              [placeholder]="category.id ? 'Update' : 'Create'"
+              [palette]="'primary'"
+              [dosubmit]="true"
+              (onclick)="eform.submit()">
+            </primary-button>
+          </input-field>
+        </inputs-container>
+      </form>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loader>
+    Loading ...
+  </ng-template>
+</div>

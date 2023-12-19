@@ -35,16 +35,20 @@ export class ProductsService implements EntitiesAbstractService {
     );
   }
 
-  getSingleEntity(familyId: number, productId: number): Observable<IProduct> {
-    return this._products[familyId] ? observableOf(this._products[familyId].find(product => productId == product.id)!) :
+  fetchSingle(productId: number, familyId: number): Observable<IProduct> {
+    return this._products[familyId] ? observableOf(this.find(productId, familyId)) :
     this.fetchAll(familyId)
     .pipe(
       map((_products: IProduct[]): IProduct => {
         this._products[familyId] = _products;
         
-        return _products.find(product => productId == product.id)!;
+        return this.find(productId, familyId);
       })
     );
+  }
+
+  find(productId: number, familyId: number): IProduct {
+    return { ...this._products[familyId].find(product => productId == product.id)! }
   }
 
   dispose(): void {

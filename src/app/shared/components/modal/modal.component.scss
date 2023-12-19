@@ -1,7 +1,8 @@
-@import './src/assets/config/colors.scss';
-@import './src/assets/config/definitions.scss';
+@import './src/assets/config/utils.scss';
 
 .modal-main {
+  position: relative;
+  
   .mat-typography {
     @media screen and (min-width: $breakpoint-sm) {
       min-width: 500px;
@@ -13,22 +14,40 @@
   }
 
   &.success {
-    h2 { color: $color-success; }
+    border-left: 5px solid $color-success;
+
+    h2 { 
+      color: $color-success;
+    }
   }
    
   &.failure {
-    h2 { color: $color-error; }  
+    border-left: 5px solid $color-error;
+
+    h2 { 
+      color: $color-error;
+    } 
   }
   
   &.info {
-    h2 { color: $color-base; }   
+    border-left: 5px solid $color-base;
+
+    h2 { 
+      color: $color-base;
+    }  
   }
   
   &.warning {
-    h2 { color: $color-warning; }  
+    border-left: 5px solid $color-warning;
+    
+    h2 { 
+      color: $color-warning; 
+    }  
   }
 
   &.blank {
-    h2 { color: $color-black; }
+    h2 { 
+      color: $color-black;
+    }
   }
 }

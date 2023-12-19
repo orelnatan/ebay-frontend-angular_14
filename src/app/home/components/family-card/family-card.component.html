@@ -4,6 +4,7 @@
     [id]="family.id"
     [name]="family.name"
     [image]="family.image"
-    [description]="family.description">
+    [description]="family.description"
+    (update)="update.emit(family)">
   </entity-card>
 </div>

@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     </layout-header>
 
     <layout-header header-secondary>
-      <crumbs-navbar></crumbs-navbar>
+      <crumbs-navbar [showLatestOnMobile]="2"></crumbs-navbar>
     </layout-header>
 
     <layout-sidebar side-primary>

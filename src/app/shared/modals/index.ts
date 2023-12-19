@@ -1,2 +1,3 @@
 
-export { LogoutModalComponent } from './components/logout-modal';
+export { LogoutModalComponent } from './logout-modal';
+export { DiscardChangesModalComponent } from './discard-changes-modal';

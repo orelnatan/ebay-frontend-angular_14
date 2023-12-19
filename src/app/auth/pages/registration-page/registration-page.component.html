@@ -1,16 +1,16 @@
 
 <page-layout>
   <div class="registration-page-main">
-    <div class="registration-form-container shadow-border-shallow">
+    <div class="registration-form-container shallow-shadow">
       <ng-container #resolver="resolver"
         [rxResolver]="register$"
-        (resolved)="registrationSuccess($event)" 
-        (failed)="registrationFailed($event)"
+        (resolved)="success($event)" 
+        (failed)="error($event)"
       >
         <registration-form
           [registration]="registration"
           [loading]="resolver.inProcess"
-          (onsubmit)="handleSubmit($event)">
+          (onsubmit)="submit($event)">
         </registration-form>
       </ng-container>
     </div>

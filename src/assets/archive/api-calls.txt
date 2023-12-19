@@ -108,6 +108,19 @@ const proxyConf = {
   }
 }
 
+register function with switchMap (imgBBService + registration)
+register(registration: IRegistration): Observable<IRegistration> {
+    return this.imgBBService.upload(registration.avatar).pipe(
+      switchMap((url: string) => {
+        return this.httpClient.post<IRegistration>(environment.apis.auth.register, {
+          ... registration,
+          registered: moment().format('YYYY-MM-DD'),
+          avatar: url
+        })
+      })
+    )
+  }
+
 
 
 

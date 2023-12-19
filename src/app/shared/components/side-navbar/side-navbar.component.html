@@ -9,9 +9,7 @@
   </ng-container>
   
   <ng-container #mobile *breakpointObserver="[breakpoints.Sm]">
-    <div class="navbar-push-content" *ngIf="toggleSidebar"
-      [class.animation-expand]="animationForwards"
-      [class.animation-shrink]="animationBackwards"
+    <div class="navbar-mobile-relative-container" *ngIf="toggleSidebar"
     >
       <div class="navbar-background-cover" (click)="toggle()"
         [class.animation-fade-in]="animationForwards"
@@ -33,3 +31,20 @@
 <ng-template #content>
   <ng-content></ng-content>
 </ng-template>
+
+
+
+
+
+
+
+
+
+<!-- for push content: "navbar-push-content" instead of "navbar-mobile-relative-container"
+  <div class="navbar-push-content" *ngIf="toggleSidebar"
+      [class.animation-expand]="animationForwards"
+      [class.animation-shrink]="animationBackwards"
+    >
+
+    ...
+ -->

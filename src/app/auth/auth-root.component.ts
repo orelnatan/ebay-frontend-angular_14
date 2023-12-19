@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
   <root-layout>
     <layout-header header-primary>
-      <crumbs-navbar></crumbs-navbar>
+      <crumbs-navbar [showLatestOnMobile]="2"></crumbs-navbar>
     </layout-header>
 
     <router-outlet></router-outlet>

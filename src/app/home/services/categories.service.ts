@@ -35,16 +35,20 @@ export class CategoriesService implements EntitiesAbstractService {
     );
   }
 
-  getSingleEntity(brandId: number, categoryId: number): Observable<ICategory> {
-    return this._categories[brandId] ? observableOf(this._categories[brandId].find(category => categoryId == category.id)!) :
+  fetchSingle(categoryId: number, brandId: number): Observable<ICategory> {
+    return this._categories[brandId] ? observableOf(this.find(categoryId, brandId)) :
     this.fetchAll(brandId)
     .pipe(
       map((_categories: ICategory[]): ICategory => {
         this._categories[brandId] = _categories;
         
-        return _categories.find(category => categoryId == category.id)!;
+        return this.find(categoryId, brandId);
       })
     );
+  }
+
+  find(categoryId: number, brandId: number): ICategory {
+    return { ...this._categories[brandId].find(category => categoryId == category.id)! }
   }
 
   dispose(): void {

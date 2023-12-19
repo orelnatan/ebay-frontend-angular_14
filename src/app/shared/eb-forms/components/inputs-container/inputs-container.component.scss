@@ -5,6 +5,7 @@
 
   .inputs-placeholder {
     display: flex;
+    justify-content: space-between;
     margin: 0px -5px;
 
     @media screen and (max-width: $breakpoint-sm) {
