@@ -1,12 +1,12 @@
 
 <ng-template>
   <page-layout>
-    <ng-container #resolver="resolver"
-      [rxResolver]="edit$"
-      (resolved)="success()"
+    <ng-container #subscriber="subscriber"
+      [rxSubscriber]="edit$"
+      (subscribe)="success()"
       (failed)="error()"
     >
-      <div class="edit-entity-page-main" *ngIf="!resolver.inProcess; else loader">
+      <div class="edit-entity-page-main" *ngIf="!subscriber.inProcess; else loader">
         <h2>{{ id ? 'Update' : 'Create' }} {{ type | titlecase }}</h2>
 
         <router-outlet></router-outlet>

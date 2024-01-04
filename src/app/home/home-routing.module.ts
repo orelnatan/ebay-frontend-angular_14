@@ -85,7 +85,7 @@ const routes: Routes = [
             },
             {
               path: "brandId",
-              resolve: "brand"
+              resolve: "brand",
             },
             {
               path: "categories",

@@ -1,20 +1,20 @@
 
 <page-layout>
   <div class="product-spec-page-main">
-    <ng-container #resolver="resolver"
-      [rxResolver]="product$"
+    <ng-container #subscriber="subscriber"
+      [rxSubscriber]="product$"
       [default]="{}"
     >
-      <ng-container *ngLet="resolver.data as product">
+      <ng-container *ngLet="subscriber.data as product">
         <div class="product-spec-view" >
           <product-header
             [name]="product.name"
             [description]="product.description"
             [image]="product.image"
-            [loading]="resolver.inProcess">
+            [loading]="subscriber.inProcess">
           </product-header>
           
-          <ng-container *ngIf="!resolver.inProcess else loading">
+          <ng-container *ngIf="!subscriber.inProcess else loading">
             <div class="elements-grid-container">
               <elements-grid [elementMinSizePx]="255">
                 <product-spec-item

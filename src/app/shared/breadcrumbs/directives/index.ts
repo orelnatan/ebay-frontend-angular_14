@@ -1,2 +1,3 @@
 
-export { CrumbsRedirectDirective } from './crumbs-redirect.directive';
+export { CrumbRedirectDirective } from './crumb-redirect.directive';
+export { CrumbResolverDirective } from './crumb-resolver.directive';

@@ -10,7 +10,7 @@ import { ICrumb } from '../models';
   providedIn: "root"
 })
 export class BreadcrumbsService {
-  private _crumbs$: BehaviorSubject<ICrumb[]> = new BehaviorSubject<ICrumb[]>([]);
+  private _breadcrumbs$: BehaviorSubject<ICrumb[]> = new BehaviorSubject<ICrumb[]>([]);
   
   constructor(
     private readonly router: Router,
@@ -18,25 +18,25 @@ export class BreadcrumbsService {
     this.router.events.pipe(untilDestroyed(this))
     .subscribe((event: RouterNavigationEvent): void => {
       if(event instanceof NavigationEnd) {
-        const snapshots: Array<Snapshot> = this._resolveRouterSnapshotsTree(this.router);
-        const crumbs: Array<ICrumb> = this._buildActiveCrumbsTree(snapshots)
+        const snapshots: Snapshot[] = this._getRouterSnapshotsTree(this.router);
+        const breadcrumbs: ICrumb[] = this._buildBreadcrumbsArray(snapshots)
 
-        this._crumbs$.next(crumbs);
+        this._breadcrumbs$.next(breadcrumbs);
       }
     })
   }
   
-  public get crumbs$(): BehaviorSubject<ICrumb[]> {
-    return this._crumbs$;
+  public get breadcrumbs$(): BehaviorSubject<ICrumb[]> {
+    return this._breadcrumbs$;
   }
 
-  private _buildActiveCrumbsTree(snapshots: Array<Snapshot>): Array<ICrumb> {
-    const tree: Array<ICrumb> = [];
+  private _buildBreadcrumbsArray(snapshots: Snapshot[]): ICrumb[] {
+    const breadcrumbs: ICrumb[] = [];
 
     snapshots.forEach((snapshot: Snapshot, sindex: number): void => {
       const params: Params = snapshot.params;
-      const crumbs: Array<ICrumb> = snapshot?.routeConfig?.data?.["crumbs"];
-       
+      const crumbs: ICrumb[] = snapshot?.routeConfig?.data?.["crumbs"];
+      
       crumbs?.forEach((crumb: ICrumb, cindex: number): void => {
         const id: number = parseInt(`${sindex}${cindex}`);
 
@@ -45,18 +45,18 @@ export class BreadcrumbsService {
 
         const async: Promise<ICrumb> = snapshot.data[crumb.resolve!];
         
-        tree.push({ ...crumb, id, path, name, async });
+        breadcrumbs.push({ ...crumb, id, path, name, async });
       });
     })
-    return tree;
+    return breadcrumbs;
   }
 
-  private _resolveRouterSnapshotsTree(router: Router): Array<Snapshot> {
-    const snapshots: Array<Snapshot> = [];
+  private _getRouterSnapshotsTree(router: Router): Snapshot[] {
+    const snapshots: Snapshot[] = [];
     
     let snapshot: Snapshot = router.routerState.snapshot.root;
     do {
-      if(snapshot.url[0]) { snapshots.push(snapshot) }
+      snapshots.push(snapshot)
 
       snapshot = snapshot.firstChild!;
     } while (snapshot);

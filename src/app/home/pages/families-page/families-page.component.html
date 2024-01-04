@@ -1,13 +1,13 @@
 
 <page-layout>
   <div class="families-page-main">
-    <ng-container #resolver="resolver"
-      [rxResolver]="families$"
+    <ng-container #subscriber="subscriber"
+      [rxSubscriber]="families$"
     >
-      <elements-grid *ngIf="!resolver.inProcess; else loader"
+      <elements-grid *ngIf="!subscriber.inProcess; else loader"
         [elementMinSizePx]="215"
       >
-        <family-card *ngFor="let family of (resolver.data | filterEntities : keyword) | highlightTitles : keyword as families"
+        <family-card *ngFor="let family of (subscriber.data | filterEntities : keyword) | highlightTitles : keyword as families"
           [family]="family"
           (update)="update($event)"> 
         </family-card>

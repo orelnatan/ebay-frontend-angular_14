@@ -1,13 +1,13 @@
 
 <page-layout>
   <div class="categories-page-main">
-    <ng-container #resolver="resolver"
-      [rxResolver]="categories$"
+    <ng-container #subscriber="subscriber"
+      [rxSubscriber]="categories$"
     >
-      <elements-grid *ngIf="!resolver.inProcess; else loader"
+      <elements-grid *ngIf="!subscriber.inProcess; else loader"
         [elementMinSizePx]="215"
       >
-        <category-card *ngFor="let category of (resolver.data | filterEntities : keyword) | highlightTitles : keyword as categories"
+        <category-card *ngFor="let category of (subscriber.data | filterEntities : keyword) | highlightTitles : keyword as categories"
           [category]="category"
           (update)="update($event)"> 
         </category-card>

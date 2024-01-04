@@ -5,14 +5,15 @@ import { SpinnerModule } from '../components';
 
 import { BreadcrumbsService } from './services';
 import { ShowFirstPipe, ShowLatestPipe } from './pipes';
-import { CrumbsRedirectDirective } from './directives';
+import { CrumbResolverDirective, CrumbRedirectDirective } from './directives';
 import { BreadcrumbsComponent, CrumbComponent } from './components';
 
 @NgModule({
   declarations: [ 
     BreadcrumbsComponent,
     CrumbComponent,
-    CrumbsRedirectDirective,
+    CrumbRedirectDirective,
+    CrumbResolverDirective,
     ShowFirstPipe,
     ShowLatestPipe
   ],

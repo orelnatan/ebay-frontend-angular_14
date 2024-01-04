@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { 
-  RxResolverDirective,
+  RxSubscriberDirective,
   NgLetDirective,
   BreakpointObserverDirective,
   ImageNotFoundDirective 
@@ -18,7 +18,7 @@ import {
     RegExpPipe,
     SuffixPipe,
     ImagePipe,
-    RxResolverDirective,
+    RxSubscriberDirective,
     NgLetDirective,
     BreakpointObserverDirective,
     ImageNotFoundDirective
@@ -27,7 +27,7 @@ import {
     RegExpPipe,
     SuffixPipe,
     ImagePipe,
-    RxResolverDirective,
+    RxSubscriberDirective,
     NgLetDirective,
     BreakpointObserverDirective,
     ImageNotFoundDirective

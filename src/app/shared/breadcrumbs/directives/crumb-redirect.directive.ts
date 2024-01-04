@@ -5,16 +5,16 @@ import { BreadcrumbsService } from '../services';
 import { ICrumb } from '../models';
 
 @Directive({
-  selector: '[crumbsRedirect]',
+  selector: '[crumbRedirect]',
 })
-export class CrumbsRedirectDirective {
+export class CrumbRedirectDirective {
   @HostListener('click') onclick(): void {
     if(this.crumb.disabled) return;
 
     this._redirectById(this.crumb.id);
   };
 
-  @Input('crumbsRedirect') crumb: ICrumb;
+  @Input('crumbRedirect') crumb: ICrumb;
   
   constructor(
     private readonly router: Router,
@@ -22,7 +22,7 @@ export class CrumbsRedirectDirective {
   ) {}
 
   private _resolveCurrentCrumbs(): Array<ICrumb> {
-    return this.breadcrumbsService.crumbs$
+    return this.breadcrumbsService.breadcrumbs$
     .getValue();
   }
 

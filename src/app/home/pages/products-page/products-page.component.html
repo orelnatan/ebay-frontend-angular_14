@@ -1,13 +1,13 @@
 
 <page-layout>
   <div class="products-page-main">
-    <ng-container #resolver="resolver"
-      [rxResolver]="products$"
+    <ng-container #subscriber="subscriber"
+      [rxSubscriber]="products$"
     >
-      <elements-grid *ngIf="!resolver.inProcess; else loader"
+      <elements-grid *ngIf="!subscriber.inProcess; else loader"
         [elementMinSizePx]="215"
       >
-        <product-card *ngFor="let product of (resolver.data | filterEntities : keyword) | highlightTitles : keyword as products"
+        <product-card *ngFor="let product of (subscriber.data | filterEntities : keyword) | highlightTitles : keyword as products"
           [product]="product"
           (update)="update($event)"> 
         </product-card>

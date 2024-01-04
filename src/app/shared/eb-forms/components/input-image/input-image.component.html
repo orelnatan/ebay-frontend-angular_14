@@ -1,16 +1,16 @@
 
 <div class="input-image-main" [errorState]="control" [disabledState]="readonly">
   <div class="image-container"> 
-    <ng-container #resolver="resolver"
-      [rxResolver]="url$"
-      (resolved)="onchange.emit($event)"
+    <ng-container #subscriber="subscriber"
+      [rxSubscriber]="url$"
+      (subscribe)="onchange.emit($event)"
     >
-      <div class="spinner-wrapper" *ngIf="resolver.inProcess">
+      <div class="spinner-wrapper" *ngIf="subscriber.inProcess">
         <spinner [diameter]="35" [strokeWidth]="3"></spinner>
       </div> 
     
       <img imageNotFound
-        [src]="(value || resolver.data) || default"
+        [src]="(value || subscriber.data) || default"
         (click)="readonly ? null : inputImage.click()"
       />
     </ng-container>

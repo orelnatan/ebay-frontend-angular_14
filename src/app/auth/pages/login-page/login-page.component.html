@@ -4,14 +4,14 @@
     <div class="login-form-container shallow-shadow">
       <img [src]="'ebay-b.png' | image" imageNotFound />
 
-      <ng-container #resolver="resolver"
-        [rxResolver]="login$"
-        (resolved)="success($event)" 
+      <ng-container #subscriber="subscriber"
+        [rxSubscriber]="login$"
+        (subscribe)="success($event)" 
         (failed)="error($event)"
       >
         <login-form
           [login]="login"
-          [loading]="resolver.inProcess"
+          [loading]="subscriber.inProcess"
           (onsubmit)="submit($event)">
         </login-form>
       </ng-container>

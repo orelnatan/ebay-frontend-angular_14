@@ -1,7 +1,7 @@
 
 <div class="breadcrumbs-main">
   <div class="crubms-list">
-    <ng-container *ngFor="let crumb of (crumbs$ | async)! | showFirst: firsts | showLatest : latests">
+    <ng-container *ngFor="let crumb of (breadcrumbs$ | async)! | showFirst: firsts | showLatest : latests">
       <crumb 
         [crumb]="crumb">
       </crumb>

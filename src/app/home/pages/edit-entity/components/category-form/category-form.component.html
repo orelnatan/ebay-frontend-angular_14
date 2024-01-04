@@ -1,10 +1,10 @@
 
 <div class="category-form-main">
-  <ng-container #resolver="resolver"
-    [rxResolver]="entity$"
-    (resolved)="setEntity($event)"
+  <ng-container #subscriber="subscriber"
+    [rxSubscriber]="entity$"
+    (subscribe)="setEntity($event)"
   >
-    <ng-container *ngIf="resolver.data as category; else loader">
+    <ng-container *ngIf="subscriber.data as category; else loader">
       <form #form="ngForm" novalidate>
         <entity-form #eform
           [entity]="category"

@@ -3,11 +3,6 @@ import { Router, Event as RouterNavigationEvent, NavigationEnd, ActivatedRouteSn
 import { BehaviorSubject } from "rxjs";
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
-interface NavigationData {
-  params: Params;
-  redirect: string;
-}
-
 @UntilDestroy()
 @Injectable({ 
   providedIn: "root"
@@ -21,10 +16,12 @@ export class RedirectService {
     this.router.events.pipe(untilDestroyed(this))
     .subscribe((event: RouterNavigationEvent): void => {
       if(event instanceof NavigationEnd) {
-        const snapshots: Array<Snapshot> = this._resolveRouterSnapshotsTree(this.router);
-        const navigationData: NavigationData = this._getLastNavigationData(snapshots);
+        const snapshots: Snapshot[] = this._getRouterSnapshotsTree(this.router);
+        
+        const params: Params = this._getAllActivePathParams(snapshots);
+        const route: string = this._getLastRedirectRoute(snapshots);
   
-        this._url$.next(this._routeToPathString(navigationData.redirect, navigationData.params));
+        this._url$.next(this._resolveRouteByPathParams(route, params));
       }
     })
   }
@@ -33,28 +30,29 @@ export class RedirectService {
     return this._url$;
   }
 
-  private _routeToPathString(route: string, params: Params): string {
+  private _resolveRouteByPathParams(route: string, params: Params): string {
     return (route?.split("/") || []).map((route: string): void => {
       return params[route] || route
     }).join("/");
   }
 
-  private _getLastNavigationData(snapshots: Array<Snapshot>): NavigationData {
-    let redirects: Snapshot[] = [];
-    let params: Params = {};
-
-    snapshots.forEach(snapshot => {
-      params = { ...params, ...snapshot.params };
-
-      if(snapshot?.data?.['redirect']) {
-        redirects.push(snapshot)
-      }
-    });
-    return { redirect: redirects.pop()?.data?.["redirect"], params: params }
+  private _getLastRedirectRoute(snapshots: Snapshot[]): string {
+    return snapshots.filter((snapshot: Snapshot) => {
+      return snapshot?.data?.['redirect']
+    }).pop()?.data?.["redirect"]
   }
 
-  private _resolveRouterSnapshotsTree(router: Router): Array<Snapshot> {
-    const snapshots: Array<Snapshot> = [];
+  private _getAllActivePathParams(snapshots: Snapshot[]): Params {
+    return snapshots.reduce((params: Params, snapshot: Snapshot) => {
+      Object.keys(snapshot.params).forEach((key: string) => {
+        params[key] = snapshot.params[key];
+      });
+      return params;
+    }, {});
+  }
+
+  private _getRouterSnapshotsTree(router: Router): Snapshot[] {
+    const snapshots: Snapshot[] = [];
     
     let snapshot: Snapshot = router.routerState.snapshot.root;
     do {
@@ -62,7 +60,7 @@ export class RedirectService {
 
       snapshot = snapshot.firstChild!;
     } while (snapshot);
-
+    
     return snapshots;
   }
 }

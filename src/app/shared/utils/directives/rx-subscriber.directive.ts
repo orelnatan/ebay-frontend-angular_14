@@ -5,14 +5,14 @@ import { finalize, isObservable, Observable, Subscription } from 'rxjs';
 declare type defaultT = any;
 
 @Directive({
-  selector: '[rxResolver]',
-  exportAs: 'resolver'
+  selector: '[rxSubscriber]',
+  exportAs: 'subscriber'
 })
-export class RxResolverDirective<T> implements OnChanges, OnDestroy {
-  @Input('rxResolver') observable: Observable<T>;
+export class RxSubscriberDirective<T> implements OnChanges, OnDestroy {
+  @Input('rxSubscriber') observable$: Observable<T>;
   @Input() default: defaultT;
   
-  @Output() resolved: EventEmitter<T> = new EventEmitter();
+  @Output() subscribe: EventEmitter<T> = new EventEmitter();
   @Output() failed: EventEmitter<HttpErrorResponse> = new EventEmitter();
   @Output() start: EventEmitter<void> = new EventEmitter();
   @Output() done: EventEmitter<void> = new EventEmitter();
@@ -26,11 +26,11 @@ export class RxResolverDirective<T> implements OnChanges, OnDestroy {
     this._data = this.default;
 
     this._subscription?.unsubscribe();
-    if(isObservable(this.observable)) {
+    if(isObservable(this.observable$)) {
       this._inProcess = true;
 
       this.start.emit();
-      this._subscription = this.observable.pipe(
+      this._subscription = this.observable$.pipe(
         finalize(() => { 
           this._inProcess = false;
 
@@ -40,7 +40,7 @@ export class RxResolverDirective<T> implements OnChanges, OnDestroy {
         next: (response: T): void => {
           this._data = response;
 
-          this.resolved.emit(response);
+          this.subscribe.emit(response);
         },
         error: (error: HttpErrorResponse): void => {
           this._error = error;
