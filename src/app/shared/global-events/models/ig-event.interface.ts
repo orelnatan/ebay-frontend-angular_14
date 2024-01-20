@@ -1,5 +1,5 @@
 
-export interface IGlobalEvent {
+export interface IGEvent {
   type: string;
   action: string;
 }

@@ -3,22 +3,24 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable, of as observableOf } from 'rxjs';  
 
 import { environment } from '@ebay/env/environment';
-import { GlobalEventTypes } from '@ebay/core/models';
-import { ServiceInterceptor } from '@ebay/shared/global-events';
+import { GEventTypes } from '@ebay/core/models';
+import { intercept, Interceptor } from '@ebay/shared/global-events';
 import { IBrand } from '@ebay/home/models';
 
 import { EntitiesAbstractService } from './entities-abstract.service';
 
-@ServiceInterceptor([
-  { type: GlobalEventTypes.Logout, action: "dispose" }
-], [HttpClient])
+@Interceptor([
+  { type: GEventTypes.Logout, action: "dispose" }
+])
 @Injectable()
 export class BrandsService implements EntitiesAbstractService {
   private _brands: Array<IBrand> | null;
 
   constructor(
     private readonly httpClient: HttpClient
-  ) {}
+  ) {
+    intercept(this);
+  }
         
   fetchAll(): Observable<IBrand[]> {
     return this._brands ? observableOf(this._brands) : this.httpClient.get<IBrand[]>(environment.apis.home.brands.all)

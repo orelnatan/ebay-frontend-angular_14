@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 import { EbayLocalStorageService } from '@ebay/core/services';
-import { GlobalEventTypes, StorageKeys } from '@ebay/core/models';
-import { IUser } from '@ebay/auth/models';
-import { dispatch } from '@ebay/shared/global-events';
+import { GEventTypes, StorageKeys } from '@ebay/core/models';
+import { GEvent, broadcast } from '@ebay/shared/global-events';
 import { LogoutModalComponent } from '@ebay/shared/modals';
+import { IUser } from '@ebay/auth/models';
 
 @UntilDestroy()
 @Component({
@@ -25,12 +25,12 @@ export class AppNavbarComponent {
     return this.ebayLocalStorageService.retrieve<IUser>(StorageKeys.User);
   }
 
-  dispatchToggle(): void {
-    dispatch(GlobalEventTypes.Toggle);
+  broadcastToggle(): void {
+    broadcast(new GEvent(GEventTypes.Toggle));
   }
 
-  dispatchLogout(): void {
-    dispatch(GlobalEventTypes.Logout)
+  broadcastLogout(): void {
+    broadcast(new GEvent(GEventTypes.Logout));
   }
 
   showLogoutDialog(): void {
@@ -38,7 +38,7 @@ export class AppNavbarComponent {
     .afterClosed()
     .pipe(untilDestroyed(this))
     .subscribe((logout: boolean) => {
-      logout && this.dispatchLogout();
+      logout && this.broadcastLogout();
     })
   }
 }

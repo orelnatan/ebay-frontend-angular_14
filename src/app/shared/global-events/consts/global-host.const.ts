@@ -1,2 +1,2 @@
 
-export const GLOBAL_HOST: string = "window";
+export const GLOBAL_HOST: 'window' = "window";

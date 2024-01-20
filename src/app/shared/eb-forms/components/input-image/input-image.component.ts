@@ -1,8 +1,8 @@
 import { AfterContentChecked, Component, EventEmitter, Input, Output } from '@angular/core';
-
-import { BaseInputComponent } from '../base-input';
-import { ImgBBService } from '../../services';
 import { Observable } from 'rxjs';
+
+import { ImgBBService } from '../../services';
+import { BaseInputComponent } from '../base-input';
 
 @Component({
   selector: 'input-image',

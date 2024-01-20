@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { GlobalEventTypes } from '@ebay/core/models';
-import { ComponentInterceptor } from '@ebay/shared/global-events';
+import { GEventTypes } from '@ebay/core/models';
+import { Data, Interceptor, intercept } from '@ebay/shared/global-events';
 import { FamiliesService } from '@ebay/home/services';
 import { IFamily } from '@ebay/home/models';
 
 const PARAM_NAME: string = "categoryId";
 
-@ComponentInterceptor([
-  { type: GlobalEventTypes.Search, action: "search" },
-  { type: GlobalEventTypes.Create, action: "create" }
-], [Router, ActivatedRoute, FamiliesService])
+@Interceptor([
+  { type: GEventTypes.Search, action: "search" },
+  { type: GEventTypes.Create, action: "create" }
+])
 @Component({
   selector: 'families-page',
   templateUrl: './families-page.component.html',
@@ -27,14 +27,16 @@ export class FamiliesPageComponent {
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     private readonly familiesService: FamiliesService,
-  ) {}
+  ) {
+    intercept(this);
+  }
 
   get categoryId(): number {
     return Number(this.activatedRoute.snapshot.paramMap.get(PARAM_NAME));
   }
 
-  search(event: CustomEvent): void {
-    this.keyword = event.detail.keyword;
+  search(event: Data): void {
+    this.keyword = event["keyword"];
   }
 
   update(family: IFamily): void {

@@ -1,20 +1,22 @@
 import { Injectable, }  from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 
-import { ServiceInterceptor } from '@ebay/shared/global-events';
+import { Interceptor, intercept } from '@ebay/shared/global-events';
 
-import { Ebay, GlobalEventTypes, StorageKeys, StorageValues } from '../models';
+import { Ebay, GEventTypes, StorageKeys, StorageValues } from '../models';
 
 const LOCAL_STORAGE_NAME: string = "Ebay";
 
-@ServiceInterceptor(
-  [{ type: GlobalEventTypes.Logout, action: "clear" }]
+@Interceptor(
+  [{ type: GEventTypes.Logout, action: "clear" }]
 )
 @Injectable()
 export class EbayLocalStorageService {
   private _storage: Ebay;
 
   constructor() {
+    intercept(this);
+
     this._storage = JSON.parse(
       localStorage.getItem(LOCAL_STORAGE_NAME)!
     ) || {};

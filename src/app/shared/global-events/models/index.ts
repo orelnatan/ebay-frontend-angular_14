@@ -1,5 +1,5 @@
 
-export { IGlobalEvent } from './iglobal-event.interface';
+export { IGEvent } from './ig-event.interface';
 export { IPipeType } from './ipipe-type.interface';
-export { source } from './source.type';
-export { providedIn } from './provided-in.type';
+export { Data } from './data.type';
+export { Args } from './args.type'; 

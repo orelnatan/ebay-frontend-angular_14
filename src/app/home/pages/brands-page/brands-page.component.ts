@@ -2,15 +2,15 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { GlobalEventTypes } from '@ebay/core/models';
-import { ComponentInterceptor } from '@ebay/shared/global-events';
+import { GEventTypes } from '@ebay/core/models';
+import { Data, Interceptor, intercept } from '@ebay/shared/global-events';
 import { BrandsService } from '@ebay/home/services';
 import { IBrand } from '@ebay/home/models';
 
-@ComponentInterceptor([
-  { type: GlobalEventTypes.Search, action: "search" },
-  { type: GlobalEventTypes.Create, action: "create" }
-], [Router, ActivatedRoute, BrandsService])
+@Interceptor([
+  { type: GEventTypes.Search, action: "search" },
+  { type: GEventTypes.Create, action: "create" }
+])
 @Component({
   selector: 'brands-page',
   templateUrl: './brands-page.component.html',
@@ -25,10 +25,12 @@ export class BrandsPageComponent {
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     private readonly brandsService: BrandsService,
-  ) {}
+  ) {
+    intercept(this);
+  }
 
-  search(event: CustomEvent): void {
-    this.keyword = event.detail.keyword;
+  search(event: Data): void {
+    this.keyword = event["keyword"];
   }
 
   update(brand: IBrand): void {

@@ -1,5 +1,5 @@
 
-export enum GlobalEventTypes {
+export enum GEventTypes {
   Logout = "LOGOUT",
   Login = "LOGIN",
   InProgress = "IN_PROGRESS",

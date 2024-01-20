@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, lastValueFrom, of as observableOf } from 'rxjs';
@@ -9,12 +9,12 @@ import { EntitiesAbstractService } from '../services';
 import { EntityType, IEntity } from '../models';
 
 @Injectable()
-export class EntityCrumbResolver implements BreadcrumbAbstractResolver {
+export class EntityCrumbResolver<E, P extends EntityType, S extends EntitiesAbstractService> implements BreadcrumbAbstractResolver {
   constructor(
     public readonly titleCasePipe: TitleCasePipe,
-    public readonly service: EntitiesAbstractService,
-    public readonly entity: EntityType,
-    public readonly parent?: EntityType,
+    @Inject(EntitiesAbstractService) public readonly service: S,
+    @Inject(EntityType) public readonly entity: E,
+    @Inject(EntityType) public readonly parent?: P,
   ) {}
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<Promise<ICrumb>> { 
@@ -23,7 +23,7 @@ export class EntityCrumbResolver implements BreadcrumbAbstractResolver {
       .then((entity: IEntity) => {
         return {
           name: this.titleCasePipe.transform(entity.name),
-          image: entity.image,
+          image: entity.image
         } as ICrumb
       })
     )

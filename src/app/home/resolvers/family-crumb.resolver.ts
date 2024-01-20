@@ -6,7 +6,7 @@ import { FamiliesService } from '../services';
 import { EntityType } from '../models';
 
 @Injectable()
-export class FamilyCrumbResolver extends EntityCrumbResolver {
+export class FamilyCrumbResolver extends EntityCrumbResolver<EntityType.Family, EntityType.Category, FamiliesService> {
   constructor(
     override readonly titleCasePipe: TitleCasePipe,
     override readonly service: FamiliesService

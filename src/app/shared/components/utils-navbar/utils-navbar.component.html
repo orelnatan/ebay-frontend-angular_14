@@ -10,10 +10,10 @@
     </div>
 
     <div class="utils-container">
-      <mat-icon class="util-icon" (click)="dispatchCreate()">{{ 'add' }}</mat-icon>
+      <mat-icon class="util-icon" (click)="broadcastCreate()">{{ 'add' }}</mat-icon>
   
       <div class="search-box-container shallow-shadow">
-        <search-box (search)="dispatchSearch($event)"></search-box>
+        <search-box (search)="broadcastSearch($event)"></search-box>
       </div>
     </div>
   </div>

@@ -29,12 +29,12 @@
   checks:
 
   import { Interceptor } from '@ebay/shared/global-events';
-  import { GlobalEventTypes } from '@ebay/core/models';
+  import { GEventTypes } from '@ebay/core/models';
 
   @Interceptor([
-    { type: GlobalEventTypes.Error, action: "error" },
-    { type: GlobalEventTypes.Login, action: "login" },
-    { type: GlobalEventTypes.InProgress, action: "progress"}]
+    { type: GEventTypes.Error, action: "error" },
+    { type: GEventTypes.Login, action: "login" },
+    { type: GEventTypes.InProgress, action: "progress"}]
   )
 
   ngOnDestroy(): void {
@@ -56,9 +56,9 @@
   //////////////////////////////////////////////////////////////////////////////////////////
    
   sendSignals() {
-    dispatch(GlobalEventTypes.Login);
-    dispatch(GlobalEventTypes.Error);
-    dispatch(GlobalEventTypes.InProgress);
+    broadcast(GEventTypes.Login);
+    broadcast(GEventTypes.Error);
+    broadcast(GEventTypes.InProgress);
   }
 
 
@@ -83,7 +83,7 @@ const listener = (context, action) => {
 }
 
 
-export function GlobalEvents(type: GlobalEventTypes, action: string) {
+export function GlobalEvents(type: GEventTypes, action: string) {
   return function<T extends { new(...args: any[]) : {} }>(constructor: T) {
     return class extends constructor {
       constructor(...args: any[]) {
@@ -116,7 +116,7 @@ export const BrandsServiceProvider = {
 }
 
 // Fire event
-dispatchEvent(new CustomEvent(GlobalEventTypes.Logout, { detail: {aaa: 312, bbb:1111} }))
+broadcastEvent(new CustomEvent(GEventTypes.Logout, { detail: {aaa: 312, bbb:1111} }))
 
 // Provide in module
 const ArgsProvider: Provider = {

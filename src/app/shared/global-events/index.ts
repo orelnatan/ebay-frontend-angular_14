@@ -1,5 +1,6 @@
 
 export { GlobalEventsModule } from './global-events.module';
-export { IGlobalEvent } from './models';
-export { ComponentInterceptor, DirectiveInterceptor, ServiceInterceptor, PipeInterceptor } from './decorators';
-export { dispatch, intercept } from './api';
+export { GEvent } from './classes';
+export { IGEvent, Data } from './models';
+export { Interceptor } from './decorators';
+export { broadcast, intercept } from './api';

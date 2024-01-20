@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
-import { GlobalEventTypes } from '@ebay/core/models';
-import { ComponentInterceptor } from '@ebay/shared/global-events';
+import { GEventTypes } from '@ebay/core/models';
+import { Interceptor, intercept } from '@ebay/shared/global-events';
 import { BreakpointType } from '@ebay/shared/models';
 
 const ANIMATION_DELAY: number = 500;
 
-@ComponentInterceptor(
-  [{ type: GlobalEventTypes.Toggle, action: "toggle" }]
+@Interceptor(
+  [{ type: GEventTypes.Toggle, action: "toggle" }]
 )
 @Component({
   selector: 'side-navbar',
@@ -21,6 +21,10 @@ export class SideNavbarComponent {
   animationForwards: boolean;
   animationBackwards: boolean;
 
+  constructor() {
+    intercept(this);
+  }
+  
   public toggle(): void {
     this.toggleSidebar ? this._closeSidbar() : this._openSidebar();
   }

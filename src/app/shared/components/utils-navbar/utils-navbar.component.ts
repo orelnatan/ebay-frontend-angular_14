@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { NavigationEnd, Router, Event as RouterNavigationEvent } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
-import { GlobalEventTypes } from '@ebay/core/models';
-import { dispatch } from '@ebay/shared/global-events';
+import { GEventTypes } from '@ebay/core/models';
+import { GEvent, broadcast } from '@ebay/shared/global-events';
 
 import { SearchboxComponent } from './components';
 
@@ -27,13 +27,13 @@ export class UtilsNavbarComponent {
     })
   }
 
-  dispatchCreate(): void {
-    dispatch(GlobalEventTypes.Create);
+  broadcastCreate(): void {
+    broadcast(new GEvent(GEventTypes.Create));
   }
 
-  dispatchSearch(keyword: string): void {
-    dispatch(GlobalEventTypes.Search, {
+  broadcastSearch(keyword: string): void {
+    broadcast(new GEvent(GEventTypes.Search, {
       keyword
-    });
+    }));
   }
 }

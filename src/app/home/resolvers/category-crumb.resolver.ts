@@ -6,7 +6,7 @@ import { CategoriesService } from '../services';
 import { EntityType } from '../models';
 
 @Injectable()
-export class CategoryCrumbResolver extends EntityCrumbResolver {
+export class CategoryCrumbResolver extends EntityCrumbResolver<EntityType.Category, EntityType.Brand, CategoriesService> {
   constructor(
     override readonly titleCasePipe: TitleCasePipe,
     override readonly service: CategoriesService

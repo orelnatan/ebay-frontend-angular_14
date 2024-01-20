@@ -1,11 +1,11 @@
 import { GlobalEventService } from '../services';
-import { GlobalEventTypes } from '../models';
+import { GEventTypes } from '../models';
 
 export abstract class Dispose {
   constructor(
     public readonly globalEventService: GlobalEventService
   ) {
-    this.globalEventService.subscribe(GlobalEventTypes.Logout, () => {
+    this.globalEventService.subscribe(GEventTypes.Logout, () => {
       this.dispose();
     })
   }
