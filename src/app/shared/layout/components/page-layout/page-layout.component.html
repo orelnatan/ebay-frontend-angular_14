@@ -3,11 +3,9 @@
   [style.height.%]="fitHeightByContent ? 0 : null"
   [style.width.%]="fitWidthByContent ? 0 : null"
 >  
-  <div class="page-intermediate-layer"
+  <div class="page-layout-content"
     [style.padding.px]="withoutPadding ? 0 : null"
   >
-    <div class="page-content-container">
-      <ng-content></ng-content>
-    </div>
+    <ng-content></ng-content>
   </div>
 </div>

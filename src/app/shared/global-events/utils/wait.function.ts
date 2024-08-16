@@ -1,6 +1,6 @@
 
-export function wait(ms: number): Promise<unknown> {
+export function wait(ms: number): Promise<void> {
   return new Promise(
-    (resolve: (value: PromiseLike<unknown>) => void) => setTimeout(resolve, ms)
+    (resolve: (value: PromiseLike<void>) => void) => setTimeout(resolve, ms)
   );
 }

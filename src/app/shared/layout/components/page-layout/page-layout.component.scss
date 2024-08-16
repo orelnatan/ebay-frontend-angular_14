@@ -1,13 +1,9 @@
 @import './src/assets/config/layouts.scss';
 
 .page-layout-main {
-  @extend %page-layout;
+  @extend %page-layout-main;
 
-  .page-intermediate-layer {
-    @extend %page-intermediate;   // "intermediate-layer" To support "vertical center" in Firefox.
-  }
-
-  .page-content-container {
-    @extend %page-content;
+  .page-layout-content {
+    @extend %page-layout-content;  
   }
 }

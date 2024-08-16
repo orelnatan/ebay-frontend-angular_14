@@ -3,10 +3,9 @@ import { Args } from "../models";
 
 export function intercept<T>(instance: T): void {
   return (function<U extends Args>(): void {
-    const prototype: InstanceType<U> = Object.getPrototypeOf(instance);
-    const missing: boolean = !(DECORATOR_APPLIED in prototype);
+    const unDecorated: boolean = !(DECORATOR_APPLIED in (Object.getPrototypeOf(instance)));
 
-    if(missing) {
+    if(unDecorated) {
       throw new Error('intercept() function cannot be used inside any Angular classes ' +
                       'that are not decorated with @Interceptor decorator');
     }

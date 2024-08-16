@@ -3,12 +3,12 @@
 .root-layout-main {
   @extend %root-layout-main;
 
-  .layout-body {
+  .root-layout-body {
     @extend %root-layout-body;
   }
 
-  .inner-content-container {
-    @extend %root-layout-inner-content;
+  .root-layout-content {
+    @extend %root-layout-content ;
   }
 
   section, aside {

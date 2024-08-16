@@ -1,9 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 import { IEntity } from '../models';
-import { Interceptor } from '@ebay/shared/global-events';
 
-@Interceptor()
 @Pipe({
    name: 'filterEntities'
 })

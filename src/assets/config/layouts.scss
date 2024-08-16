@@ -15,27 +15,22 @@
   overflow: hidden;
 }
 
-%root-layout-inner-content {
+%root-layout-content {
   width: $full-screen-width;
   overflow: auto;
 }
 
-%page-layout {
+%page-layout-main {
   display: table; 
   width: $full-screen-width;
   height: $full-screen-height;
 }
 
-%page-intermediate {
+%page-layout-content {
   display: table-cell;
   padding: 15px;
   width: $full-screen-width;
   height: $full-screen-height;
 }
 
-%page-content {
-  display: flex;
-  width: $full-screen-width;
-  height: $full-screen-height;
-}
 
